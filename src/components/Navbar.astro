@@ -1,5 +1,5 @@
 ---
-import { Waves, Calendar, Phone, Globe } from 'lucide-astro';
+import { Calendar, Phone, Globe } from 'lucide-astro';
 import { translations } from '../i18n/translations';
 import { SITE_CONFIG } from '../config/site';
 ---
@@ -8,21 +8,14 @@ import { SITE_CONFIG } from '../config/site';
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="flex items-center justify-between h-20">
       
-      <!-- Brand Logo (Always explicitly Suances, Cantabria) -->
-      <a href="#inicio" class="flex items-center gap-2.5 sm:gap-3.5 group flex-shrink-0">
-        <div class="w-9 h-9 sm:w-10 sm:h-10 rounded-2xl bg-slate-900 text-white flex items-center justify-center shadow-md shadow-slate-900/10 group-hover:scale-105 transition-transform duration-300 flex-shrink-0">
-          <Waves class="w-4 h-4 sm:w-5 sm:h-5 stroke-[1.5]" />
-        </div>
-        <div class="flex flex-col">
-          <span class="font-serif text-lg sm:text-2xl text-stone-900 tracking-tight leading-none group-hover:text-stone-700 transition" data-i18n="brandName">
-            Costa del Sol Suances
-          </span>
-          <div class="flex items-center gap-1.5 mt-0.5 sm:mt-1">
-            <span class="text-[10px] sm:text-[11px] font-medium text-stone-500 tracking-widest uppercase" data-i18n="brandSubtitle">Suances · Cantabria</span>
-            <span class="hidden sm:inline-block w-1 h-1 rounded-full bg-stone-300"></span>
-            <span class="hidden sm:inline text-[11px] font-normal text-stone-500" data-i18n="brandLocation">Playa de La Concha, Suances</span>
-          </div>
-        </div>
+      <!-- Brand Logo Tipográfico Boutique -->
+      <a href="#inicio" class="inline-flex flex-col group flex-shrink-0">
+        <span class="font-serif tracking-widest text-base uppercase text-stone-900 font-normal leading-tight group-hover:text-stone-700 transition">
+          COSTA DEL SOL
+        </span>
+        <span class="text-[9px] tracking-[0.28em] uppercase text-stone-500 font-semibold mt-0.5">
+          SUANCES · CANTABRIA
+        </span>
       </a>
 
       <!-- Desktop Navigation Links -->
@@ -30,6 +23,7 @@ import { SITE_CONFIG } from '../config/site';
         <a href="#inicio" class="hover:text-stone-900 transition" data-i18n="navHome">Inicio</a>
         <a href="#galeria" class="hover:text-stone-900 transition" data-i18n="navGallery">Galería</a>
         <a href="#caracteristicas" class="hover:text-stone-900 transition" data-i18n="navRooms">3 Dormitorios</a>
+        <a href="#experiencias" class="hover:text-stone-900 transition">Experiencias</a>
         <a href="#ventajas" class="hover:text-stone-900 transition" data-i18n="navPerks">Tarifa Directa</a>
         <a href="#ubicacion" class="hover:text-stone-900 transition" data-i18n="navLocation">Ubicación</a>
       </nav>
@@ -38,10 +32,10 @@ import { SITE_CONFIG } from '../config/site';
       <div class="hidden sm:flex items-center gap-3">
         
         <!-- Language Switcher (ES / EN) -->
-        <div class="inline-flex items-center rounded-full bg-stone-100 p-0.5 border border-stone-200/80 text-xs font-medium" role="group" aria-label="Selector de idioma">
+        <div class="inline-flex items-center rounded-full bg-stone-100/80 p-0.5 border border-stone-200/60 text-xs" role="group" aria-label="Selector de idioma">
           <button 
             type="button" 
-            class="lang-toggle-btn px-2.5 py-1 rounded-full transition-all text-xs font-medium bg-slate-900 text-white shadow-xs cursor-pointer"
+            class="lang-toggle-btn bg-white text-stone-900 shadow-sm rounded-full font-semibold px-2 py-0.5 text-xs transition cursor-pointer"
             data-target-lang="es"
             aria-label="Cambiar a Español"
           >
@@ -49,7 +43,7 @@ import { SITE_CONFIG } from '../config/site';
           </button>
           <button 
             type="button" 
-            class="lang-toggle-btn px-2.5 py-1 rounded-full transition-all text-xs font-medium text-stone-600 hover:text-stone-900 cursor-pointer"
+            class="lang-toggle-btn text-stone-400 hover:text-stone-700 px-2 py-0.5 text-xs transition rounded-full cursor-pointer"
             data-target-lang="en"
             aria-label="Switch to English"
           >
@@ -80,17 +74,17 @@ import { SITE_CONFIG } from '../config/site';
       <!-- Mobile Right Controls (Language + CTA + Hamburger) -->
       <div class="flex md:hidden items-center gap-1.5 sm:gap-2">
         <!-- Mobile Language Selector -->
-        <div class="inline-flex items-center rounded-full bg-stone-100 p-0.5 border border-stone-200/80 text-[11px] font-medium mr-1">
+        <div class="inline-flex items-center rounded-full bg-stone-100/80 p-0.5 border border-stone-200/60 text-[11px] mr-1">
           <button 
             type="button" 
-            class="lang-toggle-btn px-2 py-0.5 rounded-full transition-all text-[11px] bg-slate-900 text-white"
+            class="lang-toggle-btn bg-white text-stone-900 shadow-sm rounded-full font-semibold px-2 py-0.5 text-[11px] transition"
             data-target-lang="es"
           >
             ES
           </button>
           <button 
             type="button" 
-            class="lang-toggle-btn px-2 py-0.5 rounded-full transition-all text-[11px] text-stone-600"
+            class="lang-toggle-btn text-stone-400 hover:text-stone-700 px-2 py-0.5 text-[11px] transition rounded-full"
             data-target-lang="en"
           >
             EN
@@ -156,15 +150,15 @@ import { SITE_CONFIG } from '../config/site';
       }
     });
 
-    // Actualizar botones de idioma en desktop y móvil
+    // Actualizar botones de idioma en desktop y móvil con estilo boutique pulido
     document.querySelectorAll('.lang-toggle-btn').forEach((button) => {
       const targetLang = button.getAttribute('data-target-lang');
+      const isMobile = button.classList.contains('text-[11px]');
+      const sizeClass = isMobile ? 'text-[11px]' : 'text-xs';
       if (targetLang === lang) {
-        button.classList.add('bg-slate-900', 'text-white', 'shadow-xs');
-        button.classList.remove('text-stone-600');
+        button.className = `lang-toggle-btn bg-white text-stone-900 shadow-sm rounded-full font-semibold px-2 py-0.5 ${sizeClass} transition cursor-pointer`;
       } else {
-        button.classList.remove('bg-slate-900', 'text-white', 'shadow-xs');
-        button.classList.add('text-stone-600');
+        button.className = `lang-toggle-btn text-stone-400 hover:text-stone-700 px-2 py-0.5 ${sizeClass} transition rounded-full cursor-pointer`;
       }
     });
   }

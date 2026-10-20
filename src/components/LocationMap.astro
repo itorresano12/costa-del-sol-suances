@@ -2,11 +2,11 @@
 import { MapPin, Compass, Waves, UtensilsCrossed, Car, Sunset, Utensils, Footprints } from 'lucide-astro';
 ---
 
-<section id="ubicacion" class="py-20 lg:py-28 bg-[#FDFBF7] border-t border-stone-200/60">
+<section id="ubicacion" class="py-20 lg:py-28 bg-[#FDFBF7] border-t border-stone-200/60 scroll-mt-20">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     
     <!-- Section Header Editorial -->
-    <div class="text-center max-w-3xl mx-auto mb-16">
+    <div class="text-center max-w-3xl mx-auto mb-14 lg:mb-16">
       <span class="text-stone-500 text-xs sm:text-sm tracking-widest uppercase font-medium" data-i18n="locPill">
         Ubicación & Entorno
       </span>
@@ -19,7 +19,7 @@ import { MapPin, Compass, Waves, UtensilsCrossed, Car, Sunset, Utensils, Footpri
     </div>
 
     <!-- Content: POI List + Map Frame -->
-    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center max-w-6xl mx-auto">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-start max-w-6xl mx-auto">
       
       <!-- Left: Distances & Highlights -->
       <div class="lg:col-span-5 space-y-4">
@@ -79,8 +79,8 @@ import { MapPin, Compass, Waves, UtensilsCrossed, Car, Sunset, Utensils, Footpri
       </div>
 
       <!-- Right: Responsive Interactive Map Frame with Warm Editorial Filter -->
-      <div class="lg:col-span-7">
-        <div class="rounded-3xl overflow-hidden shadow-xl border border-stone-200/80 bg-stone-100 relative h-[480px]">
+      <div class="lg:col-span-7 w-full pt-2 lg:pt-0">
+        <div class="rounded-3xl overflow-hidden shadow-xl border border-stone-200/80 bg-stone-100 relative h-[380px] sm:h-[460px] lg:h-[520px] w-full">
           <iframe 
             title="Ubicación Apartamento Costa del Sol Suances"
             class="w-full h-full border-0 filter contrast-[0.95] sepia-[0.10] hue-rotate-[-15deg] brightness-[0.98]"

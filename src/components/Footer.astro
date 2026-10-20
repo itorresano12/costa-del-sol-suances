@@ -1,5 +1,5 @@
 ---
-import { Waves, Github, Phone, Mail, MapPin, ShieldCheck, Download } from 'lucide-astro';
+import { Phone, Mail, MapPin, ShieldCheck, Download } from 'lucide-astro';
 import { SITE_CONFIG } from '../config/site';
 ---
 
@@ -10,12 +10,13 @@ import { SITE_CONFIG } from '../config/site';
       
       <!-- Brand & Description (2 cols) -->
       <div class="lg:col-span-2 space-y-4">
-        <a href="#inicio" class="flex items-center gap-3">
-          <div class="w-10 h-10 rounded-2xl bg-white/10 text-white flex items-center justify-center font-bold">
-            <Waves class="w-5 h-5 stroke-[1.5]" />
-          </div>
-          <span class="font-serif text-2xl text-white tracking-tight" data-i18n="brandName">
-            Costa del Sol Suances
+        <!-- Brand Logo Tipográfico Boutique -->
+        <a href="#inicio" class="inline-flex flex-col group">
+          <span class="font-serif tracking-widest text-base uppercase text-white font-normal leading-tight group-hover:text-stone-300 transition">
+            COSTA DEL SOL
+          </span>
+          <span class="text-[9px] tracking-[0.28em] uppercase text-stone-400 font-semibold mt-1">
+            SUANCES · CANTABRIA
           </span>
         </a>
 
@@ -92,24 +93,14 @@ import { SITE_CONFIG } from '../config/site';
 
     </div>
 
-    <!-- Bottom Copyright Unificado con Iván Torresano -->
-    <div class="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-stone-400 font-normal">
-      <p>
-        © {new Date().getFullYear()} Apartamento Costa del Sol Suances. Todos los derechos reservados. · Diseñado por <a href={SITE_CONFIG.designerUrl} target="_blank" rel="noopener noreferrer" class="text-stone-300 hover:text-white font-medium underline underline-offset-4 decoration-stone-600 hover:decoration-white transition">{SITE_CONFIG.designerName}</a>
+    <!-- Bottom Copyright Unificado -->
+    <div class="pt-8 border-t border-slate-800/80 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-stone-400 font-normal">
+      <p class="text-center sm:text-left">
+        © 2026 Apartamento Costa del Sol Suances. Todos los derechos reservados. · Diseñado por <a href={SITE_CONFIG.designerUrl} target="_blank" rel="noopener noreferrer" class="text-stone-300 hover:text-white font-medium underline underline-offset-4 decoration-stone-600 hover:decoration-white transition">{SITE_CONFIG.designerName}</a>
       </p>
       
-      <div class="flex items-center gap-4">
-        <a 
-          href={SITE_CONFIG.designerUrl} 
-          target="_blank" 
-          rel="noopener noreferrer"
-          class="inline-flex items-center gap-1.5 text-stone-300 hover:text-white transition"
-        >
-          <Github class="w-3.5 h-3.5 stroke-[1.5]" />
-          <span>@itorresano12</span>
-        </a>
-        <span>•</span>
-        <a href="#inicio" class="hover:text-stone-200 transition">Volver arriba ↑</a>
+      <div>
+        <a href="#inicio" class="text-stone-400 hover:text-white transition">Volver arriba ↑</a>
       </div>
     </div>
 
