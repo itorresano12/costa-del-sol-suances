@@ -110,3 +110,4 @@ main().catch(err => {
   console.error('Error fatal al descargar fotos:', err);
   process.exit(1);
 });
+

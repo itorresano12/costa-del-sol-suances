@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@astrojs/node": "^11.1.9",
+    "@astrojs/vercel": "^11.0.16",
     "@rolldown/binding-win32-x64-msvc": "^1.2.14",
     "@tailwindcss/vite": "^4.0.0",
     "astro": "^7.4.1",
