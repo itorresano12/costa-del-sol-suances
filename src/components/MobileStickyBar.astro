@@ -2,23 +2,24 @@
 import { Calendar, Sparkles, MessageCircle } from 'lucide-astro';
 ---
 
-<!-- Mobile Sticky Booking Bar (Boutique Coastal Luxury) -->
-<div 
+<!-- Mobile Sticky Booking Bar (Boutique Coastal Luxury with Scroll Trigger) -->
+<aside 
   id="mobile-sticky-bar" 
-  class="fixed bottom-0 inset-x-0 z-40 md:hidden bg-[#FDFBF7]/95 backdrop-blur-md border-t border-stone-200/80 shadow-[0_-8px_30px_rgba(0,0,0,0.06)] px-4 py-3 transition-transform duration-300"
+  aria-label="Reserva rápida móvil"
+  class="fixed bottom-0 inset-x-0 z-40 md:hidden bg-[#FDFBF7]/95 backdrop-blur-md border-t border-stone-200/80 shadow-[0_-8px_30px_rgba(0,0,0,0.08)] px-4 py-3 opacity-0 translate-y-full pointer-events-none transition-all duration-300 ease-out"
 >
   <div class="max-w-md mx-auto flex items-center justify-between gap-3">
     
     <!-- Price & Direct Discount Info -->
     <div class="flex flex-col">
       <div class="flex items-center gap-1.5">
-        <span class="text-xs text-stone-500 font-light">Desde</span>
+        <span class="text-xs text-stone-500 font-normal">Desde</span>
         <span class="font-serif text-xl font-normal text-stone-900 tracking-tight">110 €</span>
-        <span class="text-xs text-stone-500 font-light">/ noche</span>
+        <span class="text-xs text-stone-500 font-normal">/ noche</span>
       </div>
       <div class="flex items-center gap-1 mt-0.5">
-        <span class="inline-flex items-center gap-1 text-[10px] text-stone-600 font-light">
-          <Sparkles class="w-3 h-3 text-stone-500 stroke-[1.5]" />
+        <span class="inline-flex items-center gap-1 text-[11px] text-stone-600 font-medium">
+          <Sparkles class="w-3 h-3 text-stone-700 stroke-[1.5]" />
           Tarifa directa sin comisiones
         </span>
       </div>
@@ -31,7 +32,7 @@ import { Calendar, Sparkles, MessageCircle } from 'lucide-astro';
         href="https://wa.me/34600123456?text=Hola%20Ivan,%20quería%20consultar%20fechas%20para%20Apartamento%20Costa%20del%20Sol%20Suances" 
         target="_blank" 
         rel="noopener noreferrer"
-        class="w-11 h-11 rounded-2xl bg-stone-100 text-stone-700 border border-stone-200 flex items-center justify-center hover:bg-stone-200 active:scale-95 transition"
+        class="w-11 h-11 rounded-2xl bg-stone-100 text-stone-800 border border-stone-200 flex items-center justify-center hover:bg-stone-200 active:scale-95 transition"
         aria-label="Contactar por WhatsApp"
       >
         <MessageCircle class="w-5 h-5 stroke-[1.5]" />
@@ -48,4 +49,31 @@ import { Calendar, Sparkles, MessageCircle } from 'lucide-astro';
     </div>
 
   </div>
-</div>
+</aside>
+
+<script>
+  // Revelar la barra móvil solo al superar el primer pliegue del Hero
+  const stickyBar = document.getElementById('mobile-sticky-bar');
+  const heroSection = document.getElementById('inicio');
+
+  if (stickyBar && heroSection) {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        // Si el Hero está visible en pantalla, ocultamos la barra
+        if (entry.isIntersecting) {
+          stickyBar.classList.add('opacity-0', 'translate-y-full', 'pointer-events-none');
+          stickyBar.classList.remove('opacity-100', 'translate-y-0', 'pointer-events-auto');
+        } else {
+          // Si el usuario hace scroll hacia abajo pasando el Hero, revelamos la barra
+          stickyBar.classList.remove('opacity-0', 'translate-y-full', 'pointer-events-none');
+          stickyBar.classList.add('opacity-100', 'translate-y-0', 'pointer-events-auto');
+        }
+      });
+    }, {
+      rootMargin: '-80px 0px 0px 0px',
+      threshold: 0.15
+    });
+
+    observer.observe(heroSection);
+  }
+</script>

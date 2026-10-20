@@ -4,79 +4,79 @@ import { Camera, Maximize2, X, ChevronLeft, ChevronRight, LayoutGrid } from 'luc
 const allPhotos = [
   {
     id: 1,
-    title: "Vistas al Mar Cantábrico y Playa de La Concha",
+    title: "Salón y Comedor Frente al Mar",
     url: "/images/apartamento/hero-vistas.jpg",
-    desc: "Vistas despejadas a la bahía de Suances a tan solo 2 minutos a pie de la orilla."
+    desc: "Espacio diáfano con luz natural exterior, mesa familiar y zona de descanso."
   },
   {
     id: 2,
-    title: "Salón Principal y Zona de Estar",
-    url: "/images/apartamento/salon-1.jpg",
-    desc: "Espacio luminoso con luz natural, amplio sofá y televisión Smart TV."
+    title: "Dormitorio Principal (Cama 150 cm)",
+    url: "/images/apartamento/edificio-exterior.jpg",
+    desc: "Cama doble amplia con cabecero tapizado, ventilador de techo de madera y armario empotrado."
   },
   {
     id: 3,
-    title: "Dormitorio Principal (Cama 150 cm)",
-    url: "/images/apartamento/dormitorio-principal.jpg",
-    desc: "Cama doble confortable de 150 cm con ropa de cama de algodón y amplio armario."
+    title: "Salón Diáfano y Sofá Chaise Longue",
+    url: "/images/apartamento/salon-1.jpg",
+    desc: "Espacio amplio con suelo de madera, ventilador de diseño y luz durante todo el día."
   },
   {
     id: 4,
-    title: "Cocina Equipada",
-    url: "/images/apartamento/cocina.jpg",
-    desc: "Nevera grande con congelador, cafetera para desayunos, microondas y menaje completo."
+    title: "Segundo Dormitorio Doble",
+    url: "/images/apartamento/bano.jpg",
+    desc: "Cama doble confortable, textiles de algodón, mesita auxiliar y armario."
   },
   {
     id: 5,
-    title: "Terraza y Vistas Panorámicas",
-    url: "/images/apartamento/terraza-vistas.jpg",
-    desc: "Brisa marina y vistas abiertas sobre la costa cántabra."
+    title: "Tercer Dormitorio (Literas de Madera)",
+    url: "/images/apartamento/entorno-playa.jpg",
+    desc: "Dos camas de 90 cm de madera maciza, ideales para niños o amigos, y gran armario con espejo."
   },
   {
     id: 6,
-    title: "Zona de Estar Luminosa",
-    url: "/images/apartamento/salon-2.jpg",
-    desc: "Zona de relax perfecta para descansar en familia."
+    title: "Dormitorio con Cuna de Viaje",
+    url: "/images/apartamento/terraza-vistas.jpg",
+    desc: "Equipamiento para familias con cuna disponible bajo petición y ventilador de techo."
   },
   {
     id: 7,
-    title: "Segundo Dormitorio (2 Camas)",
-    url: "/images/apartamento/dormitorio-2.jpg",
-    desc: "Dos camas individuales de 90 cm confortables y almacenamiento."
+    title: "Detalle Cama de Matrimonio",
+    url: "/images/apartamento/comedor.jpg",
+    desc: "Colchón de gama alta con toallas dobladas y ambiente silencioso para dormir."
   },
   {
     id: 8,
-    title: "Tercer Dormitorio Independiente",
-    url: "/images/apartamento/dormitorio-3.jpg",
-    desc: "Habitación acogedora con cama individual / nido independiente."
+    title: "Zona de Estar y Lectura",
+    url: "/images/apartamento/salon-2.jpg",
+    desc: "Sofá con cojines confortables, cuadro marinero y Smart TV."
   },
   {
     id: 9,
-    title: "Baño Completo con Ducha",
-    url: "/images/apartamento/bano.jpg",
-    desc: "Plato de ducha amplio con mampara, secador de pelo potente y toallas."
+    title: "Mesa de Comedor y Desayunos",
+    url: "/images/apartamento/dormitorio-principal.jpg",
+    desc: "Mesa espaciosa para 6 comensales con lámpara de diseño geométrico."
   },
   {
     id: 10,
-    title: "Mesa de Comedor Familiar",
-    url: "/images/apartamento/comedor.jpg",
-    desc: "Mesa espaciosa para compartir veladas gastronómicas."
+    title: "Comedor y Zona de Entretenimiento",
+    url: "/images/apartamento/dormitorio-2.jpg",
+    desc: "Espacio de reunión familiar para comidas y sobremesas relajadas."
   },
   {
     id: 11,
-    title: "Edificio y Entorno Residencial",
-    url: "/images/apartamento/edificio-exterior.jpg",
-    desc: "Ubicación tranquila y accesible con zonas de aparcamiento."
+    title: "Detalles y Biblioteca Cántabra",
+    url: "/images/apartamento/dormitorio-3.jpg",
+    desc: "Guías de senderismo por Cantabria y detalles de ambiente costero."
   },
   {
     id: 12,
-    title: "Paseo de la Playa de La Concha",
-    url: "/images/apartamento/entorno-playa.jpg",
-    desc: "A solo 150 metros del portal: arena dorada, gastronomía y paseos marineros."
+    title: "Rincón Natural y Luminoso",
+    url: "/images/apartamento/cocina.jpg",
+    desc: "Luz natural y vegetación en el interior del apartamento."
   }
 ];
 
-// 5 Fotos seleccionadas para la cuadrícula Bento principal
+// 5 Fotos seleccionadas para la cuadrícula Bento principal (Salón + 3 Dormitorios)
 const bentoPhotos = allPhotos.slice(0, 5);
 ---
 
@@ -112,7 +112,7 @@ const bentoPhotos = allPhotos.slice(0, 5);
             loading="eager"
           />
         </div>
-        <!-- Minimal subtle hover overlay (no clunky black text bars) -->
+        <!-- Minimal subtle hover overlay -->
         <div class="absolute inset-0 bg-stone-900/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
           <div class="w-12 h-12 rounded-full bg-white/90 backdrop-blur-md text-stone-900 flex items-center justify-center shadow-lg transform scale-90 group-hover:scale-100 transition-transform">
             <Maximize2 class="w-5 h-5 stroke-[1.5]" />
@@ -150,7 +150,7 @@ const bentoPhotos = allPhotos.slice(0, 5);
       <button 
         id="open-full-gallery-btn"
         type="button"
-        class="inline-flex items-center gap-2.5 px-7 py-3.5 rounded-full bg-white border border-stone-300 hover:border-stone-400 text-stone-800 text-sm font-medium shadow-sm hover:shadow transition-all group"
+        class="inline-flex items-center gap-2.5 px-7 py-3.5 rounded-full bg-white border border-stone-300 hover:border-stone-400 text-stone-800 text-sm font-medium shadow-sm hover:shadow transition-all group cursor-pointer"
       >
         <LayoutGrid class="w-4 h-4 text-stone-600 group-hover:text-stone-900 transition-colors" />
         <span>Ver colección fotográfica completa ({allPhotos.length} fotos)</span>
@@ -173,7 +173,7 @@ const bentoPhotos = allPhotos.slice(0, 5);
       </div>
       <button 
         id="close-boutique-modal" 
-        class="p-2 rounded-full text-stone-400 hover:text-white hover:bg-white/10 transition"
+        class="p-2 rounded-full text-stone-400 hover:text-white hover:bg-white/10 transition cursor-pointer"
         aria-label="Cerrar visor"
       >
         <X class="w-6 h-6 stroke-[1.5]" />
@@ -192,7 +192,7 @@ const bentoPhotos = allPhotos.slice(0, 5);
       <!-- Prev / Next Navigation Arrows -->
       <button 
         id="prev-photo-btn"
-        class="absolute left-3 p-3 rounded-full bg-stone-900/80 hover:bg-stone-900 text-white border border-white/10 backdrop-blur-sm transition-all"
+        class="absolute left-3 p-3 rounded-full bg-stone-900/80 hover:bg-stone-900 text-white border border-white/10 backdrop-blur-sm transition-all cursor-pointer"
         aria-label="Foto anterior"
       >
         <ChevronLeft class="w-5 h-5 stroke-[1.5]" />
@@ -200,7 +200,7 @@ const bentoPhotos = allPhotos.slice(0, 5);
 
       <button 
         id="next-photo-btn"
-        class="absolute right-3 p-3 rounded-full bg-stone-900/80 hover:bg-stone-900 text-white border border-white/10 backdrop-blur-sm transition-all"
+        class="absolute right-3 p-3 rounded-full bg-stone-900/80 hover:bg-stone-900 text-white border border-white/10 backdrop-blur-sm transition-all cursor-pointer"
         aria-label="Foto siguiente"
       >
         <ChevronRight class="w-5 h-5 stroke-[1.5]" />
@@ -209,16 +209,17 @@ const bentoPhotos = allPhotos.slice(0, 5);
 
     <!-- Caption / Description -->
     <div class="text-center max-w-xl px-4">
-      <h3 id="modal-title" class="font-serif text-lg sm:text-xl text-white font-normal"></h3>
-      <p id="modal-desc" class="text-xs sm:text-sm text-stone-400 font-light mt-1"></p>
+      <h3 id="modal-title" class="font-serif text-lg sm:text-xl text-white font-normal tracking-tight"></h3>
+      <p id="modal-desc" class="text-xs sm:text-sm text-stone-300 font-normal mt-1"></p>
     </div>
 
     <!-- Thumbnails Strip -->
     <div class="flex items-center gap-2 mt-4 overflow-x-auto max-w-full py-2 px-1 scrollbar-none">
       {allPhotos.map((photo, i) => (
         <button 
-          class="thumb-btn flex-shrink-0 w-14 h-10 rounded-lg overflow-hidden border border-transparent opacity-60 hover:opacity-100 transition-all focus:outline-none"
+          class="thumb-btn flex-shrink-0 w-14 h-10 rounded-lg overflow-hidden border border-transparent opacity-60 hover:opacity-100 transition-all focus:outline-none cursor-pointer"
           data-index={i}
+          aria-label={`Ver foto ${i + 1}`}
         >
           <img src={photo.url} alt="" class="w-full h-full object-cover" />
         </button>
@@ -253,13 +254,13 @@ const bentoPhotos = allPhotos.slice(0, 5);
     if (modalDesc) modalDesc.textContent = photo.desc;
     if (modalCounter) modalCounter.textContent = `${currentIndex + 1} / ${allPhotos.length}`;
 
-    // Highlight active thumbnail
+    // Highlight active thumbnail with clear ring
     thumbBtns.forEach((btn, idx) => {
       if (idx === currentIndex) {
-        btn.classList.add('border-white', 'opacity-100', 'scale-105');
+        btn.classList.add('border-white', 'opacity-100', 'scale-105', 'ring-2', 'ring-white/80');
         btn.classList.remove('opacity-60');
       } else {
-        btn.classList.remove('border-white', 'scale-105');
+        btn.classList.remove('border-white', 'scale-105', 'ring-2', 'ring-white/80');
         btn.classList.add('opacity-60');
       }
     });
@@ -302,7 +303,33 @@ const bentoPhotos = allPhotos.slice(0, 5);
     });
   });
 
-  // Close with Escape or background click
+  // Touch Swipe support for mobile lightbox
+  let touchStartX = 0;
+  let touchEndX = 0;
+
+  if (modal) {
+    modal.addEventListener('touchstart', (e) => {
+      touchStartX = e.changedTouches[0].screenX;
+    }, { passive: true });
+
+    modal.addEventListener('touchend', (e) => {
+      touchEndX = e.changedTouches[0].screenX;
+      handleSwipe();
+    }, { passive: true });
+  }
+
+  function handleSwipe() {
+    if (touchEndX < touchStartX - 50) {
+      // Swiped left -> next
+      updateModal(currentIndex + 1);
+    }
+    if (touchEndX > touchStartX + 50) {
+      // Swiped right -> prev
+      updateModal(currentIndex - 1);
+    }
+  }
+
+  // Keyboard navigation
   window.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') closeModal();
     if (e.key === 'ArrowLeft') updateModal(currentIndex - 1);

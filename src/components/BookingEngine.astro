@@ -2,14 +2,13 @@
 import { 
   Calendar as CalendarIcon, 
   Users, 
-  CreditCard, 
   ShieldCheck, 
   Clock, 
   CheckCircle, 
-  Sparkles,
   Lock,
   ArrowRight,
-  MessageCircle
+  MessageCircle,
+  Sparkles
 } from 'lucide-astro';
 ---
 
@@ -40,11 +39,11 @@ import {
           </div>
           <div>
             <span class="block text-sm font-medium text-stone-900">Tarifa Oficial Directa (-15%)</span>
-            <span class="block text-xs text-stone-500 font-light">Sin recargos ni sobrecostes de plataformas externas</span>
+            <span class="block text-xs text-stone-500 font-normal">Sin recargos ni sobrecostes de agencias intermediarias</span>
           </div>
         </div>
 
-        <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-stone-50 border border-stone-200/60 text-xs text-stone-600 font-light">
+        <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-stone-50 border border-stone-200/60 text-xs text-stone-600 font-normal">
           <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
           <span>iCal activo en tiempo real</span>
         </div>
@@ -57,7 +56,7 @@ import {
         <div>
           <div class="flex items-center gap-2 mb-4">
             <span class="w-6 h-6 rounded-full bg-stone-900 text-white flex items-center justify-center text-xs font-medium">1</span>
-            <h3 class="font-serif text-lg sm:text-xl text-stone-900 font-normal">Fechas y Huéspedes</h3>
+            <h3 class="font-serif text-lg sm:text-xl text-stone-900 font-normal tracking-tight">Fechas y Huéspedes</h3>
           </div>
 
           <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
@@ -71,14 +70,16 @@ import {
                 <input 
                   type="text" 
                   id="date-range-picker" 
+                  name="dates"
+                  aria-label="Seleccionar fechas de entrada y salida"
                   placeholder="Selecciona fecha de entrada y salida..." 
                   class="w-full pl-11 pr-4 py-3.5 rounded-2xl border border-stone-200 focus:border-stone-900 focus:ring-2 focus:ring-stone-900/10 text-sm font-medium text-stone-900 bg-stone-50/50 cursor-pointer transition"
                   readonly
                   required
                 />
-                <CalendarIcon class="w-5 h-5 text-stone-400 absolute left-3.5 top-1/2 -translate-y-1/2 pointer-events-none stroke-[1.5]" />
+                <CalendarIcon class="w-5 h-5 text-stone-500 absolute left-3.5 top-1/2 -translate-y-1/2 pointer-events-none stroke-[1.5]" />
               </div>
-              <p id="calendar-sync-notice" class="text-[11px] text-stone-400 mt-1.5 font-light">
+              <p id="calendar-sync-notice" class="text-[11px] text-stone-500 mt-1.5 font-normal">
                 Consultando disponibilidad en tiempo real...
               </p>
             </div>
@@ -91,6 +92,7 @@ import {
               <div class="relative">
                 <select 
                   id="guests-select" 
+                  name="guests"
                   class="w-full pl-11 pr-8 py-3.5 rounded-2xl border border-stone-200 focus:border-stone-900 focus:ring-2 focus:ring-stone-900/10 text-sm font-medium text-stone-900 bg-stone-50/50 appearance-none transition"
                 >
                   <option value="1">1 Huésped</option>
@@ -100,9 +102,9 @@ import {
                   <option value="5">5 Huéspedes</option>
                   <option value="6">6 Huéspedes (Máximo)</option>
                 </select>
-                <Users class="w-5 h-5 text-stone-400 absolute left-3.5 top-1/2 -translate-y-1/2 pointer-events-none stroke-[1.5]" />
+                <Users class="w-5 h-5 text-stone-500 absolute left-3.5 top-1/2 -translate-y-1/2 pointer-events-none stroke-[1.5]" />
               </div>
-              <p class="text-[11px] text-stone-400 mt-1.5 font-light">Capacidad máxima: 6 personas</p>
+              <p class="text-[11px] text-stone-500 mt-1.5 font-normal">Capacidad máxima: 6 personas</p>
             </div>
 
           </div>
@@ -112,7 +114,7 @@ import {
         <div>
           <div class="flex items-center gap-2 mb-4">
             <span class="w-6 h-6 rounded-full bg-stone-900 text-white flex items-center justify-center text-xs font-medium">2</span>
-            <h3 class="font-serif text-lg sm:text-xl text-stone-900 font-normal">Modalidad de Pago</h3>
+            <h3 class="font-serif text-lg sm:text-xl text-stone-900 font-normal tracking-tight">Modalidad de Pago</h3>
           </div>
 
           <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -128,10 +130,10 @@ import {
                   Recomendado
                 </span>
               </div>
-              <p class="text-xs text-stone-600 font-light mt-2 mb-4">
+              <p class="text-xs text-stone-600 font-normal mt-2 mb-3">
                 Confirmación inmediata con <strong>Tarjeta de Crédito / Débito</strong> o <strong>Bizum automático</strong> a través de pasarela segura Stripe Checkout.
               </p>
-              <div class="mt-auto flex items-center gap-2 text-[11px] text-stone-500 font-light pt-3 border-t border-stone-200/60">
+              <div class="mt-auto flex items-center gap-2 text-[11px] text-stone-500 font-normal pt-3 border-t border-stone-200/60">
                 <Lock class="w-3.5 h-3.5 text-stone-600 stroke-[1.5]" />
                 <span>Cifrado SSL 256-bit • Confirmación en el acto</span>
               </div>
@@ -148,10 +150,14 @@ import {
                   Bloqueo 2h
                 </span>
               </div>
-              <p class="text-xs text-stone-600 font-light mt-2 mb-4">
-                <strong>Bloqueo temporal de 2 horas</strong> sin comisiones de tarjeta. Te reservamos las fechas para que realices la transferencia o Bizum con la referencia.
+              <p class="text-xs text-stone-600 font-normal mt-2 mb-2">
+                <strong>Bloqueo temporal de 2 horas</strong> sin comisiones de tarjeta. Te reservamos las fechas para que realices la transferencia o Bizum.
               </p>
-              <div class="mt-auto flex items-center gap-2 text-[11px] text-stone-500 font-light pt-3 border-t border-stone-200/60">
+              <!-- Micro-copy tranquilizador -->
+              <div class="p-2.5 rounded-xl bg-stone-100/80 border border-stone-200/70 text-[11px] text-stone-700 leading-relaxed mb-3">
+                💡 <strong>No pagarás nada ahora:</strong> Tus fechas quedan reservadas 120 minutos mientras nos envías el justificante por WhatsApp.
+              </div>
+              <div class="mt-auto flex items-center gap-2 text-[11px] text-stone-500 font-normal pt-2 border-t border-stone-200/60">
                 <Clock class="w-3.5 h-3.5 text-stone-600 stroke-[1.5]" />
                 <span>Bloqueo temporal 120 min • Comprobante por WhatsApp</span>
               </div>
@@ -164,7 +170,7 @@ import {
         <div>
           <div class="flex items-center gap-2 mb-4">
             <span class="w-6 h-6 rounded-full bg-stone-900 text-white flex items-center justify-center text-xs font-medium">3</span>
-            <h3 class="font-serif text-lg sm:text-xl text-stone-900 font-normal">Datos del Huésped</h3>
+            <h3 class="font-serif text-lg sm:text-xl text-stone-900 font-normal tracking-tight">Datos del Huésped</h3>
           </div>
 
           <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
@@ -173,6 +179,8 @@ import {
               <input 
                 type="text" 
                 id="guest-name" 
+                name="name"
+                autocomplete="name"
                 placeholder="Ej. María García" 
                 class="w-full px-4 py-3 rounded-2xl border border-stone-200 focus:border-stone-900 focus:ring-2 focus:ring-stone-900/10 text-sm font-medium bg-stone-50/50"
                 required
@@ -183,6 +191,8 @@ import {
               <input 
                 type="email" 
                 id="guest-email" 
+                name="email"
+                autocomplete="email"
                 placeholder="maria@ejemplo.com" 
                 class="w-full px-4 py-3 rounded-2xl border border-stone-200 focus:border-stone-900 focus:ring-2 focus:ring-stone-900/10 text-sm font-medium bg-stone-50/50"
                 required
@@ -193,6 +203,8 @@ import {
               <input 
                 type="tel" 
                 id="guest-phone" 
+                name="phone"
+                autocomplete="tel"
                 placeholder="+34 600 000 000" 
                 class="w-full px-4 py-3 rounded-2xl border border-stone-200 focus:border-stone-900 focus:ring-2 focus:ring-stone-900/10 text-sm font-medium bg-stone-50/50"
                 required
@@ -201,7 +213,7 @@ import {
           </div>
         </div>
 
-        <!-- Realtime Price Breakdown Box (Minimalist Warm Stone) -->
+        <!-- Realtime Price Breakdown Box -->
         <div id="price-summary-box" class="p-6 bg-stone-50 rounded-2xl border border-stone-200/70">
           <div class="flex items-center justify-between pb-3 border-b border-stone-200/60">
             <span class="text-xs uppercase font-medium text-stone-500 tracking-wider">Desglose de Tarifas</span>
@@ -210,10 +222,10 @@ import {
             </span>
           </div>
 
-          <div class="mt-4 space-y-2 text-sm text-stone-600 font-light">
+          <div class="mt-4 space-y-2 text-sm text-stone-600 font-normal">
             <div class="flex justify-between">
               <span id="label-nights">Estancia (<span id="count-nights">0</span> noches × 110€):</span>
-              <span id="val-stay" class="font-medium text-stone-900">0 €</span>
+              <span id="val-stay" class="font-medium text-stone-900">— €</span>
             </div>
             <div class="flex justify-between">
               <span>Limpieza y preparación del apartamento:</span>
@@ -221,53 +233,60 @@ import {
             </div>
             <div class="flex justify-between text-stone-700 font-medium">
               <span>Sobrecoste de comisiones OTA ahorrado:</span>
-              <span id="val-savings">-0 €</span>
+              <span id="val-savings" class="font-medium">— €</span>
             </div>
           </div>
 
           <div class="mt-4 pt-4 border-t border-stone-200/60 flex items-baseline justify-between">
             <div>
-              <span class="font-serif text-lg sm:text-xl text-stone-900 font-normal">Total a Pagar</span>
-              <span class="block text-[11px] text-stone-400 font-light">Impuestos y gastos incluidos</span>
+              <span class="font-serif text-lg sm:text-xl text-stone-900 font-normal tracking-tight">Total a Pagar</span>
+              <span class="block text-[11px] text-stone-500 font-normal">Impuestos y gastos incluidos</span>
             </div>
             <div class="text-right">
-              <span id="val-total" class="font-serif text-3xl sm:text-4xl text-stone-900 font-normal">0 €</span>
+              <span id="val-total" class="font-serif text-3xl sm:text-4xl text-stone-900 font-normal tracking-tight">— €</span>
             </div>
           </div>
         </div>
 
-        <!-- Submit Button in Deep Slate Navy -->
-        <div>
+        <!-- Cancellation Badge + Submit Button -->
+        <div class="space-y-4">
+          <!-- Trust Badge: Free Cancellation -->
+          <div class="flex items-center justify-center gap-2 p-3 rounded-2xl bg-stone-50 border border-stone-200/70 text-stone-700 text-xs sm:text-sm font-medium">
+            <ShieldCheck class="w-4 h-4 text-stone-700 stroke-[1.5] flex-shrink-0" />
+            <span>Cancelación gratuita hasta 7 días antes de la llegada</span>
+          </div>
+
           <button 
             type="submit" 
             id="submit-booking-btn"
+            disabled
             class="w-full py-4 px-6 rounded-2xl bg-slate-900 hover:bg-slate-800 text-white font-medium text-base shadow-xl shadow-slate-900/10 hover:shadow-slate-900/20 active:translate-y-0.5 transition-all flex items-center justify-center gap-3 cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed"
           >
-            <span id="btn-text">Confirmar Reserva Directa</span>
+            <span id="btn-text">Selecciona fechas para calcular</span>
             <ArrowRight class="w-4 h-4 stroke-[1.5]" />
           </button>
           
           <!-- Trust Badges & Guarantee Row -->
-          <div class="mt-6 pt-6 border-t border-stone-100 grid grid-cols-2 sm:grid-cols-4 gap-4 text-center text-xs text-stone-600 font-light">
+          <div class="mt-6 pt-6 border-t border-stone-100 grid grid-cols-2 sm:grid-cols-4 gap-4 text-center text-xs text-stone-600 font-normal">
             <div class="p-3 rounded-2xl bg-stone-50 border border-stone-200/50 flex flex-col items-center justify-center gap-1">
               <Lock class="w-4 h-4 text-stone-700 stroke-[1.5]" />
               <span class="font-medium text-stone-900">Stripe Checkout</span>
-              <span class="text-[10px] text-stone-400">Cifrado SSL 256-bit</span>
+              <span class="text-[10px] text-stone-500">Cifrado SSL 256-bit</span>
             </div>
             <div class="p-3 rounded-2xl bg-stone-50 border border-stone-200/50 flex flex-col items-center justify-center gap-1">
               <ShieldCheck class="w-4 h-4 text-stone-700 stroke-[1.5]" />
               <span class="font-medium text-stone-900">Sin Comisiones</span>
-              <span class="text-[10px] text-stone-400">Ahorro del 15%</span>
+              <span class="text-[10px] text-stone-500">Ahorro del 15%</span>
             </div>
             <div class="p-3 rounded-2xl bg-stone-50 border border-stone-200/50 flex flex-col items-center justify-center gap-1">
               <Clock class="w-4 h-4 text-stone-700 stroke-[1.5]" />
               <span class="font-medium text-stone-900">iCal en Vivo</span>
-              <span class="text-[10px] text-stone-400">Booking & Airbnb</span>
+              <span class="text-[10px] text-stone-500">Booking & Airbnb</span>
             </div>
             <div class="p-3 rounded-2xl bg-stone-50 border border-stone-200/50 flex flex-col items-center justify-center gap-1">
               <MessageCircle class="w-4 h-4 text-stone-700 stroke-[1.5]" />
               <span class="font-medium text-stone-900">Trato Directo</span>
-              <span class="text-[10px] text-stone-400">Atención WhatsApp</span>
+              <span class="text-[10px] text-stone-500">Atención WhatsApp</span>
             </div>
           </div>
         </div>
@@ -290,8 +309,8 @@ import {
       <span class="px-3 py-1 bg-stone-100 text-stone-700 text-xs font-medium rounded-full uppercase tracking-wider">
         Fechas Bloqueadas Temporalmente
       </span>
-      <h3 class="font-serif text-2xl font-normal text-stone-900 mt-2">¡Reserva Pre-confirmada!</h3>
-      <p class="text-xs text-stone-500 font-light mt-1">
+      <h3 class="font-serif text-2xl font-normal text-stone-900 mt-2 tracking-tight">¡Reserva Pre-confirmada!</h3>
+      <p class="text-xs text-stone-500 font-normal mt-1">
         Tus fechas quedan reservadas durante <strong>2 horas</strong> para que envíes el justificante.
       </p>
     </div>
@@ -395,9 +414,11 @@ import {
   function updatePriceCalculation() {
     if (!checkInDate || !checkOutDate) {
       if (countNightsEl) countNightsEl.textContent = '0';
-      if (valStayEl) valStayEl.textContent = '0 €';
-      if (valSavingsEl) valSavingsEl.textContent = '-0 €';
-      if (valTotalEl) valTotalEl.textContent = '0 €';
+      if (valStayEl) valStayEl.textContent = '— €';
+      if (valSavingsEl) valSavingsEl.textContent = '— €';
+      if (valTotalEl) valTotalEl.textContent = '— €';
+      if (btnText) btnText.textContent = 'Selecciona fechas para calcular';
+      if (submitBtn) submitBtn.disabled = true;
       return;
     }
 
@@ -412,6 +433,8 @@ import {
     if (valStayEl) valStayEl.textContent = `${stay} €`;
     if (valSavingsEl) valSavingsEl.textContent = `-${savings} €`;
     if (valTotalEl) valTotalEl.textContent = `${total} €`;
+    if (btnText) btnText.textContent = 'Confirmar Reserva Directa';
+    if (submitBtn) submitBtn.disabled = false;
   }
 
   // Inicializar Flatpickr con disponibilidad del endpoint
@@ -431,8 +454,9 @@ import {
           }));
         }
         if (calendarNoticeEl) {
-          calendarNoticeEl.innerHTML = `✓ Calendario sincronizado con Booking.com y Airbnb (${disabledRanges.length} bloqueos)`;
-          calendarNoticeEl.classList.add('text-stone-600');
+          calendarNoticeEl.innerHTML = `✓ Calendario sincronizado con Booking y Airbnb (${disabledRanges.length} bloqueos)`;
+          calendarNoticeEl.classList.remove('text-stone-500');
+          calendarNoticeEl.classList.add('text-stone-700', 'font-medium');
         }
       }
     } catch (e) {

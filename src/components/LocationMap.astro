@@ -1,5 +1,5 @@
 ---
-import { MapPin, Compass, Waves, UtensilsCrossed, Car } from 'lucide-astro';
+import { MapPin, Compass, Waves, UtensilsCrossed, Car, Sunset, Utensils, Footprints } from 'lucide-astro';
 ---
 
 <section id="ubicacion" class="py-20 lg:py-28 bg-[#FDFBF7] border-t border-stone-200/60">
@@ -29,8 +29,8 @@ import { MapPin, Compass, Waves, UtensilsCrossed, Car } from 'lucide-astro';
             <Waves class="w-5 h-5 stroke-[1.25]" />
           </div>
           <div>
-            <h3 class="font-serif text-lg text-stone-900 font-normal">Playa de La Concha</h3>
-            <p class="text-xs text-stone-500 font-light mt-0.5">La playa principal de arena fina de Suances, idónea para pasear y disfrutar del baño.</p>
+            <h3 class="font-serif text-lg text-stone-900 font-normal tracking-tight">Playa de La Concha</h3>
+            <p class="text-xs text-stone-600 font-normal mt-0.5">La playa principal de arena dorada de Suances, perfecta para familias y paseos marineros.</p>
             <span class="inline-block mt-2.5 text-xs font-medium text-stone-700 bg-stone-100 px-3 py-1 rounded-full">
               🚶 A 2 minutos a pie (150 m)
             </span>
@@ -42,8 +42,8 @@ import { MapPin, Compass, Waves, UtensilsCrossed, Car } from 'lucide-astro';
             <Compass class="w-5 h-5 stroke-[1.25]" />
           </div>
           <div>
-            <h3 class="font-serif text-lg text-stone-900 font-normal">Playa de Los Locos</h3>
-            <p class="text-xs text-stone-500 font-light mt-0.5">Reserva natural del surf y atardeceres espectaculares sobre los acantilados cántabros.</p>
+            <h3 class="font-serif text-lg text-stone-900 font-normal tracking-tight">Playa de Los Locos</h3>
+            <p class="text-xs text-stone-600 font-normal mt-0.5">Reserva natural del surf en el norte de España y puestas de sol sobre los acantilados.</p>
             <span class="inline-block mt-2.5 text-xs font-medium text-stone-700 bg-stone-100 px-3 py-1 rounded-full">
               🏄 A 10 min a pie / 3 min en coche
             </span>
@@ -55,8 +55,8 @@ import { MapPin, Compass, Waves, UtensilsCrossed, Car } from 'lucide-astro';
             <UtensilsCrossed class="w-5 h-5 stroke-[1.25]" />
           </div>
           <div>
-            <h3 class="font-serif text-lg text-stone-900 font-normal">Paseo Marítimo & Marisquerías</h3>
-            <p class="text-xs text-stone-500 font-light mt-0.5">Gastronomía marina, terrazas con vistas, panaderías artesanas y supermercados próximos.</p>
+            <h3 class="font-serif text-lg text-stone-900 font-normal tracking-tight">Paseo Marítimo & Marisquerías</h3>
+            <p class="text-xs text-stone-600 font-normal mt-0.5">Gastronomía marina, terrazas con vistas, panaderías artesanas y supermercados próximos.</p>
             <span class="inline-block mt-2.5 text-xs font-medium text-stone-700 bg-stone-100 px-3 py-1 rounded-full">
               🚶 A 3-5 minutos a pie
             </span>
@@ -68,8 +68,8 @@ import { MapPin, Compass, Waves, UtensilsCrossed, Car } from 'lucide-astro';
             <Car class="w-5 h-5 stroke-[1.25]" />
           </div>
           <div>
-            <h3 class="font-serif text-lg text-stone-900 font-normal">Cantabria Infinita</h3>
-            <p class="text-xs text-stone-500 font-light mt-0.5">Santillana del Mar a 10 min, Santander a 25 min, Parque de Cabárceno y Comillas a menos de 40 min.</p>
+            <h3 class="font-serif text-lg text-stone-900 font-normal tracking-tight">Cantabria Infinita</h3>
+            <p class="text-xs text-stone-600 font-normal mt-0.5">Santillana del Mar a 10 min, Santander a 25 min, Parque de Cabárceno y Comillas a menos de 40 min.</p>
             <span class="inline-block mt-2.5 text-xs font-medium text-stone-700 bg-stone-100 px-3 py-1 rounded-full">
               🚗 Conexión rápida autovía A-67
             </span>
@@ -78,12 +78,12 @@ import { MapPin, Compass, Waves, UtensilsCrossed, Car } from 'lucide-astro';
 
       </div>
 
-      <!-- Right: Responsive Interactive Map Frame -->
+      <!-- Right: Responsive Interactive Map Frame with Warm Editorial Filter -->
       <div class="lg:col-span-7">
         <div class="rounded-3xl overflow-hidden shadow-xl border border-stone-200/80 bg-stone-100 relative h-[480px]">
           <iframe 
             title="Ubicación Apartamento Costa del Sol Suances"
-            class="w-full h-full border-0 filter contrast-[0.98] saturate-[0.85]"
+            class="w-full h-full border-0 filter contrast-[0.95] sepia-[0.10] hue-rotate-[-15deg] brightness-[0.98]"
             src="https://www.openstreetmap.org/export/embed.html?bbox=-4.055%2C43.425%2C-4.030%2C43.442&layer=mapnik&marker=43.434%2C-4.041"
             loading="lazy"
           ></iframe>
@@ -96,6 +96,54 @@ import { MapPin, Compass, Waves, UtensilsCrossed, Car } from 'lucide-astro';
         </div>
       </div>
 
+    </div>
+
+    <!-- 3 Micro-Tarjetas de Recomendaciones del Anfitrión -->
+    <div class="mt-14 max-w-6xl mx-auto">
+      <div class="text-center mb-8">
+        <span class="text-xs uppercase tracking-widest text-stone-500 font-medium">Secretos del Anfitrión</span>
+        <h3 class="font-serif text-2xl text-stone-900 font-normal tracking-tight mt-1">Recomendaciones para vivir Suances</h3>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        
+        <!-- Reco 1 -->
+        <div class="bg-white rounded-3xl p-6 sm:p-7 border border-stone-200/80 shadow-[0_10px_30px_-10px_rgba(0,0,0,0.03)] hover:-translate-y-1 transition duration-300">
+          <div class="w-10 h-10 rounded-2xl bg-stone-50 border border-stone-200/60 text-stone-900 flex items-center justify-center mb-4">
+            <Utensils class="w-5 h-5 stroke-[1.25]" />
+          </div>
+          <span class="text-[11px] uppercase tracking-wider text-stone-500 font-medium">Gastronomía Marina</span>
+          <h4 class="font-serif text-lg text-stone-900 font-normal tracking-tight mt-1 mb-2">Dónde comer rabas</h4>
+          <p class="text-xs sm:text-sm text-stone-600 leading-relaxed font-normal">
+            En el puerto pesquero y el paseo marítimo a solo 3 min a pie: raciones de rabas de calamar fresco, bocartes al ajillo y marisco del Cantábrico con vistas a la ría.
+          </p>
+        </div>
+
+        <!-- Reco 2 -->
+        <div class="bg-white rounded-3xl p-6 sm:p-7 border border-stone-200/80 shadow-[0_10px_30px_-10px_rgba(0,0,0,0.03)] hover:-translate-y-1 transition duration-300">
+          <div class="w-10 h-10 rounded-2xl bg-stone-50 border border-stone-200/60 text-stone-900 flex items-center justify-center mb-4">
+            <Sunset class="w-5 h-5 stroke-[1.25]" />
+          </div>
+          <span class="text-[11px] uppercase tracking-wider text-stone-500 font-medium">Puesta de Sol</span>
+          <h4 class="font-serif text-lg text-stone-900 font-normal tracking-tight mt-1 mb-2">Atardecer en Los Locos</h4>
+          <p class="text-xs sm:text-sm text-stone-600 leading-relaxed font-normal">
+            A 10 min caminando: contempla la puesta de sol sobre el acantilado y el faro de Suances mientras los surfistas cogen las últimas olas del día. Un espectáculo inolvidable.
+          </p>
+        </div>
+
+        <!-- Reco 3 -->
+        <div class="bg-white rounded-3xl p-6 sm:p-7 border border-stone-200/80 shadow-[0_10px_30px_-10px_rgba(0,0,0,0.03)] hover:-translate-y-1 transition duration-300">
+          <div class="w-10 h-10 rounded-2xl bg-stone-50 border border-stone-200/60 text-stone-900 flex items-center justify-center mb-4">
+            <Footprints class="w-5 h-5 stroke-[1.25]" />
+          </div>
+          <span class="text-[11px] uppercase tracking-wider text-stone-500 font-medium">Playa y Relax</span>
+          <h4 class="font-serif text-lg text-stone-900 font-normal tracking-tight mt-1 mb-2">Playa de La Concha a 2 min</h4>
+          <p class="text-xs sm:text-sm text-stone-600 leading-relaxed font-normal">
+            Baja en bañador y chanclas: 150 metros llanos sin cuestas te separan de la arena dorada y las aguas calmas, ideales para el baño de niños y mañanas de lectura frente al mar.
+          </p>
+        </div>
+
+      </div>
     </div>
 
   </div>

@@ -7,38 +7,39 @@ import { Waves, Calendar, Phone } from 'lucide-astro';
     <div class="flex items-center justify-between h-20">
       
       <!-- Brand Logo -->
-      <a href="#inicio" class="flex items-center gap-3.5 group">
-        <div class="w-10 h-10 rounded-2xl bg-slate-900 text-white flex items-center justify-center shadow-md shadow-slate-900/10 group-hover:scale-105 transition-transform duration-300">
-          <Waves class="w-5 h-5 stroke-[1.5]" />
+      <a href="#inicio" class="flex items-center gap-2.5 sm:gap-3.5 group flex-shrink-0">
+        <div class="w-9 h-9 sm:w-10 sm:h-10 rounded-2xl bg-slate-900 text-white flex items-center justify-center shadow-md shadow-slate-900/10 group-hover:scale-105 transition-transform duration-300 flex-shrink-0">
+          <Waves class="w-4 h-4 sm:w-5 sm:h-5 stroke-[1.5]" />
         </div>
         <div class="flex flex-col">
-          <span class="font-serif text-xl sm:text-2xl text-stone-900 tracking-tight leading-none group-hover:text-stone-700 transition">
+          <span class="font-serif text-lg sm:text-2xl text-stone-900 tracking-tight leading-none group-hover:text-stone-700 transition">
             Costa del Sol
           </span>
-          <div class="flex items-center gap-1.5 mt-1">
-            <span class="text-[11px] font-medium text-stone-500 tracking-widest uppercase">Suances, Cantabria</span>
-            <span class="inline-block w-1 h-1 rounded-full bg-stone-300"></span>
-            <span class="text-[11px] font-light text-stone-400">Playa de La Concha</span>
+          <div class="flex items-center gap-1.5 mt-0.5 sm:mt-1">
+            <span class="text-[10px] sm:text-[11px] font-medium text-stone-500 tracking-widest uppercase">Suances · Cantabria</span>
+            <span class="hidden sm:inline-block w-1 h-1 rounded-full bg-stone-300"></span>
+            <span class="hidden sm:inline text-[11px] font-normal text-stone-500">Playa de La Concha</span>
           </div>
         </div>
       </a>
 
       <!-- Desktop Navigation Links -->
-      <nav class="hidden md:flex items-center gap-8 text-sm font-light text-stone-600">
+      <nav class="hidden md:flex items-center gap-7 lg:gap-8 text-sm font-medium text-stone-600">
         <a href="#inicio" class="hover:text-stone-900 transition">Inicio</a>
         <a href="#galeria" class="hover:text-stone-900 transition">Galería</a>
-        <a href="#caracteristicas" class="hover:text-stone-900 transition">3 Dormitorios & Piso</a>
+        <a href="#caracteristicas" class="hover:text-stone-900 transition">3 Dormitorios</a>
         <a href="#ventajas" class="hover:text-stone-900 transition">Tarifa Directa</a>
         <a href="#ubicacion" class="hover:text-stone-900 transition">Ubicación</a>
       </nav>
 
-      <!-- Action Buttons -->
+      <!-- Desktop Action Buttons -->
       <div class="hidden sm:flex items-center gap-3">
         <a 
           href="https://wa.me/34600123456?text=Hola%20Ivan,%20quería%20consultar%20disponibilidad%20para%20el%20Apartamento%20Costa%20del%20Sol%20Suances" 
           target="_blank" 
-          class="p-2.5 rounded-full text-stone-500 hover:text-stone-900 hover:bg-stone-200/50 transition"
+          class="p-2.5 rounded-full text-stone-600 hover:text-stone-900 hover:bg-stone-200/50 transition"
           title="Contacto directo por WhatsApp"
+          aria-label="Contactar por WhatsApp"
         >
           <Phone class="w-4 h-4 stroke-[1.5]" />
         </a>
@@ -52,19 +53,19 @@ import { Waves, Calendar, Phone } from 'lucide-astro';
         </a>
       </div>
 
-      <!-- Mobile Menu Button -->
-      <div class="flex md:hidden items-center gap-2">
+      <!-- Mobile Right Controls (Clean and Spaced) -->
+      <div class="flex md:hidden items-center gap-1.5 sm:gap-2">
         <a 
           href="#reservas"
-          class="px-4 py-2 bg-slate-900 text-white text-xs font-medium rounded-full shadow-sm"
+          class="px-3.5 py-1.5 bg-slate-900 hover:bg-slate-800 text-white text-xs font-medium rounded-full shadow-sm"
         >
           Reservar
         </a>
         <button 
           id="mobile-menu-btn" 
           type="button" 
-          class="p-2 text-stone-700 hover:bg-stone-100 rounded-xl focus:outline-none" 
-          aria-label="Abrir menú"
+          class="p-2 text-stone-700 hover:bg-stone-200/50 rounded-xl focus:outline-none transition" 
+          aria-label="Abrir menú de navegación"
         >
           <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 6h16M4 12h16M4 18h16" />
@@ -76,12 +77,12 @@ import { Waves, Calendar, Phone } from 'lucide-astro';
   </div>
 
   <!-- Mobile Drawer Menu -->
-  <div id="mobile-menu" class="hidden md:hidden border-t border-stone-200 bg-[#FDFBF7] px-4 pt-3 pb-6 space-y-3">
-    <a href="#inicio" class="block px-3 py-2 rounded-xl text-base font-light text-stone-700 hover:bg-stone-100">Inicio</a>
-    <a href="#galeria" class="block px-3 py-2 rounded-xl text-base font-light text-stone-700 hover:bg-stone-100">Galería de Fotos</a>
-    <a href="#caracteristicas" class="block px-3 py-2 rounded-xl text-base font-light text-stone-700 hover:bg-stone-100">3 Dormitorios y 70 m²</a>
-    <a href="#ventajas" class="block px-3 py-2 rounded-xl text-base font-light text-stone-700 hover:bg-stone-100">Ventajas Reserva Directa</a>
-    <a href="#ubicacion" class="block px-3 py-2 rounded-xl text-base font-light text-stone-700 hover:bg-stone-100">Ubicación y Entorno</a>
+  <div id="mobile-menu" class="hidden md:hidden border-t border-stone-200 bg-[#FDFBF7] px-4 pt-3 pb-6 space-y-3 shadow-lg">
+    <a href="#inicio" class="block px-3 py-2 rounded-xl text-base font-normal text-stone-700 hover:bg-stone-100">Inicio</a>
+    <a href="#galeria" class="block px-3 py-2 rounded-xl text-base font-normal text-stone-700 hover:bg-stone-100">Galería de Fotos</a>
+    <a href="#caracteristicas" class="block px-3 py-2 rounded-xl text-base font-normal text-stone-700 hover:bg-stone-100">3 Dormitorios y 70 m²</a>
+    <a href="#ventajas" class="block px-3 py-2 rounded-xl text-base font-normal text-stone-700 hover:bg-stone-100">Ventajas Reserva Directa</a>
+    <a href="#ubicacion" class="block px-3 py-2 rounded-xl text-base font-normal text-stone-700 hover:bg-stone-100">Ubicación y Entorno</a>
     <a href="#reservas" class="block px-4 py-3 rounded-2xl text-center font-medium text-white bg-slate-900 shadow-md">
       Reservar Ahora (Mejor Tarifa)
     </a>
