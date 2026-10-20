@@ -32,10 +32,10 @@ import { SITE_CONFIG } from '../config/site';
       <div class="hidden sm:flex items-center gap-3">
         
         <!-- Language Switcher (ES / EN) -->
-        <div class="inline-flex items-center rounded-full bg-stone-100/80 p-0.5 border border-stone-200/60 text-xs" role="group" aria-label="Selector de idioma">
+        <div class="inline-flex items-center bg-stone-200/60 p-0.5 rounded-full border border-stone-300/40" role="group" aria-label="Selector de idioma">
           <button 
             type="button" 
-            class="lang-toggle-btn bg-white text-stone-900 shadow-sm rounded-full font-semibold px-2 py-0.5 text-xs transition cursor-pointer"
+            class="lang-toggle-btn bg-white text-stone-900 font-bold text-xs px-2.5 py-1 rounded-full shadow-sm cursor-pointer"
             data-target-lang="es"
             aria-label="Cambiar a Español"
           >
@@ -43,7 +43,7 @@ import { SITE_CONFIG } from '../config/site';
           </button>
           <button 
             type="button" 
-            class="lang-toggle-btn text-stone-400 hover:text-stone-700 px-2 py-0.5 text-xs transition rounded-full cursor-pointer"
+            class="lang-toggle-btn text-stone-500 hover:text-stone-800 font-medium text-xs px-2 py-1 transition-colors rounded-full cursor-pointer"
             data-target-lang="en"
             aria-label="Switch to English"
           >
@@ -74,17 +74,17 @@ import { SITE_CONFIG } from '../config/site';
       <!-- Mobile Right Controls (Language + CTA + Hamburger) -->
       <div class="flex md:hidden items-center gap-1.5 sm:gap-2">
         <!-- Mobile Language Selector -->
-        <div class="inline-flex items-center rounded-full bg-stone-100/80 p-0.5 border border-stone-200/60 text-[11px] mr-1">
+        <div class="inline-flex items-center bg-stone-200/60 p-0.5 rounded-full border border-stone-300/40 mr-1">
           <button 
             type="button" 
-            class="lang-toggle-btn bg-white text-stone-900 shadow-sm rounded-full font-semibold px-2 py-0.5 text-[11px] transition"
+            class="lang-toggle-btn bg-white text-stone-900 font-bold text-xs px-2 py-0.5 rounded-full shadow-sm"
             data-target-lang="es"
           >
             ES
           </button>
           <button 
             type="button" 
-            class="lang-toggle-btn text-stone-400 hover:text-stone-700 px-2 py-0.5 text-[11px] transition rounded-full"
+            class="lang-toggle-btn text-stone-500 hover:text-stone-800 font-medium text-xs px-2 py-0.5 transition-colors rounded-full"
             data-target-lang="en"
           >
             EN
@@ -150,15 +150,15 @@ import { SITE_CONFIG } from '../config/site';
       }
     });
 
-    // Actualizar botones de idioma en desktop y móvil con estilo boutique pulido
+    // Actualizar botones de idioma en desktop y móvil con contraste real
     document.querySelectorAll('.lang-toggle-btn').forEach((button) => {
       const targetLang = button.getAttribute('data-target-lang');
-      const isMobile = button.classList.contains('text-[11px]');
-      const sizeClass = isMobile ? 'text-[11px]' : 'text-xs';
+      const isMobile = button.closest('.md\\:hidden') !== null;
+      const paddingClass = isMobile ? 'px-2 py-0.5' : 'px-2.5 py-1';
       if (targetLang === lang) {
-        button.className = `lang-toggle-btn bg-white text-stone-900 shadow-sm rounded-full font-semibold px-2 py-0.5 ${sizeClass} transition cursor-pointer`;
+        button.className = `lang-toggle-btn bg-white text-stone-900 font-bold text-xs ${paddingClass} rounded-full shadow-sm cursor-pointer`;
       } else {
-        button.className = `lang-toggle-btn text-stone-400 hover:text-stone-700 px-2 py-0.5 ${sizeClass} transition rounded-full cursor-pointer`;
+        button.className = `lang-toggle-btn text-stone-500 hover:text-stone-800 font-medium text-xs ${paddingClass} transition-colors rounded-full cursor-pointer`;
       }
     });
   }

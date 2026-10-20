@@ -1,21 +1,29 @@
 /**
  * Configuración centralizada de marca, contacto y firma de autor
+ * Permite configuración directa en este archivo o mediante variables de entorno en .env / Vercel
  */
+const phoneRaw = process.env.PUBLIC_WHATSAPP_PHONE || '34600000000';
+const cleanPhone = phoneRaw.replace(/[^0-9]/g, '');
+
+const prefilledMessage = encodeURIComponent(
+  'Hola Iván, estoy interesado en el Apartamento Costa del Sol Suances. ¿Me puedes confirmar disponibilidad?'
+);
+
 export const SITE_CONFIG = {
-  // 📱 Teléfono de WhatsApp para reservas directas (Modificar por el número real con prefijo internacional)
-  whatsappPhone: '34600000000',
+  // 📱 Teléfono de WhatsApp para reservas directas (Modificar aquí o mediante PUBLIC_WHATSAPP_PHONE en .env)
+  whatsappPhone: cleanPhone,
+  whatsappDisplayPhone: process.env.PUBLIC_DISPLAY_PHONE || '+34 600 000 000',
 
   // Enlace directo de WhatsApp con mensaje inteligente prefijado
-  whatsappUrl: 'https://wa.me/34600000000?text=Hola%20Iv%C3%A1n%2C%20estoy%20interesado%20en%20el%20Apartamento%20Costa%20del%20Sol%20Suances.%20%C2%BFMe%20puedes%20confirmar%20disponibilidad%3F',
+  whatsappUrl: `https://wa.me/${cleanPhone}?text=${prefilledMessage}`,
 
   // Identidad de diseño (unificada con House Manager y Ramia Studio)
   designerName: 'Iván Torresano',
   designerUrl: 'https://github.com/itorresano12',
 
   // Datos del anfitrión y alojamiento
-  hostName: 'Iván Torresano',
-  hostEmail: 'info@costadelsolsuances.es',
+  hostName: process.env.HOST_NAME || 'Iván Torresano',
+  hostEmail: process.env.HOST_EMAIL || 'info@costadelsolsuances.es',
   apartmentName: 'Apartamento Costa del Sol Suances',
-  touristLicense: 'VUT-Cantabria Nº G-12345'
+  touristLicense: process.env.PUBLIC_TOURIST_LICENSE || 'VUT-Cantabria Nº G-12345',
 };
-
