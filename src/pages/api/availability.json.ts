@@ -3,9 +3,10 @@ export const prerender = false;
 import type { APIRoute } from 'astro';
 import { getUnavailableDateRanges } from '../../lib/ical';
 
-export const GET: APIRoute = async () => {
+export const GET: APIRoute = async ({ url }) => {
   try {
-    const unavailable = await getUnavailableDateRanges();
+    const force = url.searchParams.get('refresh') === 'true';
+    const unavailable = await getUnavailableDateRanges(force);
     const pricePerNight = Number(process.env.DEFAULT_PRICE_PER_NIGHT) || 110;
     const cleaningFee = Number(process.env.CLEANING_FEE) || 40;
     const minStay = Number(process.env.MINIMUM_STAY_NIGHTS) || 2;
@@ -17,12 +18,13 @@ export const GET: APIRoute = async () => {
         pricePerNight,
         cleaningFee,
         minStay,
+        totalBlockedPeriods: unavailable.length,
         unavailable,
-      }),
+      }, null, 2),
       {
         status: 200,
         headers: {
-          'Content-Type': 'application/json',
+          'Content-Type': 'application/json; charset=utf-8',
           'Cache-Control': 'no-cache, no-store, must-revalidate',
         },
       }
@@ -36,9 +38,8 @@ export const GET: APIRoute = async () => {
       }),
       {
         status: 500,
-        headers: { 'Content-Type': 'application/json' },
+        headers: { 'Content-Type': 'application/json; charset=utf-8' },
       }
     );
   }
 };
-

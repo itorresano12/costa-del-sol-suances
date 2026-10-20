@@ -3,7 +3,7 @@ import ical from 'node-ical';
 export interface DateRange {
   start: string; // 'YYYY-MM-DD'
   end: string;   // 'YYYY-MM-DD'
-  source: 'booking' | 'airbnb' | 'direct' | 'blocked';
+  source: string; // 'booking' | 'airbnb' | 'direct' | 'booking, airbnb', etc.
   summary?: string;
 }
 
@@ -23,37 +23,9 @@ export interface DirectReservation {
 }
 
 // Almacén en memoria de reservas directas locales (se sincronizan a los canales vía /api/calendar.ics)
-export const directReservations: DirectReservation[] = [
-  {
-    id: 'CDS-DEMO-01',
-    guestName: 'Marta Gómez',
-    guestEmail: 'marta.gomez@example.com',
-    guestPhone: '+34 611 223 344',
-    checkIn: '2026-11-12',
-    checkOut: '2026-11-16',
-    guests: 4,
-    totalPrice: 480,
-    paymentMethod: 'stripe',
-    status: 'confirmed',
-    createdAt: new Date().toISOString(),
-  },
-  {
-    id: 'CDS-DEMO-02',
-    guestName: 'Carlos Santillana',
-    guestEmail: 'carlos.s@example.com',
-    guestPhone: '+34 655 443 322',
-    checkIn: '2026-12-04',
-    checkOut: '2026-12-08',
-    guests: 2,
-    totalPrice: 480,
-    paymentMethod: 'transfer_manual',
-    status: 'confirmed',
-    createdAt: new Date().toISOString(),
-  }
-];
+export const directReservations: DirectReservation[] = [];
 
 export function getDirectReservations(): DirectReservation[] {
-  // Filtrar reservas que sigan activas (confirmadas o pendientes dentro de su ventana de 2h)
   const now = Date.now();
   return directReservations.filter((res) => {
     if (res.status === 'confirmed') return true;
@@ -68,7 +40,7 @@ export function addDirectReservation(res: DirectReservation): void {
   directReservations.push(res);
 }
 
-// Función auxiliar para formatear Date a 'YYYY-MM-DD'
+// Función para formatear Date a 'YYYY-MM-DD' respetando la fecha del calendario
 export function formatDateISO(date: Date): string {
   const y = date.getFullYear();
   const m = String(date.getMonth() + 1).padStart(2, '0');
@@ -84,13 +56,14 @@ async function fetchAndParseIcalFeed(url: string, source: 'booking' | 'airbnb'):
 
   try {
     const controller = new AbortController();
-    const timeoutId = setTimeout(() => controller.abort(), 6000); // 6s timeout
+    const timeoutId = setTimeout(() => controller.abort(), 7000); // 7s timeout
 
     const response = await fetch(url, {
       signal: controller.signal,
       headers: {
         'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) CostaDelSolSuances-CalendarSync/1.0',
         'Accept': 'text/calendar, text/plain, */*',
+        'Cache-Control': 'no-cache',
       },
     });
     clearTimeout(timeoutId);
@@ -114,7 +87,7 @@ async function fetchAndParseIcalFeed(url: string, source: 'booking' | 'airbnb'):
           start: formatDateISO(start),
           end: formatDateISO(end),
           source,
-          summary: item.summary ? String(item.summary) : `Ocupado (${source.toUpperCase()})`,
+          summary: item.summary ? String(item.summary).trim() : `Ocupado (${source.toUpperCase()})`,
         });
       }
     }
@@ -126,11 +99,74 @@ async function fetchAndParseIcalFeed(url: string, source: 'booking' | 'airbnb'):
   }
 }
 
-// Obtiene todas las fechas no disponibles combinando Booking.com + Airbnb + Reservas Directas
-export async function getUnavailableDateRanges(): Promise<DateRange[]> {
-  const bookingUrl = process.env.BOOKING_ICAL_URL || '';
-  const airbnbUrl = process.env.AIRBNB_ICAL_URL || '';
+// Algoritmo de fusión y deduplicación de rangos de fechas solapados o consecutivos
+export function mergeDateRanges(ranges: DateRange[]): DateRange[] {
+  if (ranges.length === 0) return [];
 
+  // Ordenar cronológicamente por fecha de inicio
+  const sorted = [...ranges].sort((a, b) => a.start.localeCompare(b.start));
+  const merged: DateRange[] = [];
+
+  let current = {
+    start: sorted[0].start,
+    end: sorted[0].end,
+    sources: new Set<string>([sorted[0].source]),
+    summaries: sorted[0].summary ? [sorted[0].summary] : [],
+  };
+
+  for (let i = 1; i < sorted.length; i++) {
+    const next = sorted[i];
+
+    // Si hay solapamiento o continuidad directa (next.start <= current.end)
+    if (next.start <= current.end) {
+      if (next.end > current.end) {
+        current.end = next.end;
+      }
+      current.sources.add(next.source);
+      if (next.summary && !current.summaries.includes(next.summary)) {
+        current.summaries.push(next.summary);
+      }
+    } else {
+      merged.push({
+        start: current.start,
+        end: current.end,
+        source: Array.from(current.sources).join(', '),
+        summary: current.summaries.join(' | '),
+      });
+      current = {
+        start: next.start,
+        end: next.end,
+        sources: new Set<string>([next.source]),
+        summaries: next.summary ? [next.summary] : [],
+      };
+    }
+  }
+
+  merged.push({
+    start: current.start,
+    end: current.end,
+    source: Array.from(current.sources).join(', '),
+    summary: current.summaries.join(' | '),
+  });
+
+  return merged;
+}
+
+// Cache en memoria breve (60 segundos) para no saturar las llamadas externas en tráfico concurrente
+let cachedResult: { timestamp: number; ranges: DateRange[] } | null = null;
+const CACHE_TTL_MS = 60 * 1000;
+
+// Obtiene todas las fechas no disponibles combinando Booking.com + Airbnb + Reservas Directas fusionadas
+export async function getUnavailableDateRanges(forceRefresh = false): Promise<DateRange[]> {
+  const now = Date.now();
+  if (!forceRefresh && cachedResult && now - cachedResult.timestamp < CACHE_TTL_MS) {
+    return cachedResult.ranges;
+  }
+
+  const bookingUrl = process.env.BOOKING_ICAL_URL || "https://ical.booking.com/v1/export?t=b6eaf790-2685-469b-983a-a237337dc1f2";
+  const airbnbUrl = process.env.AIRBNB_ICAL_URL || "https://www.airbnb.es/calendar/ical/688729813253169686.ics?t=4ba17b419fd54c2dac2a4b1213f47819";
+
+  // Descarga y procesamiento concurrente en paralelo
   const [bookingRanges, airbnbRanges] = await Promise.all([
     fetchAndParseIcalFeed(bookingUrl, 'booking'),
     fetchAndParseIcalFeed(airbnbUrl, 'airbnb'),
@@ -144,7 +180,15 @@ export async function getUnavailableDateRanges(): Promise<DateRange[]> {
     summary: `Reserva Directa #${res.id}`,
   }));
 
-  return [...bookingRanges, ...airbnbRanges, ...directRanges];
+  const combined = [...bookingRanges, ...airbnbRanges, ...directRanges];
+  const merged = mergeDateRanges(combined);
+
+  cachedResult = {
+    timestamp: now,
+    ranges: merged,
+  };
+
+  return merged;
 }
 
 // Comprueba si un rango de fechas solicitado está completamente libre
@@ -160,8 +204,7 @@ export function isRangeAvailable(checkInStr: string, checkOutStr: string, unavai
     const blockStart = new Date(block.start).getTime();
     const blockEnd = new Date(block.end).getTime();
 
-    // Comprobación de solapamiento de fechas
-    // Entrada o estancia coincide con el bloqueo
+    // Comprobación de solapamiento
     if (reqStart < blockEnd && reqEnd > blockStart) {
       return false;
     }
@@ -186,7 +229,6 @@ export function generateIcsCalendar(reservations: DirectReservation[]): string {
   ];
 
   for (const res of reservations) {
-    // Formato fecha iCal: YYYYMMDD
     const startCompact = res.checkIn.replace(/-/g, '');
     const endCompact = res.checkOut.replace(/-/g, '');
     const uid = `${res.id}@costadelsolsuances.es`;
@@ -207,4 +249,3 @@ export function generateIcsCalendar(reservations: DirectReservation[]): string {
   icsContent.push('END:VCALENDAR');
   return icsContent.join('\r\n');
 }
-
