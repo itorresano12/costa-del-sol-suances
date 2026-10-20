@@ -62,7 +62,7 @@ const schemaData = {
 ---
 
 <!doctype html>
-<html lang="es" class="scroll-smooth bg-slate-50 text-slate-800 antialiased selection:bg-teal-500 selection:text-white">
+<html lang="es" class="scroll-smooth bg-[#FDFBF7] text-stone-900 antialiased selection:bg-slate-900 selection:text-white">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -95,12 +95,11 @@ const schemaData = {
 
     <!-- Flatpickr CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/themes/airbnb.css" />
 
-    <!-- Google Fonts: Inter & Outfit -->
+    <!-- Google Fonts: Playfair Display & Plus Jakarta Sans -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
 
     <!-- Schema.org Structured Data -->
     <script type="application/ld+json" set:html={JSON.stringify(schemaData)} />
@@ -109,12 +108,12 @@ const schemaData = {
       body {
         font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
       }
-      h1, h2, h3, h4, .font-heading {
-        font-family: 'Outfit', 'Plus Jakarta Sans', system-ui, sans-serif;
+      h1, h2, .font-serif, .font-editorial {
+        font-family: 'Playfair Display', Georgia, serif;
       }
     </style>
   </head>
-  <body class="min-h-screen flex flex-col bg-slate-50 text-slate-900 pb-20 md:pb-0">
+  <body class="min-h-screen flex flex-col bg-[#FDFBF7] text-stone-900 pb-20 md:pb-0">
     <slot />
   </body>
 </html>

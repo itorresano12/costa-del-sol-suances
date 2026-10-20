@@ -1,62 +1,62 @@
 ---
-import { Waves, Heart, Github, Calendar, Phone, Mail, MapPin, ShieldCheck, Download } from 'lucide-astro';
+import { Waves, Github, Phone, Mail, MapPin, ShieldCheck, Download } from 'lucide-astro';
 ---
 
-<footer class="bg-slate-950 text-slate-400 pt-16 pb-12 border-t border-slate-900">
+<footer class="bg-slate-900 text-stone-400 pt-20 pb-14 border-t border-slate-800">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 pb-12 border-b border-slate-800">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 pb-14 border-b border-slate-800">
       
       <!-- Brand & Description (2 cols) -->
       <div class="lg:col-span-2 space-y-4">
         <a href="#inicio" class="flex items-center gap-3">
-          <div class="w-10 h-10 rounded-2xl bg-gradient-to-tr from-teal-500 to-emerald-400 text-slate-950 flex items-center justify-center font-bold shadow-md shadow-teal-500/10">
-            <Waves class="w-6 h-6 text-slate-950" />
+          <div class="w-10 h-10 rounded-2xl bg-white/10 text-white flex items-center justify-center font-bold">
+            <Waves class="w-5 h-5 stroke-[1.5]" />
           </div>
-          <span class="font-heading font-extrabold text-2xl text-white tracking-tight">
+          <span class="font-serif text-2xl text-white tracking-tight">
             Costa del Sol Suances
           </span>
         </a>
 
-        <p class="text-sm text-slate-400 leading-relaxed max-w-sm">
-          Alojamiento turístico oficial en Suances, Cantabria. 70 m², 3 dormitorios frente al mar, a solo 2 minutos a pie de la Playa de La Concha. Reserva directa con el mejor precio garantizado sin comisiones de Airbnb ni Booking.
+        <p class="text-sm text-stone-400 font-light leading-relaxed max-w-sm">
+          Alojamiento boutique frente al mar en Suances, Cantabria. 70 m², 3 dormitorios independientes y reserva directa con la tarifa más ventajosa garantizada sin comisiones de Airbnb ni Booking.
         </p>
 
-        <div class="pt-2 flex items-center gap-2 text-xs text-slate-400">
-          <ShieldCheck class="w-4 h-4 text-emerald-400" />
-          <span>Vivienda Turística Registrada — Cantabria</span>
+        <div class="pt-2 flex items-center gap-2 text-xs text-stone-400 font-light">
+          <ShieldCheck class="w-4 h-4 text-stone-300 stroke-[1.5]" />
+          <span>Vivienda de Uso Turístico Oficial — Cantabria</span>
         </div>
       </div>
 
       <!-- Enlaces Rápidos -->
       <div>
-        <h4 class="text-sm font-bold uppercase tracking-wider text-white mb-4">Navegación</h4>
-        <ul class="space-y-2.5 text-sm">
-          <li><a href="#inicio" class="hover:text-teal-400 transition">Inicio</a></li>
-          <li><a href="#galeria" class="hover:text-teal-400 transition">Galería de Fotos</a></li>
-          <li><a href="#caracteristicas" class="hover:text-teal-400 transition">3 Dormitorios y 70m²</a></li>
-          <li><a href="#ventajas" class="hover:text-teal-400 transition">Ventajas Reserva Directa</a></li>
-          <li><a href="#ubicacion" class="hover:text-teal-400 transition">Ubicación y Entorno</a></li>
-          <li><a href="#reservas" class="text-teal-400 font-semibold hover:underline">Motor de Reservas</a></li>
+        <h4 class="text-xs font-medium uppercase tracking-widest text-stone-200 mb-4">Navegación</h4>
+        <ul class="space-y-2.5 text-sm font-light">
+          <li><a href="#inicio" class="hover:text-white transition">Inicio</a></li>
+          <li><a href="#galeria" class="hover:text-white transition">Galería de Fotos</a></li>
+          <li><a href="#caracteristicas" class="hover:text-white transition">3 Dormitorios & 70 m²</a></li>
+          <li><a href="#ventajas" class="hover:text-white transition">Tarifa Directa</a></li>
+          <li><a href="#ubicacion" class="hover:text-white transition">Ubicación y Entorno</a></li>
+          <li><a href="#reservas" class="text-stone-200 font-medium hover:underline">Motor de Reservas</a></li>
         </ul>
       </div>
 
       <!-- Contacto Directo -->
       <div>
-        <h4 class="text-sm font-bold uppercase tracking-wider text-white mb-4">Contacto Directo</h4>
-        <ul class="space-y-3 text-sm">
+        <h4 class="text-xs font-medium uppercase tracking-widest text-stone-200 mb-4">Contacto Directo</h4>
+        <ul class="space-y-3 text-sm font-light">
           <li class="flex items-start gap-2.5">
-            <MapPin class="w-4 h-4 text-teal-400 flex-shrink-0 mt-0.5" />
+            <MapPin class="w-4 h-4 text-stone-400 flex-shrink-0 mt-0.5 stroke-[1.5]" />
             <span>Suances (Playa de La Concha), Cantabria</span>
           </li>
           <li class="flex items-center gap-2.5">
-            <Phone class="w-4 h-4 text-emerald-400 flex-shrink-0" />
+            <Phone class="w-4 h-4 text-stone-400 flex-shrink-0 stroke-[1.5]" />
             <a href="https://wa.me/34600123456" target="_blank" class="hover:text-white transition">
               +34 600 123 456 (WhatsApp)
             </a>
           </li>
           <li class="flex items-center gap-2.5">
-            <Mail class="w-4 h-4 text-blue-400 flex-shrink-0" />
+            <Mail class="w-4 h-4 text-stone-400 flex-shrink-0 stroke-[1.5]" />
             <a href="mailto:info@costadelsolsuances.es" class="hover:text-white transition">
               info@costadelsolsuances.es
             </a>
@@ -66,29 +66,29 @@ import { Waves, Heart, Github, Calendar, Phone, Mail, MapPin, ShieldCheck, Downl
 
       <!-- Sincronización y Desarrollador -->
       <div>
-        <h4 class="text-sm font-bold uppercase tracking-wider text-white mb-4">Sincronización iCal</h4>
-        <p class="text-xs text-slate-400 leading-relaxed mb-3">
-          Feed en tiempo real para exportar reservas directas a plataformas externas:
+        <h4 class="text-xs font-medium uppercase tracking-widest text-stone-200 mb-4">Sincronización iCal</h4>
+        <p class="text-xs text-stone-400 font-light leading-relaxed mb-3">
+          Feed en tiempo real para exportar reservas directas hacia Booking y Airbnb:
         </p>
         <a 
           href="/api/calendar.ics" 
           target="_blank"
-          class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-slate-900 border border-slate-800 text-xs text-slate-300 hover:text-white hover:border-teal-500 transition"
+          class="inline-flex items-center gap-2 px-3.5 py-2 rounded-xl bg-slate-800/80 border border-slate-700 text-xs text-stone-200 hover:text-white hover:border-slate-500 transition"
         >
-          <Download class="w-3.5 h-3.5 text-teal-400" />
+          <Download class="w-3.5 h-3.5 stroke-[1.5]" />
           <span>Feed /api/calendar.ics</span>
         </a>
 
         <!-- GitHub Profile Reference (@itorresano12) -->
-        <div class="mt-6 pt-4 border-t border-slate-900">
-          <span class="block text-[11px] uppercase tracking-wider text-slate-500 font-bold mb-1.5">Desarrollo y Anfitrión</span>
+        <div class="mt-6 pt-4 border-t border-slate-800">
+          <span class="block text-[11px] uppercase tracking-widest text-stone-500 font-medium mb-1.5">Desarrollador & Anfitrión</span>
           <a 
             href="https://github.com/itorresano12" 
             target="_blank" 
             rel="noopener noreferrer"
-            class="inline-flex items-center gap-2 px-3 py-1.5 rounded-xl bg-slate-900 hover:bg-slate-800 border border-slate-800 text-slate-200 text-xs font-semibold hover:border-slate-700 transition group"
+            class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-xl bg-slate-800/80 hover:bg-slate-800 border border-slate-700 text-stone-200 text-xs font-medium transition group"
           >
-            <Github class="w-4 h-4 text-teal-400 group-hover:rotate-12 transition-transform" />
+            <Github class="w-4 h-4 text-stone-300 group-hover:rotate-12 transition-transform stroke-[1.5]" />
             <span>@itorresano12 en GitHub</span>
           </a>
         </div>
@@ -97,19 +97,12 @@ import { Waves, Heart, Github, Calendar, Phone, Mail, MapPin, ShieldCheck, Downl
     </div>
 
     <!-- Bottom Copyright -->
-    <div class="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
-      <div>
-        © {new Date().getFullYear()} Apartamento Costa del Sol Suances. Todos los derechos reservados.
-      </div>
-      <div class="flex items-center gap-4">
-        <a href="#reservas" class="hover:text-slate-300 transition">Tarifas y Reservas</a>
-        <span>•</span>
-        <a href="https://github.com/itorresano12" target="_blank" rel="noopener noreferrer" class="hover:text-teal-400 transition font-medium">
-          GitHub @itorresano12
-        </a>
+    <div class="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-stone-500 font-light">
+      <p>© {new Date().getFullYear()} Apartamento Costa del Sol Suances. Todos los derechos reservados.</p>
+      <div class="flex items-center gap-6">
+        <a href="#inicio" class="hover:text-stone-300 transition">Volver arriba ↑</a>
       </div>
     </div>
 
   </div>
 </footer>
-

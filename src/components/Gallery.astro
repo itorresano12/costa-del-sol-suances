@@ -1,291 +1,317 @@
 ---
-import { Camera, Eye, Waves, Sparkles, CheckCircle2 } from 'lucide-astro';
+import { Camera, Maximize2, X, ChevronLeft, ChevronRight, LayoutGrid } from 'lucide-astro';
 
-// Fotografías reales descargadas desde Booking.com en máxima resolución HD (max1280x900)
-const galleryPhotos = [
+const allPhotos = [
   {
     id: 1,
-    title: "Vistas al Mar Cantábrico y Playa",
-    category: "vistas",
-    tag: "Frente al mar",
+    title: "Vistas al Mar Cantábrico y Playa de La Concha",
     url: "/images/apartamento/hero-vistas.jpg",
-    description: "Vistas directas a la costa de Suances, a tan solo 2 minutos a pie de la Playa de La Concha."
+    desc: "Vistas despejadas a la bahía de Suances a tan solo 2 minutos a pie de la orilla."
   },
   {
     id: 2,
-    title: "Salón Principal Confortable",
-    category: "salon",
-    tag: "Zona de estar",
+    title: "Salón Principal y Zona de Estar",
     url: "/images/apartamento/salon-1.jpg",
-    description: "Salón con sofá amplio, Smart TV y luz natural durante todo el día."
+    desc: "Espacio luminoso con luz natural, amplio sofá y televisión Smart TV."
   },
   {
     id: 3,
-    title: "Zona de Estar y Televisión",
-    category: "salon",
-    tag: "Salón luminoso",
-    url: "/images/apartamento/salon-2.jpg",
-    description: "Espacio diáfano perfecto para relajarse en familia tras una jornada de playa."
+    title: "Dormitorio Principal (Cama 150 cm)",
+    url: "/images/apartamento/dormitorio-principal.jpg",
+    desc: "Cama doble confortable de 150 cm con ropa de cama de algodón y amplio armario."
   },
   {
     id: 4,
-    title: "Dormitorio Principal (Cama Matrimonio)",
-    category: "dormitorios",
-    tag: "Dormitorio 1",
-    url: "/images/apartamento/dormitorio-principal.jpg",
-    description: "Cama doble amplia de 150 cm con ropa de cama limpia, almohadas confortables y armario."
+    title: "Cocina Equipada",
+    url: "/images/apartamento/cocina.jpg",
+    desc: "Nevera grande con congelador, cafetera para desayunos, microondas y menaje completo."
   },
   {
     id: 5,
-    title: "Segundo Dormitorio (2 Camas)",
-    category: "dormitorios",
-    tag: "Dormitorio 2",
-    url: "/images/apartamento/dormitorio-2.jpg",
-    description: "Dos camas individuales de 90 cm con colchones confortables, ideal para niños o amigos."
+    title: "Terraza y Vistas Panorámicas",
+    url: "/images/apartamento/terraza-vistas.jpg",
+    desc: "Brisa marina y vistas abiertas sobre la costa cántabra."
   },
   {
     id: 6,
-    title: "Tercer Dormitorio Independiente",
-    category: "dormitorios",
-    tag: "Dormitorio 3",
-    url: "/images/apartamento/dormitorio-3.jpg",
-    description: "Tercera estancia con cama individual/nido, buena ventilación y total privacidad."
+    title: "Zona de Estar Luminosa",
+    url: "/images/apartamento/salon-2.jpg",
+    desc: "Zona de relax perfecta para descansar en familia."
   },
   {
     id: 7,
-    title: "Cocina Equipada (Nevera y Cafetera)",
-    category: "cocina",
-    tag: "Cocina Completa",
-    url: "/images/apartamento/cocina.jpg",
-    description: "Nevera grande con congelador, cafetera para tus desayunos, microondas y menaje completo."
+    title: "Segundo Dormitorio (2 Camas)",
+    url: "/images/apartamento/dormitorio-2.jpg",
+    desc: "Dos camas individuales de 90 cm confortables y almacenamiento."
   },
   {
     id: 8,
-    title: "Baño Completo con Ducha y Secador",
-    category: "bano",
-    tag: "Baño Completo",
-    url: "/images/apartamento/bano.jpg",
-    description: "Plato de ducha amplio con mampara, secador de pelo potente y toallas de calidad."
+    title: "Tercer Dormitorio Independiente",
+    url: "/images/apartamento/dormitorio-3.jpg",
+    desc: "Habitación acogedora con cama individual / nido independiente."
   },
   {
     id: 9,
-    title: "Vistas Panorámicas y Terraza",
-    category: "vistas",
-    tag: "Vistas y Costa",
-    url: "/images/apartamento/terraza-vistas.jpg",
-    description: "Disfruta de la brisa marina y los atardeceres sobre la bahía de Suances."
+    title: "Baño Completo con Ducha",
+    url: "/images/apartamento/bano.jpg",
+    desc: "Plato de ducha amplio con mampara, secador de pelo potente y toallas."
   },
   {
     id: 10,
     title: "Mesa de Comedor Familiar",
-    category: "salon",
-    tag: "Comedor 6 Pax",
     url: "/images/apartamento/comedor.jpg",
-    description: "Mesa espaciosa para compartir almuerzos y cenas en familia o con amigos."
+    desc: "Mesa espaciosa para compartir veladas gastronómicas."
   },
   {
     id: 11,
-    title: "Edificio y Acceso Residencial",
-    category: "entorno",
-    tag: "Acceso y Exterior",
+    title: "Edificio y Entorno Residencial",
     url: "/images/apartamento/edificio-exterior.jpg",
-    description: "Ubicación privilegiada con fácil acceso a la playa y zonas de aparcamiento."
+    desc: "Ubicación tranquila y accesible con zonas de aparcamiento."
   },
   {
     id: 12,
-    title: "Playa de La Concha (a 2 min)",
-    category: "entorno",
-    tag: "Playa La Concha",
+    title: "Paseo de la Playa de La Concha",
     url: "/images/apartamento/entorno-playa.jpg",
-    description: "Paseo marítimo, arena dorada y restaurantes de marisco a solo unos pasos."
+    desc: "A solo 150 metros del portal: arena dorada, gastronomía y paseos marineros."
   }
 ];
+
+// 5 Fotos seleccionadas para la cuadrícula Bento principal
+const bentoPhotos = allPhotos.slice(0, 5);
 ---
 
-<section id="galeria" class="py-20 bg-white">
+<section id="galeria" class="py-20 lg:py-28 bg-[#FDFBF7]">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     
-    <!-- Section Header -->
-    <div class="flex flex-col md:flex-row md:items-end justify-between mb-12">
-      <div>
-        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-teal-50 border border-teal-200 text-teal-800 text-xs font-bold uppercase tracking-wider mb-3">
-          <Camera class="w-3.5 h-3.5 text-teal-600" />
-          <span>Galería Fotográfica Real</span>
+    <!-- Section Header Editorial -->
+    <div class="text-center max-w-3xl mx-auto mb-14">
+      <span class="text-stone-500 text-xs sm:text-sm tracking-widest uppercase font-medium">
+        Galería Fotográfica
+      </span>
+      <h2 class="font-serif text-3xl sm:text-5xl font-normal text-stone-900 tracking-tight mt-3 mb-4">
+        Espacios serenos con alma cántabra
+      </h2>
+      <p class="text-stone-600 text-base sm:text-lg font-light leading-relaxed">
+        Cada rincón pensado para descansar, sentir la brisa del norte y compartir momentos inolvidables.
+      </p>
+    </div>
+
+    <!-- Asymmetrical Bento Grid (5 Pristine Clean Photos) -->
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-4 sm:gap-5">
+      
+      <!-- Main Featured Photo (Left Column, Spans 2 cols & 2 rows) -->
+      <div 
+        class="bento-card md:col-span-2 md:row-span-2 relative rounded-3xl overflow-hidden cursor-pointer group bg-stone-100 border border-stone-200/80 shadow-sm"
+        data-photo-index="0"
+      >
+        <div class="w-full h-[360px] md:h-[500px] overflow-hidden">
+          <img 
+            src={bentoPhotos[0].url} 
+            alt={bentoPhotos[0].title}
+            class="w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-700 ease-out"
+            loading="eager"
+          />
         </div>
-        <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
-          Fotos reales de nuestro alojamiento en Suances
-        </h2>
-        <p class="mt-3 text-base sm:text-lg text-slate-600 max-w-2xl">
-          Descubre cada estancia del Apartamento Costa del Sol: 70 m², 3 dormitorios independientes y todas las comodidades a 2 minutos a pie de la Playa de La Concha.
-        </p>
+        <!-- Minimal subtle hover overlay (no clunky black text bars) -->
+        <div class="absolute inset-0 bg-stone-900/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+          <div class="w-12 h-12 rounded-full bg-white/90 backdrop-blur-md text-stone-900 flex items-center justify-center shadow-lg transform scale-90 group-hover:scale-100 transition-transform">
+            <Maximize2 class="w-5 h-5 stroke-[1.5]" />
+          </div>
+        </div>
       </div>
 
-      <div class="mt-6 md:mt-0">
-        <a 
-          href="#reservas"
-          class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-slate-900 hover:bg-slate-800 text-white font-semibold text-sm transition shadow-sm"
-        >
-          <span>Comprobar Disponibilidad</span>
-        </a>
-      </div>
-    </div>
-
-    <!-- Interactive Category Filter Chips -->
-    <div class="flex flex-wrap items-center gap-2 mb-8" id="gallery-filters">
-      <button class="gallery-filter-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold transition bg-teal-600 text-white shadow-sm" data-filter="all">
-        Todas las Fotos ({galleryPhotos.length})
-      </button>
-      <button class="gallery-filter-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold transition bg-slate-100 hover:bg-slate-200 text-slate-700" data-filter="vistas">
-        Vistas al Mar
-      </button>
-      <button class="gallery-filter-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold transition bg-slate-100 hover:bg-slate-200 text-slate-700" data-filter="dormitorios">
-        3 Dormitorios
-      </button>
-      <button class="gallery-filter-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold transition bg-slate-100 hover:bg-slate-200 text-slate-700" data-filter="salon">
-        Salón y Comedor
-      </button>
-      <button class="gallery-filter-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold transition bg-slate-100 hover:bg-slate-200 text-slate-700" data-filter="cocina">
-        Cocina y Baño
-      </button>
-      <button class="gallery-filter-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold transition bg-slate-100 hover:bg-slate-200 text-slate-700" data-filter="entorno">
-        Exterior y Playa
-      </button>
-    </div>
-
-    <!-- Gallery Grid -->
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5" id="gallery-grid">
-      {galleryPhotos.map((photo, index) => (
+      <!-- 4 Complementary Photos (2x2 Grid on Desktop) -->
+      {bentoPhotos.slice(1, 5).map((photo, idx) => (
         <div 
-          class={`group relative overflow-hidden rounded-2xl bg-slate-100 border border-slate-200 shadow-sm cursor-pointer gallery-item ${index === 0 ? 'sm:col-span-2 sm:row-span-2' : ''}`}
-          data-category={photo.category}
-          data-title={photo.title}
-          data-url={photo.url}
-          data-desc={photo.description}
+          class="bento-card md:col-span-1 relative rounded-2xl overflow-hidden cursor-pointer group bg-stone-100 border border-stone-200/80 shadow-sm"
+          data-photo-index={idx + 1}
         >
-          <div class={`w-full overflow-hidden ${index === 0 ? 'h-[360px] sm:h-[500px]' : 'h-64'}`}>
+          <div class="w-full h-[240px] overflow-hidden">
             <img 
               src={photo.url} 
               alt={photo.title}
-              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-              loading={index < 4 ? "eager" : "lazy"}
+              class="w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-700 ease-out"
+              loading="lazy"
             />
           </div>
-
-          <!-- Overlay Badge & Info -->
-          <div class="absolute inset-0 bg-gradient-to-t from-slate-950/85 via-slate-950/20 to-transparent opacity-85 group-hover:opacity-100 transition-opacity flex flex-col justify-between p-4">
-            <div class="flex justify-between items-start">
-              <span class="px-2.5 py-1 bg-white/95 backdrop-blur-md text-slate-900 rounded-lg text-xs font-bold shadow-sm">
-                {photo.tag}
-              </span>
-              <div class="w-8 h-8 rounded-full bg-black/50 text-white flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity shadow">
-                <Eye class="w-4 h-4" />
-              </div>
-            </div>
-
-            <div>
-              <h3 class="text-white font-bold text-base sm:text-lg tracking-tight drop-shadow-md">
-                {photo.title}
-              </h3>
-              <p class="text-slate-200 text-xs mt-1 line-clamp-2 drop-shadow">
-                {photo.description}
-              </p>
+          <!-- Minimal subtle hover overlay -->
+          <div class="absolute inset-0 bg-stone-900/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+            <div class="w-10 h-10 rounded-full bg-white/90 backdrop-blur-md text-stone-900 flex items-center justify-center shadow-lg transform scale-90 group-hover:scale-100 transition-transform">
+              <Maximize2 class="w-4 h-4 stroke-[1.5]" />
             </div>
           </div>
         </div>
       ))}
+
     </div>
 
-    <!-- Verified Photos Badge -->
-    <div class="mt-8 p-4 rounded-2xl bg-emerald-50 border border-emerald-200/80 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs sm:text-sm text-emerald-900">
-      <div class="flex items-center gap-3">
-        <CheckCircle2 class="w-5 h-5 text-emerald-600 flex-shrink-0" />
-        <span>
-          <strong>Fotografías verificadas en alta resolución:</strong> Imágenes oficiales de la ficha de Booking.com del Apartamento Costa del Sol en Suances.
-        </span>
-      </div>
-      <a href="#reservas" class="text-emerald-800 font-bold hover:underline whitespace-nowrap">
-        Reservar sin intermediarios (-15%) →
-      </a>
+    <!-- Clean Bottom Action Button -->
+    <div class="mt-10 text-center">
+      <button 
+        id="open-full-gallery-btn"
+        type="button"
+        class="inline-flex items-center gap-2.5 px-7 py-3.5 rounded-full bg-white border border-stone-300 hover:border-stone-400 text-stone-800 text-sm font-medium shadow-sm hover:shadow transition-all group"
+      >
+        <LayoutGrid class="w-4 h-4 text-stone-600 group-hover:text-stone-900 transition-colors" />
+        <span>Ver colección fotográfica completa ({allPhotos.length} fotos)</span>
+      </button>
     </div>
 
   </div>
 </section>
 
-<!-- Lightbox Modal -->
-<div id="gallery-modal" class="fixed inset-0 z-50 bg-black/90 backdrop-blur-md hidden flex items-center justify-center p-4">
-  <div class="relative max-w-4xl w-full bg-slate-900 rounded-3xl overflow-hidden border border-slate-800 shadow-2xl">
-    <button id="close-modal-btn" class="absolute top-4 right-4 z-10 p-2.5 rounded-full bg-black/60 hover:bg-black/80 text-white transition">
-      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-      </svg>
-    </button>
-    <div class="max-h-[70vh] flex items-center justify-center bg-black">
-      <img id="modal-img" src="" alt="" class="max-h-[70vh] w-auto object-contain mx-auto" />
+<!-- Fullscreen Gallery Lightbox Modal -->
+<div id="boutique-modal" class="fixed inset-0 z-50 bg-stone-950/95 backdrop-blur-md hidden flex items-center justify-center p-4 sm:p-6 transition-all duration-300" role="dialog" aria-modal="true">
+  
+  <div class="relative max-w-5xl w-full flex flex-col items-center">
+    
+    <!-- Top Modal Controls -->
+    <div class="w-full flex items-center justify-between text-white pb-4 border-b border-stone-800">
+      <div class="flex items-center gap-3">
+        <span class="text-xs uppercase tracking-widest text-stone-400 font-medium">Colección</span>
+        <span id="modal-counter" class="text-xs text-stone-300 font-mono">1 / {allPhotos.length}</span>
+      </div>
+      <button 
+        id="close-boutique-modal" 
+        class="p-2 rounded-full text-stone-400 hover:text-white hover:bg-white/10 transition"
+        aria-label="Cerrar visor"
+      >
+        <X class="w-6 h-6 stroke-[1.5]" />
+      </button>
     </div>
-    <div class="p-6 bg-slate-900 text-white">
-      <h3 id="modal-title" class="text-xl font-bold font-heading"></h3>
-      <p id="modal-desc" class="text-sm text-slate-300 mt-1"></p>
+
+    <!-- Active Main Image with Navigation -->
+    <div class="relative w-full h-[55vh] sm:h-[65vh] flex items-center justify-center my-4 overflow-hidden rounded-2xl bg-stone-900">
+      <img 
+        id="modal-active-img" 
+        src="" 
+        alt="" 
+        class="max-h-full max-w-full object-contain transition-opacity duration-300"
+      />
+
+      <!-- Prev / Next Navigation Arrows -->
+      <button 
+        id="prev-photo-btn"
+        class="absolute left-3 p-3 rounded-full bg-stone-900/80 hover:bg-stone-900 text-white border border-white/10 backdrop-blur-sm transition-all"
+        aria-label="Foto anterior"
+      >
+        <ChevronLeft class="w-5 h-5 stroke-[1.5]" />
+      </button>
+
+      <button 
+        id="next-photo-btn"
+        class="absolute right-3 p-3 rounded-full bg-stone-900/80 hover:bg-stone-900 text-white border border-white/10 backdrop-blur-sm transition-all"
+        aria-label="Foto siguiente"
+      >
+        <ChevronRight class="w-5 h-5 stroke-[1.5]" />
+      </button>
     </div>
+
+    <!-- Caption / Description -->
+    <div class="text-center max-w-xl px-4">
+      <h3 id="modal-title" class="font-serif text-lg sm:text-xl text-white font-normal"></h3>
+      <p id="modal-desc" class="text-xs sm:text-sm text-stone-400 font-light mt-1"></p>
+    </div>
+
+    <!-- Thumbnails Strip -->
+    <div class="flex items-center gap-2 mt-4 overflow-x-auto max-w-full py-2 px-1 scrollbar-none">
+      {allPhotos.map((photo, i) => (
+        <button 
+          class="thumb-btn flex-shrink-0 w-14 h-10 rounded-lg overflow-hidden border border-transparent opacity-60 hover:opacity-100 transition-all focus:outline-none"
+          data-index={i}
+        >
+          <img src={photo.url} alt="" class="w-full h-full object-cover" />
+        </button>
+      ))}
+    </div>
+
   </div>
 </div>
 
-<script>
-  // Filter tabs logic
-  const filterButtons = document.querySelectorAll('.gallery-filter-btn');
-  const galleryItems = document.querySelectorAll('.gallery-item');
-
-  filterButtons.forEach((btn) => {
-    btn.addEventListener('click', () => {
-      filterButtons.forEach((b) => {
-        b.classList.remove('bg-teal-600', 'text-white');
-        b.classList.add('bg-slate-100', 'text-slate-700');
-      });
-      btn.classList.add('bg-teal-600', 'text-white');
-      btn.classList.remove('bg-slate-100', 'text-slate-700');
-
-      const filter = btn.getAttribute('data-filter');
-      galleryItems.forEach((item) => {
-        const cat = item.getAttribute('data-category');
-        if (
-          filter === 'all' || 
-          cat === filter || 
-          (filter === 'cocina' && (cat === 'cocina' || cat === 'bano')) ||
-          (filter === 'entorno' && (cat === 'entorno' || cat === 'vistas'))
-        ) {
-          (item as HTMLElement).style.display = 'block';
-        } else {
-          (item as HTMLElement).style.display = 'none';
-        }
-      });
-    });
-  });
-
-  // Lightbox Modal Logic
-  const modal = document.getElementById('gallery-modal');
-  const modalImg = document.getElementById('modal-img') as HTMLImageElement;
+<script define:vars={{ allPhotos }}>
+  let currentIndex = 0;
+  const modal = document.getElementById('boutique-modal');
+  const modalImg = document.getElementById('modal-active-img');
   const modalTitle = document.getElementById('modal-title');
   const modalDesc = document.getElementById('modal-desc');
-  const closeModalBtn = document.getElementById('close-modal-btn');
+  const modalCounter = document.getElementById('modal-counter');
+  const closeBtn = document.getElementById('close-boutique-modal');
+  const prevBtn = document.getElementById('prev-photo-btn');
+  const nextBtn = document.getElementById('next-photo-btn');
+  const openFullBtn = document.getElementById('open-full-gallery-btn');
+  const bentoCards = document.querySelectorAll('.bento-card');
+  const thumbBtns = document.querySelectorAll('.thumb-btn');
 
-  galleryItems.forEach((item) => {
-    item.addEventListener('click', () => {
-      const url = item.getAttribute('data-url');
-      const title = item.getAttribute('data-title');
-      const desc = item.getAttribute('data-desc');
+  function updateModal(index) {
+    if (index < 0) index = allPhotos.length - 1;
+    if (index >= allPhotos.length) index = 0;
+    currentIndex = index;
 
-      if (modal && modalImg && modalTitle && modalDesc && url) {
-        modalImg.src = url;
-        modalTitle.textContent = title || '';
-        modalDesc.textContent = desc || '';
-        modal.classList.remove('hidden');
+    const photo = allPhotos[currentIndex];
+    if (modalImg) modalImg.src = photo.url;
+    if (modalTitle) modalTitle.textContent = photo.title;
+    if (modalDesc) modalDesc.textContent = photo.desc;
+    if (modalCounter) modalCounter.textContent = `${currentIndex + 1} / ${allPhotos.length}`;
+
+    // Highlight active thumbnail
+    thumbBtns.forEach((btn, idx) => {
+      if (idx === currentIndex) {
+        btn.classList.add('border-white', 'opacity-100', 'scale-105');
+        btn.classList.remove('opacity-60');
+      } else {
+        btn.classList.remove('border-white', 'scale-105');
+        btn.classList.add('opacity-60');
       }
+    });
+  }
+
+  function openModal(index = 0) {
+    updateModal(index);
+    if (modal) {
+      modal.classList.remove('hidden');
+      document.body.style.overflow = 'hidden';
+    }
+  }
+
+  function closeModal() {
+    if (modal) {
+      modal.classList.add('hidden');
+      document.body.style.overflow = '';
+    }
+  }
+
+  bentoCards.forEach(card => {
+    card.addEventListener('click', () => {
+      const idx = parseInt(card.getAttribute('data-photo-index') || '0', 10);
+      openModal(idx);
     });
   });
 
-  if (closeModalBtn && modal) {
-    closeModalBtn.addEventListener('click', () => modal.classList.add('hidden'));
+  if (openFullBtn) {
+    openFullBtn.addEventListener('click', () => openModal(0));
+  }
+
+  if (closeBtn) closeBtn.addEventListener('click', closeModal);
+  if (prevBtn) prevBtn.addEventListener('click', () => updateModal(currentIndex - 1));
+  if (nextBtn) nextBtn.addEventListener('click', () => updateModal(currentIndex + 1));
+
+  thumbBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const idx = parseInt(btn.getAttribute('data-index') || '0', 10);
+      updateModal(idx);
+    });
+  });
+
+  // Close with Escape or background click
+  window.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeModal();
+    if (e.key === 'ArrowLeft') updateModal(currentIndex - 1);
+    if (e.key === 'ArrowRight') updateModal(currentIndex + 1);
+  });
+
+  if (modal) {
     modal.addEventListener('click', (e) => {
-      if (e.target === modal) modal.classList.add('hidden');
+      if (e.target === modal) closeModal();
     });
   }
 </script>

@@ -1,35 +1,35 @@
 ---
-import { Waves, Calendar, Phone, Sparkles } from 'lucide-astro';
+import { Waves, Calendar, Phone } from 'lucide-astro';
 ---
 
-<header class="sticky top-0 z-50 w-full backdrop-blur-md bg-white/90 border-b border-slate-200/80 transition-all duration-300">
+<header class="sticky top-0 z-50 w-full backdrop-blur-md bg-[#FDFBF7]/90 border-b border-stone-200/60 transition-all duration-300">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="flex items-center justify-between h-20">
       
       <!-- Brand Logo -->
-      <a href="#inicio" class="flex items-center gap-3 group">
-        <div class="w-11 h-11 rounded-2xl bg-gradient-to-tr from-teal-600 to-emerald-500 text-white flex items-center justify-center shadow-md shadow-teal-500/20 group-hover:scale-105 transition-transform duration-300">
-          <Waves class="w-6 h-6" />
+      <a href="#inicio" class="flex items-center gap-3.5 group">
+        <div class="w-10 h-10 rounded-2xl bg-slate-900 text-white flex items-center justify-center shadow-md shadow-slate-900/10 group-hover:scale-105 transition-transform duration-300">
+          <Waves class="w-5 h-5 stroke-[1.5]" />
         </div>
         <div class="flex flex-col">
-          <span class="font-heading font-extrabold text-xl text-slate-900 tracking-tight leading-none group-hover:text-teal-700 transition">
+          <span class="font-serif text-xl sm:text-2xl text-stone-900 tracking-tight leading-none group-hover:text-stone-700 transition">
             Costa del Sol
           </span>
-          <div class="flex items-center gap-1.5 mt-0.5">
-            <span class="text-xs font-bold text-teal-800 tracking-wide uppercase">Suances, Cantabria</span>
-            <span class="inline-block w-1 h-1 rounded-full bg-slate-400"></span>
-            <span class="text-[11px] font-semibold text-slate-600">Playa de La Concha</span>
+          <div class="flex items-center gap-1.5 mt-1">
+            <span class="text-[11px] font-medium text-stone-500 tracking-widest uppercase">Suances, Cantabria</span>
+            <span class="inline-block w-1 h-1 rounded-full bg-stone-300"></span>
+            <span class="text-[11px] font-light text-stone-400">Playa de La Concha</span>
           </div>
         </div>
       </a>
 
       <!-- Desktop Navigation Links -->
-      <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-slate-600">
-        <a href="#inicio" class="hover:text-teal-600 transition">Inicio</a>
-        <a href="#galeria" class="hover:text-teal-600 transition">Galería</a>
-        <a href="#caracteristicas" class="hover:text-teal-600 transition">3 Dormitorios & Piso</a>
-        <a href="#ventajas" class="hover:text-teal-600 transition">Sin Comisiones</a>
-        <a href="#ubicacion" class="hover:text-teal-600 transition">Ubicación</a>
+      <nav class="hidden md:flex items-center gap-8 text-sm font-light text-stone-600">
+        <a href="#inicio" class="hover:text-stone-900 transition">Inicio</a>
+        <a href="#galeria" class="hover:text-stone-900 transition">Galería</a>
+        <a href="#caracteristicas" class="hover:text-stone-900 transition">3 Dormitorios & Piso</a>
+        <a href="#ventajas" class="hover:text-stone-900 transition">Tarifa Directa</a>
+        <a href="#ubicacion" class="hover:text-stone-900 transition">Ubicación</a>
       </nav>
 
       <!-- Action Buttons -->
@@ -37,21 +37,18 @@ import { Waves, Calendar, Phone, Sparkles } from 'lucide-astro';
         <a 
           href="https://wa.me/34600123456?text=Hola%20Ivan,%20quería%20consultar%20disponibilidad%20para%20el%20Apartamento%20Costa%20del%20Sol%20Suances" 
           target="_blank" 
-          class="p-2.5 rounded-xl text-slate-600 hover:text-emerald-600 hover:bg-emerald-50 transition"
+          class="p-2.5 rounded-full text-stone-500 hover:text-stone-900 hover:bg-stone-200/50 transition"
           title="Contacto directo por WhatsApp"
         >
-          <Phone class="w-5 h-5" />
+          <Phone class="w-4 h-4 stroke-[1.5]" />
         </a>
 
         <a 
           href="#reservas" 
-          class="relative group overflow-hidden inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-gradient-to-r from-teal-600 via-teal-700 to-emerald-600 text-white font-semibold text-sm shadow-lg shadow-teal-700/20 hover:shadow-teal-700/30 hover:scale-[1.02] active:scale-[0.98] transition-all duration-200"
+          class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-slate-900 hover:bg-slate-800 text-white font-medium text-xs sm:text-sm shadow-sm hover:shadow transition-all"
         >
-          <Calendar class="w-4 h-4 text-teal-200" />
+          <Calendar class="w-3.5 h-3.5 text-stone-300 stroke-[1.5]" />
           <span>Reservar Directo</span>
-          <span class="ml-1 px-1.5 py-0.5 text-[10px] uppercase font-bold tracking-wider bg-white/20 rounded-md backdrop-blur-sm">
-            -15%
-          </span>
         </a>
       </div>
 
@@ -59,18 +56,18 @@ import { Waves, Calendar, Phone, Sparkles } from 'lucide-astro';
       <div class="flex md:hidden items-center gap-2">
         <a 
           href="#reservas"
-          class="px-3 py-1.5 bg-teal-600 text-white text-xs font-bold rounded-lg shadow-sm"
+          class="px-4 py-2 bg-slate-900 text-white text-xs font-medium rounded-full shadow-sm"
         >
           Reservar
         </a>
         <button 
           id="mobile-menu-btn" 
           type="button" 
-          class="p-2 text-slate-700 hover:bg-slate-100 rounded-lg focus:outline-none" 
+          class="p-2 text-stone-700 hover:bg-stone-100 rounded-xl focus:outline-none" 
           aria-label="Abrir menú"
         >
           <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 6h16M4 12h16M4 18h16" />
           </svg>
         </button>
       </div>
@@ -79,14 +76,14 @@ import { Waves, Calendar, Phone, Sparkles } from 'lucide-astro';
   </div>
 
   <!-- Mobile Drawer Menu -->
-  <div id="mobile-menu" class="hidden md:hidden border-t border-slate-200 bg-white px-4 pt-3 pb-6 space-y-3">
-    <a href="#inicio" class="block px-3 py-2 rounded-lg text-base font-medium text-slate-700 hover:bg-slate-50">Inicio</a>
-    <a href="#galeria" class="block px-3 py-2 rounded-lg text-base font-medium text-slate-700 hover:bg-slate-50">Galería de Fotos</a>
-    <a href="#caracteristicas" class="block px-3 py-2 rounded-lg text-base font-medium text-slate-700 hover:bg-slate-50">3 Dormitorios y Equipamiento (70m²)</a>
-    <a href="#ventajas" class="block px-3 py-2 rounded-lg text-base font-medium text-slate-700 hover:bg-slate-50">Ventajas Reserva Directa</a>
-    <a href="#ubicacion" class="block px-3 py-2 rounded-lg text-base font-medium text-slate-700 hover:bg-slate-50">Ubicación y Entorno</a>
-    <a href="#reservas" class="block px-3 py-3 rounded-xl text-center font-bold text-white bg-teal-600 shadow-md">
-      Reservar Ahora (Ahorra Comisiones)
+  <div id="mobile-menu" class="hidden md:hidden border-t border-stone-200 bg-[#FDFBF7] px-4 pt-3 pb-6 space-y-3">
+    <a href="#inicio" class="block px-3 py-2 rounded-xl text-base font-light text-stone-700 hover:bg-stone-100">Inicio</a>
+    <a href="#galeria" class="block px-3 py-2 rounded-xl text-base font-light text-stone-700 hover:bg-stone-100">Galería de Fotos</a>
+    <a href="#caracteristicas" class="block px-3 py-2 rounded-xl text-base font-light text-stone-700 hover:bg-stone-100">3 Dormitorios y 70 m²</a>
+    <a href="#ventajas" class="block px-3 py-2 rounded-xl text-base font-light text-stone-700 hover:bg-stone-100">Ventajas Reserva Directa</a>
+    <a href="#ubicacion" class="block px-3 py-2 rounded-xl text-base font-light text-stone-700 hover:bg-stone-100">Ubicación y Entorno</a>
+    <a href="#reservas" class="block px-4 py-3 rounded-2xl text-center font-medium text-white bg-slate-900 shadow-md">
+      Reservar Ahora (Mejor Tarifa)
     </a>
   </div>
 </header>
@@ -98,10 +95,5 @@ import { Waves, Calendar, Phone, Sparkles } from 'lucide-astro';
     btn.addEventListener('click', () => {
       menu.classList.toggle('hidden');
     });
-    // Cerrar al pulsar un enlace
-    menu.querySelectorAll('a').forEach((link) => {
-      link.addEventListener('click', () => menu.classList.add('hidden'));
-    });
   }
 </script>
-
