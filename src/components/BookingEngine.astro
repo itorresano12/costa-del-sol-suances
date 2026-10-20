@@ -236,7 +236,7 @@ import {
           </div>
         </div>
 
-        <!-- Submit Button -->
+        <!-- Submit Button & Trust Badges -->
         <div>
           <button 
             type="submit" 
@@ -246,9 +246,30 @@ import {
             <span id="btn-text">Confirmar Reserva Directa</span>
             <ArrowRight class="w-5 h-5" />
           </button>
-          <p class="text-center text-xs text-slate-500 mt-2.5">
-            🔒 Transacción directa y segura con el anfitrión del Apartamento Costa del Sol Suances.
-          </p>
+          
+          <!-- Trust Badges & Guarantee Row -->
+          <div class="mt-6 pt-5 border-t border-slate-200/80 grid grid-cols-2 sm:grid-cols-4 gap-3 text-center text-xs text-slate-700 font-semibold">
+            <div class="p-2.5 rounded-xl bg-slate-50 border border-slate-200 flex flex-col items-center justify-center gap-1">
+              <Lock class="w-4 h-4 text-emerald-600" />
+              <span>Stripe Checkout</span>
+              <span class="text-[10px] text-slate-500 font-normal">Cifrado SSL 256-bit</span>
+            </div>
+            <div class="p-2.5 rounded-xl bg-slate-50 border border-slate-200 flex flex-col items-center justify-center gap-1">
+              <ShieldCheck class="w-4 h-4 text-teal-600" />
+              <span>Sin Comisiones</span>
+              <span class="text-[10px] text-slate-500 font-normal">Ahorras un 15%</span>
+            </div>
+            <div class="p-2.5 rounded-xl bg-slate-50 border border-slate-200 flex flex-col items-center justify-center gap-1">
+              <Clock class="w-4 h-4 text-blue-600" />
+              <span>iCal en Vivo</span>
+              <span class="text-[10px] text-slate-500 font-normal">Booking & Airbnb</span>
+            </div>
+            <div class="p-2.5 rounded-xl bg-slate-50 border border-slate-200 flex flex-col items-center justify-center gap-1">
+              <CheckCircle class="w-4 h-4 text-amber-600" />
+              <span>Trato Directo</span>
+              <span class="text-[10px] text-slate-500 font-normal">Ivan por WhatsApp</span>
+            </div>
+          </div>
         </div>
 
       </form>

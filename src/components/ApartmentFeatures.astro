@@ -114,8 +114,14 @@ import {
       </div>
     </div>
 
-    <!-- Salón, Cocina y Baño Grid -->
-    <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-16">
+    <!-- Salón, Cocina y Baño Section -->
+    <div class="mb-16">
+      <h3 class="text-xl sm:text-2xl font-bold text-slate-900 mb-6 flex items-center gap-2">
+        <Utensils class="w-6 h-6 text-teal-600" />
+        <span>Salón, Cocina y Baño Totalmente Equipados</span>
+      </h3>
+
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
       
       <!-- Salón -->
       <div class="bg-white rounded-3xl p-7 border border-slate-200/80 shadow-sm flex flex-col justify-between">
@@ -165,11 +171,12 @@ import {
         </div>
       </div>
 
+      </div>
     </div>
 
     <!-- Quick Amenities Pills Grid -->
     <div class="bg-white rounded-3xl p-8 border border-slate-200 shadow-sm">
-      <h4 class="text-lg font-bold text-slate-900 mb-6">Equipamiento y Servicios Incluidos en tu Estancia</h4>
+      <h3 class="text-xl font-extrabold text-slate-900 mb-6">Equipamiento y Servicios Incluidos en tu Estancia</h3>
       <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4 text-center">
         <div class="p-4 rounded-2xl bg-slate-50 border border-slate-100 flex flex-col items-center">
           <Wifi class="w-6 h-6 text-teal-600 mb-2" />

@@ -13,7 +13,52 @@ const {
   image = "/images/apartamento/hero-vistas.jpg",
 } = Astro.props;
 
-const canonicalURL = new URL(Astro.url.pathname, Astro.site || 'http://localhost:4321');
+const siteUrl = Astro.site?.origin || 'https://costa-del-sol-suances.vercel.app';
+const canonicalURL = new URL(Astro.url.pathname, siteUrl);
+const ogImageURL = new URL(image, siteUrl).href;
+
+// Schema.org para Alojamiento Turístico (SEO Local Cantabria)
+const schemaData = {
+  "@context": "https://schema.org",
+  "@type": "LodgingBusiness",
+  "name": "Apartamento Costa del Sol Suances",
+  "description": description,
+  "url": siteUrl,
+  "image": [
+    ogImageURL,
+    `${siteUrl}/images/apartamento/salon-1.jpg`,
+    `${siteUrl}/images/apartamento/dormitorio-principal.jpg`
+  ],
+  "telephone": "+34600123456",
+  "priceRange": "€€",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Paseo Marítimo - Playa de La Concha",
+    "addressLocality": "Suances",
+    "addressRegion": "Cantabria",
+    "postalCode": "39340",
+    "addressCountry": "ES"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 43.434,
+    "longitude": -4.041
+  },
+  "checkinTime": "16:00",
+  "checkoutTime": "11:00",
+  "amenityFeature": [
+    { "@type": "LocationFeatureSpecification", "name": "Frente a la playa", "value": true },
+    { "@type": "LocationFeatureSpecification", "name": "WiFi gratis", "value": true },
+    { "@type": "LocationFeatureSpecification", "name": "Cocina equipada", "value": true },
+    { "@type": "LocationFeatureSpecification", "name": "Vistas al mar", "value": true },
+    { "@type": "LocationFeatureSpecification", "name": "3 Dormitorios", "value": true }
+  ],
+  "numberOfRooms": 3,
+  "occupancy": {
+    "@type": "QuantitativeValue",
+    "maxValue": 6
+  }
+};
 ---
 
 <!doctype html>
@@ -37,16 +82,16 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site || 'http://localhost
     <meta property="og:url" content={canonicalURL} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
-    <meta property="og:image" content={image} />
+    <meta property="og:image" content={ogImageURL} />
     <meta property="og:locale" content="es_ES" />
     <meta property="og:site_name" content="Apartamento Costa del Sol Suances" />
 
-    <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image" />
-    <meta property="twitter:url" content={canonicalURL} />
-    <meta property="twitter:title" content={title} />
-    <meta property="twitter:description" content={description} />
-    <meta property="twitter:image" content={image} />
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content={canonicalURL} />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImageURL} />
 
     <!-- Flatpickr CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css" />
@@ -57,6 +102,9 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site || 'http://localhost
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
 
+    <!-- Schema.org Structured Data -->
+    <script type="application/ld+json" set:html={JSON.stringify(schemaData)} />
+
     <style>
       body {
         font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
@@ -66,7 +114,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site || 'http://localhost
       }
     </style>
   </head>
-  <body class="min-h-screen flex flex-col bg-slate-50 text-slate-900">
+  <body class="min-h-screen flex flex-col bg-slate-50 text-slate-900 pb-20 md:pb-0">
     <slot />
   </body>
 </html>
