@@ -11,3 +11,4 @@ Cada vez que termines de implementar o modificar una funcionalidad y verifiques 
 - **Motor de Reservas**: Flatpickr para selección de fechas de entrada/salida y cálculo en tiempo real.
 - **Pasarelas de Pago**: Stripe Checkout (tarjeta/Bizum automático) y vía B manual (Transferencia/Bizum con reserva temporal).
 - **Sincronización iCal**: Soporte bidireccional (Booking.com y Airbnb).
+

@@ -21,3 +21,4 @@ export const GET: APIRoute = async () => {
     return new Response('Error generando archivo iCal', { status: 500 });
   }
 };
+

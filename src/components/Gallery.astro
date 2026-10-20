@@ -1,71 +1,103 @@
 ---
-import { Camera, Eye, Waves, Sparkles } from 'lucide-astro';
+import { Camera, Eye, Waves, Sparkles, CheckCircle2 } from 'lucide-astro';
 
-// Estructura de fotos del piso preparada para sustituir por las fotos originales de Booking.com
+// Fotografías reales descargadas desde Booking.com en máxima resolución HD (max1280x900)
 const galleryPhotos = [
   {
     id: 1,
-    title: "Vistas al Mar Cantábrico",
+    title: "Vistas al Mar Cantábrico y Playa",
     category: "vistas",
-    tag: "Frente a la playa",
-    url: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1200&q=80",
-    description: "Vistas panorámicas a la costa de Suances, a solo 2 minutos a pie de la Playa de La Concha."
+    tag: "Frente al mar",
+    url: "/images/apartamento/hero-vistas.jpg",
+    description: "Vistas directas a la costa de Suances, a tan solo 2 minutos a pie de la Playa de La Concha."
   },
   {
     id: 2,
-    title: "Salón Luminoso con Vistas",
+    title: "Salón Principal Confortable",
     category: "salon",
-    tag: "Zona de descanso",
-    url: "https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=800&q=80",
-    description: "Salón con sofá confortable, Smart TV y luz natural durante todo el día."
+    tag: "Zona de estar",
+    url: "/images/apartamento/salon-1.jpg",
+    description: "Salón con sofá amplio, Smart TV y luz natural durante todo el día."
   },
   {
     id: 3,
-    title: "Dormitorio Principal (Cama Matrimonio)",
-    category: "dormitorios",
-    tag: "Dormitorio 1",
-    url: "https://images.unsplash.com/photo-1595526114035-0d45ed16cfbf?auto=format&fit=crop&w=800&q=80",
-    description: "Cama doble amplia con colchón de calidad, armario empotrado y ventilación exterior."
+    title: "Zona de Estar y Televisión",
+    category: "salon",
+    tag: "Salón luminoso",
+    url: "/images/apartamento/salon-2.jpg",
+    description: "Espacio diáfano perfecto para relajarse en familia tras una jornada de playa."
   },
   {
     id: 4,
-    title: "Segundo Dormitorio (2 Camas Individuales)",
+    title: "Dormitorio Principal (Cama Matrimonio)",
     category: "dormitorios",
-    tag: "Dormitorio 2",
-    url: "https://images.unsplash.com/photo-1540518614846-7ede433c4ef0?auto=format&fit=crop&w=800&q=80",
-    description: "Dos camas individuales perfectas para niños, amigos o familiares."
+    tag: "Dormitorio 1",
+    url: "/images/apartamento/dormitorio-principal.jpg",
+    description: "Cama doble amplia de 150 cm con ropa de cama limpia, almohadas confortables y armario."
   },
   {
     id: 5,
-    title: "Tercer Dormitorio Versátil",
+    title: "Segundo Dormitorio (2 Camas)",
     category: "dormitorios",
-    tag: "Dormitorio 3",
-    url: "https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&w=800&q=80",
-    description: "Tercera estancia con cama individual/nido, luz natural y almacenaje."
+    tag: "Dormitorio 2",
+    url: "/images/apartamento/dormitorio-2.jpg",
+    description: "Dos camas individuales de 90 cm con colchones confortables, ideal para niños o amigos."
   },
   {
     id: 6,
-    title: "Cocina Equipada (Nevera y Cafetera)",
-    category: "cocina",
-    tag: "Cocina Completa",
-    url: "https://images.unsplash.com/photo-1556911220-e15b29be8c8f?auto=format&fit=crop&w=800&q=80",
-    description: "Cocina con frigorífico combi, cafetera, microondas, vitrocerámica y menaje completo."
+    title: "Tercer Dormitorio Independiente",
+    category: "dormitorios",
+    tag: "Dormitorio 3",
+    url: "/images/apartamento/dormitorio-3.jpg",
+    description: "Tercera estancia con cama individual/nido, buena ventilación y total privacidad."
   },
   {
     id: 7,
-    title: "Baño Completo con Ducha y Secador",
-    category: "bano",
-    tag: "Baño",
-    url: "https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=800&q=80",
-    description: "Baño impecable con plato de ducha, secador de pelo potente y toallas suaves."
+    title: "Cocina Equipada (Nevera y Cafetera)",
+    category: "cocina",
+    tag: "Cocina Completa",
+    url: "/images/apartamento/cocina.jpg",
+    description: "Nevera grande con congelador, cafetera para tus desayunos, microondas y menaje completo."
   },
   {
     id: 8,
-    title: "Playa de La Concha y Entorno de Suances",
+    title: "Baño Completo con Ducha y Secador",
+    category: "bano",
+    tag: "Baño Completo",
+    url: "/images/apartamento/bano.jpg",
+    description: "Plato de ducha amplio con mampara, secador de pelo potente y toallas de calidad."
+  },
+  {
+    id: 9,
+    title: "Vistas Panorámicas y Terraza",
+    category: "vistas",
+    tag: "Vistas y Costa",
+    url: "/images/apartamento/terraza-vistas.jpg",
+    description: "Disfruta de la brisa marina y los atardeceres sobre la bahía de Suances."
+  },
+  {
+    id: 10,
+    title: "Mesa de Comedor Familiar",
+    category: "salon",
+    tag: "Comedor 6 Pax",
+    url: "/images/apartamento/comedor.jpg",
+    description: "Mesa espaciosa para compartir almuerzos y cenas en familia o con amigos."
+  },
+  {
+    id: 11,
+    title: "Edificio y Acceso Residencial",
     category: "entorno",
-    tag: "Entorno a 2 min",
-    url: "https://images.unsplash.com/photo-1519046904884-53103b34b206?auto=format&fit=crop&w=800&q=80",
-    description: "Paseo marítimo, gastronomía cántabra y playas de arena dorada a la vuelta de la esquina."
+    tag: "Acceso y Exterior",
+    url: "/images/apartamento/edificio-exterior.jpg",
+    description: "Ubicación privilegiada con fácil acceso a la playa y zonas de aparcamiento."
+  },
+  {
+    id: 12,
+    title: "Playa de La Concha (a 2 min)",
+    category: "entorno",
+    tag: "Playa La Concha",
+    url: "/images/apartamento/entorno-playa.jpg",
+    description: "Paseo marítimo, arena dorada y restaurantes de marisco a solo unos pasos."
   }
 ];
 ---
@@ -78,13 +110,13 @@ const galleryPhotos = [
       <div>
         <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-teal-50 border border-teal-200 text-teal-800 text-xs font-bold uppercase tracking-wider mb-3">
           <Camera class="w-3.5 h-3.5 text-teal-600" />
-          <span>Galería Fotográfica</span>
+          <span>Galería Fotográfica Real</span>
         </div>
         <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
-          Conoce cada rincón de tu próximo refugio
+          Fotos reales de nuestro alojamiento en Suances
         </h2>
         <p class="mt-3 text-base sm:text-lg text-slate-600 max-w-2xl">
-          Fotos reales de nuestro apartamento turístico en Suances: 70 m², 3 dormitorios independientes y todas las comodidades de un hogar junto a la playa.
+          Descubre cada estancia del Apartamento Costa del Sol: 70 m², 3 dormitorios independientes y todas las comodidades a 2 minutos a pie de la Playa de La Concha.
         </p>
       </div>
 
@@ -93,7 +125,7 @@ const galleryPhotos = [
           href="#reservas"
           class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-slate-900 hover:bg-slate-800 text-white font-semibold text-sm transition shadow-sm"
         >
-          <span>Comprobar Fechas Disponibles</span>
+          <span>Comprobar Disponibilidad</span>
         </a>
       </div>
     </div>
@@ -103,22 +135,25 @@ const galleryPhotos = [
       <button class="gallery-filter-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold transition bg-teal-600 text-white shadow-sm" data-filter="all">
         Todas las Fotos ({galleryPhotos.length})
       </button>
+      <button class="gallery-filter-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold transition bg-slate-100 hover:bg-slate-200 text-slate-700" data-filter="vistas">
+        Vistas al Mar
+      </button>
       <button class="gallery-filter-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold transition bg-slate-100 hover:bg-slate-200 text-slate-700" data-filter="dormitorios">
         3 Dormitorios
       </button>
       <button class="gallery-filter-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold transition bg-slate-100 hover:bg-slate-200 text-slate-700" data-filter="salon">
-        Salón
+        Salón y Comedor
       </button>
       <button class="gallery-filter-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold transition bg-slate-100 hover:bg-slate-200 text-slate-700" data-filter="cocina">
         Cocina y Baño
       </button>
-      <button class="gallery-filter-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold transition bg-slate-100 hover:bg-slate-200 text-slate-700" data-filter="vistas">
-        Vistas y Playa
+      <button class="gallery-filter-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold transition bg-slate-100 hover:bg-slate-200 text-slate-700" data-filter="entorno">
+        Exterior y Playa
       </button>
     </div>
 
     <!-- Gallery Grid -->
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4" id="gallery-grid">
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5" id="gallery-grid">
       {galleryPhotos.map((photo, index) => (
         <div 
           class={`group relative overflow-hidden rounded-2xl bg-slate-100 border border-slate-200 shadow-sm cursor-pointer gallery-item ${index === 0 ? 'sm:col-span-2 sm:row-span-2' : ''}`}
@@ -127,22 +162,22 @@ const galleryPhotos = [
           data-url={photo.url}
           data-desc={photo.description}
         >
-          <div class={`w-full overflow-hidden ${index === 0 ? 'h-[340px] sm:h-[480px]' : 'h-60'}`}>
+          <div class={`w-full overflow-hidden ${index === 0 ? 'h-[360px] sm:h-[500px]' : 'h-64'}`}>
             <img 
               src={photo.url} 
               alt={photo.title}
               class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-              loading="lazy"
+              loading={index < 4 ? "eager" : "lazy"}
             />
           </div>
 
           <!-- Overlay Badge & Info -->
-          <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-950/20 to-transparent opacity-80 group-hover:opacity-100 transition-opacity flex flex-col justify-between p-4">
+          <div class="absolute inset-0 bg-gradient-to-t from-slate-950/85 via-slate-950/20 to-transparent opacity-85 group-hover:opacity-100 transition-opacity flex flex-col justify-between p-4">
             <div class="flex justify-between items-start">
-              <span class="px-2.5 py-1 bg-white/90 backdrop-blur-md text-slate-900 rounded-lg text-xs font-bold shadow-sm">
+              <span class="px-2.5 py-1 bg-white/95 backdrop-blur-md text-slate-900 rounded-lg text-xs font-bold shadow-sm">
                 {photo.tag}
               </span>
-              <div class="w-8 h-8 rounded-full bg-black/40 text-white flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+              <div class="w-8 h-8 rounded-full bg-black/50 text-white flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity shadow">
                 <Eye class="w-4 h-4" />
               </div>
             </div>
@@ -160,16 +195,16 @@ const galleryPhotos = [
       ))}
     </div>
 
-    <!-- Note on customized photos -->
-    <div class="mt-8 p-4 rounded-2xl bg-slate-50 border border-slate-200/80 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs sm:text-sm text-slate-600">
+    <!-- Verified Photos Badge -->
+    <div class="mt-8 p-4 rounded-2xl bg-emerald-50 border border-emerald-200/80 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs sm:text-sm text-emerald-900">
       <div class="flex items-center gap-3">
-        <Sparkles class="w-5 h-5 text-teal-600 flex-shrink-0" />
+        <CheckCircle2 class="w-5 h-5 text-emerald-600 flex-shrink-0" />
         <span>
-          <strong>Galería preparada para tus fotos de Booking:</strong> Puedes sustituir fácilmente las URLs o archivos en <code class="bg-slate-200 px-1.5 py-0.5 rounded text-slate-800">src/components/Gallery.astro</code> para ver tus imágenes finales.
+          <strong>Fotografías verificadas en alta resolución:</strong> Imágenes oficiales de la ficha de Booking.com del Apartamento Costa del Sol en Suances.
         </span>
       </div>
-      <a href="#reservas" class="text-teal-700 font-bold hover:underline whitespace-nowrap">
-        Reservar Directo →
+      <a href="#reservas" class="text-emerald-800 font-bold hover:underline whitespace-nowrap">
+        Reservar sin intermediarios (-15%) →
       </a>
     </div>
 
@@ -211,7 +246,12 @@ const galleryPhotos = [
       const filter = btn.getAttribute('data-filter');
       galleryItems.forEach((item) => {
         const cat = item.getAttribute('data-category');
-        if (filter === 'all' || cat === filter || (filter === 'cocina' && (cat === 'cocina' || cat === 'bano'))) {
+        if (
+          filter === 'all' || 
+          cat === filter || 
+          (filter === 'cocina' && (cat === 'cocina' || cat === 'bano')) ||
+          (filter === 'entorno' && (cat === 'entorno' || cat === 'vistas'))
+        ) {
           (item as HTMLElement).style.display = 'block';
         } else {
           (item as HTMLElement).style.display = 'none';

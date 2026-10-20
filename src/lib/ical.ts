@@ -207,3 +207,4 @@ export function generateIcsCalendar(reservations: DirectReservation[]): string {
   icsContent.push('END:VCALENDAR');
   return icsContent.join('\r\n');
 }
+
