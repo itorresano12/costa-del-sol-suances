@@ -1,0 +1,2 @@
+# REGLA DE ORO
+Cada vez que termines de implementar o modificar una funcionalidad y verifiques que no hay errores de compilación, debes ejecutar automáticamente `git add .`, `git commit -m 'feat: descripción clara del cambio'` y `git push origin main` sin que el usuario tenga que pedirlo.

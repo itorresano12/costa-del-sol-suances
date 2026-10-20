@@ -1,0 +1,13 @@
+# REGLAS DEL PROYECTO: APARTAMENTO COSTA DEL SOL SUANCES
+
+## REGLA DE ORO
+Cada vez que termines de implementar o modificar una funcionalidad y verifiques que no hay errores de compilación, debes ejecutar automáticamente `git add .`, `git commit -m 'feat: descripción clara del cambio'` y `git push origin main` sin que el usuario tenga que pedirlo.
+
+## STACK TECNOLÓGICO Y PAUTAS
+- **Framework**: Astro (con modo híbrido/SSR para endpoints dinámicos cuando sea necesario).
+- **Estilos**: Tailwind CSS v4 para diseño moderno, responsivo y de alta conversión.
+- **Tipado**: TypeScript estricto.
+- **Iconos**: Lucide icons (`lucide-astro`).
+- **Motor de Reservas**: Flatpickr para selección de fechas de entrada/salida y cálculo en tiempo real.
+- **Pasarelas de Pago**: Stripe Checkout (tarjeta/Bizum automático) y vía B manual (Transferencia/Bizum con reserva temporal).
+- **Sincronización iCal**: Soporte bidireccional (Booking.com y Airbnb).

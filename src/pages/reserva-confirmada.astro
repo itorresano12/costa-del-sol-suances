@@ -1,0 +1,123 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { CheckCircle2, Clock, ShieldCheck, Phone, ArrowLeft, Download } from 'lucide-astro';
+
+export const prerender = false;
+
+const url = new URL(Astro.request.url);
+const ref = url.searchParams.get('ref') || 'CDS-ONLINE';
+const type = url.searchParams.get('type') || 'stripe';
+const checkIn = url.searchParams.get('in') || '';
+const checkOut = url.searchParams.get('out') || '';
+const total = url.searchParams.get('total') || '';
+---
+
+<Layout title="Reserva Confirmada | Apartamento Costa del Sol Suances">
+  <main class="min-h-screen bg-slate-50 py-16 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-2xl mx-auto">
+      <div class="bg-white rounded-3xl shadow-xl border border-slate-100 overflow-hidden">
+        
+        <!-- Header Banner -->
+        <div class="bg-gradient-to-r from-emerald-600 to-teal-700 p-8 text-white text-center relative">
+          <div class="w-16 h-16 bg-white/20 rounded-2xl mx-auto flex items-center justify-center mb-4 backdrop-blur-md">
+            <CheckCircle2 class="w-10 h-10 text-white" />
+          </div>
+          <span class="inline-block px-3 py-1 bg-white/20 backdrop-blur-md rounded-full text-xs font-semibold uppercase tracking-wider mb-2">
+            Reserva Directa Oficial
+          </span>
+          <h1 class="text-3xl font-extrabold tracking-tight">¡Enhorabuena, tu reserva está lista!</h1>
+          <p class="text-emerald-100 text-sm mt-2">
+            Apartamento Costa del Sol Suances (Playa de La Concha, Cantabria)
+          </p>
+        </div>
+
+        <!-- Body Details -->
+        <div class="p-8 space-y-6">
+          <div class="flex items-center justify-between p-4 bg-slate-50 rounded-2xl border border-slate-100">
+            <div>
+              <p class="text-xs uppercase tracking-wider text-slate-500 font-semibold">Código de Referencia</p>
+              <p class="text-xl font-bold font-mono text-slate-900">{ref}</p>
+            </div>
+            <span class="px-3 py-1.5 bg-emerald-100 text-emerald-800 text-xs font-bold rounded-full flex items-center gap-1.5">
+              <ShieldCheck class="w-4 h-4" /> Confirmada
+            </span>
+          </div>
+
+          {checkIn && checkOut && (
+            <div class="grid grid-cols-2 gap-4">
+              <div class="p-4 rounded-2xl bg-amber-50/60 border border-amber-100">
+                <p class="text-xs text-amber-800 font-medium">Fecha de Entrada</p>
+                <p class="text-lg font-bold text-amber-950 mt-1">{checkIn}</p>
+                <p class="text-xs text-amber-700/80">A partir de las 16:00h</p>
+              </div>
+              <div class="p-4 rounded-2xl bg-amber-50/60 border border-amber-100">
+                <p class="text-xs text-amber-800 font-medium">Fecha de Salida</p>
+                <p class="text-lg font-bold text-amber-950 mt-1">{checkOut}</p>
+                <p class="text-xs text-amber-700/80">Hasta las 11:00h</p>
+              </div>
+            </div>
+          )}
+
+          <div class="space-y-3 text-sm text-slate-600 bg-slate-50 p-5 rounded-2xl">
+            <h3 class="font-bold text-slate-800 text-base">Información Importante de tu Estancia</h3>
+            <ul class="space-y-2">
+              <li class="flex items-start gap-2">
+                <span class="text-emerald-600 font-bold">✓</span>
+                <span><strong>Ubicación:</strong> Frente a la playa, a solo 2 min caminando de la Playa de La Concha (Suances).</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-emerald-600 font-bold">✓</span>
+                <span><strong>WiFi de alta velocidad:</strong> Clave y datos de conexión enviados a tu correo.</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-emerald-600 font-bold">✓</span>
+                <span><strong>Equipamiento completo:</strong> 70 m², 3 dormitorios, cocina con cafetera y nevera, baño con secador.</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-emerald-600 font-bold">✓</span>
+                <span><strong>Ahorro conseguido:</strong> Al reservar directo te has ahorrado las comisiones de intermediarios de Airbnb y Booking.</span>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Contact box -->
+          <div class="p-4 rounded-2xl bg-blue-50 border border-blue-100 flex items-center justify-between">
+            <div class="flex items-center gap-3">
+              <div class="w-10 h-10 rounded-full bg-blue-600 text-white flex items-center justify-center font-bold">
+                <Phone class="w-5 h-5" />
+              </div>
+              <div>
+                <p class="text-xs text-blue-700 font-medium">Atención directa con el anfitrión</p>
+                <p class="text-sm font-bold text-blue-950">Ivan - Costa del Sol Suances</p>
+              </div>
+            </div>
+            <a 
+              href="https://wa.me/34600123456?text=Hola%20Ivan,%20tengo%20la%20reserva%20directa%20" 
+              target="_blank"
+              class="px-4 py-2 bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold rounded-xl transition shadow-sm"
+            >
+              WhatsApp
+            </a>
+          </div>
+
+          <div class="pt-4 flex flex-col sm:flex-row gap-3">
+            <a 
+              href="/"
+              class="flex-1 py-3 px-4 bg-slate-900 hover:bg-slate-800 text-white text-sm font-semibold rounded-xl text-center flex items-center justify-center gap-2 transition"
+            >
+              <ArrowLeft class="w-4 h-4" /> Volver a la web principal
+            </a>
+            <a 
+              href="/api/calendar.ics" 
+              class="py-3 px-4 bg-slate-100 hover:bg-slate-200 text-slate-800 text-sm font-semibold rounded-xl text-center flex items-center justify-center gap-2 transition"
+            >
+              <Download class="w-4 h-4" /> Descargar iCal
+            </a>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  </main>
+</Layout>

@@ -1,0 +1,134 @@
+---
+import { 
+  Waves, 
+  MapPin, 
+  Wifi, 
+  BedDouble, 
+  ShieldCheck, 
+  Sparkles, 
+  CheckCircle, 
+  ArrowRight,
+  Maximize2
+} from 'lucide-astro';
+---
+
+<section id="inicio" class="relative overflow-hidden pt-8 pb-20 lg:pt-16 lg:pb-28">
+  <!-- Background subtle gradient elements -->
+  <div class="absolute inset-0 -z-10 bg-gradient-to-b from-teal-50/60 via-white to-slate-50"></div>
+  <div class="absolute top-1/4 left-1/2 -translate-x-1/2 w-[1000px] h-[400px] bg-gradient-to-tr from-teal-200/30 to-blue-200/30 blur-3xl -z-10 rounded-full pointer-events-none"></div>
+
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    
+    <!-- Top Conversion Alert Pill -->
+    <div class="flex justify-center mb-6">
+      <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-emerald-50 border border-emerald-200/80 text-emerald-800 text-xs sm:text-sm font-semibold shadow-sm hover:bg-emerald-100 transition cursor-default">
+        <Sparkles class="w-4 h-4 text-emerald-600 animate-pulse" />
+        <span>Reserva directa sin comisiones de Airbnb ni Booking</span>
+        <span class="inline-block w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+        <span class="text-emerald-700 font-bold underline">Mejor precio garantizado</span>
+      </div>
+    </div>
+
+    <!-- Main Hero Headings -->
+    <div class="text-center max-w-4xl mx-auto">
+      <div class="flex items-center justify-center gap-2 text-teal-700 font-semibold text-sm mb-3">
+        <MapPin class="w-4 h-4 text-teal-600" />
+        <span>Suances, Cantabria — Frente a la Playa de La Concha (2 min a pie)</span>
+      </div>
+
+      <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-slate-900 tracking-tight leading-[1.12]">
+        Apartamento <span class="bg-gradient-to-r from-teal-600 to-emerald-600 bg-clip-text text-transparent">Costa del Sol</span> Suances
+      </h1>
+
+      <p class="mt-6 text-lg sm:text-xl text-slate-600 leading-relaxed max-w-3xl mx-auto">
+        Disfruta de tus vacaciones junto al Mar Cantábrico en un piso amplio de <strong>70 m²</strong> con <strong>3 dormitorios</strong>, salón con vistas, cocina equipada con cafetera y nevera, baño completo y <strong>WiFi gratis</strong>.
+      </p>
+
+      <!-- Trust Badges List -->
+      <div class="mt-8 flex flex-wrap items-center justify-center gap-y-3 gap-x-6 text-xs sm:text-sm font-medium text-slate-700">
+        <div class="flex items-center gap-1.5 bg-white/80 backdrop-blur px-3 py-1.5 rounded-xl border border-slate-200 shadow-sm">
+          <CheckCircle class="w-4 h-4 text-emerald-500" />
+          <span>Frente a la playa (a 2 min)</span>
+        </div>
+        <div class="flex items-center gap-1.5 bg-white/80 backdrop-blur px-3 py-1.5 rounded-xl border border-slate-200 shadow-sm">
+          <Waves class="w-4 h-4 text-teal-500" />
+          <span>Vistas panorámicas al mar</span>
+        </div>
+        <div class="flex items-center gap-1.5 bg-white/80 backdrop-blur px-3 py-1.5 rounded-xl border border-slate-200 shadow-sm">
+          <Wifi class="w-4 h-4 text-blue-500" />
+          <span>WiFi rápido gratis</span>
+        </div>
+        <div class="flex items-center gap-1.5 bg-white/80 backdrop-blur px-3 py-1.5 rounded-xl border border-slate-200 shadow-sm">
+          <ShieldCheck class="w-4 h-4 text-emerald-600" />
+          <span>Sin costes de gestión ni tasas ocultas</span>
+        </div>
+      </div>
+
+      <!-- Action Buttons -->
+      <div class="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
+        <a 
+          href="#reservas"
+          class="w-full sm:w-auto px-8 py-4 rounded-2xl bg-gradient-to-r from-teal-600 to-emerald-600 hover:from-teal-700 hover:to-emerald-700 text-white font-bold text-base shadow-xl shadow-teal-700/25 hover:shadow-teal-700/35 hover:-translate-y-0.5 transition-all flex items-center justify-center gap-2 group"
+        >
+          <span>Calcular Precio y Reservar Ahora</span>
+          <ArrowRight class="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+        </a>
+
+        <a 
+          href="#galeria"
+          class="w-full sm:w-auto px-7 py-4 rounded-2xl bg-white hover:bg-slate-50 text-slate-800 font-bold text-base border border-slate-200 shadow-sm hover:border-slate-300 transition flex items-center justify-center gap-2"
+        >
+          <span>Ver Fotos del Apartamento</span>
+        </a>
+      </div>
+
+    </div>
+
+    <!-- Hero Image Showcase with Highlights -->
+    <div class="mt-14 relative max-w-6xl mx-auto">
+      <div class="relative rounded-3xl overflow-hidden shadow-2xl border-4 border-white bg-slate-900 group">
+        <img 
+          src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1600&q=80" 
+          alt="Vistas al mar y playa de Suances cerca del Apartamento Costa del Sol" 
+          class="w-full h-[360px] sm:h-[480px] lg:h-[540px] object-cover group-hover:scale-105 transition-transform duration-700 brightness-95"
+          loading="eager"
+        />
+
+        <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-950/20 to-transparent"></div>
+
+        <!-- Overlaid Specs Banner -->
+        <div class="absolute bottom-6 left-6 right-6 flex flex-col sm:flex-row sm:items-center justify-between gap-4 p-4 sm:p-6 bg-white/95 backdrop-blur-md rounded-2xl shadow-lg border border-white/50 text-slate-800">
+          <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 divide-x divide-slate-100">
+            <div class="px-2">
+              <span class="block text-xs uppercase tracking-wider text-slate-500 font-bold">Espacio</span>
+              <span class="text-lg sm:text-xl font-extrabold text-slate-900">70 m²</span>
+            </div>
+            <div class="pl-4">
+              <span class="block text-xs uppercase tracking-wider text-slate-500 font-bold">Distribución</span>
+              <span class="text-lg sm:text-xl font-extrabold text-slate-900">3 Dormitorios</span>
+            </div>
+            <div class="pl-4">
+              <span class="block text-xs uppercase tracking-wider text-slate-500 font-bold">Capacidad</span>
+              <span class="text-lg sm:text-xl font-extrabold text-slate-900">Hasta 6 personas</span>
+            </div>
+            <div class="pl-4">
+              <span class="block text-xs uppercase tracking-wider text-slate-500 font-bold">Playa La Concha</span>
+              <span class="text-lg sm:text-xl font-extrabold text-emerald-600">2 min a pie</span>
+            </div>
+          </div>
+
+          <div class="flex items-center gap-3">
+            <a 
+              href="#reservas"
+              class="px-5 py-2.5 rounded-xl bg-teal-600 hover:bg-teal-700 text-white font-bold text-sm shadow-md transition whitespace-nowrap"
+            >
+              Consultar Fechas
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</section>

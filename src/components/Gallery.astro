@@ -1,0 +1,251 @@
+---
+import { Camera, Eye, Waves, Sparkles } from 'lucide-astro';
+
+// Estructura de fotos del piso preparada para sustituir por las fotos originales de Booking.com
+const galleryPhotos = [
+  {
+    id: 1,
+    title: "Vistas al Mar Cantábrico",
+    category: "vistas",
+    tag: "Frente a la playa",
+    url: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1200&q=80",
+    description: "Vistas panorámicas a la costa de Suances, a solo 2 minutos a pie de la Playa de La Concha."
+  },
+  {
+    id: 2,
+    title: "Salón Luminoso con Vistas",
+    category: "salon",
+    tag: "Zona de descanso",
+    url: "https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=800&q=80",
+    description: "Salón con sofá confortable, Smart TV y luz natural durante todo el día."
+  },
+  {
+    id: 3,
+    title: "Dormitorio Principal (Cama Matrimonio)",
+    category: "dormitorios",
+    tag: "Dormitorio 1",
+    url: "https://images.unsplash.com/photo-1595526114035-0d45ed16cfbf?auto=format&fit=crop&w=800&q=80",
+    description: "Cama doble amplia con colchón de calidad, armario empotrado y ventilación exterior."
+  },
+  {
+    id: 4,
+    title: "Segundo Dormitorio (2 Camas Individuales)",
+    category: "dormitorios",
+    tag: "Dormitorio 2",
+    url: "https://images.unsplash.com/photo-1540518614846-7ede433c4ef0?auto=format&fit=crop&w=800&q=80",
+    description: "Dos camas individuales perfectas para niños, amigos o familiares."
+  },
+  {
+    id: 5,
+    title: "Tercer Dormitorio Versátil",
+    category: "dormitorios",
+    tag: "Dormitorio 3",
+    url: "https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&w=800&q=80",
+    description: "Tercera estancia con cama individual/nido, luz natural y almacenaje."
+  },
+  {
+    id: 6,
+    title: "Cocina Equipada (Nevera y Cafetera)",
+    category: "cocina",
+    tag: "Cocina Completa",
+    url: "https://images.unsplash.com/photo-1556911220-e15b29be8c8f?auto=format&fit=crop&w=800&q=80",
+    description: "Cocina con frigorífico combi, cafetera, microondas, vitrocerámica y menaje completo."
+  },
+  {
+    id: 7,
+    title: "Baño Completo con Ducha y Secador",
+    category: "bano",
+    tag: "Baño",
+    url: "https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=800&q=80",
+    description: "Baño impecable con plato de ducha, secador de pelo potente y toallas suaves."
+  },
+  {
+    id: 8,
+    title: "Playa de La Concha y Entorno de Suances",
+    category: "entorno",
+    tag: "Entorno a 2 min",
+    url: "https://images.unsplash.com/photo-1519046904884-53103b34b206?auto=format&fit=crop&w=800&q=80",
+    description: "Paseo marítimo, gastronomía cántabra y playas de arena dorada a la vuelta de la esquina."
+  }
+];
+---
+
+<section id="galeria" class="py-20 bg-white">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    
+    <!-- Section Header -->
+    <div class="flex flex-col md:flex-row md:items-end justify-between mb-12">
+      <div>
+        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-teal-50 border border-teal-200 text-teal-800 text-xs font-bold uppercase tracking-wider mb-3">
+          <Camera class="w-3.5 h-3.5 text-teal-600" />
+          <span>Galería Fotográfica</span>
+        </div>
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
+          Conoce cada rincón de tu próximo refugio
+        </h2>
+        <p class="mt-3 text-base sm:text-lg text-slate-600 max-w-2xl">
+          Fotos reales de nuestro apartamento turístico en Suances: 70 m², 3 dormitorios independientes y todas las comodidades de un hogar junto a la playa.
+        </p>
+      </div>
+
+      <div class="mt-6 md:mt-0">
+        <a 
+          href="#reservas"
+          class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-slate-900 hover:bg-slate-800 text-white font-semibold text-sm transition shadow-sm"
+        >
+          <span>Comprobar Fechas Disponibles</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- Interactive Category Filter Chips -->
+    <div class="flex flex-wrap items-center gap-2 mb-8" id="gallery-filters">
+      <button class="gallery-filter-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold transition bg-teal-600 text-white shadow-sm" data-filter="all">
+        Todas las Fotos ({galleryPhotos.length})
+      </button>
+      <button class="gallery-filter-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold transition bg-slate-100 hover:bg-slate-200 text-slate-700" data-filter="dormitorios">
+        3 Dormitorios
+      </button>
+      <button class="gallery-filter-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold transition bg-slate-100 hover:bg-slate-200 text-slate-700" data-filter="salon">
+        Salón
+      </button>
+      <button class="gallery-filter-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold transition bg-slate-100 hover:bg-slate-200 text-slate-700" data-filter="cocina">
+        Cocina y Baño
+      </button>
+      <button class="gallery-filter-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold transition bg-slate-100 hover:bg-slate-200 text-slate-700" data-filter="vistas">
+        Vistas y Playa
+      </button>
+    </div>
+
+    <!-- Gallery Grid -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4" id="gallery-grid">
+      {galleryPhotos.map((photo, index) => (
+        <div 
+          class={`group relative overflow-hidden rounded-2xl bg-slate-100 border border-slate-200 shadow-sm cursor-pointer gallery-item ${index === 0 ? 'sm:col-span-2 sm:row-span-2' : ''}`}
+          data-category={photo.category}
+          data-title={photo.title}
+          data-url={photo.url}
+          data-desc={photo.description}
+        >
+          <div class={`w-full overflow-hidden ${index === 0 ? 'h-[340px] sm:h-[480px]' : 'h-60'}`}>
+            <img 
+              src={photo.url} 
+              alt={photo.title}
+              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+              loading="lazy"
+            />
+          </div>
+
+          <!-- Overlay Badge & Info -->
+          <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-950/20 to-transparent opacity-80 group-hover:opacity-100 transition-opacity flex flex-col justify-between p-4">
+            <div class="flex justify-between items-start">
+              <span class="px-2.5 py-1 bg-white/90 backdrop-blur-md text-slate-900 rounded-lg text-xs font-bold shadow-sm">
+                {photo.tag}
+              </span>
+              <div class="w-8 h-8 rounded-full bg-black/40 text-white flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+                <Eye class="w-4 h-4" />
+              </div>
+            </div>
+
+            <div>
+              <h3 class="text-white font-bold text-base sm:text-lg tracking-tight drop-shadow-md">
+                {photo.title}
+              </h3>
+              <p class="text-slate-200 text-xs mt-1 line-clamp-2 drop-shadow">
+                {photo.description}
+              </p>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <!-- Note on customized photos -->
+    <div class="mt-8 p-4 rounded-2xl bg-slate-50 border border-slate-200/80 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs sm:text-sm text-slate-600">
+      <div class="flex items-center gap-3">
+        <Sparkles class="w-5 h-5 text-teal-600 flex-shrink-0" />
+        <span>
+          <strong>Galería preparada para tus fotos de Booking:</strong> Puedes sustituir fácilmente las URLs o archivos en <code class="bg-slate-200 px-1.5 py-0.5 rounded text-slate-800">src/components/Gallery.astro</code> para ver tus imágenes finales.
+        </span>
+      </div>
+      <a href="#reservas" class="text-teal-700 font-bold hover:underline whitespace-nowrap">
+        Reservar Directo →
+      </a>
+    </div>
+
+  </div>
+</section>
+
+<!-- Lightbox Modal -->
+<div id="gallery-modal" class="fixed inset-0 z-50 bg-black/90 backdrop-blur-md hidden flex items-center justify-center p-4">
+  <div class="relative max-w-4xl w-full bg-slate-900 rounded-3xl overflow-hidden border border-slate-800 shadow-2xl">
+    <button id="close-modal-btn" class="absolute top-4 right-4 z-10 p-2.5 rounded-full bg-black/60 hover:bg-black/80 text-white transition">
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+      </svg>
+    </button>
+    <div class="max-h-[70vh] flex items-center justify-center bg-black">
+      <img id="modal-img" src="" alt="" class="max-h-[70vh] w-auto object-contain mx-auto" />
+    </div>
+    <div class="p-6 bg-slate-900 text-white">
+      <h3 id="modal-title" class="text-xl font-bold font-heading"></h3>
+      <p id="modal-desc" class="text-sm text-slate-300 mt-1"></p>
+    </div>
+  </div>
+</div>
+
+<script>
+  // Filter tabs logic
+  const filterButtons = document.querySelectorAll('.gallery-filter-btn');
+  const galleryItems = document.querySelectorAll('.gallery-item');
+
+  filterButtons.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      filterButtons.forEach((b) => {
+        b.classList.remove('bg-teal-600', 'text-white');
+        b.classList.add('bg-slate-100', 'text-slate-700');
+      });
+      btn.classList.add('bg-teal-600', 'text-white');
+      btn.classList.remove('bg-slate-100', 'text-slate-700');
+
+      const filter = btn.getAttribute('data-filter');
+      galleryItems.forEach((item) => {
+        const cat = item.getAttribute('data-category');
+        if (filter === 'all' || cat === filter || (filter === 'cocina' && (cat === 'cocina' || cat === 'bano'))) {
+          (item as HTMLElement).style.display = 'block';
+        } else {
+          (item as HTMLElement).style.display = 'none';
+        }
+      });
+    });
+  });
+
+  // Lightbox Modal Logic
+  const modal = document.getElementById('gallery-modal');
+  const modalImg = document.getElementById('modal-img') as HTMLImageElement;
+  const modalTitle = document.getElementById('modal-title');
+  const modalDesc = document.getElementById('modal-desc');
+  const closeModalBtn = document.getElementById('close-modal-btn');
+
+  galleryItems.forEach((item) => {
+    item.addEventListener('click', () => {
+      const url = item.getAttribute('data-url');
+      const title = item.getAttribute('data-title');
+      const desc = item.getAttribute('data-desc');
+
+      if (modal && modalImg && modalTitle && modalDesc && url) {
+        modalImg.src = url;
+        modalTitle.textContent = title || '';
+        modalDesc.textContent = desc || '';
+        modal.classList.remove('hidden');
+      }
+    });
+  });
+
+  if (closeModalBtn && modal) {
+    closeModalBtn.addEventListener('click', () => modal.classList.add('hidden'));
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) modal.classList.add('hidden');
+    });
+  }
+</script>

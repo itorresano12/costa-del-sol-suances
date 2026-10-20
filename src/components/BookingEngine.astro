@@ -1,0 +1,570 @@
+---
+import { 
+  Calendar as CalendarIcon, 
+  Users, 
+  CreditCard, 
+  Send, 
+  ShieldCheck, 
+  Clock, 
+  CheckCircle, 
+  Sparkles,
+  Info,
+  Lock,
+  ArrowRight
+} from 'lucide-astro';
+---
+
+<section id="reservas" class="py-20 bg-gradient-to-b from-white via-teal-50/40 to-slate-50 relative">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    
+    <!-- Header -->
+    <div class="text-center max-w-3xl mx-auto mb-12">
+      <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-emerald-100 text-emerald-800 text-xs font-bold uppercase tracking-wider mb-3 shadow-sm">
+        <Sparkles class="w-4 h-4 text-emerald-600" />
+        <span>Motor de Reserva Directa Oficial</span>
+      </div>
+      <h2 class="text-3xl sm:text-5xl font-extrabold text-slate-900 tracking-tight">
+        Reserva al mejor precio sin intermediarios
+      </h2>
+      <p class="mt-4 text-base sm:text-lg text-slate-600">
+        Comprueba disponibilidad en tiempo real sincronizada con Airbnb y Booking. Elige tu método de pago favorito y asegura tus vacaciones en Suances.
+      </p>
+    </div>
+
+    <!-- Booking Engine Card Layout -->
+    <div class="max-w-4xl mx-auto bg-white rounded-3xl shadow-2xl border border-slate-200/90 overflow-hidden">
+      
+      <!-- Top savings alert header -->
+      <div class="bg-gradient-to-r from-teal-700 via-teal-800 to-emerald-800 p-5 text-white flex flex-col sm:flex-row items-center justify-between gap-4">
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-xl bg-white/10 flex items-center justify-center font-bold">
+            <ShieldCheck class="w-6 h-6 text-emerald-300" />
+          </div>
+          <div>
+            <h3 class="font-bold text-sm sm:text-base">Garantía de Mejor Tarifa</h3>
+            <p class="text-xs text-teal-100">Sin los recargos del 15-20% que aplican plataformas intermediarias</p>
+          </div>
+        </div>
+        <div class="px-3.5 py-1.5 bg-emerald-500/30 border border-emerald-400/40 rounded-xl text-xs font-bold text-emerald-100 backdrop-blur-sm">
+          Sincronizado vía iCal en vivo
+        </div>
+      </div>
+
+      <!-- Interactive Form Container -->
+      <form id="booking-form" class="p-6 sm:p-10 space-y-8">
+        
+        <!-- Step 1: Fechas y Huéspedes -->
+        <div>
+          <h4 class="text-xs uppercase tracking-wider font-extrabold text-teal-700 mb-4 flex items-center gap-2">
+            <span class="w-6 h-6 rounded-full bg-teal-100 text-teal-800 flex items-center justify-center text-xs">1</span>
+            <span>Selecciona Fechas y Huéspedes</span>
+          </h4>
+
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+            
+            <!-- Selector Fechas -->
+            <div class="md:col-span-2">
+              <label for="date-range-picker" class="block text-xs font-bold text-slate-700 mb-1.5">
+                Fechas de Entrada y Salida (Mínimo 2 noches)
+              </label>
+              <div class="relative">
+                <input 
+                  type="text" 
+                  id="date-range-picker" 
+                  placeholder="Elige fecha de entrada y salida..." 
+                  class="w-full pl-11 pr-4 py-3.5 rounded-2xl border border-slate-300 focus:border-teal-600 focus:ring-4 focus:ring-teal-100 text-sm font-semibold text-slate-800 bg-slate-50/50 cursor-pointer transition"
+                  readonly
+                  required
+                />
+                <CalendarIcon class="w-5 h-5 text-teal-600 absolute left-3.5 top-1/2 -translate-y-1/2 pointer-events-none" />
+              </div>
+              <p id="calendar-sync-notice" class="text-[11px] text-slate-500 mt-1 flex items-center gap-1">
+                <span>Cargando calendario de disponibilidad...</span>
+              </p>
+            </div>
+
+            <!-- Huéspedes -->
+            <div>
+              <label for="guests-select" class="block text-xs font-bold text-slate-700 mb-1.5">
+                Número de Huéspedes
+              </label>
+              <div class="relative">
+                <select 
+                  id="guests-select" 
+                  class="w-full pl-11 pr-8 py-3.5 rounded-2xl border border-slate-300 focus:border-teal-600 focus:ring-4 focus:ring-teal-100 text-sm font-semibold text-slate-800 bg-slate-50/50 appearance-none transition"
+                >
+                  <option value="1">1 Huésped</option>
+                  <option value="2" selected>2 Huéspedes</option>
+                  <option value="3">3 Huéspedes</option>
+                  <option value="4">4 Huéspedes</option>
+                  <option value="5">5 Huéspedes</option>
+                  <option value="6">6 Huéspedes (Máximo)</option>
+                </select>
+                <Users class="w-5 h-5 text-teal-600 absolute left-3.5 top-1/2 -translate-y-1/2 pointer-events-none" />
+              </div>
+              <p class="text-[11px] text-slate-500 mt-1">Capacidad para hasta 6 personas (3 dormitorios)</p>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Step 2: Método de Pago (Vía A y Vía B) -->
+        <div>
+          <h4 class="text-xs uppercase tracking-wider font-extrabold text-teal-700 mb-4 flex items-center gap-2">
+            <span class="w-6 h-6 rounded-full bg-teal-100 text-teal-800 flex items-center justify-center text-xs">2</span>
+            <span>Elige Vía de Pago</span>
+          </h4>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            
+            <!-- Vía A: Pago Online Inmediato -->
+            <label class="payment-method-card relative flex flex-col p-5 rounded-2xl border-2 border-teal-600 bg-teal-50/40 cursor-pointer hover:bg-teal-50/70 transition">
+              <div class="flex items-start justify-between">
+                <div class="flex items-center gap-3">
+                  <input type="radio" name="paymentMethod" value="stripe" checked class="w-4 h-4 text-teal-600 focus:ring-teal-500" />
+                  <span class="font-extrabold text-slate-900 text-base">Vía A: Pago Instantáneo</span>
+                </div>
+                <span class="px-2 py-0.5 bg-emerald-100 text-emerald-800 text-[10px] font-bold rounded-md uppercase">
+                  Recomendado
+                </span>
+              </div>
+              <p class="text-xs text-slate-600 mt-2 mb-3">
+                Confirmación inmediata con <strong>Tarjeta de Crédito/Débito</strong> o <strong>Bizum automático</strong> a través de pasarela segura <strong>Stripe Checkout</strong>.
+              </p>
+              <div class="mt-auto flex items-center gap-2 text-[11px] font-semibold text-teal-800 pt-2 border-t border-teal-100">
+                <Lock class="w-3.5 h-3.5 text-teal-600" />
+                <span>Cifrado SSL 256-bit • Bloqueo directo</span>
+              </div>
+            </label>
+
+            <!-- Vía B: Transferencia o Bizum manual con bloqueo 2h -->
+            <label class="payment-method-card relative flex flex-col p-5 rounded-2xl border-2 border-slate-200 bg-slate-50/40 cursor-pointer hover:border-slate-300 transition">
+              <div class="flex items-start justify-between">
+                <div class="flex items-center gap-3">
+                  <input type="radio" name="paymentMethod" value="transfer_manual" class="w-4 h-4 text-teal-600 focus:ring-teal-500" />
+                  <span class="font-extrabold text-slate-900 text-base">Vía B: Transferencia o Bizum Manual</span>
+                </div>
+                <span class="px-2 py-0.5 bg-blue-100 text-blue-800 text-[10px] font-bold rounded-md uppercase">
+                  0% Comisiones
+                </span>
+              </div>
+              <p class="text-xs text-slate-600 mt-2 mb-3">
+                <strong>Bloqueo temporal de 2 horas</strong> sin comisiones de tarjeta. Te reservamos las fechas para que realices la transferencia o Bizum con la referencia.
+              </p>
+              <div class="mt-auto flex items-center gap-2 text-[11px] font-semibold text-blue-800 pt-2 border-t border-slate-200">
+                <Clock class="w-3.5 h-3.5 text-blue-600" />
+                <span>Bloqueo temporal 120 min • Comprobante por WhatsApp</span>
+              </div>
+            </label>
+
+          </div>
+        </div>
+
+        <!-- Step 3: Datos de Contacto del Huésped -->
+        <div>
+          <h4 class="text-xs uppercase tracking-wider font-extrabold text-teal-700 mb-4 flex items-center gap-2">
+            <span class="w-6 h-6 rounded-full bg-teal-100 text-teal-800 flex items-center justify-center text-xs">3</span>
+            <span>Datos del Huésped Principal</span>
+          </h4>
+
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+            <div>
+              <label for="guest-name" class="block text-xs font-bold text-slate-700 mb-1">Nombre y Apellidos</label>
+              <input 
+                type="text" 
+                id="guest-name" 
+                placeholder="Ej. María García" 
+                class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:ring-2 focus:ring-teal-500 text-sm"
+                required
+              />
+            </div>
+            <div>
+              <label for="guest-email" class="block text-xs font-bold text-slate-700 mb-1">Correo Electrónico</label>
+              <input 
+                type="email" 
+                id="guest-email" 
+                placeholder="maria@example.com" 
+                class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:ring-2 focus:ring-teal-500 text-sm"
+                required
+              />
+            </div>
+            <div>
+              <label for="guest-phone" class="block text-xs font-bold text-slate-700 mb-1">Teléfono Móvil (WhatsApp)</label>
+              <input 
+                type="tel" 
+                id="guest-phone" 
+                placeholder="+34 600 000 000" 
+                class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:ring-2 focus:ring-teal-500 text-sm"
+                required
+              />
+            </div>
+          </div>
+        </div>
+
+        <!-- Realtime Price Breakdown Box -->
+        <div id="price-summary-box" class="p-6 bg-slate-50 rounded-2xl border border-slate-200">
+          <div class="flex items-center justify-between pb-3 border-b border-slate-200">
+            <span class="text-xs uppercase font-extrabold text-slate-500 tracking-wider">Desglose de Tarifas</span>
+            <span class="text-xs font-semibold text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded-md">
+              Ahorro Reserva Directa Activado (-15%)
+            </span>
+          </div>
+
+          <div class="mt-4 space-y-2 text-sm text-slate-600">
+            <div class="flex justify-between">
+              <span id="label-nights">Precio estancia (<span id="count-nights">0</span> noches x 110€):</span>
+              <span id="val-stay" class="font-semibold text-slate-800">0 €</span>
+            </div>
+            <div class="flex justify-between">
+              <span>Limpieza y preparación del piso:</span>
+              <span class="font-semibold text-slate-800">40 €</span>
+            </div>
+            <div class="flex justify-between text-emerald-700 font-medium">
+              <span>Comisiones de Airbnb / Booking evitadas:</span>
+              <span id="val-savings">-0 €</span>
+            </div>
+          </div>
+
+          <div class="mt-4 pt-4 border-t border-slate-200 flex items-baseline justify-between">
+            <div>
+              <span class="text-base sm:text-lg font-extrabold text-slate-900">Total a Pagar</span>
+              <span class="block text-[11px] text-slate-500">Impuestos y gastos incluidos</span>
+            </div>
+            <div class="text-right">
+              <span id="val-total" class="text-3xl font-extrabold text-teal-800">0 €</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Submit Button -->
+        <div>
+          <button 
+            type="submit" 
+            id="submit-booking-btn"
+            class="w-full py-4 px-6 rounded-2xl bg-gradient-to-r from-teal-600 via-teal-700 to-emerald-600 hover:from-teal-700 hover:to-emerald-700 text-white font-extrabold text-base sm:text-lg shadow-xl shadow-teal-700/25 transition-all duration-200 flex items-center justify-center gap-3 cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed"
+          >
+            <span id="btn-text">Confirmar Reserva Directa</span>
+            <ArrowRight class="w-5 h-5" />
+          </button>
+          <p class="text-center text-xs text-slate-500 mt-2.5">
+            🔒 Transacción directa y segura con el anfitrión del Apartamento Costa del Sol Suances.
+          </p>
+        </div>
+
+      </form>
+    </div>
+
+  </div>
+</section>
+
+<!-- Modal Vía B: Instrucciones de Bloqueo 2h y Pago Manual -->
+<div id="manual-booking-modal" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm hidden flex items-center justify-center p-4">
+  <div class="max-w-lg w-full bg-white rounded-3xl p-6 sm:p-8 shadow-2xl border border-slate-100 text-slate-800 space-y-6 animate-in fade-in zoom-in-95">
+    
+    <!-- Modal Header -->
+    <div class="text-center">
+      <div class="w-14 h-14 bg-amber-100 text-amber-700 rounded-2xl mx-auto flex items-center justify-center mb-3">
+        <Clock class="w-8 h-8 text-amber-600" />
+      </div>
+      <span class="px-3 py-1 bg-amber-100 text-amber-900 text-xs font-bold rounded-full uppercase">
+        Fechas Bloqueadas Temporalmente
+      </span>
+      <h3 class="text-2xl font-extrabold text-slate-900 mt-2">¡Reserva Pre-confirmada!</h3>
+      <p class="text-xs text-slate-500 mt-1">
+        Tus fechas quedan reservadas durante <strong>2 horas</strong> para que envíes el justificante.
+      </p>
+    </div>
+
+    <!-- Countdown Timer -->
+    <div class="bg-amber-50 border border-amber-200 p-4 rounded-2xl text-center">
+      <p class="text-xs font-semibold text-amber-800">Tiempo restante para completar el pago:</p>
+      <div id="timer-display" class="text-3xl font-extrabold font-mono text-amber-900 mt-1">
+        02:00:00
+      </div>
+    </div>
+
+    <!-- Bank Details -->
+    <div class="space-y-3 bg-slate-50 p-4 rounded-2xl border border-slate-200 text-xs sm:text-sm">
+      <div class="flex justify-between items-center py-1 border-b border-slate-200">
+        <span class="text-slate-500">Referencia:</span>
+        <span id="modal-ref" class="font-mono font-bold text-slate-900 text-base">CDS-MAN-XXXX</span>
+      </div>
+      <div class="flex justify-between items-center py-1 border-b border-slate-200">
+        <span class="text-slate-500">Importe Total:</span>
+        <span id="modal-total" class="font-extrabold text-teal-800 text-base">0 €</span>
+      </div>
+      <div class="flex justify-between items-center py-1 border-b border-slate-200">
+        <span class="text-slate-500">Bizum al móvil:</span>
+        <span id="modal-bizum" class="font-bold text-slate-900">+34 600 123 456</span>
+      </div>
+      <div class="py-1">
+        <span class="text-slate-500 block mb-0.5">IBAN Transferencia:</span>
+        <span id="modal-iban" class="font-mono font-bold text-slate-900 break-all">ES91 2100 0418 4502 0005 1332</span>
+      </div>
+    </div>
+
+    <!-- Actions -->
+    <div class="space-y-2">
+      <a 
+        id="modal-whatsapp-link" 
+        href="#" 
+        target="_blank"
+        class="w-full py-3.5 px-4 bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-sm rounded-xl text-center flex items-center justify-center gap-2 transition shadow-md"
+      >
+        <span>Enviar Justificante por WhatsApp</span>
+      </a>
+      <button 
+        type="button" 
+        id="modal-close-btn"
+        class="w-full py-2.5 px-4 bg-slate-100 hover:bg-slate-200 text-slate-700 font-semibold text-xs rounded-xl transition"
+      >
+        Entendido, cerraré la ventana tras enviar el pago
+      </button>
+    </div>
+
+  </div>
+</div>
+
+<script>
+  import flatpickr from 'flatpickr';
+  import { Spanish } from 'flatpickr/dist/l10n/es.js';
+
+  let checkInDate: string | null = null;
+  let checkOutDate: string | null = null;
+  let currentPricePerNight = 110;
+  let currentCleaningFee = 40;
+
+  const datePickerInput = document.getElementById('date-range-picker') as HTMLInputElement;
+  const countNightsEl = document.getElementById('count-nights');
+  const valStayEl = document.getElementById('val-stay');
+  const valSavingsEl = document.getElementById('val-savings');
+  const valTotalEl = document.getElementById('val-total');
+  const calendarNoticeEl = document.getElementById('calendar-sync-notice');
+  const form = document.getElementById('booking-form') as HTMLFormElement;
+  const submitBtn = document.getElementById('submit-booking-btn') as HTMLButtonElement;
+  const btnText = document.getElementById('btn-text');
+
+  // Modal Vía B elements
+  const manualModal = document.getElementById('manual-booking-modal');
+  const modalCloseBtn = document.getElementById('modal-close-btn');
+  const modalRef = document.getElementById('modal-ref');
+  const modalTotal = document.getElementById('modal-total');
+  const modalBizum = document.getElementById('modal-bizum');
+  const modalIban = document.getElementById('modal-iban');
+  const modalWhatsappLink = document.getElementById('modal-whatsapp-link') as HTMLAnchorElement;
+  const timerDisplay = document.getElementById('timer-display');
+
+  // Estilo visual al cambiar radio de método de pago
+  const radioButtons = document.querySelectorAll('input[name="paymentMethod"]');
+  radioButtons.forEach((radio) => {
+    radio.addEventListener('change', () => {
+      document.querySelectorAll('.payment-method-card').forEach((card) => {
+        card.classList.remove('border-teal-600', 'bg-teal-50/40');
+        card.classList.add('border-slate-200', 'bg-slate-50/40');
+      });
+      const parentCard = (radio as HTMLInputElement).closest('.payment-method-card');
+      if (parentCard) {
+        parentCard.classList.remove('border-slate-200', 'bg-slate-50/40');
+        parentCard.classList.add('border-teal-600', 'bg-teal-50/40');
+      }
+    });
+  });
+
+  // Cálculo de precios
+  function updatePriceCalculation() {
+    if (!checkInDate || !checkOutDate) {
+      if (countNightsEl) countNightsEl.textContent = '0';
+      if (valStayEl) valStayEl.textContent = '0 €';
+      if (valSavingsEl) valSavingsEl.textContent = '-0 €';
+      if (valTotalEl) valTotalEl.textContent = '0 €';
+      return;
+    }
+
+    const start = new Date(checkInDate).getTime();
+    const end = new Date(checkOutDate).getTime();
+    const nights = Math.max(1, Math.round((end - start) / (1000 * 60 * 60 * 24)));
+    const stay = nights * currentPricePerNight;
+    const total = stay + currentCleaningFee;
+    const savings = Math.round(total * 0.15); // 15% de ahorro estimado
+
+    if (countNightsEl) countNightsEl.textContent = String(nights);
+    if (valStayEl) valStayEl.textContent = `${stay} €`;
+    if (valSavingsEl) valSavingsEl.textContent = `-${savings} €`;
+    if (valTotalEl) valTotalEl.textContent = `${total} €`;
+  }
+
+  // Inicializar Flatpickr con disponibilidad del endpoint
+  async function initCalendar() {
+    let disabledRanges: any[] = [];
+    try {
+      const res = await fetch('/api/availability.json');
+      if (res.ok) {
+        const data = await res.json();
+        currentPricePerNight = data.pricePerNight || 110;
+        currentCleaningFee = data.cleaningFee || 40;
+
+        if (Array.isArray(data.unavailable)) {
+          disabledRanges = data.unavailable.map((item: any) => ({
+            from: item.start,
+            to: item.end,
+          }));
+        }
+        if (calendarNoticeEl) {
+          calendarNoticeEl.innerHTML = `✓ Calendario sincronizado con Booking.com y Airbnb (${disabledRanges.length} bloqueos)`;
+          calendarNoticeEl.classList.add('text-emerald-600');
+        }
+      }
+    } catch (e) {
+      if (calendarNoticeEl) {
+        calendarNoticeEl.textContent = 'Calendario activo en modo local.';
+      }
+    }
+
+    flatpickr(datePickerInput, {
+      locale: Spanish,
+      mode: 'range',
+      minDate: 'today',
+      dateFormat: 'Y-m-d',
+      altInput: true,
+      altFormat: 'j M Y',
+      disable: disabledRanges,
+      onChange: (selectedDates) => {
+        if (selectedDates.length === 2) {
+          const d1 = selectedDates[0];
+          const d2 = selectedDates[1];
+
+          // Formatear YYYY-MM-DD local
+          const formatDate = (d: Date) => {
+            const year = d.getFullYear();
+            const month = String(d.getMonth() + 1).padStart(2, '0');
+            const day = String(d.getDate()).padStart(2, '0');
+            return `${year}-${month}-${day}`;
+          };
+
+          checkInDate = formatDate(d1);
+          checkOutDate = formatDate(d2);
+          updatePriceCalculation();
+        } else {
+          checkInDate = null;
+          checkOutDate = null;
+          updatePriceCalculation();
+        }
+      },
+    });
+  }
+
+  initCalendar();
+
+  // Gestión del envío del formulario
+  form?.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    if (!checkInDate || !checkOutDate) {
+      alert('Por favor selecciona las fechas de entrada y salida.');
+      datePickerInput.focus();
+      return;
+    }
+
+    const guests = (document.getElementById('guests-select') as HTMLSelectElement).value;
+    const guestName = (document.getElementById('guest-name') as HTMLInputElement).value;
+    const guestEmail = (document.getElementById('guest-email') as HTMLInputElement).value;
+    const guestPhone = (document.getElementById('guest-phone') as HTMLInputElement).value;
+    const selectedMethod = (document.querySelector('input[name="paymentMethod"]:checked') as HTMLInputElement)?.value || 'stripe';
+
+    submitBtn.disabled = true;
+    if (btnText) btnText.textContent = 'Procesando tu reserva...';
+
+    const payload = {
+      checkIn: checkInDate,
+      checkOut: checkOutDate,
+      guests,
+      guestName,
+      guestEmail,
+      guestPhone,
+    };
+
+    try {
+      if (selectedMethod === 'stripe') {
+        // Vía A: Stripe Checkout
+        const response = await fetch('/api/create-checkout-session', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload),
+        });
+        const result = await response.json();
+
+        if (result.success && result.url) {
+          window.location.href = result.url;
+        } else {
+          alert(result.message || 'Error al iniciar sesión de pago.');
+          submitBtn.disabled = false;
+          if (btnText) btnText.textContent = 'Confirmar Reserva Directa';
+        }
+      } else {
+        // Vía B: Transferencia Bancaria / Bizum manual
+        const response = await fetch('/api/manual-booking', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload),
+        });
+        const result = await response.json();
+
+        if (result.success) {
+          // Mostrar modal con datos bancarios y temporizador
+          if (modalRef) modalRef.textContent = result.reservationId;
+          if (modalTotal) modalTotal.textContent = `${result.grandTotal} €`;
+          if (modalBizum) modalBizum.textContent = result.paymentDetails.bizumPhone;
+          if (modalIban) modalIban.textContent = result.paymentDetails.bankIban;
+
+          const whatsappMessage = encodeURIComponent(
+            `Hola Ivan, acabo de realizar la pre-reserva directa ${result.reservationId} para el Apartamento Costa del Sol Suances del ${result.checkIn} al ${result.checkOut} (${result.grandTotal}€). Te adjunto el comprobante de pago.`
+          );
+          if (modalWhatsappLink) {
+            modalWhatsappLink.href = `https://wa.me/34600123456?text=${whatsappMessage}`;
+          }
+
+          start2HourTimer(result.expiresAt);
+          manualModal?.classList.remove('hidden');
+        } else {
+          alert(result.message || 'Error al generar la pre-reserva.');
+        }
+        submitBtn.disabled = false;
+        if (btnText) btnText.textContent = 'Confirmar Reserva Directa';
+      }
+    } catch (err) {
+      console.error(err);
+      alert('Error de conexión con el servidor. Inténtalo de nuevo.');
+      submitBtn.disabled = false;
+      if (btnText) btnText.textContent = 'Confirmar Reserva Directa';
+    }
+  });
+
+  // Temporizador de 2 horas regresivo
+  function start2HourTimer(expiresAtIso: string) {
+    const target = new Date(expiresAtIso).getTime();
+
+    const interval = setInterval(() => {
+      const now = Date.now();
+      const distance = target - now;
+
+      if (distance <= 0) {
+        clearInterval(interval);
+        if (timerDisplay) timerDisplay.textContent = '00:00:00 (Caducado)';
+        return;
+      }
+
+      const hours = Math.floor(distance / (1000 * 60 * 60));
+      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+      const pad = (n: number) => String(n).padStart(2, '0');
+      if (timerDisplay) {
+        timerDisplay.textContent = `${pad(hours)}:${pad(minutes)}:${pad(seconds)}`;
+      }
+    }, 1000);
+  }
+
+  modalCloseBtn?.addEventListener('click', () => {
+    manualModal?.classList.add('hidden');
+  });
+</script>

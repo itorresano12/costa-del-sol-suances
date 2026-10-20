@@ -1,0 +1,208 @@
+---
+import { 
+  Bed, 
+  Bath, 
+  Coffee, 
+  Tv, 
+  Wifi, 
+  Wind, 
+  Refrigerator, 
+  Maximize, 
+  Users, 
+  Flame, 
+  Utensils, 
+  Sun,
+  ShieldCheck,
+  Check
+} from 'lucide-astro';
+---
+
+<section id="caracteristicas" class="py-20 bg-slate-50 border-t border-b border-slate-200/80">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    
+    <!-- Section Heading -->
+    <div class="text-center max-w-3xl mx-auto mb-16">
+      <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-teal-100 text-teal-800 text-xs font-bold uppercase tracking-wider mb-3">
+        <span>Distribución y Comodidades</span>
+      </div>
+      <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
+        70 m² pensados para el descanso y la desconexión
+      </h2>
+      <p class="mt-4 text-base sm:text-lg text-slate-600">
+        Espacio generoso, luz natural y equipamiento completo a solo 2 minutos a pie de la Playa de La Concha en Suances.
+      </p>
+    </div>
+
+    <!-- The 3 Bedrooms Card Showcase -->
+    <div class="mb-16">
+      <h3 class="text-xl sm:text-2xl font-bold text-slate-900 mb-6 flex items-center gap-2">
+        <Bed class="w-6 h-6 text-teal-600" />
+        <span>Resumen de los 3 Dormitorios (Hasta 6 Huéspedes)</span>
+      </h3>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        
+        <!-- Dormitorio 1 -->
+        <div class="bg-white rounded-3xl p-6 border border-slate-200/80 shadow-sm hover:shadow-md transition">
+          <div class="w-12 h-12 rounded-2xl bg-teal-50 text-teal-700 flex items-center justify-center font-bold text-lg mb-4">
+            01
+          </div>
+          <span class="text-xs font-bold uppercase tracking-wider text-teal-600">Habitación Principal</span>
+          <h4 class="text-xl font-extrabold text-slate-900 mt-1 mb-2">Cama de Matrimonio</h4>
+          <p class="text-sm text-slate-600 mb-4">
+            Cama doble confortable de 150 cm, amplio armario para estancias largas, ventana exterior con luz natural y ropa de cama suave 100% algodón.
+          </p>
+          <ul class="text-xs text-slate-500 space-y-1.5 pt-3 border-t border-slate-100">
+            <li class="flex items-center gap-2 text-slate-700 font-medium">
+              <Check class="w-4 h-4 text-emerald-500" /> Cama doble 150 x 190 cm
+            </li>
+            <li class="flex items-center gap-2 text-slate-700 font-medium">
+              <Check class="w-4 h-4 text-emerald-500" /> Armario ropero espacioso
+            </li>
+            <li class="flex items-center gap-2 text-slate-700 font-medium">
+              <Check class="w-4 h-4 text-emerald-500" /> Luz exterior y enchufes junto a mesitas
+            </li>
+          </ul>
+        </div>
+
+        <!-- Dormitorio 2 -->
+        <div class="bg-white rounded-3xl p-6 border border-slate-200/80 shadow-sm hover:shadow-md transition">
+          <div class="w-12 h-12 rounded-2xl bg-blue-50 text-blue-700 flex items-center justify-center font-bold text-lg mb-4">
+            02
+          </div>
+          <span class="text-xs font-bold uppercase tracking-wider text-blue-600">Habitación Doble</span>
+          <h4 class="text-xl font-extrabold text-slate-900 mt-1 mb-2">Dos Camas Individuales</h4>
+          <p class="text-sm text-slate-600 mb-4">
+            Ideal para niños, jóvenes o amigos. Dos camas individuales de 90 cm separadas con colchones ergonómicos y almacenamiento.
+          </p>
+          <ul class="text-xs text-slate-500 space-y-1.5 pt-3 border-t border-slate-100">
+            <li class="flex items-center gap-2 text-slate-700 font-medium">
+              <Check class="w-4 h-4 text-emerald-500" /> 2 camas individuales de 90 cm
+            </li>
+            <li class="flex items-center gap-2 text-slate-700 font-medium">
+              <Check class="w-4 h-4 text-emerald-500" /> Gran luminosidad y ventilación
+            </li>
+            <li class="flex items-center gap-2 text-slate-700 font-medium">
+              <Check class="w-4 h-4 text-emerald-500" /> Cómoda y mesita auxiliar
+            </li>
+          </ul>
+        </div>
+
+        <!-- Dormitorio 3 -->
+        <div class="bg-white rounded-3xl p-6 border border-slate-200/80 shadow-sm hover:shadow-md transition">
+          <div class="w-12 h-12 rounded-2xl bg-amber-50 text-amber-700 flex items-center justify-center font-bold text-lg mb-4">
+            03
+          </div>
+          <span class="text-xs font-bold uppercase tracking-wider text-amber-600">Tercera Habitación</span>
+          <h4 class="text-xl font-extrabold text-slate-900 mt-1 mb-2">Cama Individual / Nido</h4>
+          <p class="text-sm text-slate-600 mb-4">
+            Tercer dormitorio independiente con cama individual o convertible, perfecto para un quinto o sexto huésped con total privacidad.
+          </p>
+          <ul class="text-xs text-slate-500 space-y-1.5 pt-3 border-t border-slate-100">
+            <li class="flex items-center gap-2 text-slate-700 font-medium">
+              <Check class="w-4 h-4 text-emerald-500" /> Cama 90 cm con opción supletoria
+            </li>
+            <li class="flex items-center gap-2 text-slate-700 font-medium">
+              <Check class="w-4 h-4 text-emerald-500" /> Espacio versátil y silencioso
+            </li>
+            <li class="flex items-center gap-2 text-slate-700 font-medium">
+              <Check class="w-4 h-4 text-emerald-500" /> Perchero y zona de lectura
+            </li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Salón, Cocina y Baño Grid -->
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-16">
+      
+      <!-- Salón -->
+      <div class="bg-white rounded-3xl p-7 border border-slate-200/80 shadow-sm flex flex-col justify-between">
+        <div>
+          <div class="w-10 h-10 rounded-xl bg-teal-100 text-teal-700 flex items-center justify-center mb-4">
+            <Tv class="w-5 h-5" />
+          </div>
+          <h4 class="text-xl font-extrabold text-slate-900 mb-2">Salón y Zona de Estar</h4>
+          <p class="text-sm text-slate-600 leading-relaxed mb-4">
+            Amplio salón con vistas exteriores y al mar. Equipado con sofá confortable, mesa de comedor familiar para 6 comensales y Smart TV.
+          </p>
+        </div>
+        <div class="pt-4 border-t border-slate-100 flex items-center gap-2 text-xs font-semibold text-teal-700">
+          <span>Smart TV • Mesa comedor • Vistas despejadas</span>
+        </div>
+      </div>
+
+      <!-- Cocina Equipada -->
+      <div class="bg-white rounded-3xl p-7 border border-slate-200/80 shadow-sm flex flex-col justify-between">
+        <div>
+          <div class="w-10 h-10 rounded-xl bg-teal-100 text-teal-700 flex items-center justify-center mb-4">
+            <Coffee class="w-5 h-5" />
+          </div>
+          <h4 class="text-xl font-extrabold text-slate-900 mb-2">Cocina Totalmente Equipada</h4>
+          <p class="text-sm text-slate-600 leading-relaxed mb-4">
+            Prepara tus desayunos y cenas como en casa: <strong>nevera grande</strong> con congelador, <strong>cafetera</strong>, microondas, vitrocerámica, vajilla, vasos y menaje completo.
+          </p>
+        </div>
+        <div class="pt-4 border-t border-slate-100 flex items-center gap-2 text-xs font-semibold text-teal-700">
+          <span>Nevera combi • Cafetera • Microondas • Menaje</span>
+        </div>
+      </div>
+
+      <!-- Baño con Ducha y Secador -->
+      <div class="bg-white rounded-3xl p-7 border border-slate-200/80 shadow-sm flex flex-col justify-between">
+        <div>
+          <div class="w-10 h-10 rounded-xl bg-teal-100 text-teal-700 flex items-center justify-center mb-4">
+            <Bath class="w-5 h-5" />
+          </div>
+          <h4 class="text-xl font-extrabold text-slate-900 mb-2">1 Baño Completo con Ducha y Secador</h4>
+          <p class="text-sm text-slate-600 leading-relaxed mb-4">
+            Baño moderno con plato de ducha, mampara de cristal, agua caliente continua, <strong>secador de pelo</strong> incluido, espejo amplio y toallas limpias.
+          </p>
+        </div>
+        <div class="pt-4 border-t border-slate-100 flex items-center gap-2 text-xs font-semibold text-teal-700">
+          <span>Ducha con mampara • Secador de pelo • Toallas</span>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Quick Amenities Pills Grid -->
+    <div class="bg-white rounded-3xl p-8 border border-slate-200 shadow-sm">
+      <h4 class="text-lg font-bold text-slate-900 mb-6">Equipamiento y Servicios Incluidos en tu Estancia</h4>
+      <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4 text-center">
+        <div class="p-4 rounded-2xl bg-slate-50 border border-slate-100 flex flex-col items-center">
+          <Wifi class="w-6 h-6 text-teal-600 mb-2" />
+          <span class="text-xs font-bold text-slate-800">WiFi Rápido Gratis</span>
+          <span class="text-[11px] text-slate-500">Fibra óptica</span>
+        </div>
+        <div class="p-4 rounded-2xl bg-slate-50 border border-slate-100 flex flex-col items-center">
+          <Sun class="w-6 h-6 text-amber-500 mb-2" />
+          <span class="text-xs font-bold text-slate-800">Frente a la Playa</span>
+          <span class="text-[11px] text-slate-500">2 min a La Concha</span>
+        </div>
+        <div class="p-4 rounded-2xl bg-slate-50 border border-slate-100 flex flex-col items-center">
+          <Flame class="w-6 h-6 text-red-500 mb-2" />
+          <span class="text-xs font-bold text-slate-800">Calefacción</span>
+          <span class="text-[11px] text-slate-500">Invierno cálido</span>
+        </div>
+        <div class="p-4 rounded-2xl bg-slate-50 border border-slate-100 flex flex-col items-center">
+          <Wind class="w-6 h-6 text-cyan-600 mb-2" />
+          <span class="text-xs font-bold text-slate-800">Secador de Pelo</span>
+          <span class="text-[11px] text-slate-500">En el baño</span>
+        </div>
+        <div class="p-4 rounded-2xl bg-slate-50 border border-slate-100 flex flex-col items-center">
+          <Coffee class="w-6 h-6 text-orange-600 mb-2" />
+          <span class="text-xs font-bold text-slate-800">Cafetera</span>
+          <span class="text-[11px] text-slate-500">Para tus mañanas</span>
+        </div>
+        <div class="p-4 rounded-2xl bg-slate-50 border border-slate-100 flex flex-col items-center">
+          <Refrigerator class="w-6 h-6 text-blue-600 mb-2" />
+          <span class="text-xs font-bold text-slate-800">Nevera Grande</span>
+          <span class="text-[11px] text-slate-500">Con congelador</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
