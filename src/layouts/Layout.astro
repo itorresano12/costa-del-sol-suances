@@ -1,5 +1,7 @@
 ---
 import '../styles/global.css';
+import Analytics from '../components/Analytics.astro';
+import CookieBanner from '../components/CookieBanner.astro';
 
 interface Props {
   title?: string;
@@ -8,8 +10,8 @@ interface Props {
 }
 
 const {
-  title = "Apartamento Costa del Sol Suances | Reserva Directa al Mejor Precio (Sin Comisiones)",
-  description = "Alojamiento turístico de 70 m² con 3 dormitorios frente a la playa, a 2 min de la Playa de La Concha en Suances (Cantabria). WiFi gratis, vistas al mar y mejor precio garantizado sin comisiones de Booking ni Airbnb.",
+  title = "Apartamento Costa del Sol Suances | Alojamiento Boutique Frente al Mar Cantábrico",
+  description = "Alojamiento turístico de 70 m² con 3 dormitorios frente a la Playa de La Concha en Suances (Cantabria, Norte de España). Vistas al mar, WiFi gratis, pet friendly y reserva directa garantizada sin comisiones de Airbnb ni Booking.",
   image = "/images/apartamento/hero-vistas.jpg",
 } = Astro.props;
 
@@ -21,16 +23,17 @@ const ogImageURL = new URL(image, siteUrl).href;
 const schemaData = {
   "@context": "https://schema.org",
   "@type": "LodgingBusiness",
-  "name": "Apartamento Costa del Sol Suances",
+  "name": "Apartamento Costa del Sol Suances (Cantabria)",
   "description": description,
   "url": siteUrl,
   "image": [
     ogImageURL,
     `${siteUrl}/images/apartamento/salon-1.jpg`,
-    `${siteUrl}/images/apartamento/dormitorio-principal.jpg`
+    `${siteUrl}/images/apartamento/edificio-exterior.jpg`
   ],
   "telephone": "+34600123456",
   "priceRange": "€€",
+  "petsAllowed": true,
   "address": {
     "@type": "PostalAddress",
     "streetAddress": "Paseo Marítimo - Playa de La Concha",
@@ -47,11 +50,12 @@ const schemaData = {
   "checkinTime": "16:00",
   "checkoutTime": "11:00",
   "amenityFeature": [
-    { "@type": "LocationFeatureSpecification", "name": "Frente a la playa", "value": true },
-    { "@type": "LocationFeatureSpecification", "name": "WiFi gratis", "value": true },
+    { "@type": "LocationFeatureSpecification", "name": "Frente a la playa de La Concha", "value": true },
+    { "@type": "LocationFeatureSpecification", "name": "WiFi gratis fibra óptica", "value": true },
     { "@type": "LocationFeatureSpecification", "name": "Cocina equipada", "value": true },
     { "@type": "LocationFeatureSpecification", "name": "Vistas al mar", "value": true },
-    { "@type": "LocationFeatureSpecification", "name": "3 Dormitorios", "value": true }
+    { "@type": "LocationFeatureSpecification", "name": "3 Dormitorios independientes", "value": true },
+    { "@type": "LocationFeatureSpecification", "name": "Pet Friendly (Mascotas bienvenidas sin suplemento)", "value": true }
   ],
   "numberOfRooms": 3,
   "occupancy": {
@@ -73,7 +77,7 @@ const schemaData = {
     <title>{title}</title>
     <meta name="title" content={title} />
     <meta name="description" content={description} />
-    <meta name="keywords" content="Apartamento Costa del Sol Suances, alquiler vacacional Suances, playa de la Concha Cantabria, alojamiento Suances directo, reserva sin comisiones Suances" />
+    <meta name="keywords" content="Apartamento Costa del Sol Suances, alquiler vacacional Suances Cantabria, playa de la Concha Cantabria, Costa del Sol Suances, alojamiento Cantabria frente al mar, pet friendly Suances" />
     <meta name="author" content="Apartamento Costa del Sol Suances" />
     <meta name="robots" content="index, follow" />
 
@@ -84,7 +88,7 @@ const schemaData = {
     <meta property="og:description" content={description} />
     <meta property="og:image" content={ogImageURL} />
     <meta property="og:locale" content="es_ES" />
-    <meta property="og:site_name" content="Apartamento Costa del Sol Suances" />
+    <meta property="og:site_name" content="Apartamento Costa del Sol Suances (Cantabria)" />
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />
@@ -115,5 +119,7 @@ const schemaData = {
   </head>
   <body class="min-h-screen flex flex-col bg-[#FDFBF7] text-stone-900 pb-20 md:pb-0">
     <slot />
+    <CookieBanner />
+    <Analytics />
   </body>
 </html>

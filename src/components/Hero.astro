@@ -5,27 +5,36 @@ import {
   BedDouble,
   Users,
   Footprints,
-  Compass
+  Sparkles
 } from 'lucide-astro';
 ---
 
-<section id="inicio" class="relative overflow-hidden pt-8 pb-16 lg:pt-14 lg:pb-24">
+<section id="inicio" class="relative overflow-hidden pt-6 pb-16 lg:pt-12 lg:pb-24">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     
-    <!-- Top Editorial Subtitle & Location -->
+    <!-- Top Location Pill & Pet Friendly Badge -->
     <div class="text-center max-w-4xl mx-auto mb-8">
-      <div class="inline-flex items-center gap-2 text-stone-500 text-xs sm:text-sm tracking-widest uppercase font-medium mb-4">
-        <span>Suances, Cantabria</span>
-        <span class="inline-block w-1 h-1 rounded-full bg-stone-300"></span>
-        <span>A 2 minutos de la Playa de La Concha</span>
+      
+      <div class="flex flex-wrap items-center justify-center gap-2.5 mb-4">
+        <!-- Location Indicator -->
+        <div class="inline-flex items-center gap-2 text-stone-500 text-xs sm:text-sm tracking-widest uppercase font-medium">
+          <span data-i18n="heroPill">Suances, Cantabria · A 2 minutos de la Playa de La Concha</span>
+        </div>
+
+        <span class="hidden sm:inline-block w-1 h-1 rounded-full bg-stone-300"></span>
+
+        <!-- Sello Pet Friendly (Sin Suplemento) -->
+        <div class="inline-flex items-center gap-1.5 px-3 py-0.5 rounded-full bg-stone-100 border border-stone-200 text-stone-700 text-xs font-medium">
+          <span data-i18n="heroPetBadge">🐾 Pet Friendly · Sin suplemento por mascotas</span>
+        </div>
       </div>
 
       <h1 class="font-serif text-4xl sm:text-6xl lg:text-7xl font-normal text-stone-900 tracking-tight leading-[1.1] mb-6">
-        Tu refugio frente al <span class="italic font-normal">Mar Cantábrico</span>
+        <span data-i18n="heroTitlePre">Tu refugio frente al</span> <span class="italic font-normal" data-i18n="heroTitleItalic">Mar Cantábrico</span>
       </h1>
 
-      <p class="text-base sm:text-lg lg:text-xl text-stone-600 leading-relaxed max-w-2xl mx-auto font-light">
-        Despierta con la brisa marina en un apartamento boutique de 70 m² con vistas panorámicas al océano, tres dormitorios independientes y reserva directa al anfitrión sin intermediarios.
+      <p class="text-base sm:text-lg lg:text-xl text-stone-600 leading-relaxed max-w-2xl mx-auto font-light" data-i18n="heroDesc">
+        Despierta con la brisa marina en un apartamento boutique de 70 m² en Suances (Cantabria), con vistas panorámicas al océano, tres dormitorios independientes y reserva directa al anfitrión sin intermediarios.
       </p>
 
       <!-- Editorial Action Buttons -->
@@ -34,7 +43,7 @@ import {
           href="#reservas"
           class="w-full sm:w-auto px-8 py-4 rounded-full bg-slate-900 hover:bg-slate-800 text-white font-medium text-sm sm:text-base shadow-xl shadow-slate-900/15 hover:-translate-y-0.5 active:translate-y-0 transition-all flex items-center justify-center gap-3 group"
         >
-          <span>Reservar Estancia Directa</span>
+          <span data-i18n="heroCtaPrimary">Reservar Estancia Directa</span>
           <ArrowRight class="w-4 h-4 group-hover:translate-x-1 transition-transform" />
         </a>
 
@@ -42,7 +51,7 @@ import {
           href="#galeria"
           class="w-full sm:w-auto px-8 py-4 rounded-full bg-white/80 hover:bg-white text-stone-800 font-medium text-sm sm:text-base border border-stone-200 shadow-sm hover:border-stone-300 transition-all flex items-center justify-center gap-2"
         >
-          <span>Explorar la Galería</span>
+          <span data-i18n="heroCtaSecondary">Explorar la Galería</span>
         </a>
       </div>
     </div>
@@ -52,7 +61,7 @@ import {
       <div class="relative rounded-3xl overflow-hidden shadow-2xl border border-stone-200/80 bg-stone-950 group">
         <img 
           src="/images/apartamento/hero-vistas.jpg" 
-          alt="Vistas al mar y playa de La Concha desde el Apartamento Costa del Sol en Suances" 
+          alt="Vistas al mar y playa de La Concha desde el Apartamento Costa del Sol en Suances (Cantabria)" 
           class="w-full h-[400px] sm:h-[520px] lg:h-[620px] object-cover group-hover:scale-[1.02] transition-transform duration-1000 ease-out brightness-95"
           loading="eager"
         />
@@ -66,28 +75,28 @@ import {
             
             <div class="flex items-center gap-2">
               <Maximize2 class="w-4 h-4 text-stone-300 stroke-[1.5]" />
-              <span>70 m² habitables</span>
+              <span data-i18n="heroSpecArea">70 m² habitables</span>
             </div>
 
             <span class="hidden sm:inline-block w-1 h-1 rounded-full bg-stone-500"></span>
 
             <div class="flex items-center gap-2">
               <BedDouble class="w-4 h-4 text-stone-300 stroke-[1.5]" />
-              <span>3 dormitorios</span>
+              <span data-i18n="heroSpecRooms">3 dormitorios</span>
             </div>
 
             <span class="hidden sm:inline-block w-1 h-1 rounded-full bg-stone-500"></span>
 
             <div class="flex items-center gap-2">
               <Users class="w-4 h-4 text-stone-300 stroke-[1.5]" />
-              <span>Hasta 6 huéspedes</span>
+              <span data-i18n="heroSpecGuests">Hasta 6 huéspedes</span>
             </div>
 
             <span class="hidden sm:inline-block w-1 h-1 rounded-full bg-stone-500"></span>
 
             <div class="flex items-center gap-2 text-stone-200 font-normal">
               <Footprints class="w-4 h-4 text-stone-300 stroke-[1.5]" />
-              <span>2 min a pie de la playa</span>
+              <span data-i18n="heroSpecBeach">2 min a pie de la playa</span>
             </div>
 
           </div>

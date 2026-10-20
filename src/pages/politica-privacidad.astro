@@ -1,0 +1,81 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout 
+  title="Política de Privacidad | Apartamento Costa del Sol Suances"
+  description="Tratamiento y protección de datos de carácter personal conforme al Reglamento General de Protección de Datos (RGPD) en Apartamento Costa del Sol Suances."
+>
+  <Navbar />
+  
+  <main class="py-16 sm:py-24 bg-[#FDFBF7]">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- Header -->
+      <div class="mb-12 pb-6 border-b border-stone-200/80">
+        <span class="text-xs font-medium uppercase tracking-widest text-stone-500">Protección de Datos (RGPD / LOPDGDD)</span>
+        <h1 class="font-serif text-3xl sm:text-5xl font-normal text-stone-900 tracking-tight mt-2 mb-4">
+          Política de Privacidad
+        </h1>
+        <p class="text-stone-600 text-sm sm:text-base font-light">
+          En vigor conforme al Reglamento (UE) 2016/679 (RGPD) y Ley Orgánica 3/2018.
+        </p>
+      </div>
+
+      <!-- Content -->
+      <div class="prose prose-stone max-w-none space-y-8 text-stone-700 text-sm sm:text-base leading-relaxed font-light">
+        
+        <section class="space-y-3">
+          <h2 class="font-serif text-xl sm:text-2xl text-stone-900 font-normal tracking-tight">
+            1. Responsable del Tratamiento
+          </h2>
+          <p>
+            El responsable del tratamiento de los datos personales recabados a través de esta web es el titular del Apartamento Costa del Sol Suances, con domicilio en Paseo Marítimo, Suances (Cantabria) y correo de contacto <strong>info@costadelsolsuances.es</strong>.
+          </p>
+        </section>
+
+        <section class="space-y-3">
+          <h2 class="font-serif text-xl sm:text-2xl text-stone-900 font-normal tracking-tight">
+            2. Finalidad y Legitimación de la Recogida de Datos
+          </h2>
+          <p>
+            Los datos solicitados a través del motor de reserva (nombre, apellidos, correo electrónico y número de teléfono móvil) se tratan exclusivamente para:
+          </p>
+          <ul class="list-disc pl-5 space-y-1.5 text-stone-800 font-normal">
+            <li><strong>Gestión de la reserva:</strong> Tramitar la estancia, bloqueo temporal de fechas y confirmación de pago.</li>
+            <li><strong>Obligación legal:</strong> Cumplimentar el parte de entrada de viajeros y registro documental conforme a la normativa de seguridad ciudadana y hospedaje de Cantabria.</li>
+            <li><strong>Comunicación directa:</strong> Coordinar la entrega de llaves, check-in, check-out y asistencia al huésped por WhatsApp o correo.</li>
+          </ul>
+          <p>
+            La base jurídica que legitima este tratamiento es la ejecución de la relación contractual de alojamiento turístico y el cumplimiento de obligaciones legales de hospedaje.
+          </p>
+        </section>
+
+        <section class="space-y-3">
+          <h2 class="font-serif text-xl sm:text-2xl text-stone-900 font-normal tracking-tight">
+            3. Conservación y Comunicación a Terceros
+          </h2>
+          <p>
+            Los datos se conservarán durante el tiempo estrictamente necesario para la estancia y los plazos legalmente exigibles por la legislación turística y fiscal española. No se cederán datos a terceros salvo imperativo legal (Cuerpos y Fuerzas de Seguridad del Estado) o a proveedores de servicios de pago seguro (Stripe Checkout) bajo estándares PCI-DSS.
+          </p>
+        </section>
+
+        <section class="space-y-3">
+          <h2 class="font-serif text-xl sm:text-2xl text-stone-900 font-normal tracking-tight">
+            4. Derechos del Huésped
+          </h2>
+          <p>
+            Usted tiene derecho a acceder a sus datos personales, solicitar la rectificación de los inexactos o pedir su supresión dirigiéndose mediante correo electrónico a <strong>info@costadelsolsuances.es</strong>, acompañando copia de su documento de identidad. Asimismo, puede presentar reclamación ante la Agencia Española de Protección de Datos (AEPD).
+          </p>
+        </section>
+
+      </div>
+
+    </div>
+  </main>
+
+  <Footer />
+</Layout>
+

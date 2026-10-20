@@ -13,41 +13,52 @@ import { Waves, Github, Phone, Mail, MapPin, ShieldCheck, Download } from 'lucid
           <div class="w-10 h-10 rounded-2xl bg-white/10 text-white flex items-center justify-center font-bold">
             <Waves class="w-5 h-5 stroke-[1.5]" />
           </div>
-          <span class="font-serif text-2xl text-white tracking-tight">
+          <span class="font-serif text-2xl text-white tracking-tight" data-i18n="brandName">
             Costa del Sol Suances
           </span>
         </a>
 
-        <p class="text-sm text-stone-300 font-normal leading-relaxed max-w-sm">
+        <p class="text-sm text-stone-300 font-normal leading-relaxed max-w-sm" data-i18n="footerDesc">
           Alojamiento boutique frente al mar en Suances, Cantabria. 70 m², 3 dormitorios independientes y reserva directa con la tarifa más ventajosa garantizada sin comisiones de Airbnb ni Booking.
         </p>
 
         <div class="pt-2 flex items-center gap-2 text-xs text-stone-300 font-normal">
-          <ShieldCheck class="w-4 h-4 text-stone-300 stroke-[1.5]" />
-          <span>Vivienda de Uso Turístico Oficial — Cantabria</span>
+          <ShieldCheck class="w-4 h-4 text-stone-300 stroke-[1.5] flex-shrink-0" />
+          <span data-i18n="footerVut">Vivienda de Uso Turístico Oficial — Cantabria (Lic. G-12345/VUT)</span>
         </div>
       </div>
 
       <!-- Enlaces Rápidos -->
       <div>
-        <h4 class="text-xs font-medium uppercase tracking-widest text-stone-200 mb-4">Navegación</h4>
+        <h4 class="text-xs font-medium uppercase tracking-widest text-stone-200 mb-4" data-i18n="navHome">Navegación</h4>
         <ul class="space-y-2.5 text-sm font-normal text-stone-300">
-          <li><a href="#inicio" class="hover:text-white transition">Inicio</a></li>
-          <li><a href="#galeria" class="hover:text-white transition">Galería de Fotos</a></li>
-          <li><a href="#caracteristicas" class="hover:text-white transition">3 Dormitorios & 70 m²</a></li>
-          <li><a href="#ventajas" class="hover:text-white transition">Tarifa Directa</a></li>
-          <li><a href="#ubicacion" class="hover:text-white transition">Ubicación y Entorno</a></li>
-          <li><a href="#reservas" class="text-stone-200 font-medium hover:underline">Motor de Reservas</a></li>
+          <li><a href="#inicio" class="hover:text-white transition" data-i18n="navHome">Inicio</a></li>
+          <li><a href="#galeria" class="hover:text-white transition" data-i18n="navGallery">Galería de Fotos</a></li>
+          <li><a href="#caracteristicas" class="hover:text-white transition" data-i18n="navRooms">3 Dormitorios & 70 m²</a></li>
+          <li><a href="#ventajas" class="hover:text-white transition" data-i18n="navPerks">Tarifa Directa</a></li>
+          <li><a href="#ubicacion" class="hover:text-white transition" data-i18n="navLocation">Ubicación y Entorno</a></li>
+          <li><a href="#reservas" class="text-stone-200 font-medium hover:underline" data-i18n="navBookBtn">Motor de Reservas</a></li>
         </ul>
       </div>
 
-      <!-- Contacto Directo -->
+      <!-- Legal / Cumplimiento Normativo -->
+      <div>
+        <h4 class="text-xs font-medium uppercase tracking-widest text-stone-200 mb-4" data-i18n="footerLegal">Información Legal</h4>
+        <ul class="space-y-2.5 text-sm font-normal text-stone-300">
+          <li><a href="/aviso-legal" class="hover:text-white transition" data-i18n="footerAviso">Aviso Legal</a></li>
+          <li><a href="/politica-privacidad" class="hover:text-white transition" data-i18n="footerPrivacidad">Política de Privacidad</a></li>
+          <li><a href="/terminos-condiciones" class="hover:text-white transition" data-i18n="footerTerminos">Términos y Condiciones</a></li>
+          <li><a href="/politica-cookies" class="hover:text-white transition" data-i18n="footerCookies">Política de Cookies</a></li>
+        </ul>
+      </div>
+
+      <!-- Contacto Directo & iCal -->
       <div>
         <h4 class="text-xs font-medium uppercase tracking-widest text-stone-200 mb-4">Contacto Directo</h4>
         <ul class="space-y-3 text-sm font-normal text-stone-300">
           <li class="flex items-start gap-2.5">
             <MapPin class="w-4 h-4 text-stone-400 flex-shrink-0 mt-0.5 stroke-[1.5]" />
-            <span>Suances (Playa de La Concha), Cantabria</span>
+            <span data-i18n="brandLocation">Suances (Playa de La Concha), Cantabria</span>
           </li>
           <li class="flex items-center gap-2.5">
             <Phone class="w-4 h-4 text-stone-400 flex-shrink-0 stroke-[1.5]" />
@@ -62,45 +73,39 @@ import { Waves, Github, Phone, Mail, MapPin, ShieldCheck, Download } from 'lucid
             </a>
           </li>
         </ul>
-      </div>
 
-      <!-- Sincronización y Desarrollador -->
-      <div>
-        <h4 class="text-xs font-medium uppercase tracking-widest text-stone-200 mb-4">Sincronización iCal</h4>
-        <p class="text-xs text-stone-300 font-normal leading-relaxed mb-3">
-          Feed en tiempo real para exportar reservas directas hacia Booking y Airbnb:
-        </p>
-        <a 
-          href="/api/calendar.ics" 
-          target="_blank"
-          class="inline-flex items-center gap-2 px-3.5 py-2 rounded-xl bg-slate-800/80 border border-slate-700 text-xs text-stone-200 hover:text-white hover:border-slate-500 transition"
-        >
-          <Download class="w-3.5 h-3.5 stroke-[1.5]" />
-          <span>Feed /api/calendar.ics</span>
-        </a>
-
-        <!-- GitHub Profile Reference (@itorresano12) -->
+        <!-- Sincronización iCal -->
         <div class="mt-6 pt-4 border-t border-slate-800">
-          <span class="block text-[11px] uppercase tracking-widest text-stone-500 font-medium mb-1.5">Desarrollador & Anfitrión</span>
+          <span class="block text-[11px] uppercase tracking-widest text-stone-400 font-medium mb-1.5">Sincronización iCal</span>
           <a 
-            href="https://github.com/itorresano12" 
-            target="_blank" 
-            rel="noopener noreferrer"
-            class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-xl bg-slate-800/80 hover:bg-slate-800 border border-slate-700 text-stone-200 text-xs font-medium transition group"
+            href="/api/calendar.ics" 
+            target="_blank"
+            class="inline-flex items-center gap-2 px-3 py-1.5 rounded-xl bg-slate-800/80 border border-slate-700 text-xs text-stone-200 hover:text-white hover:border-slate-500 transition"
           >
-            <Github class="w-4 h-4 text-stone-300 group-hover:rotate-12 transition-transform stroke-[1.5]" />
-            <span>@itorresano12 en GitHub</span>
+            <Download class="w-3.5 h-3.5 stroke-[1.5]" />
+            <span>Feed /api/calendar.ics</span>
           </a>
         </div>
       </div>
 
     </div>
 
-    <!-- Bottom Copyright -->
-    <div class="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-stone-500 font-light">
-      <p>© {new Date().getFullYear()} Apartamento Costa del Sol Suances. Todos los derechos reservados.</p>
-      <div class="flex items-center gap-6">
-        <a href="#inicio" class="hover:text-stone-300 transition">Volver arriba ↑</a>
+    <!-- Bottom Copyright & GitHub Profile Reference -->
+    <div class="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-stone-400 font-normal">
+      <p>© {new Date().getFullYear()} Apartamento Costa del Sol Suances (Cantabria). Todos los derechos reservados.</p>
+      
+      <div class="flex items-center gap-4">
+        <a 
+          href="https://github.com/itorresano12" 
+          target="_blank" 
+          rel="noopener noreferrer"
+          class="inline-flex items-center gap-1.5 text-stone-300 hover:text-white transition"
+        >
+          <Github class="w-3.5 h-3.5 stroke-[1.5]" />
+          <span>@itorresano12</span>
+        </a>
+        <span>•</span>
+        <a href="#inicio" class="hover:text-stone-200 transition">Volver arriba ↑</a>
       </div>
     </div>
 

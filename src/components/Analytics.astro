@@ -1,0 +1,55 @@
+---
+interface Props {
+  measurementId?: string;
+}
+
+const {
+  measurementId = import.meta.env.PUBLIC_GA_ID || 'G-XXXXXXXXXX'
+} = Astro.props;
+---
+
+<!-- Google Analytics 4 (RGPD Compliant - Solo se ejecuta con consentimiento explícito) -->
+<script define:vars={{ measurementId }}>
+  function loadGoogleAnalytics() {
+    if (!measurementId || measurementId === 'G-XXXXXXXXXX') {
+      console.log('ℹ️ Google Analytics listo: asigna tu ID real (G-XXXXXXXXXX) en PUBLIC_GA_ID');
+      return;
+    }
+
+    if (window.gaLoaded) return;
+    window.gaLoaded = true;
+
+    // Cargar script gtag.js
+    const script = document.createElement('script');
+    script.async = true;
+    script.src = `https://www.googletagmanager.com/gtag/js?id=${measurementId}`;
+    document.head.appendChild(script);
+
+    // Inicializar dataLayer
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+      window.dataLayer.push(arguments);
+    }
+    window.gtag = gtag;
+
+    gtag('js', new Date());
+    gtag('config', measurementId, {
+      anonymize_ip: true,
+      cookie_flags: 'SameSite=None;Secure'
+    });
+  }
+
+  // Verificar si ya existe consentimiento previo
+  if (typeof window !== 'undefined') {
+    const consent = localStorage.getItem('cookie_consent');
+    if (consent === 'accepted') {
+      loadGoogleAnalytics();
+    }
+
+    // Escuchar el evento emitido al aceptar en el CookieBanner
+    window.addEventListener('cookie_consent_accepted', () => {
+      loadGoogleAnalytics();
+    });
+  }
+</script>
+

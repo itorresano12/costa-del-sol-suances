@@ -1,0 +1,78 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout 
+  title="Política de Cookies | Apartamento Costa del Sol Suances"
+  description="Información detallada sobre las cookies técnicas y de análisis empleadas en la web de Apartamento Costa del Sol Suances y su gestión por el usuario."
+>
+  <Navbar />
+  
+  <main class="py-16 sm:py-24 bg-[#FDFBF7]">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- Header -->
+      <div class="mb-12 pb-6 border-b border-stone-200/80">
+        <span class="text-xs font-medium uppercase tracking-widest text-stone-500">Transparencia Digital</span>
+        <h1 class="font-serif text-3xl sm:text-5xl font-normal text-stone-900 tracking-tight mt-2 mb-4">
+          Política de Cookies
+        </h1>
+        <p class="text-stone-600 text-sm sm:text-base font-light">
+          En cumplimiento del artículo 22.2 de la LSSI-CE y directrices del Comité Europeo de Protección de Datos.
+        </p>
+      </div>
+
+      <!-- Content -->
+      <div class="prose prose-stone max-w-none space-y-8 text-stone-700 text-sm sm:text-base leading-relaxed font-light">
+        
+        <section class="space-y-3">
+          <h2 class="font-serif text-xl sm:text-2xl text-stone-900 font-normal tracking-tight">
+            1. ¿Qué son las Cookies?
+          </h2>
+          <p>
+            Una cookie es un pequeño archivo de texto que un sitio web almacena en su navegador al visitarlo. Sirven para recordar sus preferencias de navegación y permitir el funcionamiento técnico del motor de reservas sin almacenar contraseñas ni datos sensibles.
+          </p>
+        </section>
+
+        <section class="space-y-3">
+          <h2 class="font-serif text-xl sm:text-2xl text-stone-900 font-normal tracking-tight">
+            2. Tipos de Cookies Empleadas en este Sitio Web
+          </h2>
+          <div class="space-y-4">
+            
+            <div class="p-4 rounded-2xl bg-white border border-stone-200">
+              <h3 class="font-medium text-stone-900 text-base">Cookies Técnicas y Estrictamente Necesarias</h3>
+              <p class="text-xs sm:text-sm text-stone-600 mt-1">
+                Imprescindibles para la navegación, el funcionamiento del calendario de disponibilidad interactivo (Flatpickr), la selección de idioma y el registro de su propia decisión sobre las cookies (almacenada en su dispositivo bajo <code>cookie_consent</code>). No requieren consentimiento.
+              </p>
+            </div>
+
+            <div class="p-4 rounded-2xl bg-white border border-stone-200">
+              <h3 class="font-medium text-stone-900 text-base">Cookies Analíticas (Google Analytics 4)</h3>
+              <p class="text-xs sm:text-sm text-stone-600 mt-1">
+                Solo se activan si usted pulsa voluntariamente "Aceptar cookies" en nuestro banner. Permiten cuantificar el número de visitantes, la procedencia geográfica y los tiempos de carga de forma anónima con enmascaramiento de dirección IP (anonymize_ip).
+              </p>
+            </div>
+
+          </div>
+        </section>
+
+        <section class="space-y-3">
+          <h2 class="font-serif text-xl sm:text-2xl text-stone-900 font-normal tracking-tight">
+            3. Cómo Modificar o Revocar su Consentimiento
+          </h2>
+          <p>
+            Puede eliminar o bloquear las cookies en cualquier momento a través de la configuración de su navegador web (Chrome, Safari, Firefox o Edge). Si desea revocar el consentimiento concedido en este sitio, puede borrar los datos de navegación o el almacenamiento local de su navegador para que el banner vuelva a presentarse.
+          </p>
+        </section>
+
+      </div>
+
+    </div>
+  </main>
+
+  <Footer />
+</Layout>
+

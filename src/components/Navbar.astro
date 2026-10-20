@@ -1,39 +1,61 @@
 ---
-import { Waves, Calendar, Phone } from 'lucide-astro';
+import { Waves, Calendar, Phone, Globe } from 'lucide-astro';
+import { translations } from '../i18n/translations';
 ---
 
 <header class="sticky top-0 z-50 w-full backdrop-blur-md bg-[#FDFBF7]/90 border-b border-stone-200/60 transition-all duration-300">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="flex items-center justify-between h-20">
       
-      <!-- Brand Logo -->
+      <!-- Brand Logo (Always explicitly Suances, Cantabria) -->
       <a href="#inicio" class="flex items-center gap-2.5 sm:gap-3.5 group flex-shrink-0">
         <div class="w-9 h-9 sm:w-10 sm:h-10 rounded-2xl bg-slate-900 text-white flex items-center justify-center shadow-md shadow-slate-900/10 group-hover:scale-105 transition-transform duration-300 flex-shrink-0">
           <Waves class="w-4 h-4 sm:w-5 sm:h-5 stroke-[1.5]" />
         </div>
         <div class="flex flex-col">
-          <span class="font-serif text-lg sm:text-2xl text-stone-900 tracking-tight leading-none group-hover:text-stone-700 transition">
-            Costa del Sol
+          <span class="font-serif text-lg sm:text-2xl text-stone-900 tracking-tight leading-none group-hover:text-stone-700 transition" data-i18n="brandName">
+            Costa del Sol Suances
           </span>
           <div class="flex items-center gap-1.5 mt-0.5 sm:mt-1">
-            <span class="text-[10px] sm:text-[11px] font-medium text-stone-500 tracking-widest uppercase">Suances · Cantabria</span>
+            <span class="text-[10px] sm:text-[11px] font-medium text-stone-500 tracking-widest uppercase" data-i18n="brandSubtitle">Suances · Cantabria</span>
             <span class="hidden sm:inline-block w-1 h-1 rounded-full bg-stone-300"></span>
-            <span class="hidden sm:inline text-[11px] font-normal text-stone-500">Playa de La Concha</span>
+            <span class="hidden sm:inline text-[11px] font-normal text-stone-500" data-i18n="brandLocation">Playa de La Concha, Suances</span>
           </div>
         </div>
       </a>
 
       <!-- Desktop Navigation Links -->
-      <nav class="hidden md:flex items-center gap-7 lg:gap-8 text-sm font-medium text-stone-600">
-        <a href="#inicio" class="hover:text-stone-900 transition">Inicio</a>
-        <a href="#galeria" class="hover:text-stone-900 transition">Galería</a>
-        <a href="#caracteristicas" class="hover:text-stone-900 transition">3 Dormitorios</a>
-        <a href="#ventajas" class="hover:text-stone-900 transition">Tarifa Directa</a>
-        <a href="#ubicacion" class="hover:text-stone-900 transition">Ubicación</a>
+      <nav class="hidden md:flex items-center gap-6 lg:gap-8 text-sm font-medium text-stone-600">
+        <a href="#inicio" class="hover:text-stone-900 transition" data-i18n="navHome">Inicio</a>
+        <a href="#galeria" class="hover:text-stone-900 transition" data-i18n="navGallery">Galería</a>
+        <a href="#caracteristicas" class="hover:text-stone-900 transition" data-i18n="navRooms">3 Dormitorios</a>
+        <a href="#ventajas" class="hover:text-stone-900 transition" data-i18n="navPerks">Tarifa Directa</a>
+        <a href="#ubicacion" class="hover:text-stone-900 transition" data-i18n="navLocation">Ubicación</a>
       </nav>
 
-      <!-- Desktop Action Buttons -->
+      <!-- Desktop Action Buttons & Language Selector -->
       <div class="hidden sm:flex items-center gap-3">
+        
+        <!-- Language Switcher (ES / EN) -->
+        <div class="inline-flex items-center rounded-full bg-stone-100 p-0.5 border border-stone-200/80 text-xs font-medium" role="group" aria-label="Selector de idioma">
+          <button 
+            type="button" 
+            class="lang-toggle-btn px-2.5 py-1 rounded-full transition-all text-xs font-medium bg-slate-900 text-white shadow-xs cursor-pointer"
+            data-target-lang="es"
+            aria-label="Cambiar a Español"
+          >
+            ES
+          </button>
+          <button 
+            type="button" 
+            class="lang-toggle-btn px-2.5 py-1 rounded-full transition-all text-xs font-medium text-stone-600 hover:text-stone-900 cursor-pointer"
+            data-target-lang="en"
+            aria-label="Switch to English"
+          >
+            EN
+          </button>
+        </div>
+
         <a 
           href="https://wa.me/34600123456?text=Hola%20Ivan,%20quería%20consultar%20disponibilidad%20para%20el%20Apartamento%20Costa%20del%20Sol%20Suances" 
           target="_blank" 
@@ -49,18 +71,38 @@ import { Waves, Calendar, Phone } from 'lucide-astro';
           class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-slate-900 hover:bg-slate-800 text-white font-medium text-xs sm:text-sm shadow-sm hover:shadow transition-all"
         >
           <Calendar class="w-3.5 h-3.5 text-stone-300 stroke-[1.5]" />
-          <span>Reservar Directo</span>
+          <span data-i18n="navBookBtn">Reservar Directo</span>
         </a>
       </div>
 
-      <!-- Mobile Right Controls (Clean and Spaced) -->
+      <!-- Mobile Right Controls (Language + CTA + Hamburger) -->
       <div class="flex md:hidden items-center gap-1.5 sm:gap-2">
+        <!-- Mobile Language Selector -->
+        <div class="inline-flex items-center rounded-full bg-stone-100 p-0.5 border border-stone-200/80 text-[11px] font-medium mr-1">
+          <button 
+            type="button" 
+            class="lang-toggle-btn px-2 py-0.5 rounded-full transition-all text-[11px] bg-slate-900 text-white"
+            data-target-lang="es"
+          >
+            ES
+          </button>
+          <button 
+            type="button" 
+            class="lang-toggle-btn px-2 py-0.5 rounded-full transition-all text-[11px] text-stone-600"
+            data-target-lang="en"
+          >
+            EN
+          </button>
+        </div>
+
         <a 
           href="#reservas"
-          class="px-3.5 py-1.5 bg-slate-900 hover:bg-slate-800 text-white text-xs font-medium rounded-full shadow-sm"
+          class="px-3 py-1.5 bg-slate-900 hover:bg-slate-800 text-white text-xs font-medium rounded-full shadow-sm"
+          data-i18n="navBookShort"
         >
           Reservar
         </a>
+
         <button 
           id="mobile-menu-btn" 
           type="button" 
@@ -78,18 +120,18 @@ import { Waves, Calendar, Phone } from 'lucide-astro';
 
   <!-- Mobile Drawer Menu -->
   <div id="mobile-menu" class="hidden md:hidden border-t border-stone-200 bg-[#FDFBF7] px-4 pt-3 pb-6 space-y-3 shadow-lg">
-    <a href="#inicio" class="block px-3 py-2 rounded-xl text-base font-normal text-stone-700 hover:bg-stone-100">Inicio</a>
-    <a href="#galeria" class="block px-3 py-2 rounded-xl text-base font-normal text-stone-700 hover:bg-stone-100">Galería de Fotos</a>
-    <a href="#caracteristicas" class="block px-3 py-2 rounded-xl text-base font-normal text-stone-700 hover:bg-stone-100">3 Dormitorios y 70 m²</a>
-    <a href="#ventajas" class="block px-3 py-2 rounded-xl text-base font-normal text-stone-700 hover:bg-stone-100">Ventajas Reserva Directa</a>
-    <a href="#ubicacion" class="block px-3 py-2 rounded-xl text-base font-normal text-stone-700 hover:bg-stone-100">Ubicación y Entorno</a>
-    <a href="#reservas" class="block px-4 py-3 rounded-2xl text-center font-medium text-white bg-slate-900 shadow-md">
+    <a href="#inicio" class="block px-3 py-2 rounded-xl text-base font-normal text-stone-700 hover:bg-stone-100" data-i18n="navHome">Inicio</a>
+    <a href="#galeria" class="block px-3 py-2 rounded-xl text-base font-normal text-stone-700 hover:bg-stone-100" data-i18n="navGallery">Galería de Fotos</a>
+    <a href="#caracteristicas" class="block px-3 py-2 rounded-xl text-base font-normal text-stone-700 hover:bg-stone-100" data-i18n="navRooms">3 Dormitorios y 70 m²</a>
+    <a href="#ventajas" class="block px-3 py-2 rounded-xl text-base font-normal text-stone-700 hover:bg-stone-100" data-i18n="navPerks">Ventajas Reserva Directa</a>
+    <a href="#ubicacion" class="block px-3 py-2 rounded-xl text-base font-normal text-stone-700 hover:bg-stone-100" data-i18n="navLocation">Ubicación y Entorno</a>
+    <a href="#reservas" class="block px-4 py-3 rounded-2xl text-center font-medium text-white bg-slate-900 shadow-md" data-i18n="navBookBtn">
       Reservar Ahora (Mejor Tarifa)
     </a>
   </div>
 </header>
 
-<script>
+<script define:vars={{ translations }}>
   const btn = document.getElementById('mobile-menu-btn');
   const menu = document.getElementById('mobile-menu');
   if (btn && menu) {
@@ -97,4 +139,47 @@ import { Waves, Calendar, Phone } from 'lucide-astro';
       menu.classList.toggle('hidden');
     });
   }
+
+  // Lógica de i18n cliente (Bilingüe ES / EN)
+  function setLanguage(lang) {
+    const dict = translations[lang] || translations.es;
+    localStorage.setItem('preferred_lang', lang);
+    document.documentElement.lang = lang;
+
+    // Actualizar todos los elementos con data-i18n
+    document.querySelectorAll('[data-i18n]').forEach((el) => {
+      const key = el.getAttribute('data-i18n');
+      if (key && dict[key]) {
+        el.textContent = dict[key];
+      }
+    });
+
+    // Actualizar botones de idioma en desktop y móvil
+    document.querySelectorAll('.lang-toggle-btn').forEach((button) => {
+      const targetLang = button.getAttribute('data-target-lang');
+      if (targetLang === lang) {
+        button.classList.add('bg-slate-900', 'text-white', 'shadow-xs');
+        button.classList.remove('text-stone-600');
+      } else {
+        button.classList.remove('bg-slate-900', 'text-white', 'shadow-xs');
+        button.classList.add('text-stone-600');
+      }
+    });
+  }
+
+  // Inicializar según preferencia guardada o idioma del navegador
+  const savedLang = localStorage.getItem('preferred_lang') || 
+    (navigator.language && navigator.language.startsWith('en') ? 'en' : 'es');
+
+  if (savedLang === 'en') {
+    setLanguage('en');
+  }
+
+  // Asignar listeners a todos los botones de idioma
+  document.querySelectorAll('.lang-toggle-btn').forEach((button) => {
+    button.addEventListener('click', (e) => {
+      const targetLang = (e.currentTarget).getAttribute('data-target-lang');
+      if (targetLang) setLanguage(targetLang);
+    });
+  });
 </script>

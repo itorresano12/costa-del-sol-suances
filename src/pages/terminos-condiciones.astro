@@ -1,0 +1,88 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout 
+  title="Términos y Condiciones de Reserva | Apartamento Costa del Sol Suances"
+  description="Normas de convivencia, política de cancelación gratuita a 7 días y condiciones de admisión pet friendly para estancias en Apartamento Costa del Sol Suances."
+>
+  <Navbar />
+  
+  <main class="py-16 sm:py-24 bg-[#FDFBF7]">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- Header -->
+      <div class="mb-12 pb-6 border-b border-stone-200/80">
+        <span class="text-xs font-medium uppercase tracking-widest text-stone-500">Condiciones Contractuales</span>
+        <h1 class="font-serif text-3xl sm:text-5xl font-normal text-stone-900 tracking-tight mt-2 mb-4">
+          Términos y Condiciones de Reserva
+        </h1>
+        <p class="text-stone-600 text-sm sm:text-base font-light">
+          Reglas del alojamiento, horarios de entrada y política de cancelación y mascotas.
+        </p>
+      </div>
+
+      <!-- Content -->
+      <div class="prose prose-stone max-w-none space-y-8 text-stone-700 text-sm sm:text-base leading-relaxed font-light">
+        
+        <section class="space-y-3">
+          <h2 class="font-serif text-xl sm:text-2xl text-stone-900 font-normal tracking-tight">
+            1. Horarios de Entrada (Check-in) y Salida (Check-out)
+          </h2>
+          <ul class="list-disc pl-5 space-y-1.5 text-stone-800 font-normal">
+            <li><strong>Llegada (Check-in):</strong> A partir de las 16:00 horas. Entrada coordinada directamente con el anfitrión.</li>
+            <li><strong>Salida (Check-out):</strong> Hasta las 11:00 horas de la mañana, para permitir la limpieza y preparación exhaustiva.</li>
+            <li>Flexibilidad horaria disponible previa consulta y sujeta a disponibilidad de entradas/salidas adyacentes.</li>
+          </ul>
+        </section>
+
+        <section class="space-y-3">
+          <h2 class="font-serif text-xl sm:text-2xl text-stone-900 font-normal tracking-tight">
+            2. Política de Cancelación Gratuita
+          </h2>
+          <p>
+            Queremos que reserves con total tranquilidad:
+          </p>
+          <div class="p-4 rounded-2xl bg-stone-100 border border-stone-200 text-stone-800 text-sm font-normal">
+            🛡️ <strong>Cancelación 100% Gratuita:</strong> Puedes cancelar tu reserva sin ningún coste hasta <strong>7 días antes</strong> de la fecha de llegada prevista. Se reembolsará la totalidad del importe abonado.
+          </div>
+          <p class="text-xs text-stone-500">
+            En cancelaciones con menos de 7 días de antelación o en caso de no presentación, el importe de la primera noche no será reembolsable como compensación de bloqueo de calendario.
+          </p>
+        </section>
+
+        <section class="space-y-3">
+          <h2 class="font-serif text-xl sm:text-2xl text-stone-900 font-normal tracking-tight">
+            3. Política Pet Friendly (Mascotas Bienvenidas)
+          </h2>
+          <p>
+            En Apartamento Costa del Sol Suances entendemos que tus mascotas forman parte de la familia:
+          </p>
+          <ul class="list-disc pl-5 space-y-1.5 text-stone-800 font-normal">
+            <li><strong>🐾 Sin suplemento:</strong> No cobramos ningún cargo adicional por viajar con perro o mascota educada.</li>
+            <li>Se solicita comunicar previamente la raza y tamaño al realizar la reserva.</li>
+            <li>El huésped es responsable de mantener la higiene del piso y la tranquilidad en el edificio residencial.</li>
+          </ul>
+        </section>
+
+        <section class="space-y-3">
+          <h2 class="font-serif text-xl sm:text-2xl text-stone-900 font-normal tracking-tight">
+            4. Normas de Convivencia y Casa
+          </h2>
+          <ul class="list-disc pl-5 space-y-1.5 text-stone-800 font-normal">
+            <li><strong>Capacidad máxima:</strong> 6 personas (distribuidas en 3 dormitorios). Queda prohibida la pernocta de personas no registradas.</li>
+            <li><strong>Fiestas y eventos:</strong> Quedan terminantemente prohibidas las fiestas o ruidos que perturben el descanso vecinal.</li>
+            <li><strong>Humo:</strong> Prohibido fumar en el interior del inmueble.</li>
+          </ul>
+        </section>
+
+      </div>
+
+    </div>
+  </main>
+
+  <Footer />
+</Layout>
+

@@ -17,13 +17,13 @@ import {
     
     <!-- Editorial Section Header -->
     <div class="text-center max-w-3xl mx-auto mb-14">
-      <span class="text-stone-500 text-xs sm:text-sm tracking-widest uppercase font-medium">
+      <span class="text-stone-500 text-xs sm:text-sm tracking-widest uppercase font-medium" data-i18n="bookingPill">
         Reserva Directa Oficial
       </span>
-      <h2 class="font-serif text-3xl sm:text-5xl font-normal text-stone-900 tracking-tight mt-3 mb-4">
+      <h2 class="font-serif text-3xl sm:text-5xl font-normal text-stone-900 tracking-tight mt-3 mb-4" data-i18n="bookingTitle">
         Asegura tu estancia en Suances
       </h2>
-      <p class="text-stone-600 text-base sm:text-lg font-light leading-relaxed">
+      <p class="text-stone-600 text-base sm:text-lg font-light leading-relaxed" data-i18n="bookingDesc">
         Mejor tarifa garantizada sin comisiones de Airbnb ni Booking. Sincronización en tiempo real y confirmación inmediata.
       </p>
     </div>
@@ -38,14 +38,14 @@ import {
             <ShieldCheck class="w-5 h-5 stroke-[1.25]" />
           </div>
           <div>
-            <span class="block text-sm font-medium text-stone-900">Tarifa Oficial Directa (-15%)</span>
-            <span class="block text-xs text-stone-500 font-normal">Sin recargos ni sobrecostes de agencias intermediarias</span>
+            <span class="block text-sm font-medium text-stone-900" data-i18n="bookingRateNotice">Tarifa Oficial Directa (-15%)</span>
+            <span class="block text-xs text-stone-500 font-normal" data-i18n="bookingRateSub">Sin recargos ni sobrecostes de agencias intermediarias</span>
           </div>
         </div>
 
         <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-stone-50 border border-stone-200/60 text-xs text-stone-600 font-normal">
           <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
-          <span>iCal activo en tiempo real</span>
+          <span data-i18n="bookingIcalActive">iCal activo en tiempo real</span>
         </div>
       </div>
 
@@ -56,14 +56,14 @@ import {
         <div>
           <div class="flex items-center gap-2 mb-4">
             <span class="w-6 h-6 rounded-full bg-stone-900 text-white flex items-center justify-center text-xs font-medium">1</span>
-            <h3 class="font-serif text-lg sm:text-xl text-stone-900 font-normal tracking-tight">Fechas y Huéspedes</h3>
+            <h3 class="font-serif text-lg sm:text-xl text-stone-900 font-normal tracking-tight" data-i18n="step1Title">Fechas y Huéspedes</h3>
           </div>
 
           <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
             
             <!-- Selector Fechas -->
             <div class="md:col-span-2">
-              <label for="date-range-picker" class="block text-xs font-medium text-stone-700 mb-1.5">
+              <label for="date-range-picker" class="block text-xs font-medium text-stone-700 mb-1.5" data-i18n="lblDates">
                 Fechas de Entrada y Salida (Mínimo 2 noches)
               </label>
               <div class="relative">
@@ -86,7 +86,7 @@ import {
 
             <!-- Huéspedes -->
             <div>
-              <label for="guests-select" class="block text-xs font-medium text-stone-700 mb-1.5">
+              <label for="guests-select" class="block text-xs font-medium text-stone-700 mb-1.5" data-i18n="lblGuests">
                 Número de Huéspedes
               </label>
               <div class="relative">
@@ -114,7 +114,7 @@ import {
         <div>
           <div class="flex items-center gap-2 mb-4">
             <span class="w-6 h-6 rounded-full bg-stone-900 text-white flex items-center justify-center text-xs font-medium">2</span>
-            <h3 class="font-serif text-lg sm:text-xl text-stone-900 font-normal tracking-tight">Modalidad de Pago</h3>
+            <h3 class="font-serif text-lg sm:text-xl text-stone-900 font-normal tracking-tight" data-i18n="step2Title">Modalidad de Pago</h3>
           </div>
 
           <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -124,13 +124,13 @@ import {
               <div class="flex items-start justify-between">
                 <div class="flex items-center gap-3">
                   <input type="radio" name="paymentMethod" value="stripe" checked class="w-4 h-4 text-slate-900 focus:ring-slate-900" />
-                  <span class="font-medium text-stone-900 text-base">Vía A: Pago Instantáneo</span>
+                  <span class="font-medium text-stone-900 text-base" data-i18n="viaATitle">Vía A: Pago Instantáneo</span>
                 </div>
                 <span class="px-2 py-0.5 bg-stone-200/80 text-stone-800 text-[10px] font-medium rounded-full uppercase tracking-wider">
                   Recomendado
                 </span>
               </div>
-              <p class="text-xs text-stone-600 font-normal mt-2 mb-3">
+              <p class="text-xs text-stone-600 font-normal mt-2 mb-3" data-i18n="viaADesc">
                 Confirmación inmediata con <strong>Tarjeta de Crédito / Débito</strong> o <strong>Bizum automático</strong> a través de pasarela segura Stripe Checkout.
               </p>
               <div class="mt-auto flex items-center gap-2 text-[11px] text-stone-500 font-normal pt-3 border-t border-stone-200/60">
@@ -144,17 +144,17 @@ import {
               <div class="flex items-start justify-between">
                 <div class="flex items-center gap-3">
                   <input type="radio" name="paymentMethod" value="transfer_manual" class="w-4 h-4 text-slate-900 focus:ring-slate-900" />
-                  <span class="font-medium text-stone-900 text-base">Vía B: Transferencia o Bizum</span>
+                  <span class="font-medium text-stone-900 text-base" data-i18n="viaBTitle">Vía B: Transferencia o Bizum</span>
                 </div>
                 <span class="px-2 py-0.5 bg-stone-100 text-stone-600 text-[10px] font-medium rounded-full uppercase tracking-wider">
                   Bloqueo 2h
                 </span>
               </div>
-              <p class="text-xs text-stone-600 font-normal mt-2 mb-2">
+              <p class="text-xs text-stone-600 font-normal mt-2 mb-2" data-i18n="viaBDesc">
                 <strong>Bloqueo temporal de 2 horas</strong> sin comisiones de tarjeta. Te reservamos las fechas para que realices la transferencia o Bizum.
               </p>
               <!-- Micro-copy tranquilizador -->
-              <div class="p-2.5 rounded-xl bg-stone-100/80 border border-stone-200/70 text-[11px] text-stone-700 leading-relaxed mb-3">
+              <div class="p-2.5 rounded-xl bg-stone-100/80 border border-stone-200/70 text-[11px] text-stone-700 leading-relaxed mb-3" data-i18n="viaBNotice">
                 💡 <strong>No pagarás nada ahora:</strong> Tus fechas quedan reservadas 120 minutos mientras nos envías el justificante por WhatsApp.
               </div>
               <div class="mt-auto flex items-center gap-2 text-[11px] text-stone-500 font-normal pt-2 border-t border-stone-200/60">
@@ -170,12 +170,12 @@ import {
         <div>
           <div class="flex items-center gap-2 mb-4">
             <span class="w-6 h-6 rounded-full bg-stone-900 text-white flex items-center justify-center text-xs font-medium">3</span>
-            <h3 class="font-serif text-lg sm:text-xl text-stone-900 font-normal tracking-tight">Datos del Huésped</h3>
+            <h3 class="font-serif text-lg sm:text-xl text-stone-900 font-normal tracking-tight" data-i18n="step3Title">Datos del Huésped</h3>
           </div>
 
           <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
             <div>
-              <label for="guest-name" class="block text-xs font-medium text-stone-700 mb-1">Nombre y Apellidos</label>
+              <label for="guest-name" class="block text-xs font-medium text-stone-700 mb-1" data-i18n="lblName">Nombre y Apellidos</label>
               <input 
                 type="text" 
                 id="guest-name" 
@@ -187,7 +187,7 @@ import {
               />
             </div>
             <div>
-              <label for="guest-email" class="block text-xs font-medium text-stone-700 mb-1">Correo Electrónico</label>
+              <label for="guest-email" class="block text-xs font-medium text-stone-700 mb-1" data-i18n="lblEmail">Correo Electrónico</label>
               <input 
                 type="email" 
                 id="guest-email" 
@@ -199,7 +199,7 @@ import {
               />
             </div>
             <div>
-              <label for="guest-phone" class="block text-xs font-medium text-stone-700 mb-1">Teléfono Móvil (WhatsApp)</label>
+              <label for="guest-phone" class="block text-xs font-medium text-stone-700 mb-1" data-i18n="lblPhone">Teléfono Móvil (WhatsApp)</label>
               <input 
                 type="tel" 
                 id="guest-phone" 
@@ -216,8 +216,8 @@ import {
         <!-- Realtime Price Breakdown Box -->
         <div id="price-summary-box" class="p-6 bg-stone-50 rounded-2xl border border-stone-200/70">
           <div class="flex items-center justify-between pb-3 border-b border-stone-200/60">
-            <span class="text-xs uppercase font-medium text-stone-500 tracking-wider">Desglose de Tarifas</span>
-            <span class="text-xs font-medium text-stone-800 bg-white px-2.5 py-0.5 rounded-full border border-stone-200/60">
+            <span class="text-xs uppercase font-medium text-stone-500 tracking-wider" data-i18n="summaryTitle">Desglose de Tarifas</span>
+            <span class="text-xs font-medium text-stone-800 bg-white px-2.5 py-0.5 rounded-full border border-stone-200/60" data-i18n="summarySavingsBadge">
               Ahorro Tarifa Directa (-15%)
             </span>
           </div>
@@ -228,19 +228,19 @@ import {
               <span id="val-stay" class="font-medium text-stone-900">— €</span>
             </div>
             <div class="flex justify-between">
-              <span>Limpieza y preparación del apartamento:</span>
+              <span data-i18n="summaryCleaning">Limpieza y preparación del apartamento:</span>
               <span class="font-medium text-stone-900">40 €</span>
             </div>
             <div class="flex justify-between text-stone-700 font-medium">
-              <span>Sobrecoste de comisiones OTA ahorrado:</span>
+              <span data-i18n="summaryCommissionAvoided">Sobrecoste de comisiones OTA ahorrado:</span>
               <span id="val-savings" class="font-medium">— €</span>
             </div>
           </div>
 
           <div class="mt-4 pt-4 border-t border-stone-200/60 flex items-baseline justify-between">
             <div>
-              <span class="font-serif text-lg sm:text-xl text-stone-900 font-normal tracking-tight">Total a Pagar</span>
-              <span class="block text-[11px] text-stone-500 font-normal">Impuestos y gastos incluidos</span>
+              <span class="font-serif text-lg sm:text-xl text-stone-900 font-normal tracking-tight" data-i18n="summaryTotal">Total a Pagar</span>
+              <span class="block text-[11px] text-stone-500 font-normal" data-i18n="summaryIncluded">Impuestos y gastos incluidos</span>
             </div>
             <div class="text-right">
               <span id="val-total" class="font-serif text-3xl sm:text-4xl text-stone-900 font-normal tracking-tight">— €</span>
@@ -253,7 +253,7 @@ import {
           <!-- Trust Badge: Free Cancellation -->
           <div class="flex items-center justify-center gap-2 p-3 rounded-2xl bg-stone-50 border border-stone-200/70 text-stone-700 text-xs sm:text-sm font-medium">
             <ShieldCheck class="w-4 h-4 text-stone-700 stroke-[1.5] flex-shrink-0" />
-            <span>Cancelación gratuita hasta 7 días antes de la llegada</span>
+            <span data-i18n="cancelBadge">Cancelación gratuita hasta 7 días antes de la llegada</span>
           </div>
 
           <button 
@@ -262,7 +262,7 @@ import {
             disabled
             class="w-full py-4 px-6 rounded-2xl bg-slate-900 hover:bg-slate-800 text-white font-medium text-base shadow-xl shadow-slate-900/10 hover:shadow-slate-900/20 active:translate-y-0.5 transition-all flex items-center justify-center gap-3 cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed"
           >
-            <span id="btn-text">Selecciona fechas para calcular</span>
+            <span id="btn-text" data-i18n="btnSelectDates">Selecciona fechas para calcular</span>
             <ArrowRight class="w-4 h-4 stroke-[1.5]" />
           </button>
           
@@ -412,12 +412,14 @@ import {
 
   // Cálculo de precios
   function updatePriceCalculation() {
+    const isEn = localStorage.getItem('preferred_lang') === 'en';
+
     if (!checkInDate || !checkOutDate) {
       if (countNightsEl) countNightsEl.textContent = '0';
       if (valStayEl) valStayEl.textContent = '— €';
       if (valSavingsEl) valSavingsEl.textContent = '— €';
       if (valTotalEl) valTotalEl.textContent = '— €';
-      if (btnText) btnText.textContent = 'Selecciona fechas para calcular';
+      if (btnText) btnText.textContent = isEn ? 'Select dates to calculate' : 'Selecciona fechas para calcular';
       if (submitBtn) submitBtn.disabled = true;
       return;
     }
@@ -433,7 +435,7 @@ import {
     if (valStayEl) valStayEl.textContent = `${stay} €`;
     if (valSavingsEl) valSavingsEl.textContent = `-${savings} €`;
     if (valTotalEl) valTotalEl.textContent = `${total} €`;
-    if (btnText) btnText.textContent = 'Confirmar Reserva Directa';
+    if (btnText) btnText.textContent = isEn ? 'Confirm Direct Booking' : 'Confirmar Reserva Directa';
     if (submitBtn) submitBtn.disabled = false;
   }
 
