@@ -67,3 +67,4 @@ verify().catch(err => {
   console.error('Error durante la verificación:', err);
   process.exit(1);
 });
+
