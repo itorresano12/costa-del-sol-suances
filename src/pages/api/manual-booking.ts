@@ -2,6 +2,7 @@ export const prerender = false;
 
 import type { APIRoute } from 'astro';
 import { getUnavailableDateRanges, isRangeAvailable, addDirectReservation } from '../../lib/ical';
+import { sendBookingConfirmation } from '../../lib/email';
 
 export const POST: APIRoute = async ({ request }) => {
   try {
@@ -59,6 +60,30 @@ export const POST: APIRoute = async ({ request }) => {
       expiresAt,
     });
 
+    const paymentDetails = {
+      bizumPhone: process.env.PAYMENT_BIZUM_PHONE || '+34 600 000 000',
+      bankIban: process.env.PAYMENT_BANK_IBAN || 'ES91 2100 0418 4502 0005 1332',
+      bankBeneficiary: process.env.PAYMENT_BANK_BENEFICIARY || 'Ivan Torresano - Apartamento Costa del Sol Suances',
+      concept: `Reserva ${reservationId} - ${guestName.split(' ')[0]}`,
+    };
+
+    // Disparar envío o simulación de correo de confirmación al huésped (BCC al anfitrión)
+    sendBookingConfirmation({
+      reservationId,
+      guestName,
+      guestEmail,
+      guestPhone,
+      checkIn,
+      checkOut,
+      nights,
+      guests: Number(guests) || 2,
+      grandTotal,
+      paymentMethod: 'transfer_manual',
+      status: 'pending_2h_transfer',
+      expiresAt,
+      bankDetails: paymentDetails,
+    }).catch((err) => console.error('[manual-booking] Error enviando email de confirmación:', err));
+
     return new Response(
       JSON.stringify({
         success: true,
@@ -70,12 +95,7 @@ export const POST: APIRoute = async ({ request }) => {
         guests,
         grandTotal,
         expiresAt,
-        paymentDetails: {
-          bizumPhone: process.env.PAYMENT_BIZUM_PHONE || '+34 600 123 456',
-          bankIban: process.env.PAYMENT_BANK_IBAN || 'ES91 2100 0418 4502 0005 1332',
-          bankBeneficiary: process.env.PAYMENT_BANK_BENEFICIARY || 'Ivan - Apartamento Costa del Sol Suances',
-          concept: `Reserva ${reservationId} - ${guestName.split(' ')[0]}`,
-        },
+        paymentDetails,
         message: '¡Fechas bloqueadas con éxito durante 2 horas!',
       }),
       { status: 200, headers: { 'Content-Type': 'application/json' } }

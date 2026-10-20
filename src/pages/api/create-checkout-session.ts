@@ -3,6 +3,7 @@ export const prerender = false;
 import type { APIRoute } from 'astro';
 import Stripe from 'stripe';
 import { getUnavailableDateRanges, isRangeAvailable, addDirectReservation } from '../../lib/ical';
+import { sendBookingConfirmation } from '../../lib/email';
 
 export const POST: APIRoute = async ({ request }) => {
   try {
@@ -120,6 +121,20 @@ export const POST: APIRoute = async ({ request }) => {
       status: 'confirmed',
       createdAt: new Date().toISOString(),
     });
+
+    sendBookingConfirmation({
+      reservationId,
+      guestName,
+      guestEmail,
+      guestPhone: guestPhone || '',
+      checkIn,
+      checkOut,
+      nights,
+      guests: Number(guests) || 2,
+      grandTotal,
+      paymentMethod: 'stripe',
+      status: 'confirmed',
+    }).catch((err) => console.error('[create-checkout-session] Error enviando email:', err));
 
     const demoSuccessUrl = `${baseUrl}/reserva-confirmada?ref=${reservationId}&type=stripe_demo&in=${checkIn}&out=${checkOut}&total=${grandTotal}`;
     return new Response(

@@ -1,5 +1,6 @@
 ---
 import { Waves, Github, Phone, Mail, MapPin, ShieldCheck, Download } from 'lucide-astro';
+import { SITE_CONFIG } from '../config/site';
 ---
 
 <footer class="bg-slate-900 text-stone-300 pt-20 pb-14 border-t border-slate-800">
@@ -24,7 +25,7 @@ import { Waves, Github, Phone, Mail, MapPin, ShieldCheck, Download } from 'lucid
 
         <div class="pt-2 flex items-center gap-2 text-xs text-stone-300 font-normal">
           <ShieldCheck class="w-4 h-4 text-stone-300 stroke-[1.5] flex-shrink-0" />
-          <span data-i18n="footerVut">Vivienda de Uso Turístico Oficial — Cantabria (Lic. G-12345/VUT)</span>
+          <span data-i18n="footerVut">Vivienda de Uso Turístico Oficial — Cantabria ({SITE_CONFIG.touristLicense})</span>
         </div>
       </div>
 
@@ -35,6 +36,7 @@ import { Waves, Github, Phone, Mail, MapPin, ShieldCheck, Download } from 'lucid
           <li><a href="#inicio" class="hover:text-white transition" data-i18n="navHome">Inicio</a></li>
           <li><a href="#galeria" class="hover:text-white transition" data-i18n="navGallery">Galería de Fotos</a></li>
           <li><a href="#caracteristicas" class="hover:text-white transition" data-i18n="navRooms">3 Dormitorios & 70 m²</a></li>
+          <li><a href="#experiencias" class="hover:text-white transition">Experiencias</a></li>
           <li><a href="#ventajas" class="hover:text-white transition" data-i18n="navPerks">Tarifa Directa</a></li>
           <li><a href="#ubicacion" class="hover:text-white transition" data-i18n="navLocation">Ubicación y Entorno</a></li>
           <li><a href="#reservas" class="text-stone-200 font-medium hover:underline" data-i18n="navBookBtn">Motor de Reservas</a></li>
@@ -62,14 +64,14 @@ import { Waves, Github, Phone, Mail, MapPin, ShieldCheck, Download } from 'lucid
           </li>
           <li class="flex items-center gap-2.5">
             <Phone class="w-4 h-4 text-stone-400 flex-shrink-0 stroke-[1.5]" />
-            <a href="https://wa.me/34600123456" target="_blank" class="hover:text-white transition">
-              +34 600 123 456 (WhatsApp)
+            <a href={SITE_CONFIG.whatsappUrl} target="_blank" rel="noopener noreferrer" class="hover:text-white transition">
+              +34 600 000 000 (WhatsApp)
             </a>
           </li>
           <li class="flex items-center gap-2.5">
             <Mail class="w-4 h-4 text-stone-400 flex-shrink-0 stroke-[1.5]" />
-            <a href="mailto:info@costadelsolsuances.es" class="hover:text-white transition">
-              info@costadelsolsuances.es
+            <a href={`mailto:${SITE_CONFIG.hostEmail}`} class="hover:text-white transition">
+              {SITE_CONFIG.hostEmail}
             </a>
           </li>
         </ul>
@@ -90,13 +92,15 @@ import { Waves, Github, Phone, Mail, MapPin, ShieldCheck, Download } from 'lucid
 
     </div>
 
-    <!-- Bottom Copyright & GitHub Profile Reference -->
+    <!-- Bottom Copyright Unificado con Iván Torresano -->
     <div class="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-stone-400 font-normal">
-      <p>© {new Date().getFullYear()} Apartamento Costa del Sol Suances (Cantabria). Todos los derechos reservados.</p>
+      <p>
+        © {new Date().getFullYear()} Apartamento Costa del Sol Suances. Todos los derechos reservados. · Diseñado por <a href={SITE_CONFIG.designerUrl} target="_blank" rel="noopener noreferrer" class="text-stone-300 hover:text-white font-medium underline underline-offset-4 decoration-stone-600 hover:decoration-white transition">{SITE_CONFIG.designerName}</a>
+      </p>
       
       <div class="flex items-center gap-4">
         <a 
-          href="https://github.com/itorresano12" 
+          href={SITE_CONFIG.designerUrl} 
           target="_blank" 
           rel="noopener noreferrer"
           class="inline-flex items-center gap-1.5 text-stone-300 hover:text-white transition"

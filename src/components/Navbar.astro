@@ -1,6 +1,7 @@
 ---
 import { Waves, Calendar, Phone, Globe } from 'lucide-astro';
 import { translations } from '../i18n/translations';
+import { SITE_CONFIG } from '../config/site';
 ---
 
 <header class="sticky top-0 z-50 w-full backdrop-blur-md bg-[#FDFBF7]/90 border-b border-stone-200/60 transition-all duration-300">
@@ -57,8 +58,9 @@ import { translations } from '../i18n/translations';
         </div>
 
         <a 
-          href="https://wa.me/34600123456?text=Hola%20Ivan,%20quería%20consultar%20disponibilidad%20para%20el%20Apartamento%20Costa%20del%20Sol%20Suances" 
+          href={SITE_CONFIG.whatsappUrl} 
           target="_blank" 
+          rel="noopener noreferrer"
           class="p-2.5 rounded-full text-stone-600 hover:text-stone-900 hover:bg-stone-200/50 transition"
           title="Contacto directo por WhatsApp"
           aria-label="Contactar por WhatsApp"

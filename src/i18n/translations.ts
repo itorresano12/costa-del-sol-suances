@@ -112,6 +112,20 @@ export const translations = {
     btnSelectDates: "Selecciona fechas para calcular",
     btnConfirm: "Confirmar Reserva Directa",
 
+    // Experiences & Adventures
+    expPill: "Experiencias & Aventura",
+    expTitle: "Vive el Cantábrico en Suances",
+    expDesc: "Desde surf en una reserva natural hasta paseos al atardecer por la ría o rutas al borde de los acantilados.",
+    expSurfTitle: "Surf & Olas en Los Locos",
+    expSurfDesc: "Cuna del surf cantábrico. Clases para todos los niveles y alquiler de material en la emblemática playa y reserva de surf de Los Locos.",
+    expBoatTitle: "Paseos en Barco & Ría de San Martín",
+    expBoatDesc: "Rutas tranquilas por la ría, travesías costeras en barco y atardeceres mágicos navegando hacia mar abierto.",
+    expTrailTitle: "Ruta de los Acantilados y Faro",
+    expTrailDesc: "Senderos costeros con vistas panorámicas al Cantábrico a pie desde el apartamento hasta la Punta del Torco y el Faro.",
+    expConciergeTitle: "Atención del Anfitrión",
+    expConciergeDesc: "Gestionamos tus recomendaciones y reservas de actividades con anfitriones y escuelas locales.",
+    expConciergeBtn: "Consultar con Ivan por WhatsApp",
+
     // Location
     locPill: "Ubicación & Entorno",
     locTitle: "A dos minutos a pie de la orilla",
@@ -244,6 +258,20 @@ export const translations = {
     cancelBadge: "Free cancellation up to 7 days before check-in",
     btnSelectDates: "Select dates to calculate",
     btnConfirm: "Confirm Direct Booking",
+
+    // Experiences & Adventures
+    expPill: "Experiences & Adventure",
+    expTitle: "Live the Cantabrian Sea in Suances",
+    expDesc: "From surfing in a natural ocean reserve to sunset boat tours and panoramic coastal cliff trails.",
+    expSurfTitle: "Surfing & Ocean Waves at Los Locos",
+    expSurfDesc: "Cradle of northern surf. Lessons for all levels and board & wetsuit rentals at the renowned Los Locos surf sanctuary.",
+    expBoatTitle: "Boat Trips & San Martín Estuary",
+    expBoatDesc: "Serene estuary navigation, sunrise paddle routes, and golden-hour boat excursions towards open sea cliffs.",
+    expTrailTitle: "Cliff Trails & Lighthouse Walk",
+    expTrailDesc: "Panoramic coastal footpaths starting on foot from the apartment leading to Punta del Torco, the Lighthouse, and sea cliffs.",
+    expConciergeTitle: "Local Host Assistance",
+    expConciergeDesc: "We assist with personal recommendations and activity bookings with trusted local instructors and skippers.",
+    expConciergeBtn: "Ask Ivan on WhatsApp",
 
     // Location
     locPill: "Location & Surroundings",
