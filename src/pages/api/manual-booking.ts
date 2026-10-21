@@ -3,6 +3,7 @@ export const prerender = false;
 import type { APIRoute } from 'astro';
 import { getUnavailableDateRanges, isRangeAvailable, addDirectReservation } from '../../lib/ical';
 import { sendBookingConfirmation } from '../../lib/email';
+import { calculateStayPricing } from '../../config/pricing';
 
 export const POST: APIRoute = async ({ request }) => {
   try {
@@ -43,15 +44,9 @@ export const POST: APIRoute = async ({ request }) => {
       );
     }
 
-    const pricePerNight = Number(process.env.DEFAULT_PRICE_PER_NIGHT) || 110;
-    const cleaningFee = Number(process.env.CLEANING_FEE) || 40;
-    const startDate = new Date(checkIn);
-    const endDate = new Date(checkOut);
-    const nights = Math.max(1, Math.round((endDate.getTime() - startDate.getTime()) / (1000 * 60 * 60 * 24)));
-    const stayTotal = nights * pricePerNight;
-    const grandTotal = stayTotal + cleaningFee;
-    const depositAmount = Math.round(grandTotal * 0.5);
-    const remainingAmount = grandTotal - depositAmount;
+    // Cálculo estacional dinámico y 10% de ahorro directo
+    const pricing = calculateStayPricing(checkIn, checkOut);
+    const { nights, stayTotal, grandTotal, depositAmount, remainingAmount } = pricing;
 
     // Bloqueo temporal de 2 horas (120 minutos)
     const now = new Date();

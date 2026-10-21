@@ -40,8 +40,8 @@ import { SITE_CONFIG } from '../config/site';
             <ShieldCheck class="w-5 h-5 stroke-[1.25]" />
           </div>
           <div>
-            <span class="block text-sm font-medium text-stone-900" data-i18n="bookingRateNotice">Tarifa Oficial Directa (-15%)</span>
-            <span class="block text-xs text-stone-500 font-normal" data-i18n="bookingRateSub">Sin recargos ni sobrecostes de agencias intermediarias</span>
+            <span class="block text-sm font-medium text-stone-900" data-i18n="bookingRateNotice">Tarifa Oficial Directa (-10%)</span>
+            <span class="block text-xs text-stone-500 font-normal" data-i18n="bookingRateSub">Sin comisiones de agencias intermediarias</span>
           </div>
         </div>
 
@@ -285,13 +285,13 @@ import { SITE_CONFIG } from '../config/site';
           <div class="flex items-center justify-between pb-3 border-b border-stone-200/60">
             <span class="text-xs uppercase font-medium text-stone-500 tracking-wider" data-i18n="summaryTitle">Desglose de Tarifas</span>
             <span class="text-xs font-medium text-stone-800 bg-white px-2.5 py-0.5 rounded-full border border-stone-200/60" data-i18n="summarySavingsBadge">
-              Ahorro Tarifa Directa (-15%)
+              -10% de Ahorro Directo Garantizado
             </span>
           </div>
 
           <div class="mt-4 space-y-2 text-sm text-stone-600 font-normal">
             <div class="flex justify-between">
-              <span id="label-nights">Estancia (<span id="count-nights">0</span> noches × 110€):</span>
+              <span id="label-nights">Estancia (<span id="count-nights">0</span> <span id="label-nights-text">noches</span>):</span>
               <span id="val-stay" class="font-medium text-stone-900">— €</span>
             </div>
             <div class="flex justify-between">
@@ -367,7 +367,7 @@ import { SITE_CONFIG } from '../config/site';
             <div class="p-3 rounded-2xl bg-stone-50 border border-stone-200/50 flex flex-col items-center justify-center gap-1">
               <ShieldCheck class="w-4 h-4 text-stone-700 stroke-[1.5]" />
               <span class="font-medium text-stone-900">Sin Comisiones</span>
-              <span class="text-[10px] text-stone-500">Ahorro del 15%</span>
+              <span class="text-[10px] text-stone-500">-10% Ahorro Directo</span>
             </div>
             <div class="p-3 rounded-2xl bg-stone-50 border border-stone-200/50 flex flex-col items-center justify-center gap-1">
               <Clock class="w-4 h-4 text-stone-700 stroke-[1.5]" />
@@ -467,10 +467,10 @@ import { SITE_CONFIG } from '../config/site';
 <script define:vars={{ whatsappPhone: SITE_CONFIG.whatsappPhone }}>
   import flatpickr from 'flatpickr';
   import { Spanish } from 'flatpickr/dist/l10n/es.js';
+  import { calculateStayPricing } from '../config/pricing';
 
   let checkInDate: string | null = null;
   let checkOutDate: string | null = null;
-  let currentPricePerNight = 110;
   let currentCleaningFee = 40;
 
   const datePickerInput = document.getElementById('date-range-picker') as HTMLInputElement;
@@ -543,14 +543,16 @@ import { SITE_CONFIG } from '../config/site';
     });
   });
 
-  // Cálculo de precios
+  // Cálculo de precios mediante matriz estacional y 10% de ahorro directo
   function updatePriceCalculation() {
     const isEn = localStorage.getItem('preferred_lang') === 'en';
     const valDepositEl = document.getElementById('val-deposit');
     const valRemainingEl = document.getElementById('val-remaining');
+    const labelNightsText = document.getElementById('label-nights-text');
 
     if (!checkInDate || !checkOutDate) {
       if (countNightsEl) countNightsEl.textContent = '0';
+      if (labelNightsText) labelNightsText.textContent = isEn ? 'nights' : 'noches';
       if (valStayEl) valStayEl.textContent = '— €';
       if (valSavingsEl) valSavingsEl.textContent = '— €';
       if (valTotalEl) valTotalEl.textContent = '— €';
@@ -561,22 +563,23 @@ import { SITE_CONFIG } from '../config/site';
       return;
     }
 
-    const start = new Date(checkInDate).getTime();
-    const end = new Date(checkOutDate).getTime();
-    const nights = Math.max(1, Math.round((end - start) / (1000 * 60 * 60 * 24)));
-    const stay = nights * currentPricePerNight;
-    const total = stay + currentCleaningFee;
-    const deposit = Math.round(total * 0.5);
-    const remaining = total - deposit;
-    const savings = Math.round(total * 0.15); // 15% de ahorro estimado
+    const pricing = calculateStayPricing(checkInDate, checkOutDate);
 
-    if (countNightsEl) countNightsEl.textContent = String(nights);
-    if (valStayEl) valStayEl.textContent = `${stay} €`;
-    if (valSavingsEl) valSavingsEl.textContent = `-${savings} €`;
-    if (valTotalEl) valTotalEl.textContent = `${total} €`;
-    if (valDepositEl) valDepositEl.textContent = `${deposit} €`;
-    if (valRemainingEl) valRemainingEl.textContent = `${remaining} €`;
-    if (btnText) btnText.textContent = isEn ? `Confirm Booking (Pay ${deposit}€ Deposit)` : `Confirmar Reserva (Pagar ${deposit}€ anticipo)`;
+    if (countNightsEl) countNightsEl.textContent = String(pricing.nights);
+    if (labelNightsText) {
+      const nightWord = pricing.nights === 1 ? (isEn ? 'noche' : 'noche') : (isEn ? 'nights' : 'noches');
+      labelNightsText.textContent = `${nightWord} (media ${pricing.averagePricePerNight}€/noche)`;
+    }
+    if (valStayEl) valStayEl.textContent = `${pricing.stayTotal} €`;
+    if (valSavingsEl) valSavingsEl.textContent = `-${pricing.savingsVsOta} €`;
+    if (valTotalEl) valTotalEl.textContent = `${pricing.grandTotal} €`;
+    if (valDepositEl) valDepositEl.textContent = `${pricing.depositAmount} €`;
+    if (valRemainingEl) valRemainingEl.textContent = `${pricing.remainingAmount} €`;
+    if (btnText) {
+      btnText.textContent = isEn
+        ? `Confirm Booking (Pay ${pricing.depositAmount}€ Deposit)`
+        : `Confirmar Reserva (Pagar ${pricing.depositAmount}€ anticipo)`;
+    }
     if (submitBtn) submitBtn.disabled = false;
   }
 
@@ -587,7 +590,6 @@ import { SITE_CONFIG } from '../config/site';
       const res = await fetch('/api/availability.json');
       if (res.ok) {
         const data = await res.json();
-        currentPricePerNight = data.pricePerNight || 110;
         currentCleaningFee = data.cleaningFee || 40;
 
         if (Array.isArray(data.unavailable)) {
