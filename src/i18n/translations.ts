@@ -79,7 +79,7 @@ export const translations = {
     perk2Title: "Atención Cercana y Personalizada",
     perk2Desc: "Trato directo y continuo con Ivan, anfitrión del apartamento. Recibe una guía local sincera con las mejores marisquerías, calas y rincones de Cantabria.",
     perk3Title: "Cancelación y Fechas Flexibles",
-    perk3Desc: "Sincronización en tiempo real con Airbnb y Booking vía iCal para blindar tus fechas sin riesgo de sobreventa y con condiciones adaptables.",
+    perk3Desc: "Sincronización en tiempo real para blindar tus fechas de forma inmediata sin riesgo de sobreventa.",
 
     // Booking Engine
     bookingPill: "Reserva Directa Oficial",
@@ -117,13 +117,13 @@ export const translations = {
     // Experiences & Adventures
     expPill: "Experiencias & Aventura",
     expTitle: "Vive el Cantábrico en Suances",
-    expDesc: "Desde surf en una reserva natural hasta paseos al atardecer por la ría o rutas al borde de los acantilados.",
-    expSurfTitle: "Surf & Olas en Los Locos",
-    expSurfDesc: "Cuna del surf cantábrico. Clases para todos los niveles y alquiler de material en la emblemática playa y reserva de surf de Los Locos.",
+    expDesc: "Desde surf y atardeceres en Los Locos hasta la mejor gastronomía marina o paseos en barco por la ría.",
+    expSurfTitle: "Surf & Atardeceres en Los Locos",
+    expSurfDesc: "Cuna del surf cantábrico y puestas de sol mágicas sobre los acantilados. Alquiler de tablas, escuelas para todos los niveles y miradores al océano a 10 min a pie.",
+    expFoodTitle: "Dónde comer rabas y pescado",
+    expFoodDesc: "En el puerto pesquero y el paseo marítimo a solo 3 min a pie: las mejores rabas de calamar fresco, bocartes al ajillo, mariscadas del Cantábrico y terrazas con vistas a la ría.",
     expBoatTitle: "Paseos en Barco & Ría de San Martín",
-    expBoatDesc: "Rutas tranquilas por la ría, travesías costeras en barco y atardeceres mágicos navegando hacia mar abierto.",
-    expTrailTitle: "Ruta de los Acantilados y Faro",
-    expTrailDesc: "Senderos costeros con vistas panorámicas al Cantábrico a pie desde el apartamento hasta la Punta del Torco y el Faro.",
+    expBoatDesc: "Rutas serenas en barco por la ría, travesías costeras hacia mar abierto y paddle surf en aguas calmas para toda la familia.",
     expConciergeTitle: "Atención del Anfitrión",
     expConciergeDesc: "Gestionamos tus recomendaciones y reservas de actividades con anfitriones y escuelas locales.",
     expConciergeBtn: "Consultar con Ivan por WhatsApp",
@@ -228,7 +228,7 @@ export const translations = {
     perk2Title: "Attentive & Personal Care",
     perk2Desc: "Direct communication with Ivan, your host. Enjoy authentic local recommendations for seafood taverns, secret coves, and surf spots.",
     perk3Title: "Flexible Cancellation & Live Calendar",
-    perk3Desc: "Real-time calendar synchronization with Airbnb and Booking via iCal ensures your dates are guaranteed with no risk of overbooking.",
+    perk3Desc: "Real-time calendar synchronization ensures your dates are locked immediately with zero risk of double booking.",
 
     // Booking Engine
     bookingPill: "Official Direct Booking Engine",
@@ -266,16 +266,16 @@ export const translations = {
     // Experiences & Adventures
     expPill: "Experiences & Adventure",
     expTitle: "Live the Cantabrian Sea in Suances",
-    expDesc: "From surfing in a natural ocean reserve to sunset boat tours and panoramic coastal cliff trails.",
-    expSurfTitle: "Surfing & Ocean Waves at Los Locos",
-    expSurfDesc: "Cradle of northern surf. Lessons for all levels and board & wetsuit rentals at the renowned Los Locos surf sanctuary.",
+    expDesc: "From surfing and golden-hour sunsets at Los Locos to fresh local seafood and serene estuary boat excursions.",
+    expSurfTitle: "Surf & Sunsets at Los Locos",
+    expSurfDesc: "Cradle of northern surf and magical sunsets over ocean cliffs. Board rentals, surf coaching for all skill levels, and cliffside viewpoints just 10 min walk.",
+    expFoodTitle: "Where to Taste Fresh Seafood & Rabas",
+    expFoodDesc: "At the fishing harbour and beachfront promenade just 3 min away: the freshest local squid rabas, garlic anchovies, Cantabrian seafood, and sea-view terraces.",
     expBoatTitle: "Boat Trips & San Martín Estuary",
-    expBoatDesc: "Serene estuary navigation, sunrise paddle routes, and golden-hour boat excursions towards open sea cliffs.",
-    expTrailTitle: "Cliff Trails & Lighthouse Walk",
-    expTrailDesc: "Panoramic coastal footpaths starting on foot from the apartment leading to Punta del Torco, the Lighthouse, and sea cliffs.",
-    expConciergeTitle: "Local Host Assistance",
-    expConciergeDesc: "We assist with personal recommendations and activity bookings with trusted local instructors and skippers.",
-    expConciergeBtn: "Ask Ivan on WhatsApp",
+    expBoatDesc: "Serene estuary boat navigation, coastal journeys towards open sea cliffs, and peaceful paddle routes for the whole family.",
+    expConciergeTitle: "Host Concierge Care",
+    expConciergeDesc: "We personally arrange your activity recommendations and bookings with trusted local hosts and schools.",
+    expConciergeBtn: "Chat with Ivan on WhatsApp",
 
     // Location
     locPill: "Location & Surroundings",

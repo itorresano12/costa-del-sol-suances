@@ -1,5 +1,5 @@
 ---
-import { MapPin, Compass, Waves, UtensilsCrossed, Car, Sunset, Utensils, Footprints } from 'lucide-astro';
+import { Compass, Waves, UtensilsCrossed, Car } from 'lucide-astro';
 ---
 
 <section id="ubicacion" class="scroll-mt-28 pt-8 pb-20 lg:pb-28 bg-[#FDFBF7] border-t border-stone-200/60">
@@ -18,11 +18,11 @@ import { MapPin, Compass, Waves, UtensilsCrossed, Car, Sunset, Utensils, Footpri
       </p>
     </div>
 
-    <!-- Content: POI List + Map Frame -->
-    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-start max-w-6xl mx-auto">
+    <!-- Content: POI List + Map Frame (Aligned Geometric Balance) -->
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-stretch max-w-6xl mx-auto">
       
       <!-- Left: Distances & Highlights -->
-      <div class="lg:col-span-5 space-y-4">
+      <div class="lg:col-span-5 space-y-4 flex flex-col justify-between">
         
         <div class="p-6 rounded-3xl bg-white border border-stone-200/80 shadow-[0_10px_30px_-10px_rgba(0,0,0,0.03)] flex items-start gap-4">
           <div class="w-10 h-10 rounded-2xl bg-stone-50 border border-stone-200/60 text-stone-900 flex items-center justify-center flex-shrink-0">
@@ -78,12 +78,12 @@ import { MapPin, Compass, Waves, UtensilsCrossed, Car, Sunset, Utensils, Footpri
 
       </div>
 
-      <!-- Right: Responsive Interactive Map Frame with Warm Editorial Filter -->
-      <div class="lg:col-span-7 w-full pt-2 lg:pt-0">
-        <div class="rounded-3xl overflow-hidden shadow-xl border border-stone-200/80 bg-stone-100 relative h-[380px] sm:h-[460px] lg:h-[520px] w-full">
+      <!-- Right: Responsive Interactive Map Frame with Warm Editorial Filter & Matched Height -->
+      <div class="lg:col-span-7 w-full pt-2 lg:pt-0 flex flex-col">
+        <div class="rounded-3xl overflow-hidden shadow-xl border border-stone-200/80 bg-stone-100 relative h-full min-h-[400px] lg:min-h-full w-full flex-1">
           <iframe 
             title="Ubicación Apartamento Costa del Sol Suances"
-            class="w-full h-full border-0 filter contrast-[0.95] sepia-[0.10] hue-rotate-[-15deg] brightness-[0.98]"
+            class="w-full h-full min-h-[400px] lg:min-h-full object-cover border-0 filter contrast-[0.95] sepia-[0.10] hue-rotate-[-15deg] brightness-[0.98]"
             src="https://www.openstreetmap.org/export/embed.html?bbox=-4.055%2C43.425%2C-4.030%2C43.442&layer=mapnik&marker=43.434%2C-4.041"
             loading="lazy"
           ></iframe>
@@ -96,54 +96,6 @@ import { MapPin, Compass, Waves, UtensilsCrossed, Car, Sunset, Utensils, Footpri
         </div>
       </div>
 
-    </div>
-
-    <!-- 3 Micro-Tarjetas de Recomendaciones del Anfitrión -->
-    <div class="mt-14 max-w-6xl mx-auto">
-      <div class="text-center mb-8">
-        <span class="text-xs uppercase tracking-widest text-stone-500 font-medium">Secretos del Anfitrión</span>
-        <h3 class="font-serif text-2xl text-stone-900 font-normal tracking-tight mt-1" data-i18n="recoTitle">Recomendaciones para vivir Suances</h3>
-      </div>
-
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-        
-        <!-- Reco 1 -->
-        <div class="bg-white rounded-3xl p-6 sm:p-7 border border-stone-200/80 shadow-[0_10px_30px_-10px_rgba(0,0,0,0.03)] hover:-translate-y-1 transition duration-300">
-          <div class="w-10 h-10 rounded-2xl bg-stone-50 border border-stone-200/60 text-stone-900 flex items-center justify-center mb-4">
-            <Utensils class="w-5 h-5 stroke-[1.25]" />
-          </div>
-          <span class="text-[11px] uppercase tracking-wider text-stone-500 font-medium">Gastronomía Marina</span>
-          <h4 class="font-serif text-lg text-stone-900 font-normal tracking-tight mt-1 mb-2">Dónde comer rabas</h4>
-          <p class="text-xs sm:text-sm text-stone-600 leading-relaxed font-normal">
-            En el puerto pesquero y el paseo marítimo a solo 3 min a pie: raciones de rabas de calamar fresco, bocartes al ajillo y marisco del Cantábrico con vistas a la ría.
-          </p>
-        </div>
-
-        <!-- Reco 2 -->
-        <div class="bg-white rounded-3xl p-6 sm:p-7 border border-stone-200/80 shadow-[0_10px_30px_-10px_rgba(0,0,0,0.03)] hover:-translate-y-1 transition duration-300">
-          <div class="w-10 h-10 rounded-2xl bg-stone-50 border border-stone-200/60 text-stone-900 flex items-center justify-center mb-4">
-            <Sunset class="w-5 h-5 stroke-[1.25]" />
-          </div>
-          <span class="text-[11px] uppercase tracking-wider text-stone-500 font-medium">Puesta de Sol</span>
-          <h4 class="font-serif text-lg text-stone-900 font-normal tracking-tight mt-1 mb-2">Atardecer en Los Locos</h4>
-          <p class="text-xs sm:text-sm text-stone-600 leading-relaxed font-normal">
-            A 10 min caminando: contempla la puesta de sol sobre el acantilado y el faro de Suances mientras los surfistas cogen las últimas olas del día. Un espectáculo inolvidable.
-          </p>
-        </div>
-
-        <!-- Reco 3 -->
-        <div class="bg-white rounded-3xl p-6 sm:p-7 border border-stone-200/80 shadow-[0_10px_30px_-10px_rgba(0,0,0,0.03)] hover:-translate-y-1 transition duration-300">
-          <div class="w-10 h-10 rounded-2xl bg-stone-50 border border-stone-200/60 text-stone-900 flex items-center justify-center mb-4">
-            <Footprints class="w-5 h-5 stroke-[1.25]" />
-          </div>
-          <span class="text-[11px] uppercase tracking-wider text-stone-500 font-medium">Playa y Relax</span>
-          <h4 class="font-serif text-lg text-stone-900 font-normal tracking-tight mt-1 mb-2">Playa de La Concha a 2 min</h4>
-          <p class="text-xs sm:text-sm text-stone-600 leading-relaxed font-normal">
-            Baja en bañador y chanclas: 150 metros llanos sin cuestas te separan de la arena dorada y las aguas calmas, ideales para el baño de niños y mañanas de lectura frente al mar.
-          </p>
-        </div>
-
-      </div>
     </div>
 
   </div>
