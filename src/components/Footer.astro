@@ -1,5 +1,5 @@
 ---
-import { Phone, Mail, MapPin, ShieldCheck, Download } from 'lucide-astro';
+import { Phone, Mail, MapPin, ShieldCheck } from 'lucide-astro';
 import { SITE_CONFIG } from '../config/site';
 ---
 
@@ -28,6 +28,23 @@ import { SITE_CONFIG } from '../config/site';
           <ShieldCheck class="w-4 h-4 text-stone-300 stroke-[1.5] flex-shrink-0" />
           <span data-i18n="footerVut">Vivienda de Uso Turístico Oficial — Cantabria ({SITE_CONFIG.touristLicense})</span>
         </div>
+
+        <div class="pt-2 flex flex-col gap-2 text-xs text-stone-400">
+          <div class="flex items-center gap-2">
+            <MapPin class="w-3.5 h-3.5 text-stone-400 flex-shrink-0 stroke-[1.5]" />
+            <span data-i18n="brandLocation">Suances (Playa de La Concha), Cantabria</span>
+          </div>
+          <div class="flex items-center gap-4 pt-1">
+            <a href={SITE_CONFIG.whatsappUrl} target="_blank" rel="noopener noreferrer" class="flex items-center gap-1.5 text-stone-300 hover:text-white transition">
+              <Phone class="w-3.5 h-3.5 stroke-[1.5]" />
+              <span>{SITE_CONFIG.whatsappDisplayPhone}</span>
+            </a>
+            <a href={`mailto:${SITE_CONFIG.hostEmail}`} class="flex items-center gap-1.5 text-stone-300 hover:text-white transition">
+              <Mail class="w-3.5 h-3.5 stroke-[1.5]" />
+              <span>{SITE_CONFIG.hostEmail}</span>
+            </a>
+          </div>
+        </div>
       </div>
 
       <!-- Enlaces Rápidos -->
@@ -55,40 +72,23 @@ import { SITE_CONFIG } from '../config/site';
         </ul>
       </div>
 
-      <!-- Contacto Directo & iCal -->
+      <!-- Columna 4: Garantía Directa / Reserva Exclusiva -->
       <div>
-        <h4 class="text-xs font-medium uppercase tracking-widest text-stone-200 mb-4">Contacto Directo</h4>
-        <ul class="space-y-3 text-sm font-normal text-stone-300">
+        <h4 class="text-xs font-medium uppercase tracking-widest text-stone-200 mb-4">Garantía Directa</h4>
+        <ul class="space-y-3.5 text-xs text-stone-300">
           <li class="flex items-start gap-2.5">
-            <MapPin class="w-4 h-4 text-stone-400 flex-shrink-0 mt-0.5 stroke-[1.5]" />
-            <span data-i18n="brandLocation">Suances (Playa de La Concha), Cantabria</span>
+            <span class="text-sm flex-shrink-0">🐾</span>
+            <span class="leading-relaxed">Pet Friendly sin suplemento</span>
           </li>
-          <li class="flex items-center gap-2.5">
-            <Phone class="w-4 h-4 text-stone-400 flex-shrink-0 stroke-[1.5]" />
-            <a href={SITE_CONFIG.whatsappUrl} target="_blank" rel="noopener noreferrer" class="hover:text-white transition">
-              {SITE_CONFIG.whatsappDisplayPhone} (WhatsApp)
-            </a>
+          <li class="flex items-start gap-2.5">
+            <span class="text-sm flex-shrink-0">⏱️</span>
+            <span class="leading-relaxed">Cancelación gratuita hasta 14 días</span>
           </li>
-          <li class="flex items-center gap-2.5">
-            <Mail class="w-4 h-4 text-stone-400 flex-shrink-0 stroke-[1.5]" />
-            <a href={`mailto:${SITE_CONFIG.hostEmail}`} class="hover:text-white transition">
-              {SITE_CONFIG.hostEmail}
-            </a>
+          <li class="flex items-start gap-2.5">
+            <span class="text-sm flex-shrink-0">💬</span>
+            <span class="leading-relaxed">Trato directo y sin comisiones de agencias</span>
           </li>
         </ul>
-
-        <!-- Sincronización iCal -->
-        <div class="mt-6 pt-4 border-t border-slate-800">
-          <span class="block text-[11px] uppercase tracking-widest text-stone-400 font-medium mb-1.5">Sincronización iCal</span>
-          <a 
-            href="/api/calendar.ics" 
-            target="_blank"
-            class="inline-flex items-center gap-2 px-3 py-1.5 rounded-xl bg-slate-800/80 border border-slate-700 text-xs text-stone-200 hover:text-white hover:border-slate-500 transition"
-          >
-            <Download class="w-3.5 h-3.5 stroke-[1.5]" />
-            <span>Feed /api/calendar.ics</span>
-          </a>
-        </div>
       </div>
 
     </div>
