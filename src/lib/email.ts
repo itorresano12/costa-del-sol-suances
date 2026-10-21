@@ -359,7 +359,117 @@ export function generateBookingEmailHtml(data: BookingEmailData): string {
 }
 
 /**
- * Envía la notificación de reserva al huésped con copia oculta (BCC) garantizada al anfitrión
+ * Genera token de autenticación determinista para la confirmación de pagos del anfitrión
+ */
+export function generateConfirmToken(id: string): string {
+  const secret = process.env.ADMIN_SECRET || 'cds_suances_secure_token_2026';
+  let hash = 0;
+  const str = `${id}:${secret}`;
+  for (let i = 0; i < str.length; i++) {
+    hash = ((hash << 5) - hash) + str.charCodeAt(i);
+    hash |= 0;
+  }
+  return Math.abs(hash).toString(36);
+}
+
+export function verifyConfirmToken(id: string, token: string): boolean {
+  if (!id || !token) return false;
+  return generateConfirmToken(id) === token;
+}
+
+/**
+ * Genera la plantilla de notificación interna exclusiva para el anfitrión con botón de confirmación Bizum
+ */
+export function generateHostNotificationEmailHtml(data: BookingEmailData): string {
+  const baseUrl = process.env.PUBLIC_BASE_URL || 'https://costa-del-sol-suances.vercel.app';
+  const isTransfer = data.paymentMethod === 'transfer_manual' || data.paymentMethod === 'bizum';
+  const deposit = data.depositAmount || Math.round(data.grandTotal * 0.5);
+  const remaining = data.remainingAmount || (data.grandTotal - deposit);
+  const confirmToken = generateConfirmToken(data.reservationId);
+  const confirmUrl = `${baseUrl}/api/confirm-booking?id=${data.reservationId}&token=${confirmToken}`;
+
+  const cleanPhone = (data.guestPhone || '').replace(/[^0-9]/g, '');
+  const whatsappGuestUrl = `https://wa.me/${cleanPhone}?text=${encodeURIComponent(
+    `Hola ${data.guestName}, te contacto desde Apartamento Costa del Sol Suances con relación a tu reserva ${data.reservationId}.`
+  )}`;
+
+  return `
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <title>Notificación Anfitrión - Costa del Sol Suances</title>
+  <style>
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #FDFBF7; color: #1c1917; margin: 0; padding: 20px; }
+    .box { max-width: 600px; margin: 0 auto; background: #ffffff; border-radius: 16px; border: 1px solid #e7e5e4; padding: 28px; }
+    .btn-confirm { display: block; background: #059669; color: #ffffff !important; font-weight: 700; text-align: center; padding: 16px 20px; border-radius: 12px; font-size: 15px; text-decoration: none; margin: 24px 0; box-shadow: 0 4px 12px rgba(5, 150, 105, 0.25); }
+    .row { display: flex; justify-content: space-between; padding: 8px 0; border-bottom: 1px solid #f0eee9; font-size: 14px; }
+  </style>
+</head>
+<body>
+  <div class="box">
+    <div style="background: #0f172a; color: white; padding: 16px; border-radius: 10px; margin-bottom: 20px; text-align: center;">
+      <h3 style="margin: 0; font-size: 16px; font-weight: 600; letter-spacing: 1px;">PANEL DE NOTIFICACIÓN DEL ANFITRIÓN</h3>
+      <p style="margin: 4px 0 0 0; font-size: 12px; color: #94a3b8;">Apartamento Costa del Sol Suances</p>
+    </div>
+
+    <p style="font-size: 15px;">
+      Has recibido una nueva <strong>${isTransfer ? 'Pre-Reserva por Bizum / Transferencia' : 'Reserva Online confirmada'}</strong>:
+    </p>
+
+    <div style="background: #fafaf9; border: 1px solid #e7e5e4; border-radius: 12px; padding: 16px; margin-bottom: 20px;">
+      <div class="row"><span>Localizador:</span><strong>${data.reservationId}</strong></div>
+      <div class="row"><span>Huésped:</span><strong>${data.guestName}</strong></div>
+      <div class="row"><span>Teléfono:</span><a href="${whatsappGuestUrl}" target="_blank" style="color: #059669; font-weight: 600;">${data.guestPhone} (WhatsApp)</a></div>
+      <div class="row"><span>Email:</span><a href="mailto:${data.guestEmail}" style="color: #0f172a;">${data.guestEmail}</a></div>
+      <div class="row"><span>Fechas:</span><span>${data.checkIn} → ${data.checkOut} (${data.nights} noches)</span></div>
+      <div class="row"><span>Huéspedes:</span><span>${data.guests} personas</span></div>
+      <div class="row"><span>Total Estancia:</span><strong>${data.grandTotal} €</strong></div>
+      <div class="row" style="background:#f0fdf4; color:#166534; font-weight:bold;"><span>Anticipo 50%:</span><span>${deposit} €</span></div>
+      <div class="row"><span>Restante 50% entrada:</span><span>${remaining} €</span></div>
+      ${
+        data.invoiceRequested
+          ? `
+      <div class="row" style="color:#b45309; font-weight:500;">
+        <span>Factura Solicitada:</span>
+        <span>${data.invoiceCompanyName} (NIF: ${data.invoiceTaxId || 'N/A'}) - ${data.invoiceAddress || 'N/A'}</span>
+      </div>
+      `
+          : ''
+      }
+    </div>
+
+    ${
+      isTransfer
+        ? `
+    <div style="background: #fffbeb; border: 1px solid #fde68a; border-radius: 12px; padding: 16px; font-size: 13px; color: #92400e; line-height: 1.5;">
+      ⚠️ <strong>Bloqueo Temporal de 2 horas activo:</strong> Las fechas están reservadas temporalmente. Cuando compruebes la recepción del Bizum o transferencia de <strong>${deposit} €</strong> en tu cuenta, pulsa este botón para confirmar definitivamente el bloqueo en los calendarios de Booking y Airbnb:
+    </div>
+
+    <a href="${confirmUrl}" class="btn-confirm" target="_blank">
+      ✓ Confirmar Pago Recibido (Bloqueo Definitivo en Calendarios)
+    </a>
+    `
+        : `
+    <div style="background: #ecfdf5; border: 1px solid #a7f3d0; border-radius: 12px; padding: 14px; font-size: 13px; color: #065f46;">
+      ✓ Pago procesado automáticamente por Stripe Checkout. Fechas blindadas en iCal.
+    </div>
+    `
+    }
+
+    <div style="text-align: center; margin-top: 24px; padding-top: 16px; border-top: 1px solid #e7e5e4;">
+      <a href="${whatsappGuestUrl}" target="_blank" style="color: #0f172a; font-size: 13px; font-weight: 600; text-decoration: underline;">
+        💬 Contactar con ${data.guestName} por WhatsApp
+      </a>
+    </div>
+  </div>
+</body>
+</html>
+  `;
+}
+
+/**
+ * Envía la notificación de reserva al huésped con copia y panel de control para el anfitrión
  */
 export async function sendBookingConfirmation(data: BookingEmailData): Promise<{
   success: boolean;
@@ -369,16 +479,23 @@ export async function sendBookingConfirmation(data: BookingEmailData): Promise<{
 }> {
   const hostEmail = process.env.HOST_EMAIL || SITE_CONFIG.hostEmail;
   const resendApiKey = process.env.RESEND_API_KEY;
-  const htmlContent = generateBookingEmailHtml(data);
+  const guestHtml = generateBookingEmailHtml(data);
+  const hostHtml = generateHostNotificationEmailHtml(data);
   const isTransfer = data.paymentMethod === 'transfer_manual' || data.paymentMethod === 'bizum';
-  const subject = isTransfer
+  const guestSubject = isTransfer
     ? `⏳ Pre-Reserva Recibida [${data.reservationId}] - Apartamento Costa del Sol Suances`
     : `✓ Confirmación de Reserva [${data.reservationId}] - Apartamento Costa del Sol Suances`;
+  const hostSubject = `🔔 [${isTransfer ? 'Bizum Pendiente' : 'Stripe Confirmado'}] Reserva ${data.reservationId} - ${data.guestName}`;
+
+  const confirmToken = generateConfirmToken(data.reservationId);
+  const baseUrl = process.env.PUBLIC_BASE_URL || 'https://costa-del-sol-suances.vercel.app';
+  const hostConfirmUrl = `${baseUrl}/api/confirm-booking?id=${data.reservationId}&token=${confirmToken}`;
 
   // Envío real si existe API Key de Resend
   if (resendApiKey) {
     try {
-      const response = await fetch('https://api.resend.com/emails', {
+      // 1. Envío al huésped
+      await fetch('https://api.resend.com/emails', {
         method: 'POST',
         headers: {
           'Authorization': `Bearer ${resendApiKey}`,
@@ -387,21 +504,30 @@ export async function sendBookingConfirmation(data: BookingEmailData): Promise<{
         body: JSON.stringify({
           from: process.env.EMAIL_FROM || 'Costa del Sol Suances <reservas@costadelsolsuances.es>',
           to: [data.guestEmail],
-          bcc: [hostEmail],
           reply_to: hostEmail,
-          subject,
-          html: htmlContent,
+          subject: guestSubject,
+          html: guestHtml,
         }),
       });
 
-      const resData = await response.json();
-      if (response.ok) {
-        console.log(`[Email] Correo enviado exitosamente vía Resend a ${data.guestEmail} (BCC: ${hostEmail}):`, resData.id);
-        return { success: true, id: resData.id };
-      } else {
-        console.warn('[Email] Fallo en API Resend:', resData);
-        return { success: false, error: resData.message };
-      }
+      // 2. Envío al anfitrión con el botón de confirmación de Bizum
+      const hostRes = await fetch('https://api.resend.com/emails', {
+        method: 'POST',
+        headers: {
+          'Authorization': `Bearer ${resendApiKey}`,
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          from: process.env.EMAIL_FROM || 'Costa del Sol Suances <reservas@costadelsolsuances.es>',
+          to: [hostEmail],
+          subject: hostSubject,
+          html: hostHtml,
+        }),
+      });
+
+      const resData = await hostRes.json();
+      console.log(`[Email] Notificaciones enviadas vía Resend a ${data.guestEmail} y anfitrión (${hostEmail})`);
+      return { success: true, id: resData.id };
     } catch (err: any) {
       console.error('[Email] Error al conectar con Resend:', err);
       return { success: false, error: err.message };
@@ -411,10 +537,10 @@ export async function sendBookingConfirmation(data: BookingEmailData): Promise<{
   // Fallback seguro: Registro local/servidor sin bloquear
   console.log(`[Email Mock] Notificación de reserva generada para ${data.reservationId}:`);
   console.log(`  - Destinatario (Huésped): ${data.guestEmail}`);
-  console.log(`  - Copia Oculta (Anfitrión BCC): ${hostEmail}`);
+  console.log(`  - Destinatario (Anfitrión): ${hostEmail}`);
+  console.log(`  - Botón Anfitrión para Confirmar Pago Bizum: ${hostConfirmUrl}`);
   console.log(`  - Factura Solicitada: ${data.invoiceRequested ? `Sí (${data.invoiceCompanyName} / ${data.invoiceTaxId})` : 'No'}`);
-  console.log(`  - Asunto: ${subject}`);
-  console.log(`  - Total: ${data.grandTotal} €`);
+  console.log(`  - Anticipo 50%: ${data.depositAmount || Math.round(data.grandTotal * 0.5)} € / Total: ${data.grandTotal} €`);
 
   return { success: true, mock: true };
 }

@@ -44,6 +44,20 @@ export function addDirectReservation(res: DirectReservation): void {
   directReservations.push(res);
 }
 
+export function confirmDirectReservation(id: string): DirectReservation | null {
+  const reservation = directReservations.find((r) => r.id === id);
+  if (reservation) {
+    reservation.status = 'confirmed';
+    delete reservation.expiresAt;
+    return reservation;
+  }
+  return null;
+}
+
+export function getDirectReservationById(id: string): DirectReservation | null {
+  return directReservations.find((r) => r.id === id) || null;
+}
+
 // Función para formatear Date a 'YYYY-MM-DD' respetando la fecha del calendario
 export function formatDateISO(date: Date): string {
   const y = date.getFullYear();

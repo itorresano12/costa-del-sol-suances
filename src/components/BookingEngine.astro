@@ -121,19 +121,19 @@ import { SITE_CONFIG } from '../config/site';
 
           <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
             
-            <!-- Vía A: Pago Online Inmediato -->
+            <!-- Tarjeta 1 (Online): Tarjeta Bancaria -->
             <label class="payment-method-card relative flex flex-col p-5 rounded-2xl border-2 border-slate-900 bg-stone-50/70 cursor-pointer transition">
               <div class="flex items-start justify-between">
                 <div class="flex items-center gap-3">
                   <input type="radio" name="paymentMethod" value="stripe" checked class="w-4 h-4 text-slate-900 focus:ring-slate-900" />
-                  <span class="font-medium text-stone-900 text-base" data-i18n="viaATitle">Vía A: Pago Instantáneo</span>
+                  <span class="font-medium text-stone-900 text-base" data-i18n="viaATitle">Tarjeta Bancaria (Crédito / Débito)</span>
                 </div>
-                <span class="px-2 py-0.5 bg-stone-200/80 text-stone-800 text-[10px] font-medium rounded-full uppercase tracking-wider">
-                  Recomendado
+                <span class="px-2 py-0.5 bg-emerald-100 text-emerald-800 text-[10px] font-bold rounded-full uppercase tracking-wider" data-i18n="viaABadge">
+                  CONFIRMACIÓN INMEDIATA
                 </span>
               </div>
-              <p class="text-xs text-stone-600 font-normal mt-2 mb-3" data-i18n="viaADesc">
-                Confirmación inmediata con <strong>Tarjeta de Crédito / Débito</strong> o <strong>Bizum automático</strong> a través de pasarela segura Stripe Checkout.
+              <p class="text-xs text-stone-600 font-normal mt-2.5 mb-3 leading-relaxed" data-i18n="viaADesc">
+                Pasarela segura Stripe con cifrado SSL. Pagas únicamente el 50% de anticipo para bloquear tus fechas al instante.
               </p>
               <div class="mt-auto flex items-center gap-2 text-[11px] text-stone-500 font-normal pt-3 border-t border-stone-200/60">
                 <Lock class="w-3.5 h-3.5 text-stone-600 stroke-[1.5]" />
@@ -141,23 +141,23 @@ import { SITE_CONFIG } from '../config/site';
               </div>
             </label>
 
-            <!-- Vía B: Transferencia o Bizum manual -->
+            <!-- Tarjeta 2 (Manual): Bizum o Transferencia Bancaria -->
             <label class="payment-method-card relative flex flex-col p-5 rounded-2xl border-2 border-stone-200 bg-white cursor-pointer hover:border-stone-300 transition">
               <div class="flex items-start justify-between">
                 <div class="flex items-center gap-3">
                   <input type="radio" name="paymentMethod" value="transfer_manual" class="w-4 h-4 text-slate-900 focus:ring-slate-900" />
-                  <span class="font-medium text-stone-900 text-base" data-i18n="viaBTitle">Vía B: Transferencia o Bizum</span>
+                  <span class="font-medium text-stone-900 text-base" data-i18n="viaBTitle">Bizum o Transferencia Bancaria</span>
                 </div>
-                <span class="px-2 py-0.5 bg-stone-100 text-stone-600 text-[10px] font-medium rounded-full uppercase tracking-wider">
-                  Bloqueo 2h
+                <span class="px-2 py-0.5 bg-amber-100 text-amber-900 text-[10px] font-bold rounded-full uppercase tracking-wider" data-i18n="viaBBadge">
+                  BLOQUEO 2 HORAS
                 </span>
               </div>
-              <p class="text-xs text-stone-600 font-normal mt-2 mb-2" data-i18n="viaBDesc">
-                <strong>Bloqueo temporal de 2 horas</strong> sin comisiones de tarjeta. Te reservamos las fechas para que realices la transferencia o Bizum.
+              <p class="text-xs text-stone-600 font-normal mt-2.5 mb-2 leading-relaxed" data-i18n="viaBDesc">
+                Te guardamos las fechas 120 minutos. Envías el Bizum del anticipo al móvil del anfitrión y nos remites el comprobante por WhatsApp.
               </p>
               <!-- Micro-copy tranquilizador -->
               <div class="p-2.5 rounded-xl bg-stone-100/80 border border-stone-200/70 text-[11px] text-stone-700 leading-relaxed mb-3" data-i18n="viaBNotice">
-                💡 <strong>No pagarás nada ahora:</strong> Tus fechas quedan reservadas 120 minutos mientras nos envías el justificante por WhatsApp.
+                💡 <strong>No pagarás nada ahora:</strong> Tus fechas quedan reservadas 120 minutos mientras nos envías el comprobante del 50% por WhatsApp.
               </div>
               <div class="mt-auto flex items-center gap-2 text-[11px] text-stone-500 font-normal pt-2 border-t border-stone-200/60">
                 <Clock class="w-3.5 h-3.5 text-stone-600 stroke-[1.5]" />
@@ -216,11 +216,12 @@ import { SITE_CONFIG } from '../config/site';
 
           <!-- Selector de Solicitud de Factura Legal (Empresa / Autónomo) -->
           <div class="mt-4 pt-4 border-t border-stone-200/60">
-            <label class="inline-flex items-center gap-3 cursor-pointer select-none group">
+            <label for="invoice-toggle" class="inline-flex items-center gap-3 cursor-pointer select-none group">
               <input 
                 type="checkbox" 
                 id="invoice-toggle" 
                 name="invoiceRequested"
+                onchange="window.__toggleInvoiceFields ? window.__toggleInvoiceFields(this.checked) : null"
                 class="w-4 h-4 rounded border-stone-300 text-slate-900 focus:ring-slate-900 cursor-pointer"
               />
               <span class="text-xs sm:text-sm font-medium text-stone-700 group-hover:text-stone-900 transition flex items-center gap-1.5">
@@ -229,8 +230,11 @@ import { SITE_CONFIG } from '../config/site';
               </span>
             </label>
 
-            <!-- Despliegue de Datos Fiscales -->
-            <div id="invoice-fields" class="hidden mt-3 p-4 bg-stone-100/70 border border-stone-200/80 rounded-2xl space-y-3 transition-all duration-300">
+            <!-- Despliegue de Datos Fiscales con Transición Suave -->
+            <div 
+              id="invoice-fields" 
+              class="hidden opacity-0 -translate-y-2 mt-3 p-4 bg-stone-100/70 border border-stone-200/80 rounded-2xl space-y-3 transition-all duration-300 ease-out"
+            >
               <p class="text-xs text-stone-500 font-normal">
                 Indica tus datos de facturación para emitir la factura oficial con desglose de IVA y remitírtela por correo:
               </p>
@@ -479,16 +483,37 @@ import { SITE_CONFIG } from '../config/site';
   const submitBtn = document.getElementById('submit-booking-btn') as HTMLButtonElement;
   const btnText = document.getElementById('btn-text');
 
-  // Toggle de campos de factura legal
-  const invoiceToggle = document.getElementById('invoice-toggle') as HTMLInputElement;
-  const invoiceFields = document.getElementById('invoice-fields');
-  invoiceToggle?.addEventListener('change', () => {
-    if (invoiceToggle.checked) {
-      invoiceFields?.classList.remove('hidden');
+  // Toggle garantizado con animación de campos de factura legal
+  function toggleInvoiceDisplay(isChecked: boolean) {
+    const fields = document.getElementById('invoice-fields');
+    if (!fields) return;
+
+    if (isChecked) {
+      fields.classList.remove('hidden');
+      requestAnimationFrame(() => {
+        fields.classList.remove('opacity-0', '-translate-y-2');
+        fields.classList.add('opacity-100', 'translate-y-0');
+      });
     } else {
-      invoiceFields?.classList.add('hidden');
+      fields.classList.remove('opacity-100', 'translate-y-0');
+      fields.classList.add('opacity-0', '-translate-y-2');
+      setTimeout(() => {
+        const toggle = document.getElementById('invoice-toggle') as HTMLInputElement;
+        if (!toggle?.checked) {
+          fields.classList.add('hidden');
+        }
+      }, 250);
     }
-  });
+  }
+
+  (window as any).__toggleInvoiceFields = toggleInvoiceDisplay;
+
+  const invoiceToggle = document.getElementById('invoice-toggle') as HTMLInputElement;
+  if (invoiceToggle) {
+    invoiceToggle.addEventListener('change', () => toggleInvoiceDisplay(invoiceToggle.checked));
+    invoiceToggle.addEventListener('input', () => toggleInvoiceDisplay(invoiceToggle.checked));
+    invoiceToggle.addEventListener('click', () => toggleInvoiceDisplay(invoiceToggle.checked));
+  }
 
   // Modal Vía B elements
   const manualModal = document.getElementById('manual-booking-modal');
