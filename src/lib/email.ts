@@ -10,6 +10,8 @@ export interface BookingEmailData {
   nights: number;
   guests: number;
   grandTotal: number;
+  depositAmount?: number;
+  remainingAmount?: number;
   paymentMethod: 'stripe' | 'transfer_manual' | 'bizum';
   status: string;
   expiresAt?: string;
@@ -33,9 +35,11 @@ export function generateBookingEmailHtml(data: BookingEmailData): string {
   const guidePageUrl = `${baseUrl}/guia-huespedes`;
   const isTransfer = data.paymentMethod === 'transfer_manual' || data.paymentMethod === 'bizum';
   const firstName = data.guestName.split(' ')[0] || data.guestName;
+  const deposit = data.depositAmount || Math.round(data.grandTotal * 0.5);
+  const remaining = data.remainingAmount || (data.grandTotal - deposit);
 
   const paymentProofWhatsapp = `https://wa.me/${SITE_CONFIG.whatsappPhone}?text=${encodeURIComponent(
-    `Hola Iván, te adjunto el comprobante de pago para mi reserva ${data.reservationId} en Apartamento Costa del Sol Suances (${data.checkIn} al ${data.checkOut}).`
+    `Hola Iván, te adjunto el comprobante de pago del anticipo de mi reserva ${data.reservationId} (${deposit}€) en Apartamento Costa del Sol Suances (${data.checkIn} al ${data.checkOut}).`
   )}`;
 
   return `
@@ -266,14 +270,22 @@ export function generateBookingEmailHtml(data: BookingEmailData): string {
           <span class="table-value">${isTransfer ? 'Transferencia / Bizum manual' : 'Tarjeta de Crédito / Bizum Stripe'}</span>
         </div>
         <div class="table-row">
-          <span class="table-label">${isTransfer ? 'Total Pendiente de Justificante:' : 'Importe Total Abonado:'}</span>
+          <span class="table-label">Total Estancia:</span>
           <span class="table-value">${data.grandTotal} € (IVA y limpieza inc.)</span>
+        </div>
+        <div class="table-row" style="background-color: #f0fdf4;">
+          <span class="table-label" style="color: #166534; font-weight: 600;">Pago hoy (Anticipo 50% para bloqueo de fechas):</span>
+          <span class="table-value" style="color: #166534;"><strong>${deposit} €</strong> ${isTransfer ? '(Pendiente justificante)' : '(Abonado)'}</span>
+        </div>
+        <div class="table-row">
+          <span class="table-label">Importe restante (50%):</span>
+          <span class="table-value">${remaining} € (a abonar antes de la entrada al alojamiento)</span>
         </div>
       </div>
 
       <!-- Recordatorio de Cancelación -->
       <div class="policy-box">
-        <strong>🛡️ Cancelación Gratuita:</strong> Puedes modificar o cancelar tu reserva con reembolso íntegro hasta <strong>7 días antes</strong> de tu fecha de llegada.
+        <strong>🛡️ Política de Cancelación (14 días):</strong> Cancelación gratuita con reembolso íntegro hasta <strong>14 días antes</strong> de tu fecha de llegada. Si la cancelación se produce con menos de 14 días de antelación o en caso de no presentación, el anticipo de la reserva (50%) no será reembolsable como compensación por el bloqueo de fechas en el calendario.
       </div>
 
       ${
@@ -281,7 +293,8 @@ export function generateBookingEmailHtml(data: BookingEmailData): string {
           ? `
       <!-- Instrucciones de Pago Vía B -->
       <div class="payment-box">
-        <h4>💳 Instrucciones para completar el pago (Bizum o Transferencia):</h4>
+        <h4>💳 Instrucciones para completar el pago del anticipo (Bizum o Transferencia):</h4>
+        <p style="margin: 4px 0;">💰 <strong>Importe a transferir hoy (50% anticipo):</strong> <span style="font-size: 15px; font-weight: 700; color: #92400e;">${deposit} €</span></p>
         <p style="margin: 4px 0;">📱 <strong>Teléfono Bizum:</strong> ${data.bankDetails.bizumPhone}</p>
         <p style="margin: 4px 0;">🏦 <strong>IBAN Transferencia:</strong> ${data.bankDetails.bankIban}</p>
         <p style="margin: 4px 0;">👤 <strong>Beneficiario:</strong> ${data.bankDetails.bankBeneficiary}</p>

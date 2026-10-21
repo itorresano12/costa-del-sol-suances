@@ -50,6 +50,8 @@ export const POST: APIRoute = async ({ request }) => {
     const nights = Math.max(1, Math.round((endDate.getTime() - startDate.getTime()) / (1000 * 60 * 60 * 24)));
     const stayTotal = nights * pricePerNight;
     const grandTotal = stayTotal + cleaningFee;
+    const depositAmount = Math.round(grandTotal * 0.5);
+    const remainingAmount = grandTotal - depositAmount;
 
     // Bloqueo temporal de 2 horas (120 minutos)
     const now = new Date();
@@ -94,6 +96,8 @@ export const POST: APIRoute = async ({ request }) => {
       nights,
       guests: Number(guests) || 2,
       grandTotal,
+      depositAmount,
+      remainingAmount,
       paymentMethod: 'transfer_manual',
       status: 'pending_2h_transfer',
       expiresAt,
@@ -114,6 +118,8 @@ export const POST: APIRoute = async ({ request }) => {
         nights,
         guests,
         grandTotal,
+        depositAmount,
+        remainingAmount,
         expiresAt,
         paymentDetails,
         message: '¡Fechas bloqueadas con éxito durante 2 horas!',

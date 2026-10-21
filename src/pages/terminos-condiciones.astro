@@ -6,7 +6,7 @@ import Footer from '../components/Footer.astro';
 
 <Layout 
   title="Términos y Condiciones de Reserva | Apartamento Costa del Sol Suances"
-  description="Normas de convivencia, política de cancelación gratuita a 7 días y condiciones de admisión pet friendly para estancias en Apartamento Costa del Sol Suances."
+  description="Normas de convivencia, política de cancelación gratuita a 14 días y estructura de pago escalonado (anticipo 50%) para estancias en Apartamento Costa del Sol Suances."
 >
   <Navbar />
   
@@ -40,17 +40,27 @@ import Footer from '../components/Footer.astro';
 
         <section class="space-y-3">
           <h2 class="font-serif text-xl sm:text-2xl text-stone-900 font-normal tracking-tight">
-            2. Política de Cancelación Gratuita
+            2. Política de Cancelación (14 Días) y Estructura de Pago
           </h2>
           <p>
-            Queremos que reserves con total tranquilidad:
+            Queremos que reserves con total tranquilidad, transparencia y condiciones claras:
           </p>
-          <div class="p-4 rounded-2xl bg-stone-100 border border-stone-200 text-stone-800 text-sm font-normal">
-            🛡️ <strong>Cancelación 100% Gratuita:</strong> Puedes cancelar tu reserva sin ningún coste hasta <strong>7 días antes</strong> de la fecha de llegada prevista. Se reembolsará la totalidad del importe abonado.
+          <div class="p-4 rounded-2xl bg-stone-100 border border-stone-200 text-stone-800 text-sm font-normal space-y-2">
+            <div>
+              🛡️ <strong>Cancelación 100% Gratuita:</strong> Puedes cancelar tu reserva sin ningún coste hasta <strong>14 días antes</strong> de la fecha de llegada prevista. Se reembolsará la totalidad del anticipo abonado.
+            </div>
+            <div class="text-xs text-stone-600">
+              ⚠️ <strong>Cancelaciones con menos de 14 días de antelación:</strong> Si la cancelación se produce con menos de 14 días de antelación respecto a la llegada, o en caso de no presentación, el anticipo de la reserva (50%) no será reembolsable como compensación por el bloqueo de fechas en el calendario.
+            </div>
           </div>
-          <p class="text-xs text-stone-500">
-            En cancelaciones con menos de 7 días de antelación o en caso de no presentación, el importe de la primera noche no será reembolsable como compensación de bloqueo de calendario.
-          </p>
+          
+          <div class="p-4 rounded-2xl bg-white border border-stone-200 text-stone-800 text-sm font-normal space-y-1.5">
+            <strong>💳 Estructura de Pago Escalonado:</strong>
+            <ul class="list-disc pl-5 text-xs sm:text-sm text-stone-700 space-y-1 mt-1">
+              <li><strong>Pago hoy (Anticipo 50% para bloqueo de fechas):</strong> Se abona en el momento de formalizar la reserva para blindar tus fechas en el calendario oficial sin riesgo de sobreventa.</li>
+              <li><strong>Importe restante (50%):</strong> A abonar antes de la entrada al alojamiento (mediante Bizum, transferencia bancaria o pasarela con tarjeta).</li>
+            </ul>
+          </div>
         </section>
 
         <section class="space-y-3">

@@ -108,7 +108,7 @@ export const translations = {
     summaryCommissionAvoided: "Sobrecoste de comisiones OTA ahorrado:",
     summaryTotal: "Total a Pagar",
     summaryIncluded: "Impuestos y gastos incluidos",
-    cancelBadge: "Cancelación gratuita hasta 7 días antes de la llegada",
+    cancelBadge: "Cancelación gratuita hasta 14 días antes de la llegada",
     btnSelectDates: "Selecciona fechas para calcular",
     btnConfirm: "Confirmar Reserva Directa",
 
@@ -255,7 +255,7 @@ export const translations = {
     summaryCommissionAvoided: "Avoided OTA commission fees:",
     summaryTotal: "Total Due",
     summaryIncluded: "Taxes and fees included",
-    cancelBadge: "Free cancellation up to 7 days before check-in",
+    cancelBadge: "Free cancellation up to 14 days before check-in",
     btnSelectDates: "Select dates to calculate",
     btnConfirm: "Confirm Direct Booking",
 

@@ -45,6 +45,8 @@ export const POST: APIRoute = async ({ request }) => {
     const nights = Math.max(1, Math.round((endDate.getTime() - startDate.getTime()) / (1000 * 60 * 60 * 24)));
     const stayTotal = nights * pricePerNight;
     const grandTotal = stayTotal + cleaningFee;
+    const depositAmount = Math.round(grandTotal * 0.5);
+    const remainingAmount = grandTotal - depositAmount;
 
     const reservationId = `CDS-STR-${Date.now().toString(36).toUpperCase()}`;
     const baseUrl = process.env.PUBLIC_BASE_URL || 'http://localhost:4321';
@@ -62,21 +64,10 @@ export const POST: APIRoute = async ({ request }) => {
               price_data: {
                 currency: 'eur',
                 product_data: {
-                  name: `Apartamento Costa del Sol Suances (${nights} noches)`,
-                  description: `Estancia del ${checkIn} al ${checkOut} para ${guests} personas. Frente a la Playa de La Concha.`,
+                  name: `Anticipo 50% - Apartamento Costa del Sol Suances (${nights} noches)`,
+                  description: `Bloqueo de fechas del ${checkIn} al ${checkOut} (Total: ${grandTotal}€, restante 50%: ${remainingAmount}€ antes de la entrada).`,
                 },
-                unit_amount: stayTotal * 100, // céntimos
-              },
-              quantity: 1,
-            },
-            {
-              price_data: {
-                currency: 'eur',
-                product_data: {
-                  name: 'Tasa de Limpieza y Preparación',
-                  description: 'Limpieza profesional, sábanas y toallas incluidas',
-                },
-                unit_amount: cleaningFee * 100,
+                unit_amount: depositAmount * 100, // céntimos
               },
               quantity: 1,
             },
@@ -92,6 +83,9 @@ export const POST: APIRoute = async ({ request }) => {
             guests: String(guests),
             guestName,
             guestPhone: guestPhone || '',
+            grandTotal: String(grandTotal),
+            depositAmount: String(depositAmount),
+            remainingAmount: String(remainingAmount),
           },
         });
 
@@ -125,6 +119,8 @@ export const POST: APIRoute = async ({ request }) => {
           nights,
           guests: Number(guests) || 2,
           grandTotal,
+          depositAmount,
+          remainingAmount,
           paymentMethod: 'stripe',
           status: 'confirmed',
           invoiceRequested: Boolean(invoiceRequested),
@@ -171,6 +167,8 @@ export const POST: APIRoute = async ({ request }) => {
       nights,
       guests: Number(guests) || 2,
       grandTotal,
+      depositAmount,
+      remainingAmount,
       paymentMethod: 'stripe',
       status: 'confirmed',
       invoiceRequested: Boolean(invoiceRequested),
@@ -179,7 +177,7 @@ export const POST: APIRoute = async ({ request }) => {
       invoiceAddress,
     }).catch((err) => console.error('[create-checkout-session] Error enviando email:', err));
 
-    const demoSuccessUrl = `${baseUrl}/reserva-confirmada?ref=${reservationId}&type=stripe_demo&in=${checkIn}&out=${checkOut}&total=${grandTotal}`;
+    const demoSuccessUrl = `${baseUrl}/reserva-confirmada?ref=${reservationId}&type=stripe_demo&in=${checkIn}&out=${checkOut}&total=${grandTotal}&deposit=${depositAmount}&remaining=${remainingAmount}`;
     return new Response(
       JSON.stringify({
         success: true,
