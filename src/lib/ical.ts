@@ -20,6 +20,10 @@ export interface DirectReservation {
   status: 'confirmed' | 'pending_2h_transfer' | 'cancelled';
   createdAt: string;
   expiresAt?: string;
+  invoiceRequested?: boolean;
+  invoiceCompanyName?: string;
+  invoiceTaxId?: string;
+  invoiceAddress?: string;
 }
 
 // Almacén en memoria de reservas directas locales (se sincronizan a los canales vía /api/calendar.ics)

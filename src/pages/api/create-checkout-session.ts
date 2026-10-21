@@ -8,7 +8,19 @@ import { sendBookingConfirmation } from '../../lib/email';
 export const POST: APIRoute = async ({ request }) => {
   try {
     const data = await request.json();
-    const { checkIn, checkOut, guests, guestName, guestEmail, guestPhone, notes } = data;
+    const { 
+      checkIn, 
+      checkOut, 
+      guests, 
+      guestName, 
+      guestEmail, 
+      guestPhone, 
+      notes,
+      invoiceRequested,
+      invoiceCompanyName,
+      invoiceTaxId,
+      invoiceAddress
+    } = data;
 
     if (!checkIn || !checkOut || !guestName || !guestEmail) {
       return new Response(
@@ -96,7 +108,30 @@ export const POST: APIRoute = async ({ request }) => {
           paymentMethod: 'stripe',
           status: 'confirmed',
           createdAt: new Date().toISOString(),
+          invoiceRequested: Boolean(invoiceRequested),
+          invoiceCompanyName,
+          invoiceTaxId,
+          invoiceAddress,
         });
+
+        // Enviar confirmación al huésped (BCC anfitrión)
+        sendBookingConfirmation({
+          reservationId,
+          guestName,
+          guestEmail,
+          guestPhone: guestPhone || '',
+          checkIn,
+          checkOut,
+          nights,
+          guests: Number(guests) || 2,
+          grandTotal,
+          paymentMethod: 'stripe',
+          status: 'confirmed',
+          invoiceRequested: Boolean(invoiceRequested),
+          invoiceCompanyName,
+          invoiceTaxId,
+          invoiceAddress,
+        }).catch((err) => console.error('[create-checkout-session] Error enviando email:', err));
 
         return new Response(JSON.stringify({ success: true, url: session.url }), {
           status: 200,
@@ -120,6 +155,10 @@ export const POST: APIRoute = async ({ request }) => {
       paymentMethod: 'stripe',
       status: 'confirmed',
       createdAt: new Date().toISOString(),
+      invoiceRequested: Boolean(invoiceRequested),
+      invoiceCompanyName,
+      invoiceTaxId,
+      invoiceAddress,
     });
 
     sendBookingConfirmation({
@@ -134,6 +173,10 @@ export const POST: APIRoute = async ({ request }) => {
       grandTotal,
       paymentMethod: 'stripe',
       status: 'confirmed',
+      invoiceRequested: Boolean(invoiceRequested),
+      invoiceCompanyName,
+      invoiceTaxId,
+      invoiceAddress,
     }).catch((err) => console.error('[create-checkout-session] Error enviando email:', err));
 
     const demoSuccessUrl = `${baseUrl}/reserva-confirmada?ref=${reservationId}&type=stripe_demo&in=${checkIn}&out=${checkOut}&total=${grandTotal}`;

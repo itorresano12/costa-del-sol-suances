@@ -1,0 +1,305 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
+import { 
+  Printer, 
+  MessageCircle, 
+  Utensils, 
+  Compass, 
+  Sparkles, 
+  Footprints, 
+  Waves, 
+  HeartHandshake, 
+  Clock, 
+  ShieldCheck, 
+  MapPin, 
+  Check, 
+  Coffee,
+  Sun
+} from 'lucide-astro';
+import { SITE_CONFIG } from '../config/site';
+---
+
+<Layout 
+  title="Guía Secreta de Suances & Cantabria | Apartamento Costa del Sol"
+  description="Recomendaciones exclusivas del anfitrión para huéspedes de Apartamento Costa del Sol Suances. Restaurantes, calas, compras locales y concierge."
+  noindex={true}
+>
+  <Navbar />
+
+  <main class="py-12 lg:py-20 bg-[#FDFBF7]">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- Header Editorial Exclusivo -->
+      <div class="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
+        <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-slate-900 text-white text-xs font-medium mb-4">
+          <Sparkles class="w-3.5 h-3.5 text-stone-300 stroke-[1.5]" />
+          <span>Acceso Privado para Huéspedes</span>
+        </div>
+        <h1 class="font-serif text-3xl sm:text-5xl lg:text-6xl font-normal text-stone-900 tracking-tight leading-tight mb-4">
+          La Guía Secreta de Suances & Cantabria
+        </h1>
+        <p class="text-stone-600 text-base sm:text-lg font-light leading-relaxed">
+          Nuestras recomendaciones personales para saborear el norte sin prisas ni masificaciones, descubrir obradores auténticos y exprimir cada rincón junto al mar.
+        </p>
+
+        <!-- Botones de Acción: Imprimir PDF y WhatsApp -->
+        <div class="mt-8 flex flex-wrap items-center justify-center gap-3 no-print">
+          <button 
+            type="button" 
+            onclick="window.print()" 
+            class="px-5 py-2.5 rounded-full bg-slate-900 hover:bg-slate-800 text-white text-xs sm:text-sm font-medium flex items-center gap-2 shadow-md transition active:scale-95 cursor-pointer"
+          >
+            <Printer class="w-4 h-4 stroke-[1.5]" />
+            <span>Imprimir o Guardar en PDF</span>
+          </button>
+
+          <a 
+            href={SITE_CONFIG.whatsappUrl} 
+            target="_blank" 
+            rel="noopener noreferrer" 
+            class="px-5 py-2.5 rounded-full bg-white hover:bg-stone-100 text-stone-800 border border-stone-200 text-xs sm:text-sm font-medium flex items-center gap-2 shadow-sm transition active:scale-95"
+          >
+            <MessageCircle class="w-4 h-4 stroke-[1.5] text-stone-600" />
+            <span>WhatsApp con Iván (Anfitrión)</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Resumen Clave de la Casa -->
+      <div class="bg-white rounded-3xl p-6 sm:p-8 border border-stone-200/80 shadow-[0_10px_30px_-10px_rgba(0,0,0,0.03)] mb-12">
+        <h2 class="font-serif text-xl sm:text-2xl text-stone-900 font-normal mb-4 flex items-center gap-2.5">
+          <Clock class="w-5 h-5 text-slate-900 stroke-[1.5]" />
+          <span>Normas de Convivencia & Check-in / Check-out</span>
+        </h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 text-xs sm:text-sm">
+          <div class="p-4 rounded-2xl bg-stone-50 border border-stone-200/60">
+            <span class="text-stone-500 block mb-1">Entrada (Check-in)</span>
+            <strong class="text-stone-900 font-medium">A partir de las 16:00 h</strong>
+          </div>
+          <div class="p-4 rounded-2xl bg-stone-50 border border-stone-200/60">
+            <span class="text-stone-500 block mb-1">Salida (Check-out)</span>
+            <strong class="text-stone-900 font-medium">Hasta las 11:00 h</strong>
+          </div>
+          <div class="p-4 rounded-2xl bg-stone-50 border border-stone-200/60">
+            <span class="text-stone-500 block mb-1">🐾 Mascotas</span>
+            <strong class="text-stone-900 font-medium">0 € Suplemento</strong>
+          </div>
+          <div class="p-4 rounded-2xl bg-stone-50 border border-stone-200/60">
+            <span class="text-stone-500 block mb-1">Silencio Vecinal</span>
+            <strong class="text-stone-900 font-medium">Desde las 23:00 h</strong>
+          </div>
+        </div>
+      </div>
+
+      <!-- BLOQUE 1: Secretos Gastronómicos de Suances -->
+      <section class="mb-14">
+        <div class="flex items-center gap-3 mb-6">
+          <div class="w-10 h-10 rounded-2xl bg-slate-900 text-white flex items-center justify-center">
+            <Utensils class="w-5 h-5 stroke-[1.5]" />
+          </div>
+          <div>
+            <span class="text-xs font-semibold uppercase tracking-widest text-stone-500">Capítulo 01</span>
+            <h2 class="font-serif text-2xl sm:text-3xl text-stone-900 font-normal">Secretos gastronómicos de Suances</h2>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div class="bg-white rounded-3xl p-6 border border-stone-200/80 shadow-xs">
+            <span class="inline-block px-2.5 py-0.5 rounded-full bg-stone-100 text-[11px] font-semibold text-stone-700 uppercase mb-3">
+              Rabas del Muelle
+            </span>
+            <h3 class="font-serif text-lg text-stone-900 mb-2">Bar La Ribera & Bar Amarras</h3>
+            <p class="text-xs sm:text-sm text-stone-600 font-light leading-relaxed">
+              Junto al puerto pesquero (a 3 min a pie). Rabas de calamar fresco crujientes y finas, bocartes al ajillo y caracolillos acompañados de una sidra local o vermú con vistas a la ría.
+            </p>
+          </div>
+
+          <div class="bg-white rounded-3xl p-6 border border-stone-200/80 shadow-xs">
+            <span class="inline-block px-2.5 py-0.5 rounded-full bg-stone-100 text-[11px] font-semibold text-stone-700 uppercase mb-3">
+              Marisquerías de Lonja
+            </span>
+            <h3 class="font-serif text-lg text-stone-900 mb-2">El Caserío y La Dársena</h3>
+            <p class="text-xs sm:text-sm text-stone-600 font-light leading-relaxed">
+              Pescados salvajes del día (lubina a la espalda, machote, rodaballo) y marisco vivo de cetárea cántabra (almejas a la sartén, centollo y nécoras). Calidad sin artificios.
+            </p>
+          </div>
+
+          <div class="bg-white rounded-3xl p-6 border border-stone-200/80 shadow-xs">
+            <span class="inline-block px-2.5 py-0.5 rounded-full bg-stone-100 text-[11px] font-semibold text-stone-700 uppercase mb-3">
+              Atardecer Mítico
+            </span>
+            <h3 class="font-serif text-lg text-stone-900 mb-2">Chiringuito Los Locos</h3>
+            <p class="text-xs sm:text-sm text-stone-600 font-light leading-relaxed">
+              Sobre la misma playa de Los Locos. Siéntate al borde del acantilado a las 20:30 h con música suave y una copa mientras el sol se sumerge en el Cantábrico frente a los surfistas.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- BLOQUE 2: Comillas sin masificaciones -->
+      <section class="mb-14">
+        <div class="flex items-center gap-3 mb-6">
+          <div class="w-10 h-10 rounded-2xl bg-slate-900 text-white flex items-center justify-center">
+            <Compass class="w-5 h-5 stroke-[1.5]" />
+          </div>
+          <div>
+            <span class="text-xs font-semibold uppercase tracking-widest text-stone-500">Capítulo 02 · A 20 min</span>
+            <h2 class="font-serif text-2xl sm:text-3xl text-stone-900 font-normal">Comillas sin masificaciones</h2>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div class="bg-white rounded-3xl p-6 sm:p-7 border border-stone-200/80 shadow-xs">
+            <span class="text-xs font-semibold uppercase tracking-wider text-stone-500">Cocina Cántabra Contemporánea</span>
+            <h3 class="font-serif text-xl text-stone-900 mt-1 mb-3">Restaurante Gurea</h3>
+            <p class="text-xs sm:text-sm text-stone-600 font-light leading-relaxed mb-3">
+              Alejado del bullicio de la plaza turística. Platos cuidados con producto km 0, verduras de la huerta cántabra y pescados del Cantábrico con un punto de cocción impecable.
+            </p>
+            <span class="text-xs text-stone-700 font-medium">💡 Consejo: Reserva con 2-3 días de antelación para cenar en su patio.</span>
+          </div>
+
+          <div class="bg-white rounded-3xl p-6 sm:p-7 border border-stone-200/80 shadow-xs">
+            <span class="text-xs font-semibold uppercase tracking-wider text-stone-500">Brasa y Tradición</span>
+            <h3 class="font-serif text-xl text-stone-900 mt-1 mb-3">Asador La Fragua</h3>
+            <p class="text-xs sm:text-sm text-stone-600 font-light leading-relaxed mb-3">
+              Chuletón de vaca de los Valles Pasiegos a la parrilla de carbón de encina, pimientos asados en horno de leña y tarta de queso al estilo del norte con textura cremosa.
+            </p>
+            <span class="text-xs text-stone-700 font-medium">💡 Consejo: Aparca en la zona alta y baja paseando junto al Capricho de Gaudí.</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- BLOQUE 3: Santillana del Mar auténtica -->
+      <section class="mb-14">
+        <div class="flex items-center gap-3 mb-6">
+          <div class="w-10 h-10 rounded-2xl bg-slate-900 text-white flex items-center justify-center">
+            <Coffee class="w-5 h-5 stroke-[1.5]" />
+          </div>
+          <div>
+            <span class="text-xs font-semibold uppercase tracking-widest text-stone-500">Capítulo 03 · A 10 min</span>
+            <h2 class="font-serif text-2xl sm:text-3xl text-stone-900 font-normal">Santillana auténtica & Dulces de Obrador</h2>
+          </div>
+        </div>
+
+        <div class="bg-white rounded-3xl p-6 sm:p-8 border border-stone-200/80 shadow-xs space-y-4">
+          <p class="text-xs sm:text-sm text-stone-600 font-light leading-relaxed">
+            Santillana del Mar es una joya medieval a solo 8 km de nuestro apartamento. Para vivirla de verdad y no como un museo abarrotado:
+          </p>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
+            <div class="p-4 rounded-2xl bg-stone-50 border border-stone-200/60">
+              <strong class="font-serif text-base text-stone-900 block mb-1">Dónde comprar auténticos Sobaos y Quesadas</strong>
+              <p class="text-xs text-stone-600 font-light">
+                Evita las cajas industriales de la entrada. Acude a los obradores tradicionales del casco viejo (como <em>Casa Quevedo</em> para el vaso de leche fresca con bizcocho o quesadas recién horneadas con mantequilla pura).
+              </p>
+            </div>
+            <div class="p-4 rounded-2xl bg-stone-50 border border-stone-200/60">
+              <strong class="font-serif text-base text-stone-900 block mb-1">La hora mágica: 09:30 h o tras las 19:30 h</strong>
+              <p class="text-xs text-stone-600 font-light">
+                Los callejones empedrados y las casonas señoriales están en silencio absoluto a primera hora de la mañana o al atardecer, cuando los grupos turísticos ya han marchado.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- BLOQUE 4: Cantabria con niños & Playas tranquilas -->
+      <section class="mb-14">
+        <div class="flex items-center gap-3 mb-6">
+          <div class="w-10 h-10 rounded-2xl bg-slate-900 text-white flex items-center justify-center">
+            <Sun class="w-5 h-5 stroke-[1.5]" />
+          </div>
+          <div>
+            <span class="text-xs font-semibold uppercase tracking-widest text-stone-500">Capítulo 04 · Familias & Relax</span>
+            <h2 class="font-serif text-2xl sm:text-3xl text-stone-900 font-normal">Cantabria con niños: Playas sin olas</h2>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div class="bg-white rounded-3xl p-6 border border-stone-200/80 shadow-xs">
+            <span class="text-xs font-semibold uppercase tracking-wider text-stone-500">Aguas Calmas como una Piscina</span>
+            <h3 class="font-serif text-xl text-stone-900 mt-1 mb-2">Playa de La Riberuca</h3>
+            <p class="text-xs sm:text-sm text-stone-600 font-light leading-relaxed">
+              En la desembocadura de la ría de San Martín. Cero oleaje, arena compacta para jugar y aguas poco profundas donde los más pequeños pueden chapotear con total tranquilidad.
+            </p>
+          </div>
+
+          <div class="bg-white rounded-3xl p-6 border border-stone-200/80 shadow-xs">
+            <span class="text-xs font-semibold uppercase tracking-wider text-stone-500">Frente al Apartamento</span>
+            <h3 class="font-serif text-xl text-stone-900 mt-1 mb-2">Zona Este de La Concha (Bajamar)</h3>
+            <p class="text-xs sm:text-sm text-stone-600 font-light leading-relaxed">
+              A 2 minutos a pie bajando la calle. Durante la bajamar se forman pozas naturales templadas de agua marina entre las rocas sin corriente, ideales para descubrir peces y cangrejos.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- BLOQUE 5: Servicios Concierge del Anfitrión -->
+      <section class="mb-14">
+        <div class="bg-slate-900 text-white rounded-3xl p-8 sm:p-10 shadow-xl">
+          <div class="max-w-2xl">
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 text-stone-200 text-xs font-medium mb-4">
+              <HeartHandshake class="w-4 h-4 stroke-[1.5]" />
+              <span>Servicio Exclusivo del Anfitrión</span>
+            </div>
+            <h2 class="font-serif text-2xl sm:text-4xl font-normal text-white mb-3">
+              Servicios Concierge Personalizados
+            </h2>
+            <p class="text-stone-300 text-sm sm:text-base font-light leading-relaxed mb-6">
+              Te facilitamos reservas directas con instructores, guías y patrones locales de nuestra máxima confianza:
+            </p>
+
+            <ul class="space-y-3 text-xs sm:text-sm text-stone-200 mb-8 font-light">
+              <li class="flex items-start gap-2.5">
+                <Check class="w-4 h-4 text-emerald-400 stroke-2 flex-shrink-0 mt-0.5" />
+                <span><strong>Surf en Los Locos:</strong> Reserva de clases particulares o grupales y alquiler de trajes Rip Curl / tablas a pie de playa.</span>
+              </li>
+              <li class="flex items-start gap-2.5">
+                <Check class="w-4 h-4 text-emerald-400 stroke-2 flex-shrink-0 mt-0.5" />
+                <span><strong>Paseos en Barco por la Ría:</strong> Travesías privadas al atardecer o rutas en paddle surf al amanecer.</span>
+              </li>
+              <li class="flex items-start gap-2.5">
+                <Check class="w-4 h-4 text-emerald-400 stroke-2 flex-shrink-0 mt-0.5" />
+                <span><strong>Mesas reservadas:</strong> En las mejores marisquerías del puerto en temporada alta sin colas.</span>
+              </li>
+            </ul>
+
+            <a 
+              href={SITE_CONFIG.whatsappUrl} 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              class="inline-flex items-center gap-2 px-6 py-3.5 rounded-full bg-white hover:bg-stone-100 text-slate-900 text-xs sm:text-sm font-semibold transition shadow-md active:scale-95"
+            >
+              <MessageCircle class="w-4 h-4 stroke-[1.5]" />
+              <span>Solicitar Gestión Concierge por WhatsApp</span>
+            </a>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <Footer />
+</Layout>
+
+<style>
+  @media print {
+    header, footer, .no-print {
+      display: none !important;
+    }
+    body {
+      background-color: #ffffff !important;
+      color: #000000 !important;
+    }
+    main {
+      padding: 0 !important;
+      background-color: #ffffff !important;
+    }
+    .shadow-xl, .shadow-2xl, .shadow-md, .shadow-xs {
+      box-shadow: none !important;
+    }
+  }
+</style>
+

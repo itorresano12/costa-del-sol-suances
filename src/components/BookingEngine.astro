@@ -8,8 +8,10 @@ import {
   Lock,
   ArrowRight,
   MessageCircle,
-  Sparkles
+  Sparkles,
+  FileText
 } from 'lucide-astro';
+import { SITE_CONFIG } from '../config/site';
 ---
 
 <section id="reservas" class="py-20 lg:py-28 bg-[#FDFBF7] border-t border-stone-200/60 relative">
@@ -211,6 +213,67 @@ import {
               />
             </div>
           </div>
+
+          <!-- Selector de Solicitud de Factura Legal (Empresa / Autónomo) -->
+          <div class="mt-4 pt-4 border-t border-stone-200/60">
+            <label class="inline-flex items-center gap-3 cursor-pointer select-none group">
+              <input 
+                type="checkbox" 
+                id="invoice-toggle" 
+                name="invoiceRequested"
+                class="w-4 h-4 rounded border-stone-300 text-slate-900 focus:ring-slate-900 cursor-pointer"
+              />
+              <span class="text-xs sm:text-sm font-medium text-stone-700 group-hover:text-stone-900 transition flex items-center gap-1.5">
+                <FileText class="w-4 h-4 text-stone-500 stroke-[1.5]" />
+                ¿Necesitas factura para empresa o autónomo?
+              </span>
+            </label>
+
+            <!-- Despliegue de Datos Fiscales -->
+            <div id="invoice-fields" class="hidden mt-3 p-4 bg-stone-100/70 border border-stone-200/80 rounded-2xl space-y-3 transition-all duration-300">
+              <p class="text-xs text-stone-500 font-normal">
+                Indica tus datos de facturación para emitir la factura oficial con desglose de IVA y remitírtela por correo:
+              </p>
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                <div>
+                  <label for="invoice-company" class="block text-[11px] font-medium text-stone-700 mb-1">
+                    Razón Social / Nombre fiscal
+                  </label>
+                  <input 
+                    type="text" 
+                    id="invoice-company" 
+                    name="invoiceCompanyName"
+                    placeholder="Ej. Empresa S.L. o Nombre fiscal"
+                    class="w-full px-3.5 py-2.5 rounded-xl border border-stone-200 focus:border-stone-900 focus:ring-2 focus:ring-stone-900/10 text-xs font-medium bg-white"
+                  />
+                </div>
+                <div>
+                  <label for="invoice-tax-id" class="block text-[11px] font-medium text-stone-700 mb-1">
+                    NIF / CIF / VAT
+                  </label>
+                  <input 
+                    type="text" 
+                    id="invoice-tax-id" 
+                    name="invoiceTaxId"
+                    placeholder="Ej. B12345678 / 12345678Z"
+                    class="w-full px-3.5 py-2.5 rounded-xl border border-stone-200 focus:border-stone-900 focus:ring-2 focus:ring-stone-900/10 text-xs font-medium bg-white"
+                  />
+                </div>
+              </div>
+              <div>
+                <label for="invoice-address" class="block text-[11px] font-medium text-stone-700 mb-1">
+                  Dirección fiscal completa (Calle, CP, Ciudad, Provincia)
+                </label>
+                <input 
+                  type="text" 
+                  id="invoice-address" 
+                  name="invoiceAddress"
+                  placeholder="Ej. Calle Gran Vía 12, 3ºB, 39001 Santander (Cantabria)"
+                  class="w-full px-3.5 py-2.5 rounded-xl border border-stone-200 focus:border-stone-900 focus:ring-2 focus:ring-stone-900/10 text-xs font-medium bg-white"
+                />
+              </div>
+            </div>
+          </div>
         </div>
 
         <!-- Realtime Price Breakdown Box -->
@@ -365,7 +428,7 @@ import {
   </div>
 </div>
 
-<script>
+<script define:vars={{ whatsappPhone: SITE_CONFIG.whatsappPhone }}>
   import flatpickr from 'flatpickr';
   import { Spanish } from 'flatpickr/dist/l10n/es.js';
 
@@ -383,6 +446,17 @@ import {
   const form = document.getElementById('booking-form') as HTMLFormElement;
   const submitBtn = document.getElementById('submit-booking-btn') as HTMLButtonElement;
   const btnText = document.getElementById('btn-text');
+
+  // Toggle de campos de factura legal
+  const invoiceToggle = document.getElementById('invoice-toggle') as HTMLInputElement;
+  const invoiceFields = document.getElementById('invoice-fields');
+  invoiceToggle?.addEventListener('change', () => {
+    if (invoiceToggle.checked) {
+      invoiceFields?.classList.remove('hidden');
+    } else {
+      invoiceFields?.classList.add('hidden');
+    }
+  });
 
   // Modal Vía B elements
   const manualModal = document.getElementById('manual-booking-modal');
@@ -521,6 +595,11 @@ import {
     submitBtn.disabled = true;
     if (btnText) btnText.textContent = 'Procesando tu reserva...';
 
+    const invoiceRequested = (document.getElementById('invoice-toggle') as HTMLInputElement)?.checked || false;
+    const invoiceCompanyName = (document.getElementById('invoice-company') as HTMLInputElement)?.value.trim() || '';
+    const invoiceTaxId = (document.getElementById('invoice-tax-id') as HTMLInputElement)?.value.trim() || '';
+    const invoiceAddress = (document.getElementById('invoice-address') as HTMLInputElement)?.value.trim() || '';
+
     const payload = {
       checkIn: checkInDate,
       checkOut: checkOutDate,
@@ -528,6 +607,10 @@ import {
       guestName,
       guestEmail,
       guestPhone,
+      invoiceRequested,
+      invoiceCompanyName,
+      invoiceTaxId,
+      invoiceAddress,
     };
 
     try {
@@ -567,7 +650,7 @@ import {
             `Hola Ivan, acabo de realizar la pre-reserva directa ${result.reservationId} para el Apartamento Costa del Sol Suances del ${result.checkIn} al ${result.checkOut} (${result.grandTotal}€). Te adjunto el comprobante de pago.`
           );
           if (modalWhatsappLink) {
-            modalWhatsappLink.href = `https://wa.me/34600123456?text=${whatsappMessage}`;
+            modalWhatsappLink.href = `https://wa.me/${whatsappPhone}?text=${whatsappMessage}`;
           }
 
           start2HourTimer(result.expiresAt);

@@ -7,7 +7,19 @@ import { sendBookingConfirmation } from '../../lib/email';
 export const POST: APIRoute = async ({ request }) => {
   try {
     const data = await request.json();
-    const { checkIn, checkOut, guests, guestName, guestEmail, guestPhone, notes } = data;
+    const { 
+      checkIn, 
+      checkOut, 
+      guests, 
+      guestName, 
+      guestEmail, 
+      guestPhone, 
+      notes,
+      invoiceRequested,
+      invoiceCompanyName,
+      invoiceTaxId,
+      invoiceAddress
+    } = data;
 
     if (!checkIn || !checkOut || !guestName || !guestEmail || !guestPhone) {
       return new Response(
@@ -58,6 +70,10 @@ export const POST: APIRoute = async ({ request }) => {
       status: 'pending_2h_transfer',
       createdAt: now.toISOString(),
       expiresAt,
+      invoiceRequested: Boolean(invoiceRequested),
+      invoiceCompanyName,
+      invoiceTaxId,
+      invoiceAddress,
     });
 
     const paymentDetails = {
@@ -82,6 +98,10 @@ export const POST: APIRoute = async ({ request }) => {
       status: 'pending_2h_transfer',
       expiresAt,
       bankDetails: paymentDetails,
+      invoiceRequested: Boolean(invoiceRequested),
+      invoiceCompanyName,
+      invoiceTaxId,
+      invoiceAddress,
     }).catch((err) => console.error('[manual-booking] Error enviando email de confirmación:', err));
 
     return new Response(

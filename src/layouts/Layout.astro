@@ -7,12 +7,14 @@ interface Props {
   title?: string;
   description?: string;
   image?: string;
+  noindex?: boolean;
 }
 
 const {
   title = "Apartamento Costa del Sol Suances | Alojamiento Boutique Frente al Mar Cantábrico",
   description = "Alojamiento turístico de 70 m² con 3 dormitorios frente a la Playa de La Concha en Suances (Cantabria, Norte de España). Vistas al mar, WiFi gratis, pet friendly y reserva directa garantizada sin comisiones de Airbnb ni Booking.",
   image = "/images/apartamento/hero-vistas.jpg",
+  noindex = false,
 } = Astro.props;
 
 const siteUrl = Astro.site?.origin || 'https://costa-del-sol-suances.vercel.app';
@@ -79,7 +81,11 @@ const schemaData = {
     <meta name="description" content={description} />
     <meta name="keywords" content="Apartamento Costa del Sol Suances, alquiler vacacional Suances Cantabria, playa de la Concha Cantabria, Costa del Sol Suances, alojamiento Cantabria frente al mar, pet friendly Suances" />
     <meta name="author" content="Apartamento Costa del Sol Suances" />
-    <meta name="robots" content="index, follow" />
+    {noindex ? (
+      <meta name="robots" content="noindex, nofollow" />
+    ) : (
+      <meta name="robots" content="index, follow" />
+    )}
 
     <!-- Open Graph / Facebook / WhatsApp -->
     <meta property="og:type" content="website" />
