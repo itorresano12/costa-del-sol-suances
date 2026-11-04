@@ -3,10 +3,10 @@ import { Phone, Mail, MapPin, ShieldCheck, HeartHandshake, Clock, MessageCircle 
 import { SITE_CONFIG } from '../config/site';
 ---
 
-<footer class="bg-cantabrico-dark text-stone-300 pt-20 pb-14 border-t border-cantabrico">
+<footer class="bg-marino-vibrante-dark text-stone-300 pt-20 pb-14 border-t border-marino-vibrante">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 pb-14 border-b border-cantabrico">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 pb-14 border-b border-white/10">
       
       <!-- Brand & Description (2 cols) -->
       <div class="lg:col-span-2 space-y-4">
@@ -15,7 +15,7 @@ import { SITE_CONFIG } from '../config/site';
           <span class="font-serif tracking-widest text-base uppercase text-white font-normal leading-tight group-hover:text-stone-300 transition">
             COSTA DEL SOL
           </span>
-          <span class="text-[9px] tracking-[0.28em] uppercase text-stone-400 font-semibold mt-1">
+          <span class="text-[9px] tracking-[0.28em] uppercase text-dorado-arena font-semibold mt-1">
             SUANCES · CANTABRIA
           </span>
         </a>
@@ -25,13 +25,13 @@ import { SITE_CONFIG } from '../config/site';
         </p>
 
         <div class="pt-2 flex items-center gap-2 text-xs text-stone-300 font-normal">
-          <ShieldCheck class="w-4 h-4 text-salvia-light stroke-[1.5] flex-shrink-0" />
+          <ShieldCheck class="w-4 h-4 text-dorado-arena stroke-[1.5] flex-shrink-0" />
           <span data-i18n="footerVut">Vivienda de Uso Turístico Oficial — Cantabria ({SITE_CONFIG.touristLicense})</span>
         </div>
 
         <div class="pt-2 flex flex-col gap-2 text-xs text-stone-400">
           <div class="flex items-center gap-2">
-            <MapPin class="w-3.5 h-3.5 text-salvia-light flex-shrink-0 stroke-[1.5]" />
+            <MapPin class="w-3.5 h-3.5 text-dorado-arena flex-shrink-0 stroke-[1.5]" />
             <span data-i18n="brandLocation">Suances (Playa de La Concha), Cantabria</span>
           </div>
           <div class="flex items-center gap-4 pt-1">
@@ -49,18 +49,18 @@ import { SITE_CONFIG } from '../config/site';
 
       <!-- Enlaces Rápidos -->
       <div>
-        <h4 class="text-xs font-medium uppercase tracking-widest text-stone-200 mb-4" data-i18n="navHome">Navegación</h4>
+        <h4 class="text-xs font-semibold uppercase tracking-widest text-dorado-arena mb-4" data-i18n="navHome">Navegación</h4>
         <ul class="space-y-2.5 text-sm font-normal text-stone-300">
           <li><a href="/" class="hover:text-white transition" data-i18n="navHome">Inicio</a></li>
           <li><a href="/el-apartamento" class="hover:text-white transition" data-i18n="navApartment">El Apartamento</a></li>
           <li><a href="/entorno" class="hover:text-white transition" data-i18n="navSurroundings">Entorno y Experiencias</a></li>
-          <li><a href="/reservar" class="text-salvia-light font-medium hover:underline" data-i18n="navBookBtn">Reservar Directo</a></li>
+          <li><a href="/reservar" class="text-dorado-arena font-medium hover:underline" data-i18n="navBookBtn">Reservar Directo</a></li>
         </ul>
       </div>
 
       <!-- Legal / Cumplimiento Normativo -->
       <div>
-        <h4 class="text-xs font-medium uppercase tracking-widest text-stone-200 mb-4" data-i18n="footerLegal">Información Legal</h4>
+        <h4 class="text-xs font-semibold uppercase tracking-widest text-dorado-arena mb-4" data-i18n="footerLegal">Información Legal</h4>
         <ul class="space-y-2.5 text-sm font-normal text-stone-300">
           <li><a href="/aviso-legal" class="hover:text-white transition" data-i18n="footerAviso">Aviso Legal</a></li>
           <li><a href="/politica-privacidad" class="hover:text-white transition" data-i18n="footerPrivacidad">Política de Privacidad</a></li>
@@ -71,18 +71,18 @@ import { SITE_CONFIG } from '../config/site';
 
       <!-- Columna 4: Garantía Directa / Reserva Exclusiva -->
       <div>
-        <h4 class="text-xs font-medium uppercase tracking-widest text-stone-200 mb-4">Garantía Directa</h4>
+        <h4 class="text-xs font-semibold uppercase tracking-widest text-dorado-arena mb-4">Garantía Directa</h4>
         <ul class="space-y-3.5 text-xs text-stone-300">
           <li class="flex items-start gap-2.5">
-            <HeartHandshake class="w-4 h-4 text-salvia-light stroke-[1.5] flex-shrink-0 mt-0.5" />
+            <HeartHandshake class="w-4 h-4 text-dorado-arena stroke-[1.5] flex-shrink-0 mt-0.5" />
             <span class="leading-relaxed">Pet Friendly sin suplemento</span>
           </li>
           <li class="flex items-start gap-2.5">
-            <Clock class="w-4 h-4 text-salvia-light stroke-[1.5] flex-shrink-0 mt-0.5" />
+            <Clock class="w-4 h-4 text-dorado-arena stroke-[1.5] flex-shrink-0 mt-0.5" />
             <span class="leading-relaxed">Cancelación gratuita hasta 14 días</span>
           </li>
           <li class="flex items-start gap-2.5">
-            <MessageCircle class="w-4 h-4 text-salvia-light stroke-[1.5] flex-shrink-0 mt-0.5" />
+            <MessageCircle class="w-4 h-4 text-dorado-arena stroke-[1.5] flex-shrink-0 mt-0.5" />
             <span class="leading-relaxed">Trato directo y sin comisiones de agencias</span>
           </li>
         </ul>
@@ -91,7 +91,7 @@ import { SITE_CONFIG } from '../config/site';
     </div>
 
     <!-- Bottom Copyright Unificado -->
-    <div class="pt-8 border-t border-cantabrico flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-stone-400 font-normal">
+    <div class="pt-8 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-stone-400 font-normal">
       <p class="text-center sm:text-left">
         © 2026 Apartamento Costa del Sol Suances. Todos los derechos reservados. · Diseñado por <a href={SITE_CONFIG.designerUrl} target="_blank" rel="noopener noreferrer" class="text-stone-300 hover:text-white font-medium underline underline-offset-4 decoration-stone-600 hover:decoration-white transition">{SITE_CONFIG.designerName}</a>
       </p>

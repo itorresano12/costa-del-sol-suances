@@ -1,21 +1,21 @@
 ---
 import { Waves, UtensilsCrossed, Compass, MessageCircle, Sparkles } from 'lucide-astro';
 import { Image } from 'astro:assets';
-import imgSurf from '../assets/images/hero-vistas.jpg';
+import imgSurf from '../assets/images/entorno-playa.jpg';
 import imgFood from '../assets/images/cocina.jpg';
 import imgBoat from '../assets/images/terraza-vistas.jpg';
 import { SITE_CONFIG } from '../config/site';
 ---
 
-<section id="experiencias" class="py-20 lg:py-28 bg-arena border-t border-stone-200/60">
+<section id="experiencias" class="py-20 lg:py-28 bg-blanco-puro border-t border-stone-200/60">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     
     <!-- Editorial Header -->
     <div class="text-center max-w-3xl mx-auto mb-16">
-      <span class="text-stone-500 text-xs sm:text-sm tracking-widest uppercase font-medium" data-i18n="expPill">
+      <span class="text-dorado-arena text-xs sm:text-sm tracking-widest uppercase font-semibold" data-i18n="expPill">
         Experiencias & Aventura
       </span>
-      <h2 class="font-serif text-3xl sm:text-5xl font-normal text-stone-900 tracking-tight mt-3 mb-4" data-i18n="expTitle">
+      <h2 class="font-serif text-3xl sm:text-5xl font-normal text-marino-vibrante tracking-tight mt-3 mb-4" data-i18n="expTitle">
         Vive el Cantábrico en Suances
       </h2>
       <p class="text-stone-600 text-base sm:text-lg font-light leading-relaxed" data-i18n="expDesc">
@@ -27,79 +27,88 @@ import { SITE_CONFIG } from '../config/site';
     <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
       
       <!-- Experience 1: Surf & Atardeceres en Los Locos -->
-      <div class="relative overflow-hidden rounded-3xl group aspect-[4/3] sm:aspect-square md:aspect-[4/3] cursor-pointer shadow-sm">
-        <Image 
-          src={imgSurf} 
-          alt="Surf y atardeceres mágicos en los acantilados de Los Locos en Suances"
-          class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-110"
-        />
-        <div class="absolute inset-0 bg-gradient-to-t from-cantabrico-dark/95 via-cantabrico/60 to-transparent"></div>
-        <div class="absolute bottom-0 p-6 text-arena flex flex-col justify-end w-full">
-          <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-cantabrico-dark/70 border border-white/20 backdrop-blur-md text-white text-xs font-medium w-fit mb-2">
-            <Waves class="w-3.5 h-3.5 stroke-[1.5]" />
-            <span class="text-white">Reserva de Surf & Puesta de Sol</span>
+      <div class="bg-white rounded-3xl overflow-hidden border border-stone-200/80 shadow-[0_10px_30px_-10px_rgba(0,0,0,0.04)] hover:shadow-lg transition-all duration-300 group flex flex-col">
+        <div class="h-56 sm:h-60 overflow-hidden bg-stone-100">
+          <Image 
+            src={imgSurf} 
+            alt="Surf y atardeceres mágicos en los acantilados de Los Locos en Suances"
+            class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+          />
+        </div>
+        <div class="p-6 sm:p-7 flex flex-col flex-1 bg-white justify-between">
+          <div>
+            <div class="inline-flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wider text-dorado-arena mb-2">
+              <Waves class="w-4 h-4 stroke-[1.5]" />
+              <span>Reserva de Surf & Puesta de Sol</span>
+            </div>
+            <h3 class="font-serif text-xl sm:text-2xl text-marino-vibrante font-normal mb-2.5 tracking-tight" data-i18n="expSurfTitle">
+              Surf & Atardeceres en Los Locos
+            </h3>
+            <p class="text-stone-600 text-sm font-light leading-relaxed mb-6" data-i18n="expSurfDesc">
+              Cuna del surf cantábrico y puestas de sol mágicas sobre los acantilados. Alquiler de tablas, escuelas para todos los niveles y miradores al océano a 10 min a pie.
+            </p>
           </div>
-          <h3 class="font-serif text-xl sm:text-2xl text-white font-normal mb-1.5 tracking-tight" data-i18n="expSurfTitle">
-            Surf & Atardeceres en Los Locos
-          </h3>
-          <p class="text-arena text-xs sm:text-sm font-light leading-relaxed line-clamp-2 group-hover:line-clamp-none transition-all duration-300" data-i18n="expSurfDesc">
-            Cuna del surf cantábrico y puestas de sol mágicas sobre los acantilados. Alquiler de tablas, escuelas para todos los niveles y miradores al océano a 10 min a pie.
-          </p>
-          <div class="mt-3 pt-3 border-t border-white/20 flex items-center justify-between text-xs text-white font-normal">
-            <span class="text-white">A 10 min caminando</span>
-            <span class="text-white font-medium">Olas & Atardecer</span>
+          <div class="pt-4 border-t border-stone-100 flex items-center justify-between text-xs text-stone-500 font-medium">
+            <span>A 10 min caminando</span>
+            <span class="text-marino-vibrante font-semibold">Olas & Atardecer</span>
           </div>
         </div>
       </div>
 
       <!-- Experience 2: Dónde comer rabas y pescado (Gastronomía Marina) -->
-      <div class="relative overflow-hidden rounded-3xl group aspect-[4/3] sm:aspect-square md:aspect-[4/3] cursor-pointer shadow-sm">
-        <Image 
-          src={imgFood} 
-          alt="Gastronomía marina tradicional en el puerto pesquero y terrazas de Suances"
-          class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-110"
-        />
-        <div class="absolute inset-0 bg-gradient-to-t from-cantabrico-dark/95 via-cantabrico/60 to-transparent"></div>
-        <div class="absolute bottom-0 p-6 text-arena flex flex-col justify-end w-full">
-          <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-cantabrico-dark/70 border border-white/20 backdrop-blur-md text-white text-xs font-medium w-fit mb-2">
-            <UtensilsCrossed class="w-3.5 h-3.5 stroke-[1.5]" />
-            <span class="text-white">Gastronomía Marina</span>
+      <div class="bg-white rounded-3xl overflow-hidden border border-stone-200/80 shadow-[0_10px_30px_-10px_rgba(0,0,0,0.04)] hover:shadow-lg transition-all duration-300 group flex flex-col">
+        <div class="h-56 sm:h-60 overflow-hidden bg-stone-100">
+          <Image 
+            src={imgFood} 
+            alt="Gastronomía marina tradicional en el puerto pesquero y terrazas de Suances"
+            class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+          />
+        </div>
+        <div class="p-6 sm:p-7 flex flex-col flex-1 bg-white justify-between">
+          <div>
+            <div class="inline-flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wider text-dorado-arena mb-2">
+              <UtensilsCrossed class="w-4 h-4 stroke-[1.5]" />
+              <span>Gastronomía Marina</span>
+            </div>
+            <h3 class="font-serif text-xl sm:text-2xl text-marino-vibrante font-normal mb-2.5 tracking-tight" data-i18n="expFoodTitle">
+              Dónde comer rabas y pescado
+            </h3>
+            <p class="text-stone-600 text-sm font-light leading-relaxed mb-6" data-i18n="expFoodDesc">
+              En el puerto pesquero y el paseo marítimo a solo 3 min a pie: las mejores rabas de calamar fresco, bocartes al ajillo, mariscadas del Cantábrico y terrazas con vistas a la ría.
+            </p>
           </div>
-          <h3 class="font-serif text-xl sm:text-2xl text-white font-normal mb-1.5 tracking-tight" data-i18n="expFoodTitle">
-            Dónde comer rabas y pescado
-          </h3>
-          <p class="text-arena text-xs sm:text-sm font-light leading-relaxed line-clamp-2 group-hover:line-clamp-none transition-all duration-300" data-i18n="expFoodDesc">
-            En el puerto pesquero y el paseo marítimo a solo 3 min a pie: las mejores rabas de calamar fresco, bocartes al ajillo, mariscadas del Cantábrico y terrazas con vistas a la ría.
-          </p>
-          <div class="mt-3 pt-3 border-t border-white/20 flex items-center justify-between text-xs text-white font-normal">
-            <span class="text-white">A 3-5 min a pie</span>
-            <span class="text-white font-medium">Pescado del día</span>
+          <div class="pt-4 border-t border-stone-100 flex items-center justify-between text-xs text-stone-500 font-medium">
+            <span>A 3-5 min a pie</span>
+            <span class="text-marino-vibrante font-semibold">Pescado del día</span>
           </div>
         </div>
       </div>
 
       <!-- Experience 3: Paseos en Barco & Ría de San Martín -->
-      <div class="relative overflow-hidden rounded-3xl group aspect-[4/3] sm:aspect-square md:aspect-[4/3] cursor-pointer shadow-sm">
-        <Image 
-          src={imgBoat} 
-          alt="Paseos en barco y travesías costeras en la Ría de San Martín de Suances"
-          class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-110"
-        />
-        <div class="absolute inset-0 bg-gradient-to-t from-cantabrico-dark/95 via-cantabrico/60 to-transparent"></div>
-        <div class="absolute bottom-0 p-6 text-arena flex flex-col justify-end w-full">
-          <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-cantabrico-dark/70 border border-white/20 backdrop-blur-md text-white text-xs font-medium w-fit mb-2">
-            <Compass class="w-3.5 h-3.5 stroke-[1.5]" />
-            <span class="text-white">Ría de San Martín</span>
+      <div class="bg-white rounded-3xl overflow-hidden border border-stone-200/80 shadow-[0_10px_30px_-10px_rgba(0,0,0,0.04)] hover:shadow-lg transition-all duration-300 group flex flex-col">
+        <div class="h-56 sm:h-60 overflow-hidden bg-stone-100">
+          <Image 
+            src={imgBoat} 
+            alt="Paseos en barco y travesías costeras en la Ría de San Martín de Suances"
+            class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+          />
+        </div>
+        <div class="p-6 sm:p-7 flex flex-col flex-1 bg-white justify-between">
+          <div>
+            <div class="inline-flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wider text-dorado-arena mb-2">
+              <Compass class="w-4 h-4 stroke-[1.5]" />
+              <span>Ría de San Martín</span>
+            </div>
+            <h3 class="font-serif text-xl sm:text-2xl text-marino-vibrante font-normal mb-2.5 tracking-tight" data-i18n="expBoatTitle">
+              Paseos en Barco & Ría de San Martín
+            </h3>
+            <p class="text-stone-600 text-sm font-light leading-relaxed mb-6" data-i18n="expBoatDesc">
+              Rutas serenas en barco por la ría, travesías costeras hacia mar abierto y paddle surf en aguas calmas para toda la familia.
+            </p>
           </div>
-          <h3 class="font-serif text-xl sm:text-2xl text-white font-normal mb-1.5 tracking-tight" data-i18n="expBoatTitle">
-            Paseos en Barco & Ría de San Martín
-          </h3>
-          <p class="text-arena text-xs sm:text-sm font-light leading-relaxed line-clamp-2 group-hover:line-clamp-none transition-all duration-300" data-i18n="expBoatDesc">
-            Rutas serenas en barco por la ría, travesías costeras hacia mar abierto y paddle surf en aguas calmas para toda la familia.
-          </p>
-          <div class="mt-3 pt-3 border-t border-white/20 flex items-center justify-between text-xs text-white font-normal">
-            <span class="text-white">Puerto de Suances</span>
-            <span class="text-white font-medium">Paddle & Barco</span>
+          <div class="pt-4 border-t border-stone-100 flex items-center justify-between text-xs text-stone-500 font-medium">
+            <span>Puerto de Suances</span>
+            <span class="text-marino-vibrante font-semibold">Paddle & Barco</span>
           </div>
         </div>
       </div>
@@ -107,10 +116,10 @@ import { SITE_CONFIG } from '../config/site';
     </div>
 
     <!-- Concierge Note / Micro-Action Banner -->
-    <div class="mt-12 max-w-4xl mx-auto bg-slate-900 text-white rounded-3xl p-6 sm:p-8 shadow-xl flex flex-col sm:flex-row items-center justify-between gap-6">
+    <div class="mt-14 max-w-4xl mx-auto bg-marino-vibrante text-white rounded-3xl p-6 sm:p-8 shadow-xl flex flex-col sm:flex-row items-center justify-between gap-6">
       <div class="flex items-center gap-4 text-center sm:text-left">
         <div class="w-12 h-12 rounded-2xl bg-white/10 flex items-center justify-center flex-shrink-0">
-          <Sparkles class="w-6 h-6 text-stone-200 stroke-[1.5]" />
+          <Sparkles class="w-6 h-6 text-dorado-arena stroke-[1.5]" />
         </div>
         <div>
           <h4 class="font-serif text-lg sm:text-xl font-normal text-white" data-i18n="expConciergeTitle">
@@ -126,9 +135,9 @@ import { SITE_CONFIG } from '../config/site';
         href={SITE_CONFIG.whatsappUrl}
         target="_blank"
         rel="noopener noreferrer"
-        class="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-white hover:bg-stone-100 text-slate-900 text-xs sm:text-sm font-medium transition-all shadow-sm active:scale-95 whitespace-nowrap flex-shrink-0"
+        class="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-white hover:bg-stone-100 text-marino-vibrante text-xs sm:text-sm font-semibold transition-all shadow-sm active:scale-95 whitespace-nowrap flex-shrink-0"
       >
-        <MessageCircle class="w-4 h-4 stroke-[1.5]" />
+        <MessageCircle class="w-4 h-4 text-marino-vibrante stroke-[1.5]" />
         <span data-i18n="expConciergeBtn">Consultar con Ivan por WhatsApp</span>
       </a>
     </div>

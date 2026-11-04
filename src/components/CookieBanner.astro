@@ -5,17 +5,17 @@ import { ShieldCheck, Cookie, X } from 'lucide-astro';
 <!-- Cookie Consent Banner (Boutique Style RGPD / LSSI) -->
 <div 
   id="cookie-banner" 
-  class="fixed bottom-4 sm:bottom-6 inset-x-4 sm:inset-x-auto sm:right-6 sm:max-w-md z-50 bg-arena border border-stone-300/80 shadow-[0_20px_50px_rgba(15,23,42,0.18)] rounded-3xl p-5 sm:p-6 transition-all duration-500 transform translate-y-24 opacity-0 pointer-events-none"
+  class="fixed bottom-4 sm:bottom-6 inset-x-4 sm:inset-x-auto sm:right-6 sm:max-w-md z-50 bg-white border border-stone-200 shadow-[0_20px_50px_rgba(10,35,66,0.18)] rounded-3xl p-5 sm:p-6 transition-all duration-500 transform translate-y-24 opacity-0 pointer-events-none"
   role="region"
   aria-label="Consentimiento de cookies"
 >
   <div class="flex items-start gap-3.5">
-    <div class="w-10 h-10 rounded-2xl bg-slate-900 text-white flex items-center justify-center flex-shrink-0 shadow-md">
+    <div class="w-10 h-10 rounded-2xl bg-marino-vibrante text-dorado-arena flex items-center justify-center flex-shrink-0 shadow-md">
       <Cookie class="w-5 h-5 stroke-[1.5]" />
     </div>
 
     <div class="flex-1">
-      <h3 class="font-serif text-base text-stone-900 font-normal tracking-tight" data-i18n="cookieTitle">
+      <h3 class="font-serif text-base text-marino-vibrante font-normal tracking-tight" data-i18n="cookieTitle">
         Privacidad & Cookies
       </h3>
       <p class="text-xs text-stone-600 font-normal leading-relaxed mt-1" data-i18n="cookieDesc">
@@ -26,7 +26,7 @@ import { ShieldCheck, Cookie, X } from 'lucide-astro';
         <button 
           id="btn-accept-cookies"
           type="button"
-          class="min-h-[44px] px-4 py-2 rounded-full bg-cantabrico hover:bg-cantabrico-dark text-white text-xs font-medium shadow-sm transition active:scale-95 cursor-pointer inline-flex items-center justify-center"
+          class="min-h-[44px] px-4 py-2 rounded-full bg-marino-vibrante hover:bg-marino-vibrante-dark text-white text-xs font-medium shadow-sm transition active:scale-95 cursor-pointer inline-flex items-center justify-center"
           data-i18n="cookieAccept"
         >
           Aceptar cookies

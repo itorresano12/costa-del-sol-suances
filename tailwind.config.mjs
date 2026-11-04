@@ -4,19 +4,25 @@ export default {
   theme: {
     extend: {
       colors: {
-        cantabrico: {
-          DEFAULT: '#0F172A',
-          dark: '#082F49',
+        'blanco-puro': '#FFFFFF',
+        'marino-vibrante': {
+          DEFAULT: '#0A2342',
+          dark: '#051329',
+          light: '#133B6B',
         },
-        salvia: {
-          DEFAULT: '#6B8E7B',
-          light: '#8FACA1',
+        'dorado-arena': {
+          DEFAULT: '#C4A47C',
+          light: '#DFC8AB',
+          dark: '#A9875F',
+        },
+        cantabrico: {
+          DEFAULT: '#0A2342',
+          dark: '#051329',
         },
         arena: {
-          DEFAULT: '#FDFBF7',
+          DEFAULT: '#FFFFFF',
         },
       },
     },
   },
 };
-

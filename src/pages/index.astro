@@ -2,12 +2,10 @@
 import Layout from '../layouts/Layout.astro';
 import Navbar from '../components/Navbar.astro';
 import Hero from '../components/Hero.astro';
-import Gallery from '../components/Gallery.astro';
-import DirectBookingPerks from '../components/DirectBookingPerks.astro';
 import HostQuote from '../components/HostQuote.astro';
+import DirectBookingPerks from '../components/DirectBookingPerks.astro';
 import Footer from '../components/Footer.astro';
 import MobileStickyBar from '../components/MobileStickyBar.astro';
-import { ArrowRight } from 'lucide-astro';
 import { SITE_CONFIG } from '../config/site';
 ---
 
@@ -18,21 +16,8 @@ import { SITE_CONFIG } from '../config/site';
   <Navbar />
   <main>
     <Hero />
-    <Gallery />
-    
-    <!-- Enlace destacado para explorar estancias -->
-    <div class="text-center pb-16 bg-arena -mt-6 sm:-mt-8">
-      <a 
-        href="/el-apartamento" 
-        class="inline-flex items-center justify-center gap-2.5 px-8 py-4 rounded-full bg-cantabrico hover:bg-cantabrico-dark text-white font-medium text-sm sm:text-base shadow-md hover:shadow-lg transition-all group"
-      >
-        <span>Explorar todas las estancias en detalle</span>
-        <ArrowRight class="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-      </a>
-    </div>
-
-    <DirectBookingPerks />
     <HostQuote />
+    <DirectBookingPerks />
   </main>
   <Footer />
   <MobileStickyBar />

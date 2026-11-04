@@ -1,30 +1,35 @@
 @import "tailwindcss";
 
 @theme {
-  --color-cantabrico: #0F172A;
-  --color-cantabrico-dark: #082F49;
-  --color-salvia: #6B8E7B;
-  --color-salvia-light: #8FACA1;
-  --color-arena: #FDFBF7;
+  --color-blanco-puro: #FFFFFF;
+  --color-marino-vibrante: #0A2342;
+  --color-marino-vibrante-dark: #051329;
+  --color-marino-vibrante-light: #133B6B;
+  --color-dorado-arena: #C4A47C;
+  --color-dorado-arena-light: #DFC8AB;
+  --color-dorado-arena-dark: #A9875F;
+  --color-cantabrico: #0A2342;
+  --color-cantabrico-dark: #051329;
+  --color-arena: #FFFFFF;
 }
 
-/* Titulares con Playfair Display con color profundo Cantábrico */
+/* Titulares con Playfair Display con color marino vibrante */
 h1, h2, h3, .font-serif, .font-editorial {
-  color: var(--color-cantabrico, #0F172A);
+  color: var(--color-marino-vibrante, #0A2342);
 }
 
-/* Personalizaciones Boutique Editorial para Flatpickr */
+/* Personalizaciones Clean Luxury para Flatpickr */
 .flatpickr-calendar {
   border-radius: 1.5rem !important;
-  box-shadow: 0 25px 50px -12px rgba(15, 23, 42, 0.15) !important;
-  border: 1px solid #E7E5E4 !important;
+  box-shadow: 0 25px 50px -12px rgba(10, 35, 66, 0.12) !important;
+  border: 1px solid #E2E8F0 !important;
   font-family: inherit !important;
   padding: 1rem !important;
   background: #FFFFFF !important;
 }
 
 .flatpickr-months .flatpickr-month {
-  color: #1C1917 !important;
+  color: #0A2342 !important;
   font-family: 'Playfair Display', Georgia, serif !important;
   font-size: 1.1rem !important;
 }
@@ -34,7 +39,7 @@ h1, h2, h3, .font-serif, .font-editorial {
 }
 
 span.flatpickr-weekday {
-  color: #78716C !important;
+  color: #64748B !important;
   font-size: 0.75rem !important;
   font-weight: 600 !important;
   text-transform: uppercase !important;
@@ -43,35 +48,35 @@ span.flatpickr-weekday {
 
 .flatpickr-day {
   border-radius: 9999px !important;
-  color: #292524 !important;
+  color: #0A2342 !important;
   font-weight: 500 !important;
   transition: all 0.2s ease !important;
 }
 
 .flatpickr-day:hover {
-  background: #F5F5F4 !important;
-  border-color: #F5F5F4 !important;
+  background: #F1F5F9 !important;
+  border-color: #F1F5F9 !important;
 }
 
 .flatpickr-day.selected, 
 .flatpickr-day.startRange, 
 .flatpickr-day.endRange {
-  background: #0F172A !important;
-  border-color: #0F172A !important;
+  background: #0A2342 !important;
+  border-color: #0A2342 !important;
   color: #FFFFFF !important;
   font-weight: 600 !important;
 }
 
 .flatpickr-day.inRange {
-  background: #F1EFEA !important;
-  border-color: #F1EFEA !important;
-  color: #0F172A !important;
+  background: #E2E8F0 !important;
+  border-color: #E2E8F0 !important;
+  color: #0A2342 !important;
 }
 
 .flatpickr-day.flatpickr-disabled, 
 .flatpickr-day.flatpickr-disabled:hover {
-  color: #D6D3D1 !important;
-  background: #FAF9F6 !important;
+  color: #CBD5E1 !important;
+  background: #F8FAFC !important;
   text-decoration: line-through;
   cursor: not-allowed !important;
 }
