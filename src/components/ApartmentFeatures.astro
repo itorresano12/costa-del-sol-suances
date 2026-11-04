@@ -18,7 +18,7 @@ import imgDorm2 from '../assets/images/dormitorio-2.jpg';
 import imgDorm3 from '../assets/images/dormitorio-3.jpg';
 ---
 
-<section id="caracteristicas" class="pt-20 pb-16 lg:pt-28 lg:pb-20 bg-blanco-puro border-t border-stone-200/60">
+<section id="caracteristicas" class="py-20 lg:py-28 bg-blanco-puro border-t border-stone-200/60">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     
     <!-- Section Header Editorial -->
@@ -35,7 +35,7 @@ import imgDorm3 from '../assets/images/dormitorio-3.jpg';
     </div>
 
     <!-- The 3 Bedrooms (Clean & Accurate Photographic Showcase) -->
-    <div>
+    <div class="mb-20">
       <div class="flex items-center justify-between mb-8 pb-4 border-b border-stone-200/70">
         <div>
           <h3 class="font-serif text-2xl sm:text-3xl text-marino-vibrante font-normal tracking-tight" data-i18n="featRoomsTitle">
@@ -51,11 +51,11 @@ import imgDorm3 from '../assets/images/dormitorio-3.jpg';
         
         <!-- Dormitorio 1: Master con Cama 150cm -->
         <div class="bg-white rounded-3xl overflow-hidden border border-stone-200/80 shadow-[0_10px_30px_-10px_rgba(0,0,0,0.04)] hover:shadow-lg transition-all duration-300 group flex flex-col">
-          <div class="h-60 sm:h-64 overflow-hidden bg-stone-100">
+          <div class="w-full h-60 sm:h-64 overflow-hidden bg-stone-100">
             <Image 
               src={imgDorm1} 
               alt="Dormitorio principal con cama de matrimonio de 150 cm en Suances"
-              class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+              class="w-full h-full object-cover object-center transition-transform duration-700 ease-out group-hover:scale-105"
             />
           </div>
           <div class="p-6 sm:p-7 flex flex-col flex-1 bg-white">
@@ -83,11 +83,11 @@ import imgDorm3 from '../assets/images/dormitorio-3.jpg';
 
         <!-- Dormitorio 2: Habitación Doble Confort -->
         <div class="bg-white rounded-3xl overflow-hidden border border-stone-200/80 shadow-[0_10px_30px_-10px_rgba(0,0,0,0.04)] hover:shadow-lg transition-all duration-300 group flex flex-col">
-          <div class="h-60 sm:h-64 overflow-hidden bg-stone-100">
+          <div class="w-full h-60 sm:h-64 overflow-hidden bg-stone-100">
             <Image 
               src={imgDorm2} 
               alt="Segundo dormitorio doble con cama de confort en Suances"
-              class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+              class="w-full h-full object-cover object-center transition-transform duration-700 ease-out group-hover:scale-105"
             />
           </div>
           <div class="p-6 sm:p-7 flex flex-col flex-1 bg-white">
@@ -115,11 +115,11 @@ import imgDorm3 from '../assets/images/dormitorio-3.jpg';
 
         <!-- Dormitorio 3: Literas de Madera Natural -->
         <div class="bg-white rounded-3xl overflow-hidden border border-stone-200/80 shadow-[0_10px_30px_-10px_rgba(0,0,0,0.04)] hover:shadow-lg transition-all duration-300 group flex flex-col">
-          <div class="h-60 sm:h-64 overflow-hidden bg-stone-100">
+          <div class="w-full h-60 sm:h-64 overflow-hidden bg-stone-100">
             <Image 
               src={imgDorm3} 
               alt="Tercer dormitorio con literas de madera natural y armario con espejo"
-              class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+              class="w-full h-full object-cover object-center transition-transform duration-700 ease-out group-hover:scale-105"
             />
           </div>
           <div class="p-6 sm:p-7 flex flex-col flex-1 bg-white">
@@ -148,86 +148,79 @@ import imgDorm3 from '../assets/images/dormitorio-3.jpg';
       </div>
     </div>
 
-  </div>
-</section>
+    <!-- Zonas Comunes & Equipamiento (Bloque en Verde Salvia claro exacto: bg-[#E9EFEA] py-16 px-4 rounded-3xl) -->
+    <div class="bg-[#E9EFEA] py-16 px-4 sm:px-8 rounded-3xl mb-20 border border-salvia/20">
+      <div class="flex items-center justify-between mb-8 pb-4 border-b border-salvia/25">
+        <div>
+          <h3 class="font-serif text-2xl sm:text-3xl text-marino-vibrante font-normal tracking-tight" data-i18n="commonAreasTitle">
+            Zonas Comunes & Equipamiento
+          </h3>
+          <p class="text-xs sm:text-sm text-stone-600 font-normal mt-1">
+            Todas las comodidades del hogar junto a la costa cántabra.
+          </p>
+        </div>
+      </div>
 
-<!-- Zonas Comunes & Equipamiento (Bloque ancho completo en Verde Salvia suave bg-[#E9EFEA]) -->
-<section class="w-full py-16 lg:py-20 bg-[#E9EFEA] border-y border-salvia/20">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="flex items-center justify-between mb-8 pb-4 border-b border-salvia/25">
-      <div>
-        <h3 class="font-serif text-2xl sm:text-3xl text-marino-vibrante font-normal tracking-tight" data-i18n="commonAreasTitle">
-          Zonas Comunes & Equipamiento
-        </h3>
-        <p class="text-xs sm:text-sm text-stone-600 font-normal mt-1">
-          Todas las comodidades del hogar junto a la costa cántabra.
-        </p>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        
+        <!-- Salón -->
+        <div class="bg-white rounded-3xl p-8 border border-stone-200/80 shadow-[0_10px_30px_-10px_rgba(0,0,0,0.04)] flex flex-col justify-between">
+          <div>
+            <div class="w-12 h-12 rounded-2xl bg-salvia/15 border border-salvia/20 text-salvia flex items-center justify-center mb-6">
+              <Tv class="w-6 h-6 stroke-[1.5]" />
+            </div>
+            <h4 class="font-serif text-xl sm:text-2xl text-marino-vibrante font-normal mb-3 tracking-tight" data-i18n="livingTitle">
+              Salón Diáfano y Luminoso
+            </h4>
+            <p class="text-stone-600 text-sm font-normal leading-relaxed mb-4" data-i18n="livingDesc">
+              Sofá amplio chaise longue, Smart TV, mesa de comedor familiar para 6 personas, ventilador de techo y luz natural exterior.
+            </p>
+          </div>
+          <div class="pt-4 border-t border-stone-100 text-xs text-stone-500 font-medium">
+            Smart TV · Mesa 6 comensales · Luz natural
+          </div>
+        </div>
+
+        <!-- Cocina -->
+        <div class="bg-white rounded-3xl p-8 border border-stone-200/80 shadow-[0_10px_30px_-10px_rgba(0,0,0,0.04)] flex flex-col justify-between">
+          <div>
+            <div class="w-12 h-12 rounded-2xl bg-salvia/15 border border-salvia/20 text-salvia flex items-center justify-center mb-6">
+              <Coffee class="w-6 h-6 stroke-[1.5]" />
+            </div>
+            <h4 class="font-serif text-xl sm:text-2xl text-marino-vibrante font-normal mb-3 tracking-tight" data-i18n="kitchenTitle">
+              Cocina Totalmente Equipada
+            </h4>
+            <p class="text-stone-600 text-sm font-normal leading-relaxed mb-4" data-i18n="kitchenDesc">
+              Nevera combi grande con congelador, cafetera para desayunos frente al mar, microondas, vitrocerámica, sartenes y menaje completo.
+            </p>
+          </div>
+          <div class="pt-4 border-t border-stone-100 text-xs text-stone-500 font-medium">
+            Nevera grande · Cafetera · Microondas · Menaje
+          </div>
+        </div>
+
+        <!-- Baño -->
+        <div class="bg-white rounded-3xl p-8 border border-stone-200/80 shadow-[0_10px_30px_-10px_rgba(0,0,0,0.04)] flex flex-col justify-between">
+          <div>
+            <div class="w-12 h-12 rounded-2xl bg-salvia/15 border border-salvia/20 text-salvia flex items-center justify-center mb-6">
+              <Bath class="w-6 h-6 stroke-[1.5]" />
+            </div>
+            <h4 class="font-serif text-xl sm:text-2xl text-marino-vibrante font-normal mb-3 tracking-tight" data-i18n="bathTitle">
+              Baño con Ducha y Secador
+            </h4>
+            <p class="text-stone-600 text-sm font-normal leading-relaxed mb-4" data-i18n="bathDesc">
+              Plato de ducha con mampara, agua caliente continua, secador de pelo potente, espejo amplio iluminado y toallas limpias de algodón.
+            </p>
+          </div>
+          <div class="pt-4 border-t border-stone-100 text-xs text-stone-500 font-medium">
+            Plato de ducha · Secador potente · Toallas
+          </div>
+        </div>
+
       </div>
     </div>
 
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-      
-      <!-- Salón -->
-      <div class="bg-white rounded-3xl p-8 border border-stone-200/80 shadow-[0_10px_30px_-10px_rgba(0,0,0,0.04)] flex flex-col justify-between">
-        <div>
-          <div class="w-12 h-12 rounded-2xl bg-salvia/15 border border-salvia/20 text-salvia flex items-center justify-center mb-6">
-            <Tv class="w-6 h-6 stroke-[1.5]" />
-          </div>
-          <h4 class="font-serif text-xl sm:text-2xl text-marino-vibrante font-normal mb-3 tracking-tight" data-i18n="livingTitle">
-            Salón Diáfano y Luminoso
-          </h4>
-          <p class="text-stone-600 text-sm font-normal leading-relaxed mb-4" data-i18n="livingDesc">
-            Sofá amplio chaise longue, Smart TV, mesa de comedor familiar para 6 personas, ventilador de techo y luz natural exterior.
-          </p>
-        </div>
-        <div class="pt-4 border-t border-stone-100 text-xs text-stone-500 font-medium">
-          Smart TV · Mesa 6 comensales · Luz natural
-        </div>
-      </div>
-
-      <!-- Cocina -->
-      <div class="bg-white rounded-3xl p-8 border border-stone-200/80 shadow-[0_10px_30px_-10px_rgba(0,0,0,0.04)] flex flex-col justify-between">
-        <div>
-          <div class="w-12 h-12 rounded-2xl bg-salvia/15 border border-salvia/20 text-salvia flex items-center justify-center mb-6">
-            <Coffee class="w-6 h-6 stroke-[1.5]" />
-          </div>
-          <h4 class="font-serif text-xl sm:text-2xl text-marino-vibrante font-normal mb-3 tracking-tight" data-i18n="kitchenTitle">
-            Cocina Totalmente Equipada
-          </h4>
-          <p class="text-stone-600 text-sm font-normal leading-relaxed mb-4" data-i18n="kitchenDesc">
-            Nevera combi grande con congelador, cafetera para desayunos frente al mar, microondas, vitrocerámica, sartenes y menaje completo.
-          </p>
-        </div>
-        <div class="pt-4 border-t border-stone-100 text-xs text-stone-500 font-medium">
-          Nevera grande · Cafetera · Microondas · Menaje
-        </div>
-      </div>
-
-      <!-- Baño -->
-      <div class="bg-white rounded-3xl p-8 border border-stone-200/80 shadow-[0_10px_30px_-10px_rgba(0,0,0,0.04)] flex flex-col justify-between">
-        <div>
-          <div class="w-12 h-12 rounded-2xl bg-salvia/15 border border-salvia/20 text-salvia flex items-center justify-center mb-6">
-            <Bath class="w-6 h-6 stroke-[1.5]" />
-          </div>
-          <h4 class="font-serif text-xl sm:text-2xl text-marino-vibrante font-normal mb-3 tracking-tight" data-i18n="bathTitle">
-            Baño con Ducha y Secador
-          </h4>
-          <p class="text-stone-600 text-sm font-normal leading-relaxed mb-4" data-i18n="bathDesc">
-            Plato de ducha con mampara, agua caliente continua, secador de pelo potente, espejo amplio iluminado y toallas limpias de algodón.
-          </p>
-        </div>
-        <div class="pt-4 border-t border-stone-100 text-xs text-stone-500 font-medium">
-          Plato de ducha · Secador potente · Toallas
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- Detalles incluidos / Amenities (Vuelta a fondo blanco limpio) -->
-<section class="py-16 lg:py-20 bg-blanco-puro">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <!-- Minimalist Amenities Bar with Pet Friendly -->
     <div class="bg-white rounded-3xl p-8 sm:p-10 border border-stone-200/80 shadow-[0_10px_30px_-10px_rgba(0,0,0,0.04)]">
       <h3 class="font-serif text-xl sm:text-2xl text-marino-vibrante font-normal text-center mb-8 tracking-tight" data-i18n="amenitiesTitle">
         Detalles incluidos para una estancia perfecta
@@ -270,5 +263,6 @@ import imgDorm3 from '../assets/images/dormitorio-3.jpg';
         </div>
       </div>
     </div>
+
   </div>
 </section>
