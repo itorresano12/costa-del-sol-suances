@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+Sitemap: https://costa-del-sol-suances.vercel.app/sitemap-index.xml
+

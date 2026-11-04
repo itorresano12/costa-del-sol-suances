@@ -11,11 +11,12 @@ import Experiences from '../components/Experiences.astro';
 import LocationMap from '../components/LocationMap.astro';
 import Footer from '../components/Footer.astro';
 import MobileStickyBar from '../components/MobileStickyBar.astro';
+import { SITE_CONFIG } from '../config/site';
 ---
 
 <Layout 
-  title="Apartamento Costa del Sol Suances | Alojamiento Boutique Frente al Mar Cantábrico"
-  description="Alojamiento turístico de 70 m² con 3 dormitorios frente a la Playa de La Concha en Suances (Cantabria). Vistas al mar, WiFi y reserva directa garantizada sin comisiones de Airbnb ni Booking."
+  title={SITE_CONFIG.defaultTitle}
+  description={SITE_CONFIG.defaultDescription}
 >
   <Navbar />
   <main>

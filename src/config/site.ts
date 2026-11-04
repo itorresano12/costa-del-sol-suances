@@ -26,4 +26,9 @@ export const SITE_CONFIG = {
   hostEmail: process.env.HOST_EMAIL || 'info@costadelsolsuances.es',
   apartmentName: 'Apartamento Costa del Sol Suances',
   touristLicense: process.env.PUBLIC_TOURIST_LICENSE || 'VUT-Cantabria Nº G-12345',
+
+  // Metadatos SEO optimizados (Title <= 60 caracteres, Description 150-160 caracteres)
+  defaultTitle: 'Apartamento Costa del Sol Suances | Playa de La Concha',
+  defaultDescription:
+    'Apartamento turístico frente a la Playa de La Concha en Suances, Cantabria. 3 dormitorios con vistas al mar, WiFi y reserva directa garantizada sin comisiones.',
 };

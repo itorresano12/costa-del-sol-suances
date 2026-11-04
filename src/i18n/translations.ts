@@ -6,8 +6,8 @@ export const translations = {
     brandName: "Costa del Sol Suances",
     brandSubtitle: "Suances · Cantabria",
     brandLocation: "Playa de La Concha, Suances",
-    metaTitle: "Apartamento Costa del Sol Suances | Alojamiento Boutique Frente al Mar Cantábrico",
-    metaDesc: "Apartamento turístico de 70 m² con 3 dormitorios frente a la Playa de La Concha en Suances (Cantabria). Vistas al mar, WiFi y reserva directa sin comisiones.",
+    metaTitle: "Apartamento Costa del Sol Suances | Playa de La Concha",
+    metaDesc: "Apartamento turístico frente a la Playa de La Concha en Suances, Cantabria. 3 dormitorios con vistas al mar, WiFi y reserva directa garantizada sin comisiones.",
 
     // Navbar
     navHome: "Inicio",
@@ -155,8 +155,8 @@ export const translations = {
     brandName: "Costa del Sol Suances",
     brandSubtitle: "Suances · Cantabria",
     brandLocation: "La Concha Beach, Suances",
-    metaTitle: "Costa del Sol Suances Apartment | Boutique Beachfront Stay in Cantabria",
-    metaDesc: "70 m² boutique apartment with 3 bedrooms opposite La Concha Beach in Suances (Cantabria, Northern Spain). Ocean views, free WiFi, and commission-free direct booking.",
+    metaTitle: "Costa del Sol Suances Apartment | Beachfront Stay",
+    metaDesc: "Boutique apartment opposite La Concha Beach in Suances, Cantabria. 3 bedrooms, ocean views, free WiFi, and direct booking guarantee with no platform fees.",
 
     // Navbar
     navHome: "Home",
