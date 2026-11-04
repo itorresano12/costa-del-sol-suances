@@ -66,3 +66,20 @@ span.flatpickr-weekday {
 html {
   scroll-behavior: smooth;
 }
+
+/* Ergonomía táctil para dispositivos móviles / punteros táctiles (WCAG 2.5.8 / 44x44px) */
+@media (pointer: coarse) {
+  .lang-toggle-btn,
+  #mobile-menu-btn,
+  #close-boutique-modal,
+  #prev-photo-btn,
+  #next-photo-btn,
+  .thumb-btn,
+  #mobile-sticky-bar a,
+  #mobile-sticky-bar button,
+  #btn-accept-cookies,
+  #btn-reject-cookies {
+    min-height: 44px;
+    min-width: 44px;
+  }
+}
