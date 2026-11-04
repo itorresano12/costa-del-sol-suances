@@ -1,0 +1,21 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/Navbar.astro';
+import Experiences from '../components/Experiences.astro';
+import LocationMap from '../components/LocationMap.astro';
+import Footer from '../components/Footer.astro';
+import MobileStickyBar from '../components/MobileStickyBar.astro';
+---
+
+<Layout 
+  title="Entorno y Experiencias | Costa del Sol Suances Cantabria"
+  description="Explora Suances y el Cantábrico: surf en Los Locos, paseos por la ría, gastronomía marinera y ubicación a 2 min de la Playa de La Concha en Cantabria (España)."
+>
+  <Navbar />
+  <main>
+    <Experiences />
+    <LocationMap />
+  </main>
+  <Footer />
+  <MobileStickyBar />
+</Layout>

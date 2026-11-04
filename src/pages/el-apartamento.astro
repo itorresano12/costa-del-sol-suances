@@ -1,0 +1,21 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/Navbar.astro';
+import Gallery from '../components/Gallery.astro';
+import ApartmentFeatures from '../components/ApartmentFeatures.astro';
+import Footer from '../components/Footer.astro';
+import MobileStickyBar from '../components/MobileStickyBar.astro';
+---
+
+<Layout 
+  title="El Apartamento | Costa del Sol Suances Frente a la Playa"
+  description="Descubre nuestro apartamento boutique de 70 m² con 3 dormitorios frente a la Playa de La Concha en Suances (Cantabria). Galería, equipamiento y confort total."
+>
+  <Navbar />
+  <main>
+    <Gallery />
+    <ApartmentFeatures />
+  </main>
+  <Footer />
+  <MobileStickyBar />
+</Layout>

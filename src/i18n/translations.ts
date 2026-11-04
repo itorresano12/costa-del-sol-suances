@@ -11,6 +11,8 @@ export const translations = {
 
     // Navbar
     navHome: "Inicio",
+    navApartment: "El Apartamento",
+    navSurroundings: "Entorno y Experiencias",
     navGallery: "Galería",
     navRooms: "3 Dormitorios",
     navPerks: "Tarifa Directa",
@@ -160,6 +162,8 @@ export const translations = {
 
     // Navbar
     navHome: "Home",
+    navApartment: "The Apartment",
+    navSurroundings: "Surroundings & Experiences",
     navGallery: "Gallery",
     navRooms: "3 Bedrooms",
     navPerks: "Direct Perks",
