@@ -2,6 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 import Navbar from '../components/Navbar.astro';
 import Footer from '../components/Footer.astro';
+import { SITE_CONFIG } from '../config/site';
 ---
 
 <Layout 
@@ -32,7 +33,7 @@ import Footer from '../components/Footer.astro';
             1. Responsable del Tratamiento
           </h2>
           <p>
-            El responsable del tratamiento de los datos personales recabados a través de esta web es el titular del Apartamento Costa del Sol Suances, con domicilio en Paseo Marítimo, Suances (Cantabria) y correo de contacto <strong>info@costadelsolsuances.es</strong>.
+            El responsable del tratamiento de los datos personales recabados a través de esta web es el titular del Apartamento Costa del Sol Suances, con domicilio en Paseo Marítimo, Suances (Cantabria) y correo de contacto <strong>{SITE_CONFIG.hostEmail}</strong>.
           </p>
         </section>
 
@@ -67,7 +68,7 @@ import Footer from '../components/Footer.astro';
             4. Derechos del Huésped
           </h2>
           <p>
-            Usted tiene derecho a acceder a sus datos personales, solicitar la rectificación de los inexactos o pedir su supresión dirigiéndose mediante correo electrónico a <strong>info@costadelsolsuances.es</strong>, acompañando copia de su documento de identidad. Asimismo, puede presentar reclamación ante la Agencia Española de Protección de Datos (AEPD).
+            Usted tiene derecho a acceder a sus datos personales, solicitar la rectificación de los inexactos o pedir su supresión dirigiéndose mediante correo electrónico a <strong>{SITE_CONFIG.hostEmail}</strong>, acompañando copia de su documento de identidad. Asimismo, puede presentar reclamación ante la Agencia Española de Protección de Datos (AEPD).
           </p>
         </section>
 

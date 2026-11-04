@@ -136,7 +136,7 @@ export const translations = {
 
     // Footer
     footerDesc: "Alojamiento boutique frente al mar en Suances, Cantabria. 70 m², 3 dormitorios independientes y reserva directa con la tarifa más ventajosa garantizada sin comisiones de Airbnb ni Booking.",
-    footerVut: "Vivienda de Uso Turístico Oficial — Cantabria (Lic. G-12345/VUT)",
+    footerVut: "Vivienda de Uso Turístico Oficial — Cantabria ([Tu Número de Licencia VUT])",
     footerLegal: "Información Legal & Normativa",
     footerAviso: "Aviso Legal",
     footerPrivacidad: "Política de Privacidad",
@@ -285,7 +285,7 @@ export const translations = {
 
     // Footer
     footerDesc: "Boutique beachfront accommodation in Suances, Cantabria (Northern Spain). 70 m², 3 bedrooms, and direct booking at guaranteed lowest rates with no middleman fees.",
-    footerVut: "Official Tourist Accommodation — Cantabria (Lic. G-12345/VUT)",
+    footerVut: "Official Tourist Accommodation — Cantabria ([Tu Número de Licencia VUT])",
     footerLegal: "Legal & Regulatory Compliance",
     footerAviso: "Legal Notice",
     footerPrivacidad: "Privacy Policy",

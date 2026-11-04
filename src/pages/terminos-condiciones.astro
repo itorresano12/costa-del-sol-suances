@@ -2,6 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 import Navbar from '../components/Navbar.astro';
 import Footer from '../components/Footer.astro';
+import { SITE_CONFIG } from '../config/site';
 ---
 
 <Layout 
@@ -85,6 +86,21 @@ import Footer from '../components/Footer.astro';
             <li><strong>Capacidad máxima:</strong> 6 personas (distribuidas en 3 dormitorios). Queda prohibida la pernocta de personas no registradas.</li>
             <li><strong>Fiestas y eventos:</strong> Quedan terminantemente prohibidas las fiestas o ruidos que perturben el descanso vecinal.</li>
             <li><strong>Humo:</strong> Prohibido fumar en el interior del inmueble.</li>
+          </ul>
+        </section>
+
+        <section class="space-y-3">
+          <h2 class="font-serif text-xl sm:text-2xl text-stone-900 font-normal tracking-tight">
+            5. Contacto e Identificación del Alojamiento
+          </h2>
+          <p>
+            Para cualquier consulta sobre las condiciones de reserva o asistencia durante tu estancia:
+          </p>
+          <ul class="list-disc pl-5 space-y-1.5 text-stone-800 font-normal">
+            <li><strong>Alojamiento:</strong> {SITE_CONFIG.apartmentName}</li>
+            <li><strong>Licencia Turística:</strong> {SITE_CONFIG.touristLicense}</li>
+            <li><strong>Teléfono / WhatsApp:</strong> <a href={SITE_CONFIG.whatsappUrl} target="_blank" rel="noopener noreferrer" class="underline hover:text-stone-900">{SITE_CONFIG.whatsappDisplayPhone}</a></li>
+            <li><strong>Correo oficial:</strong> <a href={`mailto:${SITE_CONFIG.hostEmail}`} class="underline hover:text-stone-900">{SITE_CONFIG.hostEmail}</a></li>
           </ul>
         </section>
 

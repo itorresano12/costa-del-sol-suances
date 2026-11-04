@@ -249,7 +249,7 @@ export function generateIcsCalendar(reservations: DirectReservation[]): string {
   for (const res of reservations) {
     const startCompact = res.checkIn.replace(/-/g, '');
     const endCompact = res.checkOut.replace(/-/g, '');
-    const uid = `${res.id}@costadelsolsuances.es`;
+    const uid = `${res.id}@apartamentocostadelsol.com`;
 
     icsContent.push(
       'BEGIN:VEVENT',

@@ -52,7 +52,7 @@ import { SITE_CONFIG } from '../config/site';
       </div>
 
       <!-- Interactive Form Container -->
-      <form id="booking-form" class="space-y-8">
+      <form id="booking-form" data-whatsapp-phone={SITE_CONFIG.whatsappPhone} class="space-y-8">
         
         <!-- Step 1: Fechas y Huéspedes -->
         <div>
@@ -434,7 +434,7 @@ import { SITE_CONFIG } from '../config/site';
       </div>
       <div class="flex justify-between items-center py-1 border-b border-stone-200/60">
         <span class="text-stone-500">Bizum al móvil:</span>
-        <span id="modal-bizum" class="font-medium text-stone-900">+34 600 000 000</span>
+        <span id="modal-bizum" class="font-medium text-stone-900">{SITE_CONFIG.whatsappDisplayPhone}</span>
       </div>
       <div class="py-1">
         <span class="text-stone-500 block mb-0.5">IBAN Transferencia:</span>
@@ -464,10 +464,13 @@ import { SITE_CONFIG } from '../config/site';
   </div>
 </div>
 
-<script define:vars={{ whatsappPhone: SITE_CONFIG.whatsappPhone }}>
+<script type="module">
   import flatpickr from 'flatpickr';
   import { Spanish } from 'flatpickr/dist/l10n/es.js';
   import { calculateStayPricing } from '../config/pricing';
+  import { SITE_CONFIG } from '../config/site';
+
+  const whatsappPhone = SITE_CONFIG.whatsappPhone;
 
   let checkInDate: string | null = null;
   let checkOutDate: string | null = null;

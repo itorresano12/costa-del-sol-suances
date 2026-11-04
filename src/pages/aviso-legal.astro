@@ -2,6 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 import Navbar from '../components/Navbar.astro';
 import Footer from '../components/Footer.astro';
+import { SITE_CONFIG } from '../config/site';
 ---
 
 <Layout 
@@ -38,10 +39,10 @@ import Footer from '../components/Footer.astro';
             <li><strong>Denominación comercial:</strong> Apartamento Costa del Sol Suances</li>
             <li><strong>Titular / Anfitrión:</strong> Ivan T. (Particular gestor de vivienda de uso turístico)</li>
             <li><strong>NIF / DNI:</strong> [Pendiente de inserción / DNI titular]</li>
-            <li><strong>Número de Licencia Turística Oficial (Cantabria):</strong> VUT-Cantabria Nº G-12345 (o número de expediente asignado por la Dirección General de Turismo de Cantabria)</li>
+            <li><strong>Número de Licencia Turística Oficial (Cantabria):</strong> {SITE_CONFIG.touristLicense}</li>
             <li><strong>Domicilio del alojamiento:</strong> Paseo Marítimo - Zona Playa de La Concha, 39340 Suances, Cantabria (España)</li>
-            <li><strong>Correo electrónico de contacto:</strong> info@costadelsolsuances.es</li>
-            <li><strong>Teléfono / WhatsApp de atención:</strong> +34 600 123 456</li>
+            <li><strong>Correo electrónico de contacto:</strong> {SITE_CONFIG.hostEmail}</li>
+            <li><strong>Teléfono / WhatsApp de atención:</strong> {SITE_CONFIG.whatsappDisplayPhone}</li>
           </ul>
         </section>
 

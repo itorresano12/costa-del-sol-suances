@@ -502,7 +502,7 @@ export async function sendBookingConfirmation(data: BookingEmailData): Promise<{
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          from: process.env.EMAIL_FROM || 'Costa del Sol Suances <reservas@costadelsolsuances.es>',
+          from: process.env.EMAIL_FROM || 'Costa del Sol Suances <reservas@apartamentocostadelsol.com>',
           to: [data.guestEmail],
           reply_to: hostEmail,
           subject: guestSubject,
@@ -518,7 +518,7 @@ export async function sendBookingConfirmation(data: BookingEmailData): Promise<{
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          from: process.env.EMAIL_FROM || 'Costa del Sol Suances <reservas@costadelsolsuances.es>',
+          from: process.env.EMAIL_FROM || 'Costa del Sol Suances <reservas@apartamentocostadelsol.com>',
           to: [hostEmail],
           subject: hostSubject,
           html: hostHtml,
