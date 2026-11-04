@@ -1,18 +1,14 @@
 ---
 import { Waves, UtensilsCrossed, Compass, MessageCircle, Sparkles } from 'lucide-astro';
-import { Image } from 'astro:assets';
-import imgSurf from '../assets/images/entorno-playa.jpg';
-import imgFood from '../assets/images/cocina.jpg';
-import imgBoat from '../assets/images/terraza-vistas.jpg';
 import { SITE_CONFIG } from '../config/site';
 ---
 
-<section id="experiencias" class="py-20 lg:py-28 bg-blanco-puro border-t border-stone-200/60">
+<section id="experiencias" class="py-20 lg:py-28 bg-stone-50 border-t border-stone-200/60">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     
     <!-- Editorial Header -->
     <div class="text-center max-w-3xl mx-auto mb-16">
-      <span class="text-dorado-arena text-xs sm:text-sm tracking-widest uppercase font-semibold" data-i18n="expPill">
+      <span class="text-salvia text-xs sm:text-sm tracking-widest uppercase font-semibold" data-i18n="expPill">
         Experiencias & Aventura
       </span>
       <h2 class="font-serif text-3xl sm:text-5xl font-normal text-marino-vibrante tracking-tight mt-3 mb-4" data-i18n="expTitle">
@@ -27,18 +23,19 @@ import { SITE_CONFIG } from '../config/site';
     <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
       
       <!-- Experience 1: Surf & Atardeceres en Los Locos -->
-      <div class="bg-white rounded-3xl overflow-hidden border border-stone-200/80 shadow-[0_10px_30px_-10px_rgba(0,0,0,0.04)] hover:shadow-lg transition-all duration-300 group flex flex-col">
+      <div class="bg-white rounded-3xl overflow-hidden border border-stone-200/80 shadow-sm hover:shadow-xl transition-all duration-300 group flex flex-col">
         <div class="h-56 sm:h-60 overflow-hidden bg-stone-100">
-          <Image 
-            src={imgSurf} 
+          <img 
+            src="/images/entorno/surf.jpg" 
             alt="Surf y atardeceres mágicos en los acantilados de Los Locos en Suances"
             class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+            loading="lazy"
           />
         </div>
         <div class="p-6 sm:p-7 flex flex-col flex-1 bg-white justify-between">
           <div>
-            <div class="inline-flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wider text-dorado-arena mb-2">
-              <Waves class="w-4 h-4 stroke-[1.5]" />
+            <div class="inline-flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wider text-salvia mb-2">
+              <Waves class="w-4 h-4 text-salvia stroke-[1.5]" />
               <span>Reserva de Surf & Puesta de Sol</span>
             </div>
             <h3 class="font-serif text-xl sm:text-2xl text-marino-vibrante font-normal mb-2.5 tracking-tight" data-i18n="expSurfTitle">
@@ -56,18 +53,19 @@ import { SITE_CONFIG } from '../config/site';
       </div>
 
       <!-- Experience 2: Dónde comer rabas y pescado (Gastronomía Marina) -->
-      <div class="bg-white rounded-3xl overflow-hidden border border-stone-200/80 shadow-[0_10px_30px_-10px_rgba(0,0,0,0.04)] hover:shadow-lg transition-all duration-300 group flex flex-col">
+      <div class="bg-white rounded-3xl overflow-hidden border border-stone-200/80 shadow-sm hover:shadow-xl transition-all duration-300 group flex flex-col">
         <div class="h-56 sm:h-60 overflow-hidden bg-stone-100">
-          <Image 
-            src={imgFood} 
+          <img 
+            src="/images/entorno/rabas.jpg" 
             alt="Gastronomía marina tradicional en el puerto pesquero y terrazas de Suances"
             class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+            loading="lazy"
           />
         </div>
         <div class="p-6 sm:p-7 flex flex-col flex-1 bg-white justify-between">
           <div>
-            <div class="inline-flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wider text-dorado-arena mb-2">
-              <UtensilsCrossed class="w-4 h-4 stroke-[1.5]" />
+            <div class="inline-flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wider text-salvia mb-2">
+              <UtensilsCrossed class="w-4 h-4 text-salvia stroke-[1.5]" />
               <span>Gastronomía Marina</span>
             </div>
             <h3 class="font-serif text-xl sm:text-2xl text-marino-vibrante font-normal mb-2.5 tracking-tight" data-i18n="expFoodTitle">
@@ -85,18 +83,19 @@ import { SITE_CONFIG } from '../config/site';
       </div>
 
       <!-- Experience 3: Paseos en Barco & Ría de San Martín -->
-      <div class="bg-white rounded-3xl overflow-hidden border border-stone-200/80 shadow-[0_10px_30px_-10px_rgba(0,0,0,0.04)] hover:shadow-lg transition-all duration-300 group flex flex-col">
+      <div class="bg-white rounded-3xl overflow-hidden border border-stone-200/80 shadow-sm hover:shadow-xl transition-all duration-300 group flex flex-col">
         <div class="h-56 sm:h-60 overflow-hidden bg-stone-100">
-          <Image 
-            src={imgBoat} 
+          <img 
+            src="/images/entorno/barco.jpg" 
             alt="Paseos en barco y travesías costeras en la Ría de San Martín de Suances"
             class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+            loading="lazy"
           />
         </div>
         <div class="p-6 sm:p-7 flex flex-col flex-1 bg-white justify-between">
           <div>
-            <div class="inline-flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wider text-dorado-arena mb-2">
-              <Compass class="w-4 h-4 stroke-[1.5]" />
+            <div class="inline-flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wider text-salvia mb-2">
+              <Compass class="w-4 h-4 text-salvia stroke-[1.5]" />
               <span>Ría de San Martín</span>
             </div>
             <h3 class="font-serif text-xl sm:text-2xl text-marino-vibrante font-normal mb-2.5 tracking-tight" data-i18n="expBoatTitle">
@@ -119,7 +118,7 @@ import { SITE_CONFIG } from '../config/site';
     <div class="mt-14 max-w-4xl mx-auto bg-marino-vibrante text-white rounded-3xl p-6 sm:p-8 shadow-xl flex flex-col sm:flex-row items-center justify-between gap-6">
       <div class="flex items-center gap-4 text-center sm:text-left">
         <div class="w-12 h-12 rounded-2xl bg-white/10 flex items-center justify-center flex-shrink-0">
-          <Sparkles class="w-6 h-6 text-dorado-arena stroke-[1.5]" />
+          <Sparkles class="w-6 h-6 text-salvia-light stroke-[1.5]" />
         </div>
         <div>
           <h4 class="font-serif text-lg sm:text-xl font-normal text-white" data-i18n="expConciergeTitle">

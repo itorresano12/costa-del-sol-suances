@@ -15,6 +15,11 @@ export default {
           light: '#DFC8AB',
           dark: '#A9875F',
         },
+        salvia: {
+          DEFAULT: '#6B8E7B',
+          light: '#8FACA1',
+          dark: '#527261',
+        },
         cantabrico: {
           DEFAULT: '#0A2342',
           dark: '#051329',
