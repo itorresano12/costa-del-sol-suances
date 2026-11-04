@@ -69,7 +69,7 @@ const schemaData = {
 ---
 
 <!doctype html>
-<html lang="es" class="scroll-smooth bg-[#FDFBF7] text-stone-900 antialiased selection:bg-slate-900 selection:text-white">
+<html lang="es" class="scroll-smooth bg-arena text-cantabrico antialiased selection:bg-cantabrico selection:text-white">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -119,12 +119,13 @@ const schemaData = {
       body {
         font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
       }
-      h1, h2, .font-serif, .font-editorial {
+      h1, h2, h3, .font-serif, .font-editorial {
         font-family: 'Playfair Display', Georgia, serif;
+        color: var(--color-cantabrico, #0F172A);
       }
     </style>
   </head>
-  <body class="min-h-screen flex flex-col bg-[#FDFBF7] text-stone-900 pb-20 md:pb-0">
+  <body class="min-h-screen flex flex-col bg-arena text-cantabrico pb-20 md:pb-0">
     <slot />
     <CookieBanner />
     <Analytics />

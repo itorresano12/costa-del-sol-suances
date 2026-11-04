@@ -1,5 +1,18 @@
 @import "tailwindcss";
 
+@theme {
+  --color-cantabrico: #0F172A;
+  --color-cantabrico-dark: #082F49;
+  --color-salvia: #6B8E7B;
+  --color-salvia-light: #8FACA1;
+  --color-arena: #FDFBF7;
+}
+
+/* Titulares con Playfair Display con color profundo Cantábrico */
+h1, h2, h3, .font-serif, .font-editorial {
+  color: var(--color-cantabrico, #0F172A);
+}
+
 /* Personalizaciones Boutique Editorial para Flatpickr */
 .flatpickr-calendar {
   border-radius: 1.5rem !important;
