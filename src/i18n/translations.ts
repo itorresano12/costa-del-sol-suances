@@ -13,12 +13,14 @@ export const translations = {
     navHome: "Inicio",
     navApartment: "El Apartamento",
     navSurroundings: "Entorno y Experiencias",
+    navContact: "Contacto",
     navGallery: "Galería",
     navRooms: "3 Dormitorios",
     navPerks: "Tarifa Directa",
     navLocation: "Ubicación",
     navBookBtn: "Reservar Directo",
     navBookShort: "Reservar",
+    navBookContact: "Reservar / Contacto",
 
     // Hero
     heroPill: "Suances, Cantabria · A 2 minutos de la Playa de La Concha",
@@ -164,12 +166,14 @@ export const translations = {
     navHome: "Home",
     navApartment: "The Apartment",
     navSurroundings: "Surroundings & Experiences",
+    navContact: "Contact",
     navGallery: "Gallery",
     navRooms: "3 Bedrooms",
     navPerks: "Direct Perks",
     navLocation: "Location",
     navBookBtn: "Book Direct",
     navBookShort: "Book",
+    navBookContact: "Book / Contact",
 
     // Hero
     heroPill: "Suances, Cantabria · 2 minutes walk to La Concha Beach",

@@ -27,13 +27,13 @@ import { SITE_CONFIG } from '../config/site';
     </div>
 
     <!-- Action Buttons -->
-    <div class="flex items-center gap-2">
+    <div class="flex items-center gap-2 flex-1 justify-end">
       <!-- WhatsApp Quick Contact -->
       <a 
         href={SITE_CONFIG.whatsappUrl} 
         target="_blank" 
         rel="noopener noreferrer"
-        class="w-11 h-11 min-w-[44px] min-h-[44px] rounded-2xl bg-stone-100 text-stone-800 border border-stone-200 flex items-center justify-center hover:bg-stone-200 active:scale-95 transition"
+        class="w-12 h-12 min-w-[48px] min-h-[48px] rounded-2xl bg-stone-100 text-stone-800 border border-stone-200 flex items-center justify-center hover:bg-stone-200 active:scale-95 transition flex-shrink-0"
         aria-label="Contactar por WhatsApp"
       >
         <MessageCircle class="w-5 h-5 stroke-[1.5]" />
@@ -42,10 +42,10 @@ import { SITE_CONFIG } from '../config/site';
       <!-- Main Direct Booking CTA -->
       <a 
         href="/reservar" 
-        class="min-h-[44px] px-5 py-3 rounded-2xl bg-marino-vibrante hover:bg-marino-vibrante-dark text-white font-medium text-xs sm:text-sm shadow-md active:scale-95 transition flex items-center justify-center gap-2 whitespace-nowrap"
+        class="min-h-[48px] px-4 sm:px-5 py-3 rounded-2xl bg-marino-vibrante hover:bg-marino-vibrante-dark text-white font-semibold text-xs sm:text-sm shadow-lg active:scale-95 transition flex items-center justify-center gap-2 whitespace-nowrap"
       >
         <Calendar class="w-4 h-4 text-dorado-arena stroke-[1.5]" />
-        <span>Reservar</span>
+        <span data-i18n="navBookContact">Reservar / Contacto</span>
       </a>
     </div>
 
