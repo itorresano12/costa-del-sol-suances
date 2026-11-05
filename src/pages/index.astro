@@ -2,8 +2,9 @@
 import Layout from '../layouts/Layout.astro';
 import Navbar from '../components/Navbar.astro';
 import Hero from '../components/Hero.astro';
-import HostQuote from '../components/HostQuote.astro';
 import DirectBookingPerks from '../components/DirectBookingPerks.astro';
+import HostQuote from '../components/HostQuote.astro';
+import RoomsPreview from '../components/RoomsPreview.astro';
 import Footer from '../components/Footer.astro';
 import MobileStickyBar from '../components/MobileStickyBar.astro';
 import { SITE_CONFIG } from '../config/site';
@@ -14,10 +15,15 @@ import { SITE_CONFIG } from '../config/site';
   description={SITE_CONFIG.defaultDescription}
 >
   <Navbar />
-  <main>
+  <main class="w-full overflow-hidden">
+    <!-- 1. Hero inmersivo a ancho completo -->
     <Hero />
+    <!-- 2. Ventajas en franja verde salvia w-full con tarjetas blancas -->
     <DirectBookingPerks />
+    <!-- 3. Cita del anfitrión en franja arena cálido w-full -->
     <HostQuote />
+    <!-- 4. Vista previa de estancias reales con fondo blanco w-full -->
+    <RoomsPreview />
   </main>
   <Footer />
   <MobileStickyBar />

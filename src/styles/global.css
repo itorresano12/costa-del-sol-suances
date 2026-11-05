@@ -2,18 +2,22 @@
 
 @theme {
   --color-blanco-puro: #FFFFFF;
+  --color-salvia-header: #C8D5C8;
+  --color-salvia-section: #D5E0D5;
+  --color-salvia-accent: #5F7D6B;
+  --color-arena-warm: #F4EFE6;
   --color-marino-vibrante: #0A2342;
   --color-marino-vibrante-dark: #051329;
   --color-marino-vibrante-light: #133B6B;
   --color-dorado-arena: #C4A47C;
   --color-dorado-arena-light: #DFC8AB;
   --color-dorado-arena-dark: #A9875F;
-  --color-salvia: #6B8E7B;
+  --color-salvia: #5F7D6B;
   --color-salvia-light: #8FACA1;
   --color-salvia-dark: #527261;
   --color-cantabrico: #0A2342;
   --color-cantabrico-dark: #051329;
-  --color-arena: #FFFFFF;
+  --color-arena: #F4EFE6;
 }
 
 /* Titulares con Playfair Display con color marino vibrante */

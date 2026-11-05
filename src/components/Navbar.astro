@@ -6,7 +6,7 @@ import { SITE_CONFIG } from '../config/site';
 const currentPath = Astro.url.pathname.replace(/\/$/, '') || '/';
 ---
 
-<header class="sticky top-0 z-50 w-full backdrop-blur-md bg-blanco-puro/95 border-b border-stone-200/60 transition-all duration-300">
+<header class="sticky top-0 z-50 w-full backdrop-blur-md bg-[#C8D5C8]/95 border-b border-[#5F7D6B]/20 transition-all duration-300">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="flex items-center justify-between h-20">
       
@@ -24,28 +24,28 @@ const currentPath = Astro.url.pathname.replace(/\/$/, '') || '/';
       <nav class="hidden md:flex items-center gap-6 lg:gap-8 text-sm font-medium">
         <a 
           href="/" 
-          class={currentPath === '/' ? "text-marino-vibrante font-bold transition" : "text-stone-600 hover:text-marino-vibrante transition"} 
+          class={currentPath === '/' ? "text-marino-vibrante font-bold transition" : "text-[#1E3A2B] hover:text-marino-vibrante transition"} 
           data-i18n="navHome"
         >
           Inicio
         </a>
         <a 
           href="/el-apartamento" 
-          class={currentPath === '/el-apartamento' ? "text-marino-vibrante font-bold transition" : "text-stone-600 hover:text-marino-vibrante transition"} 
+          class={currentPath === '/el-apartamento' ? "text-marino-vibrante font-bold transition" : "text-[#1E3A2B] hover:text-marino-vibrante transition"} 
           data-i18n="navApartment"
         >
           El Apartamento
         </a>
         <a 
           href="/entorno" 
-          class={currentPath === '/entorno' ? "text-marino-vibrante font-bold transition" : "text-stone-600 hover:text-marino-vibrante transition"} 
+          class={currentPath === '/entorno' ? "text-marino-vibrante font-bold transition" : "text-[#1E3A2B] hover:text-marino-vibrante transition"} 
           data-i18n="navSurroundings"
         >
           Entorno y Experiencias
         </a>
         <a 
           href="/reservar" 
-          class={currentPath === '/reservar' ? "text-marino-vibrante font-bold transition" : "text-stone-600 hover:text-marino-vibrante transition"} 
+          class={currentPath === '/reservar' ? "text-marino-vibrante font-bold transition" : "text-[#1E3A2B] hover:text-marino-vibrante transition"} 
           data-i18n="navContact"
         >
           Contacto
@@ -56,7 +56,7 @@ const currentPath = Astro.url.pathname.replace(/\/$/, '') || '/';
       <div class="hidden sm:flex items-center gap-3">
         
         <!-- Language Switcher (ES / EN) -->
-        <div class="inline-flex items-center bg-stone-100 p-0.5 rounded-full border border-stone-200" role="group" aria-label="Selector de idioma">
+        <div class="inline-flex items-center bg-white/50 p-0.5 rounded-full border border-[#5F7D6B]/30" role="group" aria-label="Selector de idioma">
           <button 
             type="button" 
             class="lang-toggle-btn min-h-[44px] min-w-[44px] inline-flex items-center justify-center bg-white text-marino-vibrante shadow-sm font-bold text-xs px-3 rounded-full cursor-pointer transition-all"
@@ -67,7 +67,7 @@ const currentPath = Astro.url.pathname.replace(/\/$/, '') || '/';
           </button>
           <button 
             type="button" 
-            class="lang-toggle-btn min-h-[44px] min-w-[44px] inline-flex items-center justify-center text-stone-500 hover:text-marino-vibrante font-medium text-xs px-3 transition-colors rounded-full cursor-pointer"
+            class="lang-toggle-btn min-h-[44px] min-w-[44px] inline-flex items-center justify-center text-[#2A4737] hover:text-marino-vibrante font-medium text-xs px-3 transition-colors rounded-full cursor-pointer"
             data-target-lang="en"
             aria-label="Switch to English"
           >
@@ -79,7 +79,7 @@ const currentPath = Astro.url.pathname.replace(/\/$/, '') || '/';
           href={SITE_CONFIG.whatsappUrl} 
           target="_blank" 
           rel="noopener noreferrer"
-          class="min-h-[44px] min-w-[44px] inline-flex items-center justify-center p-2.5 rounded-full text-stone-600 hover:text-marino-vibrante hover:bg-stone-100 transition"
+          class="min-h-[44px] min-w-[44px] inline-flex items-center justify-center p-2.5 rounded-full text-marino-vibrante hover:bg-white/40 transition"
           title="Contacto directo por WhatsApp"
           aria-label="Contactar por WhatsApp"
         >
@@ -88,7 +88,7 @@ const currentPath = Astro.url.pathname.replace(/\/$/, '') || '/';
 
         <a 
           href="/reservar" 
-          class="min-h-[44px] inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-marino-vibrante hover:bg-marino-vibrante-dark text-white font-semibold text-xs sm:text-sm shadow-md hover:shadow-lg transition-all"
+          class="min-h-[44px] inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-[#0A2342] hover:bg-[#051329] text-white font-semibold text-xs sm:text-sm shadow-md hover:shadow-lg transition-all"
         >
           <Calendar class="w-3.5 h-3.5 text-dorado-arena stroke-[1.5]" />
           <span data-i18n="navBookBtn">Reservar Directo</span>
@@ -98,7 +98,7 @@ const currentPath = Astro.url.pathname.replace(/\/$/, '') || '/';
       <!-- Mobile Right Controls (Language + CTA + Hamburger) -->
       <div class="flex md:hidden items-center gap-1.5 sm:gap-2">
         <!-- Mobile Language Selector -->
-        <div class="inline-flex items-center bg-stone-100 p-0.5 rounded-full border border-stone-200 mr-1" role="group" aria-label="Selector de idioma móvil">
+        <div class="inline-flex items-center bg-white/50 p-0.5 rounded-full border border-[#5F7D6B]/30 mr-1" role="group" aria-label="Selector de idioma móvil">
           <button 
             type="button" 
             class="lang-toggle-btn min-h-[44px] min-w-[44px] inline-flex items-center justify-center bg-white text-marino-vibrante shadow-sm font-bold text-xs px-2.5 rounded-full cursor-pointer transition-all"
@@ -109,7 +109,7 @@ const currentPath = Astro.url.pathname.replace(/\/$/, '') || '/';
           </button>
           <button 
             type="button" 
-            class="lang-toggle-btn min-h-[44px] min-w-[44px] inline-flex items-center justify-center text-stone-500 hover:text-marino-vibrante font-medium text-xs px-2.5 transition-colors rounded-full cursor-pointer"
+            class="lang-toggle-btn min-h-[44px] min-w-[44px] inline-flex items-center justify-center text-[#2A4737] hover:text-marino-vibrante font-medium text-xs px-2.5 transition-colors rounded-full cursor-pointer"
             data-target-lang="en"
             aria-label="Switch to English"
           >
@@ -119,7 +119,7 @@ const currentPath = Astro.url.pathname.replace(/\/$/, '') || '/';
 
         <a 
           href="/reservar"
-          class="min-h-[44px] min-w-[44px] px-3.5 inline-flex items-center justify-center bg-marino-vibrante hover:bg-marino-vibrante-dark text-white text-xs font-medium rounded-full shadow-sm"
+          class="min-h-[44px] min-w-[44px] px-3.5 inline-flex items-center justify-center bg-[#0A2342] hover:bg-[#051329] text-white text-xs font-medium rounded-full shadow-sm"
           data-i18n="navBookShort"
         >
           Reservar
@@ -128,7 +128,7 @@ const currentPath = Astro.url.pathname.replace(/\/$/, '') || '/';
         <button 
           id="mobile-menu-btn" 
           type="button" 
-          class="min-h-[44px] min-w-[44px] flex items-center justify-center p-2 text-marino-vibrante hover:bg-stone-100 rounded-xl focus:outline-none transition cursor-pointer" 
+          class="min-h-[44px] min-w-[44px] flex items-center justify-center p-2 text-marino-vibrante hover:bg-white/40 rounded-xl focus:outline-none transition cursor-pointer" 
           aria-label="Abrir menú de navegación"
         >
           <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -141,38 +141,38 @@ const currentPath = Astro.url.pathname.replace(/\/$/, '') || '/';
   </div>
 
   <!-- Mobile Drawer Menu -->
-  <div id="mobile-menu" class="hidden md:hidden border-t border-stone-200 bg-blanco-puro px-4 pt-3 pb-6 space-y-2 shadow-lg">
+  <div id="mobile-menu" class="hidden md:hidden border-t border-[#5F7D6B]/20 bg-[#C8D5C8] px-4 pt-3 pb-6 space-y-2 shadow-xl">
     <a 
       href="/" 
-      class={`flex items-center min-h-[44px] px-3 py-2.5 rounded-xl text-base ${currentPath === '/' ? 'font-bold text-marino-vibrante bg-stone-100' : 'font-normal text-stone-700 hover:bg-stone-50'} transition`} 
+      class={`flex items-center min-h-[44px] px-3 py-2.5 rounded-xl text-base ${currentPath === '/' ? 'font-bold text-marino-vibrante bg-white/70 shadow-sm' : 'font-normal text-[#1E3A2B] hover:bg-white/40'} transition`} 
       data-i18n="navHome"
     >
       Inicio
     </a>
     <a 
       href="/el-apartamento" 
-      class={`flex items-center min-h-[44px] px-3 py-2.5 rounded-xl text-base ${currentPath === '/el-apartamento' ? 'font-bold text-marino-vibrante bg-stone-100' : 'font-normal text-stone-700 hover:bg-stone-50'} transition`} 
+      class={`flex items-center min-h-[44px] px-3 py-2.5 rounded-xl text-base ${currentPath === '/el-apartamento' ? 'font-bold text-marino-vibrante bg-white/70 shadow-sm' : 'font-normal text-[#1E3A2B] hover:bg-white/40'} transition`} 
       data-i18n="navApartment"
     >
       El Apartamento
     </a>
     <a 
       href="/entorno" 
-      class={`flex items-center min-h-[44px] px-3 py-2.5 rounded-xl text-base ${currentPath === '/entorno' ? 'font-bold text-marino-vibrante bg-stone-100' : 'font-normal text-stone-700 hover:bg-stone-50'} transition`} 
+      class={`flex items-center min-h-[44px] px-3 py-2.5 rounded-xl text-base ${currentPath === '/entorno' ? 'font-bold text-marino-vibrante bg-white/70 shadow-sm' : 'font-normal text-[#1E3A2B] hover:bg-white/40'} transition`} 
       data-i18n="navSurroundings"
     >
       Entorno y Experiencias
     </a>
     <a 
       href="/reservar" 
-      class={`flex items-center min-h-[44px] px-3 py-2.5 rounded-xl text-base ${currentPath === '/reservar' ? 'font-bold text-marino-vibrante bg-stone-100' : 'font-normal text-stone-700 hover:bg-stone-50'} transition`} 
+      class={`flex items-center min-h-[44px] px-3 py-2.5 rounded-xl text-base ${currentPath === '/reservar' ? 'font-bold text-marino-vibrante bg-white/70 shadow-sm' : 'font-normal text-[#1E3A2B] hover:bg-white/40'} transition`} 
       data-i18n="navContact"
     >
       Contacto
     </a>
     <a 
       href="/reservar" 
-      class="flex items-center justify-center min-h-[48px] px-4 py-3 rounded-2xl text-center font-semibold text-white bg-marino-vibrante hover:bg-marino-vibrante-dark shadow-md transition" 
+      class="flex items-center justify-center min-h-[48px] px-4 py-3 rounded-2xl text-center font-semibold text-white bg-[#0A2342] hover:bg-[#051329] shadow-md transition" 
       data-i18n="navBookBtn"
     >
       Reservar Directo
@@ -212,7 +212,7 @@ const currentPath = Astro.url.pathname.replace(/\/$/, '') || '/';
       if (targetLang === lang) {
         button.className = `${baseClasses} bg-white text-marino-vibrante shadow-sm font-bold ${paddingClass}`;
       } else {
-        button.className = `${baseClasses} text-stone-500 hover:text-marino-vibrante font-medium ${paddingClass} transition-colors`;
+        button.className = `${baseClasses} text-[#2A4737] hover:text-marino-vibrante font-medium ${paddingClass} transition-colors`;
       }
     });
   }

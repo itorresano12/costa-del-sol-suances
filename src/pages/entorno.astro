@@ -12,11 +12,12 @@ import MobileStickyBar from '../components/MobileStickyBar.astro';
   description="Explora Suances y el Cantábrico: surf en Los Locos, paseos por la ría, gastronomía marinera y ubicación a 2 min de la Playa de La Concha en Cantabria (España)."
 >
   <Navbar />
-  <main>
+  <main class="w-full overflow-hidden">
+    <!-- 1. Experiencias en verde salvia w-full con tarjetas blancas -->
     <Experiences />
+    <!-- 2. Ubicación y mapa en arena cálido w-full -->
     <LocationMap />
   </main>
   <Footer />
   <MobileStickyBar />
 </Layout>
-

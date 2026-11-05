@@ -3,18 +3,18 @@ import { Waves, UtensilsCrossed, Compass, MessageCircle, Sparkles } from 'lucide
 import { SITE_CONFIG } from '../config/site';
 ---
 
-<section id="experiencias" class="py-20 lg:py-28 bg-stone-50 border-t border-stone-200/60">
+<section id="experiencias" class="w-full bg-[#D5E0D5] py-20">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     
     <!-- Editorial Header -->
     <div class="text-center max-w-3xl mx-auto mb-16">
-      <span class="text-salvia text-xs sm:text-sm tracking-widest uppercase font-semibold" data-i18n="expPill">
+      <span class="text-[#5F7D6B] text-xs sm:text-sm tracking-widest uppercase font-semibold" data-i18n="expPill">
         Experiencias & Aventura
       </span>
       <h2 class="font-serif text-3xl sm:text-5xl font-normal text-marino-vibrante tracking-tight mt-3 mb-4" data-i18n="expTitle">
         Vive el Cantábrico en Suances
       </h2>
-      <p class="text-stone-600 text-base sm:text-lg font-light leading-relaxed" data-i18n="expDesc">
+      <p class="text-[#2C4436] text-base sm:text-lg font-light leading-relaxed" data-i18n="expDesc">
         Desde surf y atardeceres en Los Locos hasta la mejor gastronomía marina o paseos en barco por la ría.
       </p>
     </div>
@@ -23,20 +23,19 @@ import { SITE_CONFIG } from '../config/site';
     <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
       
       <!-- Experience 1: Surf & Atardeceres en Los Locos -->
-      <div class="bg-white rounded-3xl overflow-hidden border border-stone-200/80 shadow-sm hover:shadow-xl transition-all duration-300 group flex flex-col">
-        <div class="h-56 sm:h-60 overflow-hidden bg-stone-100 relative">
+      <div class="bg-white rounded-2xl shadow-md overflow-hidden border border-white/60 hover:shadow-xl transition-all duration-300 group flex flex-col">
+        <div class="h-60 overflow-hidden bg-stone-100 relative">
           <img 
-            src="https://images.unsplash.com/photo-1502680390469-be75c86b636f?q=80&w=800&auto=format&fit=crop" 
+            src="https://images.unsplash.com/photo-1502680390469-be75c86b636f?auto=format&fit=crop&w=1200&q=85" 
             alt="Surf y atardeceres mágicos en los acantilados de Los Locos en Suances"
-            class="w-full h-full object-cover object-center transition-transform duration-700 ease-out group-hover:scale-105"
-            style="object-fit: cover; object-position: center; width: 100%; height: 100%;"
+            class="w-full h-60 object-cover object-center transition-transform duration-700 ease-out group-hover:scale-105"
             loading="lazy"
           />
         </div>
         <div class="p-6 sm:p-7 flex flex-col flex-1 bg-white justify-between">
           <div>
-            <div class="inline-flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wider text-salvia mb-2">
-              <Waves class="w-4 h-4 text-salvia stroke-[1.5]" />
+            <div class="inline-flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wider text-salvia-accent mb-2">
+              <Waves class="w-4 h-4 text-salvia-accent stroke-[1.5]" />
               <span>Reserva de Surf & Puesta de Sol</span>
             </div>
             <h3 class="font-serif text-xl sm:text-2xl text-marino-vibrante font-normal mb-2.5 tracking-tight" data-i18n="expSurfTitle">
@@ -54,20 +53,19 @@ import { SITE_CONFIG } from '../config/site';
       </div>
 
       <!-- Experience 2: Dónde comer rabas y pescado (Gastronomía Marina) -->
-      <div class="bg-white rounded-3xl overflow-hidden border border-stone-200/80 shadow-sm hover:shadow-xl transition-all duration-300 group flex flex-col">
-        <div class="h-56 sm:h-60 overflow-hidden bg-stone-100 relative">
+      <div class="bg-white rounded-2xl shadow-md overflow-hidden border border-white/60 hover:shadow-xl transition-all duration-300 group flex flex-col">
+        <div class="h-60 overflow-hidden bg-stone-100 relative">
           <img 
-            src="https://images.unsplash.com/photo-1599084993091-1cb5c0721cc6?q=80&w=800&auto=format&fit=crop" 
+            src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=1200&q=85" 
             alt="Gastronomía marina tradicional en el puerto pesquero y terrazas de Suances"
-            class="w-full h-full object-cover object-center transition-transform duration-700 ease-out group-hover:scale-105"
-            style="object-fit: cover; object-position: center; width: 100%; height: 100%;"
+            class="w-full h-60 object-cover object-center transition-transform duration-700 ease-out group-hover:scale-105"
             loading="lazy"
           />
         </div>
         <div class="p-6 sm:p-7 flex flex-col flex-1 bg-white justify-between">
           <div>
-            <div class="inline-flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wider text-salvia mb-2">
-              <UtensilsCrossed class="w-4 h-4 text-salvia stroke-[1.5]" />
+            <div class="inline-flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wider text-salvia-accent mb-2">
+              <UtensilsCrossed class="w-4 h-4 text-salvia-accent stroke-[1.5]" />
               <span>Gastronomía Marina</span>
             </div>
             <h3 class="font-serif text-xl sm:text-2xl text-marino-vibrante font-normal mb-2.5 tracking-tight" data-i18n="expFoodTitle">
@@ -85,20 +83,19 @@ import { SITE_CONFIG } from '../config/site';
       </div>
 
       <!-- Experience 3: Paseos en Barco & Ría de San Martín -->
-      <div class="bg-white rounded-3xl overflow-hidden border border-stone-200/80 shadow-sm hover:shadow-xl transition-all duration-300 group flex flex-col">
-        <div class="h-56 sm:h-60 overflow-hidden bg-stone-100 relative">
+      <div class="bg-white rounded-2xl shadow-md overflow-hidden border border-white/60 hover:shadow-xl transition-all duration-300 group flex flex-col">
+        <div class="h-60 overflow-hidden bg-stone-100 relative">
           <img 
-            src="https://images.unsplash.com/photo-1534447677768-be436bb09401?q=80&w=800&auto=format&fit=crop" 
+            src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&w=1200&q=85" 
             alt="Paseos en barco y travesías costeras en la Ría de San Martín de Suances"
-            class="w-full h-full object-cover object-center transition-transform duration-700 ease-out group-hover:scale-105"
-            style="object-fit: cover; object-position: center; width: 100%; height: 100%;"
+            class="w-full h-60 object-cover object-center transition-transform duration-700 ease-out group-hover:scale-105"
             loading="lazy"
           />
         </div>
         <div class="p-6 sm:p-7 flex flex-col flex-1 bg-white justify-between">
           <div>
-            <div class="inline-flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wider text-salvia mb-2">
-              <Compass class="w-4 h-4 text-salvia stroke-[1.5]" />
+            <div class="inline-flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wider text-salvia-accent mb-2">
+              <Compass class="w-4 h-4 text-salvia-accent stroke-[1.5]" />
               <span>Ría de San Martín</span>
             </div>
             <h3 class="font-serif text-xl sm:text-2xl text-marino-vibrante font-normal mb-2.5 tracking-tight" data-i18n="expBoatTitle">
@@ -118,10 +115,10 @@ import { SITE_CONFIG } from '../config/site';
     </div>
 
     <!-- Concierge Note / Micro-Action Banner -->
-    <div class="mt-14 max-w-4xl mx-auto bg-marino-vibrante text-white rounded-3xl p-6 sm:p-8 shadow-xl flex flex-col sm:flex-row items-center justify-between gap-6">
+    <div class="mt-14 max-w-4xl mx-auto bg-marino-vibrante text-white rounded-2xl p-6 sm:p-8 shadow-xl flex flex-col sm:flex-row items-center justify-between gap-6">
       <div class="flex items-center gap-4 text-center sm:text-left">
         <div class="w-12 h-12 rounded-2xl bg-white/10 flex items-center justify-center flex-shrink-0">
-          <Sparkles class="w-6 h-6 text-salvia-light stroke-[1.5]" />
+          <Sparkles class="w-6 h-6 text-dorado-arena stroke-[1.5]" />
         </div>
         <div>
           <h4 class="font-serif text-lg sm:text-xl font-normal text-white" data-i18n="expConciergeTitle">
@@ -146,4 +143,3 @@ import { SITE_CONFIG } from '../config/site';
 
   </div>
 </section>
-

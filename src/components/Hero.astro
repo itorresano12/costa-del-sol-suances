@@ -4,102 +4,93 @@ import {
   Maximize2,
   BedDouble,
   Users,
-  Footprints,
-  Sparkles
+  Footprints
 } from 'lucide-astro';
 ---
 
-<section id="inicio" class="relative overflow-hidden pt-6 pb-16 lg:pt-12 lg:pb-24">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<section id="inicio" class="relative w-full overflow-hidden min-h-[600px] sm:min-h-[680px] lg:min-h-[760px] flex items-center justify-center bg-marino-vibrante">
+  <!-- Panoramic Photographic Background -->
+  <div class="absolute inset-0 w-full h-full">
+    <img 
+      src="/images/apartamento/salon-principal.jpg" 
+      alt="Salón principal con vistas al mar Cantábrico - Apartamento Costa del Sol Suances" 
+      class="w-full h-full object-cover object-center brightness-[0.90] contrast-[1.05]"
+      loading="eager"
+    />
+    <!-- Inmersive multi-stop cinematic gradient for high contrast -->
+    <div class="absolute inset-0 bg-gradient-to-b from-[#0A2342]/85 via-[#0A2342]/50 to-[#0A2342]/90 pointer-events-none"></div>
+  </div>
+
+  <!-- Content Container -->
+  <div class="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-24 text-center text-white flex flex-col items-center justify-center">
     
     <!-- Top Location Pill & Pet Friendly Badge -->
-    <div class="text-center max-w-4xl mx-auto mb-8">
-      
-      <div class="flex flex-wrap items-center justify-center gap-2.5 mb-4">
-        <!-- Location Indicator -->
-        <div class="inline-flex items-center gap-2 text-dorado-arena text-xs sm:text-sm tracking-widest uppercase font-semibold">
-          <span data-i18n="heroPill">Suances, Cantabria · A 2 minutos de la Playa de La Concha</span>
-        </div>
-
-        <span class="hidden sm:inline-block w-1 h-1 rounded-full bg-stone-300"></span>
-
-        <!-- Sello Pet Friendly (Sin Suplemento) -->
-        <div class="inline-flex items-center gap-1.5 px-3 py-0.5 rounded-full bg-stone-100 border border-stone-200 text-stone-700 text-xs font-medium">
-          <span data-i18n="heroPetBadge">🐾 Pet Friendly · Sin suplemento por mascotas</span>
-        </div>
+    <div class="flex flex-wrap items-center justify-center gap-2.5 mb-6">
+      <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/15 backdrop-blur-md border border-white/25 text-white text-xs sm:text-sm font-medium tracking-wide shadow-sm">
+        <span data-i18n="heroPill">Suances, Cantabria · A 2 minutos de la Playa de La Concha</span>
       </div>
 
-      <h1 class="font-serif text-4xl sm:text-6xl lg:text-7xl font-normal text-marino-vibrante tracking-tight leading-[1.1] mb-6">
-        <span data-i18n="heroTitlePre">Tu refugio frente al</span> <span class="italic font-normal" data-i18n="heroTitleItalic">Mar Cantábrico</span>
-      </h1>
-
-      <p class="text-base sm:text-lg lg:text-xl text-stone-600 leading-relaxed max-w-2xl mx-auto font-light" data-i18n="heroDesc">
-        Despierta con la brisa marina en un apartamento boutique de 70 m² en Suances (Cantabria), con vistas panorámicas al océano, tres dormitorios independientes y reserva directa al anfitrión sin intermediarios.
-      </p>
-
-      <!-- Editorial Action Buttons -->
-      <div class="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
-        <a 
-          href="/reservar"
-          class="w-full sm:w-auto px-8 py-4 rounded-full bg-marino-vibrante hover:bg-marino-vibrante-dark text-white font-medium text-sm sm:text-base shadow-xl shadow-slate-900/15 hover:-translate-y-0.5 active:translate-y-0 transition-all flex items-center justify-center gap-3 group"
-        >
-          <span data-i18n="heroCtaPrimary">Reservar Estancia Directa</span>
-          <ArrowRight class="w-4 h-4 text-dorado-arena group-hover:translate-x-1 transition-transform" />
-        </a>
-
-        <a 
-          href="/el-apartamento"
-          class="w-full sm:w-auto px-8 py-4 rounded-full bg-white hover:bg-stone-50 text-marino-vibrante font-medium text-sm sm:text-base border border-stone-200 shadow-sm hover:border-stone-300 transition-all flex items-center justify-center gap-2"
-        >
-          <span data-i18n="heroCtaSecondary">Explorar la Galería</span>
-        </a>
+      <div class="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-white/15 backdrop-blur-md border border-white/25 text-white text-xs sm:text-sm font-medium shadow-sm">
+        <span data-i18n="heroPetBadge">🐾 Pet Friendly · Sin suplemento por mascotas</span>
       </div>
     </div>
 
-    <!-- Cinematographic Photo Frame with Minimalist Frosted Strip -->
-    <div class="relative max-w-6xl mx-auto mt-10">
-      <div class="relative rounded-3xl overflow-hidden shadow-2xl border border-stone-200/80 bg-stone-950 group">
-        <img 
-          src="/images/apartamento/salon-principal.jpg" 
-          alt="Salón principal con vistas al mar Cantábrico - Apartamento Costa del Sol Suances" 
-          class="w-full h-[400px] sm:h-[520px] lg:h-[620px] max-h-[560px] sm:max-h-[640px] object-cover object-center brightness-[0.98] contrast-[1.03] group-hover:scale-[1.02] transition-transform duration-1000 ease-out"
-          loading="eager"
-        />
+    <!-- Editorial Title -->
+    <h1 class="font-serif text-4xl sm:text-6xl lg:text-7xl font-normal text-white tracking-tight leading-[1.1] mb-6 drop-shadow-sm">
+      <span data-i18n="heroTitlePre">Tu refugio frente al</span> <span class="italic font-normal text-[#E2ECE2]" data-i18n="heroTitleItalic">Mar Cantábrico</span>
+    </h1>
 
-        <!-- Sutil viñeteado inferior para máxima legibilidad y calidez editorial -->
-        <div class="absolute inset-0 bg-gradient-to-t from-stone-950/80 via-stone-950/20 to-transparent pointer-events-none"></div>
+    <!-- Description -->
+    <p class="text-base sm:text-lg lg:text-xl text-stone-100 leading-relaxed max-w-2xl mx-auto font-light mb-8 drop-shadow-sm" data-i18n="heroDesc">
+      Despierta con la brisa marina en un apartamento boutique de 70 m² en Suances (Cantabria), con vistas panorámicas al océano, tres dormitorios independientes y reserva directa al anfitrión sin intermediarios.
+    </p>
 
-        <!-- Floating Minimalist Specs Strip (Frosted Glass) -->
-        <div class="absolute bottom-6 inset-x-6 sm:inset-x-auto sm:left-1/2 sm:-translate-x-1/2">
-          <div class="bg-stone-950/75 backdrop-blur-md rounded-2xl sm:rounded-full px-5 py-3.5 border border-white/15 shadow-2xl text-stone-100 text-xs sm:text-sm font-light flex flex-wrap items-center justify-center gap-x-6 gap-y-2">
-            
-            <div class="flex items-center gap-2">
-              <Maximize2 class="w-4 h-4 text-dorado-arena stroke-[1.5]" />
-              <span data-i18n="heroSpecArea">70 m² habitables</span>
-            </div>
+    <!-- Editorial Action Buttons -->
+    <div class="flex flex-col sm:flex-row items-center justify-center gap-4 w-full sm:w-auto">
+      <a 
+        href="/reservar"
+        class="w-full sm:w-auto px-8 py-4 rounded-full bg-[#0A2342] hover:bg-[#051329] text-white font-medium text-sm sm:text-base border border-white/25 shadow-2xl hover:-translate-y-0.5 active:translate-y-0 transition-all flex items-center justify-center gap-3 group"
+      >
+        <span data-i18n="heroCtaPrimary">Reservar Estancia Directa</span>
+        <ArrowRight class="w-4 h-4 text-dorado-arena group-hover:translate-x-1 transition-transform" />
+      </a>
 
-            <span class="hidden sm:inline-block w-1 h-1 rounded-full bg-stone-500"></span>
+      <a 
+        href="/el-apartamento"
+        class="w-full sm:w-auto px-8 py-4 rounded-full bg-white/20 hover:bg-white/30 backdrop-blur-md text-white font-medium text-sm sm:text-base border border-white/30 shadow-lg hover:-translate-y-0.5 active:translate-y-0 transition-all flex items-center justify-center gap-2"
+      >
+        <span data-i18n="heroCtaSecondary">Explorar la Galería</span>
+      </a>
+    </div>
 
-            <div class="flex items-center gap-2">
-              <BedDouble class="w-4 h-4 text-dorado-arena stroke-[1.5]" />
-              <span data-i18n="heroSpecRooms">3 dormitorios</span>
-            </div>
+    <!-- Minimalist Specs Strip (Frosted Glass) -->
+    <div class="mt-12 sm:mt-16 w-full max-w-3xl">
+      <div class="bg-black/40 backdrop-blur-md rounded-2xl sm:rounded-full px-6 py-3.5 border border-white/20 shadow-2xl text-stone-100 text-xs sm:text-sm font-light flex flex-wrap items-center justify-center gap-x-6 gap-y-2">
+        
+        <div class="flex items-center gap-2">
+          <Maximize2 class="w-4 h-4 text-dorado-arena stroke-[1.5]" />
+          <span data-i18n="heroSpecArea">70 m² habitables</span>
+        </div>
 
-            <span class="hidden sm:inline-block w-1 h-1 rounded-full bg-stone-500"></span>
+        <span class="hidden sm:inline-block w-1 h-1 rounded-full bg-white/40"></span>
 
-            <div class="flex items-center gap-2">
-              <Users class="w-4 h-4 text-dorado-arena stroke-[1.5]" />
-              <span data-i18n="heroSpecGuests">Hasta 6 huéspedes</span>
-            </div>
+        <div class="flex items-center gap-2">
+          <BedDouble class="w-4 h-4 text-dorado-arena stroke-[1.5]" />
+          <span data-i18n="heroSpecRooms">3 dormitorios</span>
+        </div>
 
-            <span class="hidden sm:inline-block w-1 h-1 rounded-full bg-stone-500"></span>
+        <span class="hidden sm:inline-block w-1 h-1 rounded-full bg-white/40"></span>
 
-            <div class="flex items-center gap-2 text-stone-200 font-normal">
-              <Footprints class="w-4 h-4 text-dorado-arena stroke-[1.5]" />
-              <span data-i18n="heroSpecBeach">2 min a pie de la playa</span>
-            </div>
+        <div class="flex items-center gap-2">
+          <Users class="w-4 h-4 text-dorado-arena stroke-[1.5]" />
+          <span data-i18n="heroSpecGuests">Hasta 6 huéspedes</span>
+        </div>
 
-          </div>
+        <span class="hidden sm:inline-block w-1 h-1 rounded-full bg-white/40"></span>
+
+        <div class="flex items-center gap-2 text-white font-normal">
+          <Footprints class="w-4 h-4 text-dorado-arena stroke-[1.5]" />
+          <span data-i18n="heroSpecBeach">2 min a pie de la playa</span>
         </div>
 
       </div>

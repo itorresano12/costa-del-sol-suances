@@ -1,0 +1,138 @@
+---
+import { BedDouble, Wind, Baby, ArrowRight } from 'lucide-astro';
+---
+
+<section id="estancias-preview" class="w-full bg-white py-20">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    
+    <!-- Section Header Editorial -->
+    <div class="text-center max-w-3xl mx-auto mb-16">
+      <span class="text-salvia-accent text-xs sm:text-sm tracking-widest uppercase font-semibold" data-i18n="roomsPreviewPill">
+        Dormitorios & Reposo
+      </span>
+      <h2 class="font-serif text-3xl sm:text-5xl font-normal text-marino-vibrante tracking-tight mt-3 mb-4" data-i18n="roomsPreviewTitle">
+        Tres estancias pensadas para el descanso
+      </h2>
+      <p class="text-stone-600 text-base sm:text-lg font-light leading-relaxed" data-i18n="roomsPreviewDesc">
+        Capacidad para hasta 6 huéspedes en tres habitaciones independientes con luz exterior, colchones de alto confort y brisa del Cantábrico.
+      </p>
+    </div>
+
+    <!-- 3 Real Bedroom Cards -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto mb-14">
+      
+      <!-- Dormitorio 1: Master con Cama 150cm (Foto real: edificio-exterior.jpg) -->
+      <div class="bg-white rounded-2xl overflow-hidden border border-stone-200/80 shadow-[0_10px_30px_-10px_rgba(0,0,0,0.05)] hover:shadow-lg transition-all duration-300 group flex flex-col">
+        <div class="w-full h-64 overflow-hidden bg-stone-100 relative">
+          <img 
+            src="/images/apartamento/edificio-exterior.jpg" 
+            alt="Dormitorio principal con cama de matrimonio de 150 cm y colcha azul marino"
+            class="w-full h-64 object-cover object-center transition-transform duration-700 ease-out group-hover:scale-105"
+            loading="lazy"
+          />
+        </div>
+        <div class="p-6 sm:p-7 flex flex-col flex-1 bg-white">
+          <span class="text-xs tracking-widest uppercase text-salvia-accent font-semibold block mb-1">
+            Dormitorio Principal
+          </span>
+          <h3 class="font-serif text-xl sm:text-2xl text-marino-vibrante font-normal mb-2.5 tracking-tight" data-i18n="room1Title">
+            Cama de Matrimonio de 150 cm
+          </h3>
+          <p class="text-stone-600 text-sm font-light leading-relaxed mb-6 flex-1" data-i18n="room1Desc">
+            Colchón de alto confort con ropa de cama de algodón 100%, ventilador de techo de madera de diseño, toallas limpias y armario empotrado.
+          </p>
+          <div class="pt-4 border-t border-stone-100 text-xs text-stone-600 font-medium flex items-center justify-between">
+            <div class="flex items-center gap-1.5">
+              <BedDouble class="w-4 h-4 text-salvia-accent stroke-[1.5]" />
+              <span>Cama 150 × 190 cm</span>
+            </div>
+            <div class="flex items-center gap-1.5">
+              <Wind class="w-4 h-4 text-salvia-accent stroke-[1.5]" />
+              <span>Ventilador de techo</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Dormitorio 2: Habitación Doble Confort (Foto real: bano.jpg) -->
+      <div class="bg-white rounded-2xl overflow-hidden border border-stone-200/80 shadow-[0_10px_30px_-10px_rgba(0,0,0,0.05)] hover:shadow-lg transition-all duration-300 group flex flex-col">
+        <div class="w-full h-64 overflow-hidden bg-stone-100 relative">
+          <img 
+            src="/images/apartamento/bano.jpg" 
+            alt="Segundo dormitorio doble con cama de confort blanca y armario de madera"
+            class="w-full h-64 object-cover object-center transition-transform duration-700 ease-out group-hover:scale-105"
+            loading="lazy"
+          />
+        </div>
+        <div class="p-6 sm:p-7 flex flex-col flex-1 bg-white">
+          <span class="text-xs tracking-widest uppercase text-salvia-accent font-semibold block mb-1">
+            Segundo Dormitorio
+          </span>
+          <h3 class="font-serif text-xl sm:text-2xl text-marino-vibrante font-normal mb-2.5 tracking-tight" data-i18n="room2Title">
+            Habitación Doble Confort
+          </h3>
+          <p class="text-stone-600 text-sm font-light leading-relaxed mb-6 flex-1" data-i18n="room2Desc">
+            Cama amplia con manta suave, cojines de terciopelo, ventilador de techo de madera, armario ropero y mesilla de noche.
+          </p>
+          <div class="pt-4 border-t border-stone-100 text-xs text-stone-600 font-medium flex items-center justify-between">
+            <div class="flex items-center gap-1.5">
+              <BedDouble class="w-4 h-4 text-salvia-accent stroke-[1.5]" />
+              <span>Cama doble confortable</span>
+            </div>
+            <div class="flex items-center gap-1.5">
+              <Baby class="w-4 h-4 text-salvia-accent stroke-[1.5]" />
+              <span>Cuna bajo petición</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Dormitorio 3: Literas de Madera Maciza (Foto real: entorno-playa.jpg) -->
+      <div class="bg-white rounded-2xl overflow-hidden border border-stone-200/80 shadow-[0_10px_30px_-10px_rgba(0,0,0,0.05)] hover:shadow-lg transition-all duration-300 group flex flex-col">
+        <div class="w-full h-64 overflow-hidden bg-stone-100 relative">
+          <img 
+            src="/images/apartamento/entorno-playa.jpg" 
+            alt="Tercer dormitorio con literas de madera maciza y armario con espejo"
+            class="w-full h-64 object-cover object-center transition-transform duration-700 ease-out group-hover:scale-105"
+            loading="lazy"
+          />
+        </div>
+        <div class="p-6 sm:p-7 flex flex-col flex-1 bg-white">
+          <span class="text-xs tracking-widest uppercase text-salvia-accent font-semibold block mb-1">
+            Tercer Dormitorio
+          </span>
+          <h3 class="font-serif text-xl sm:text-2xl text-marino-vibrante font-normal mb-2.5 tracking-tight" data-i18n="room3Title">
+            Literas de Madera Maciza
+          </h3>
+          <p class="text-stone-600 text-sm font-light leading-relaxed mb-6 flex-1" data-i18n="room3Desc">
+            Dos camas individuales de 90 cm en estructura robusta de madera, ideal para niños, amigos o acompañantes. Gran armario con espejo.
+          </p>
+          <div class="pt-4 border-t border-stone-100 text-xs text-stone-600 font-medium flex items-center justify-between">
+            <div class="flex items-center gap-1.5">
+              <BedDouble class="w-4 h-4 text-salvia-accent stroke-[1.5]" />
+              <span>2 camas de 90 × 190 cm</span>
+            </div>
+            <div class="flex items-center gap-1.5">
+              <Wind class="w-4 h-4 text-salvia-accent stroke-[1.5]" />
+              <span>Ventilación exterior</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Centered Action Link to full gallery -->
+    <div class="text-center">
+      <a 
+        href="/el-apartamento"
+        class="inline-flex items-center justify-center min-h-[48px] gap-3 px-8 py-4 rounded-full bg-marino-vibrante hover:bg-marino-vibrante-dark text-white text-sm sm:text-base font-semibold shadow-lg hover:shadow-xl hover:-translate-y-0.5 active:translate-y-0 transition-all group"
+      >
+        <span>Ver todas las estancias y galería completa</span>
+        <ArrowRight class="w-4 h-4 text-dorado-arena group-hover:translate-x-1.5 transition-transform" />
+      </a>
+    </div>
+
+  </div>
+</section>
+

@@ -5,6 +5,10 @@ export default {
     extend: {
       colors: {
         'blanco-puro': '#FFFFFF',
+        'salvia-header': '#C8D5C8',
+        'salvia-section': '#D5E0D5',
+        'salvia-accent': '#5F7D6B',
+        'arena-warm': '#F4EFE6',
         'marino-vibrante': {
           DEFAULT: '#0A2342',
           dark: '#051329',
@@ -16,16 +20,20 @@ export default {
           dark: '#A9875F',
         },
         salvia: {
-          DEFAULT: '#6B8E7B',
+          DEFAULT: '#5F7D6B',
           light: '#8FACA1',
           dark: '#527261',
+          header: '#C8D5C8',
+          section: '#D5E0D5',
+          accent: '#5F7D6B',
         },
         cantabrico: {
           DEFAULT: '#0A2342',
           dark: '#051329',
         },
         arena: {
-          DEFAULT: '#FFFFFF',
+          DEFAULT: '#F4EFE6',
+          warm: '#F4EFE6',
         },
       },
     },

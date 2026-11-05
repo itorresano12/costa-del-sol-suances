@@ -12,18 +12,15 @@ import {
   Baby, 
   Heart 
 } from 'lucide-astro';
-import { Image } from 'astro:assets';
-import imgDorm1 from '../assets/images/dormitorio-principal.jpg';
-import imgDorm2 from '../assets/images/dormitorio-2.jpg';
-import imgDorm3 from '../assets/images/dormitorio-3.jpg';
 ---
 
-<section id="caracteristicas" class="py-20 lg:py-28 bg-blanco-puro border-t border-stone-200/60">
+<!-- BLOQUE 1: Los Tres Dormitorios (Fondo Blanco w-full) -->
+<section id="dormitorios" class="w-full bg-white py-20">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     
     <!-- Section Header Editorial -->
     <div class="text-center max-w-3xl mx-auto mb-16">
-      <span class="text-salvia text-xs sm:text-sm tracking-widest uppercase font-semibold" data-i18n="featPill">
+      <span class="text-salvia-accent text-xs sm:text-sm tracking-widest uppercase font-semibold" data-i18n="featPill">
         Espacio & Arquitectura
       </span>
       <h2 class="font-serif text-3xl sm:text-5xl font-normal text-marino-vibrante tracking-tight mt-3 mb-4" data-i18n="featTitle">
@@ -34,33 +31,33 @@ import imgDorm3 from '../assets/images/dormitorio-3.jpg';
       </p>
     </div>
 
-    <!-- The 3 Bedrooms (Clean & Accurate Photographic Showcase) -->
-    <div class="mb-20">
+    <!-- The 3 Bedrooms (Fotografías reales verificadas con allPhotos de Gallery) -->
+    <div class="mb-6">
       <div class="flex items-center justify-between mb-8 pb-4 border-b border-stone-200/70">
         <div>
           <h3 class="font-serif text-2xl sm:text-3xl text-marino-vibrante font-normal tracking-tight" data-i18n="featRoomsTitle">
             Los Tres Dormitorios
           </h3>
           <p class="text-xs sm:text-sm text-stone-600 font-normal mt-1" data-i18n="featRoomsSub">
-            Distribución versátil con capacidad real para hasta 6 personas y cuna de viaje.
+            Distribución versátil con capacidad real para hasta 6 personas y cuna de viaje bajo petición.
           </p>
         </div>
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
         
-        <!-- Dormitorio 1: Master con Cama 150cm -->
-        <div class="bg-white rounded-3xl overflow-hidden border border-stone-200/80 shadow-[0_10px_30px_-10px_rgba(0,0,0,0.04)] hover:shadow-lg transition-all duration-300 group flex flex-col">
-          <div class="w-full h-60 sm:h-64 overflow-hidden bg-stone-100 relative">
-            <Image 
-              src={imgDorm1} 
-              alt="Dormitorio principal con cama de matrimonio de 150 cm en Suances"
-              class="w-full h-full object-cover object-center transition-transform duration-700 ease-out group-hover:scale-105"
-              style="object-fit: cover; object-position: center; width: 100%; height: 100%;"
+        <!-- Dormitorio 1: Master con Cama 150cm (Foto real: edificio-exterior.jpg) -->
+        <div class="bg-white rounded-2xl overflow-hidden border border-stone-200/80 shadow-[0_10px_30px_-10px_rgba(0,0,0,0.04)] hover:shadow-lg transition-all duration-300 group flex flex-col">
+          <div class="w-full h-64 overflow-hidden bg-stone-100 relative">
+            <img 
+              src="/images/apartamento/edificio-exterior.jpg" 
+              alt="Dormitorio principal con cama de matrimonio de 150 cm y colcha azul marino en Suances"
+              class="w-full h-64 object-cover object-center transition-transform duration-700 ease-out group-hover:scale-105"
+              loading="lazy"
             />
           </div>
           <div class="p-6 sm:p-7 flex flex-col flex-1 bg-white">
-            <span class="text-xs tracking-widest uppercase text-salvia font-semibold block mb-1">
+            <span class="text-xs tracking-widest uppercase text-salvia-accent font-semibold block mb-1">
               Dormitorio Principal
             </span>
             <h4 class="font-serif text-xl sm:text-2xl text-marino-vibrante font-normal mb-2.5 tracking-tight" data-i18n="room1Title">
@@ -71,29 +68,29 @@ import imgDorm3 from '../assets/images/dormitorio-3.jpg';
             </p>
             <div class="pt-4 border-t border-stone-100 text-xs text-stone-600 font-medium flex items-center justify-between">
               <div class="flex items-center gap-1.5">
-                <BedDouble class="w-4 h-4 text-salvia stroke-[1.5]" />
+                <BedDouble class="w-4 h-4 text-salvia-accent stroke-[1.5]" />
                 <span>Cama 150 × 190 cm</span>
               </div>
               <div class="flex items-center gap-1.5">
-                <Wind class="w-4 h-4 text-salvia stroke-[1.5]" />
+                <Wind class="w-4 h-4 text-salvia-accent stroke-[1.5]" />
                 <span>Ventilador de techo</span>
               </div>
             </div>
           </div>
         </div>
 
-        <!-- Dormitorio 2: Habitación Doble Confort -->
-        <div class="bg-white rounded-3xl overflow-hidden border border-stone-200/80 shadow-[0_10px_30px_-10px_rgba(0,0,0,0.04)] hover:shadow-lg transition-all duration-300 group flex flex-col">
-          <div class="w-full h-60 sm:h-64 overflow-hidden bg-stone-100 relative">
-            <Image 
-              src={imgDorm2} 
-              alt="Segundo dormitorio doble con cama de confort en Suances"
-              class="w-full h-full object-cover object-center transition-transform duration-700 ease-out group-hover:scale-105"
-              style="object-fit: cover; object-position: center; width: 100%; height: 100%;"
+        <!-- Dormitorio 2: Habitación Doble Confort (Foto real: bano.jpg) -->
+        <div class="bg-white rounded-2xl overflow-hidden border border-stone-200/80 shadow-[0_10px_30px_-10px_rgba(0,0,0,0.04)] hover:shadow-lg transition-all duration-300 group flex flex-col">
+          <div class="w-full h-64 overflow-hidden bg-stone-100 relative">
+            <img 
+              src="/images/apartamento/bano.jpg" 
+              alt="Segundo dormitorio doble con cama de confort blanca y armario de madera en Suances"
+              class="w-full h-64 object-cover object-center transition-transform duration-700 ease-out group-hover:scale-105"
+              loading="lazy"
             />
           </div>
           <div class="p-6 sm:p-7 flex flex-col flex-1 bg-white">
-            <span class="text-xs tracking-widest uppercase text-salvia font-semibold block mb-1">
+            <span class="text-xs tracking-widest uppercase text-salvia-accent font-semibold block mb-1">
               Segundo Dormitorio
             </span>
             <h4 class="font-serif text-xl sm:text-2xl text-marino-vibrante font-normal mb-2.5 tracking-tight" data-i18n="room2Title">
@@ -104,29 +101,29 @@ import imgDorm3 from '../assets/images/dormitorio-3.jpg';
             </p>
             <div class="pt-4 border-t border-stone-100 text-xs text-stone-600 font-medium flex items-center justify-between">
               <div class="flex items-center gap-1.5">
-                <BedDouble class="w-4 h-4 text-salvia stroke-[1.5]" />
+                <BedDouble class="w-4 h-4 text-salvia-accent stroke-[1.5]" />
                 <span>Cama doble confortable</span>
               </div>
               <div class="flex items-center gap-1.5">
-                <Baby class="w-4 h-4 text-salvia stroke-[1.5]" />
+                <Baby class="w-4 h-4 text-salvia-accent stroke-[1.5]" />
                 <span>Cuna bajo petición</span>
               </div>
             </div>
           </div>
         </div>
 
-        <!-- Dormitorio 3: Literas de Madera Natural -->
-        <div class="bg-white rounded-3xl overflow-hidden border border-stone-200/80 shadow-[0_10px_30px_-10px_rgba(0,0,0,0.04)] hover:shadow-lg transition-all duration-300 group flex flex-col">
-          <div class="w-full h-60 sm:h-64 overflow-hidden bg-stone-100 relative">
-            <Image 
-              src={imgDorm3} 
-              alt="Tercer dormitorio con literas de madera natural y armario con espejo"
-              class="w-full h-full object-cover object-center transition-transform duration-700 ease-out group-hover:scale-105"
-              style="object-fit: cover; object-position: center; width: 100%; height: 100%;"
+        <!-- Dormitorio 3: Literas de Madera Maciza (Foto real: entorno-playa.jpg) -->
+        <div class="bg-white rounded-2xl overflow-hidden border border-stone-200/80 shadow-[0_10px_30px_-10px_rgba(0,0,0,0.04)] hover:shadow-lg transition-all duration-300 group flex flex-col">
+          <div class="w-full h-64 overflow-hidden bg-stone-100 relative">
+            <img 
+              src="/images/apartamento/entorno-playa.jpg" 
+              alt="Tercer dormitorio con literas de madera maciza y armario con espejo en Suances"
+              class="w-full h-64 object-cover object-center transition-transform duration-700 ease-out group-hover:scale-105"
+              loading="lazy"
             />
           </div>
           <div class="p-6 sm:p-7 flex flex-col flex-1 bg-white">
-            <span class="text-xs tracking-widest uppercase text-salvia font-semibold block mb-1">
+            <span class="text-xs tracking-widest uppercase text-salvia-accent font-semibold block mb-1">
               Tercer Dormitorio
             </span>
             <h4 class="font-serif text-xl sm:text-2xl text-marino-vibrante font-normal mb-2.5 tracking-tight" data-i18n="room3Title">
@@ -137,11 +134,11 @@ import imgDorm3 from '../assets/images/dormitorio-3.jpg';
             </p>
             <div class="pt-4 border-t border-stone-100 text-xs text-stone-600 font-medium flex items-center justify-between">
               <div class="flex items-center gap-1.5">
-                <BedDouble class="w-4 h-4 text-salvia stroke-[1.5]" />
+                <BedDouble class="w-4 h-4 text-salvia-accent stroke-[1.5]" />
                 <span>2 camas de 90 × 190 cm</span>
               </div>
               <div class="flex items-center gap-1.5">
-                <Wind class="w-4 h-4 text-salvia stroke-[1.5]" />
+                <Wind class="w-4 h-4 text-salvia-accent stroke-[1.5]" />
                 <span>Ventilación exterior</span>
               </div>
             </div>
@@ -151,121 +148,132 @@ import imgDorm3 from '../assets/images/dormitorio-3.jpg';
       </div>
     </div>
 
-    <!-- Zonas Comunes & Equipamiento (Bloque en Verde Salvia claro exacto: bg-[#E9EFEA] py-16 px-4 rounded-3xl) -->
-    <div class="bg-[#E9EFEA] py-16 px-4 sm:px-8 rounded-3xl mb-20 border border-salvia/20">
-      <div class="flex items-center justify-between mb-8 pb-4 border-b border-salvia/25">
-        <div>
-          <h3 class="font-serif text-2xl sm:text-3xl text-marino-vibrante font-normal tracking-tight" data-i18n="commonAreasTitle">
-            Zonas Comunes & Equipamiento
-          </h3>
-          <p class="text-xs sm:text-sm text-stone-600 font-normal mt-1">
-            Todas las comodidades del hogar junto a la costa cántabra.
-          </p>
-        </div>
-      </div>
+  </div>
+</section>
 
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-        
-        <!-- Salón -->
-        <div class="bg-white rounded-3xl p-8 border border-stone-200/80 shadow-[0_10px_30px_-10px_rgba(0,0,0,0.04)] flex flex-col justify-between">
-          <div>
-            <div class="w-12 h-12 rounded-2xl bg-salvia/15 border border-salvia/20 text-salvia flex items-center justify-center mb-6">
-              <Tv class="w-6 h-6 stroke-[1.5]" />
-            </div>
-            <h4 class="font-serif text-xl sm:text-2xl text-marino-vibrante font-normal mb-3 tracking-tight" data-i18n="livingTitle">
-              Salón Diáfano y Luminoso
-            </h4>
-            <p class="text-stone-600 text-sm font-normal leading-relaxed mb-4" data-i18n="livingDesc">
-              Sofá amplio chaise longue, Smart TV, mesa de comedor familiar para 6 personas, ventilador de techo y luz natural exterior.
-            </p>
-          </div>
-          <div class="pt-4 border-t border-stone-100 text-xs text-stone-500 font-medium">
-            Smart TV · Mesa 6 comensales · Luz natural
-          </div>
-        </div>
-
-        <!-- Cocina -->
-        <div class="bg-white rounded-3xl p-8 border border-stone-200/80 shadow-[0_10px_30px_-10px_rgba(0,0,0,0.04)] flex flex-col justify-between">
-          <div>
-            <div class="w-12 h-12 rounded-2xl bg-salvia/15 border border-salvia/20 text-salvia flex items-center justify-center mb-6">
-              <Coffee class="w-6 h-6 stroke-[1.5]" />
-            </div>
-            <h4 class="font-serif text-xl sm:text-2xl text-marino-vibrante font-normal mb-3 tracking-tight" data-i18n="kitchenTitle">
-              Cocina Totalmente Equipada
-            </h4>
-            <p class="text-stone-600 text-sm font-normal leading-relaxed mb-4" data-i18n="kitchenDesc">
-              Nevera combi grande con congelador, cafetera para desayunos frente al mar, microondas, vitrocerámica, sartenes y menaje completo.
-            </p>
-          </div>
-          <div class="pt-4 border-t border-stone-100 text-xs text-stone-500 font-medium">
-            Nevera grande · Cafetera · Microondas · Menaje
-          </div>
-        </div>
-
-        <!-- Baño -->
-        <div class="bg-white rounded-3xl p-8 border border-stone-200/80 shadow-[0_10px_30px_-10px_rgba(0,0,0,0.04)] flex flex-col justify-between">
-          <div>
-            <div class="w-12 h-12 rounded-2xl bg-salvia/15 border border-salvia/20 text-salvia flex items-center justify-center mb-6">
-              <Bath class="w-6 h-6 stroke-[1.5]" />
-            </div>
-            <h4 class="font-serif text-xl sm:text-2xl text-marino-vibrante font-normal mb-3 tracking-tight" data-i18n="bathTitle">
-              Baño con Ducha y Secador
-            </h4>
-            <p class="text-stone-600 text-sm font-normal leading-relaxed mb-4" data-i18n="bathDesc">
-              Plato de ducha con mampara, agua caliente continua, secador de pelo potente, espejo amplio iluminado y toallas limpias de algodón.
-            </p>
-          </div>
-          <div class="pt-4 border-t border-stone-100 text-xs text-stone-500 font-medium">
-            Plato de ducha · Secador potente · Toallas
-          </div>
-        </div>
-
+<!-- BLOQUE 2: Zonas Comunes & Equipamiento (Fondo Verde Salvia w-full de lado a lado) -->
+<section id="zonas-comunes" class="w-full bg-[#D5E0D5] py-20">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    
+    <div class="flex items-center justify-between mb-12 pb-4 border-b border-[#5F7D6B]/25">
+      <div>
+        <span class="text-[#5F7D6B] text-xs sm:text-sm tracking-widest uppercase font-semibold block mb-1">
+          Espacios Compartidos
+        </span>
+        <h3 class="font-serif text-2xl sm:text-4xl text-marino-vibrante font-normal tracking-tight" data-i18n="commonAreasTitle">
+          Zonas Comunes & Equipamiento
+        </h3>
+        <p class="text-xs sm:text-sm text-[#2C4436] font-normal mt-1">
+          Todas las comodidades del hogar junto a la costa cántabra.
+        </p>
       </div>
     </div>
 
-    <!-- Minimalist Amenities Bar with Pet Friendly -->
-    <div class="bg-white rounded-3xl p-8 sm:p-10 border border-stone-200/80 shadow-[0_10px_30px_-10px_rgba(0,0,0,0.04)]">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      
+      <!-- Salón -->
+      <div class="bg-white rounded-2xl p-8 shadow-sm border border-white/60 flex flex-col justify-between">
+        <div>
+          <div class="w-12 h-12 rounded-2xl bg-[#D5E0D5]/50 border border-[#5F7D6B]/20 text-salvia-accent flex items-center justify-center mb-6">
+            <Tv class="w-6 h-6 stroke-[1.5]" />
+          </div>
+          <h4 class="font-serif text-xl sm:text-2xl text-marino-vibrante font-normal mb-3 tracking-tight" data-i18n="livingTitle">
+            Salón Diáfano y Luminoso
+          </h4>
+          <p class="text-stone-600 text-sm font-normal leading-relaxed mb-4" data-i18n="livingDesc">
+            Sofá amplio chaise longue, Smart TV, mesa de comedor familiar para 6 personas, ventilador de techo y luz natural exterior.
+          </p>
+        </div>
+        <div class="pt-4 border-t border-stone-100 text-xs text-stone-500 font-medium">
+          Smart TV · Mesa 6 comensales · Luz natural
+        </div>
+      </div>
+
+      <!-- Cocina -->
+      <div class="bg-white rounded-2xl p-8 shadow-sm border border-white/60 flex flex-col justify-between">
+        <div>
+          <div class="w-12 h-12 rounded-2xl bg-[#D5E0D5]/50 border border-[#5F7D6B]/20 text-salvia-accent flex items-center justify-center mb-6">
+            <Coffee class="w-6 h-6 stroke-[1.5]" />
+          </div>
+          <h4 class="font-serif text-xl sm:text-2xl text-marino-vibrante font-normal mb-3 tracking-tight" data-i18n="kitchenTitle">
+            Cocina Totalmente Equipada
+          </h4>
+          <p class="text-stone-600 text-sm font-normal leading-relaxed mb-4" data-i18n="kitchenDesc">
+            Nevera combi grande con congelador, cafetera para desayunos frente al mar, microondas, vitrocerámica, sartenes y menaje completo.
+          </p>
+        </div>
+        <div class="pt-4 border-t border-stone-100 text-xs text-stone-500 font-medium">
+          Nevera grande · Cafetera · Microondas · Menaje
+        </div>
+      </div>
+
+      <!-- Baño -->
+      <div class="bg-white rounded-2xl p-8 shadow-sm border border-white/60 flex flex-col justify-between">
+        <div>
+          <div class="w-12 h-12 rounded-2xl bg-[#D5E0D5]/50 border border-[#5F7D6B]/20 text-salvia-accent flex items-center justify-center mb-6">
+            <Bath class="w-6 h-6 stroke-[1.5]" />
+          </div>
+          <h4 class="font-serif text-xl sm:text-2xl text-marino-vibrante font-normal mb-3 tracking-tight" data-i18n="bathTitle">
+            Baño con Ducha y Secador
+          </h4>
+          <p class="text-stone-600 text-sm font-normal leading-relaxed mb-4" data-i18n="bathDesc">
+            Plato de ducha con mampara, agua caliente continua, secador de pelo potente, espejo amplio iluminado y toallas limpias de algodón.
+          </p>
+        </div>
+        <div class="pt-4 border-t border-stone-100 text-xs text-stone-500 font-medium">
+          Plato de ducha · Secador potente · Toallas
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<!-- BLOQUE 3: Detalles incluidos para una estancia perfecta (Fondo Arena Cálido w-full) -->
+<section id="detalles" class="w-full bg-[#F4EFE6] py-16">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="bg-white rounded-2xl p-8 sm:p-10 border border-stone-200/80 shadow-md">
       <h3 class="font-serif text-xl sm:text-2xl text-marino-vibrante font-normal text-center mb-8 tracking-tight" data-i18n="amenitiesTitle">
         Detalles incluidos para una estancia perfecta
       </h3>
       <div class="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-7 gap-6 text-center">
         <div class="flex flex-col items-center">
-          <Wifi class="w-5 h-5 text-salvia stroke-[1.5] mb-2" />
+          <Wifi class="w-5 h-5 text-salvia-accent stroke-[1.5] mb-2" />
           <span class="text-xs font-medium text-stone-900" data-i18n="amenityWifi">WiFi Fibra Óptica</span>
           <span class="text-[11px] text-stone-500 font-normal">Alta velocidad</span>
         </div>
         <div class="flex flex-col items-center">
-          <Sun class="w-5 h-5 text-salvia stroke-[1.5] mb-2" />
+          <Sun class="w-5 h-5 text-salvia-accent stroke-[1.5] mb-2" />
           <span class="text-xs font-medium text-stone-900" data-i18n="amenityBeach">Playa La Concha</span>
           <span class="text-[11px] text-stone-500 font-normal">2 min a pie</span>
         </div>
         <div class="flex flex-col items-center">
-          <Coffee class="w-5 h-5 text-salvia stroke-[1.5] mb-2" />
+          <Coffee class="w-5 h-5 text-salvia-accent stroke-[1.5] mb-2" />
           <span class="text-xs font-medium text-stone-900" data-i18n="amenityCoffee">Cafetera</span>
           <span class="text-[11px] text-stone-500 font-normal">Para tus mañanas</span>
         </div>
         <div class="flex flex-col items-center">
-          <Baby class="w-5 h-5 text-salvia stroke-[1.5] mb-2" />
+          <Baby class="w-5 h-5 text-salvia-accent stroke-[1.5] mb-2" />
           <span class="text-xs font-medium text-stone-900" data-i18n="amenityBaby">Cuna de Viaje</span>
           <span class="text-[11px] text-stone-500 font-normal">Bajo petición</span>
         </div>
         <div class="flex flex-col items-center">
-          <Refrigerator class="w-5 h-5 text-salvia stroke-[1.5] mb-2" />
+          <Refrigerator class="w-5 h-5 text-salvia-accent stroke-[1.5] mb-2" />
           <span class="text-xs font-medium text-stone-900" data-i18n="amenityFridge">Nevera Grande</span>
           <span class="text-[11px] text-stone-500 font-normal">Con congelador</span>
         </div>
         <div class="flex flex-col items-center">
-          <Flame class="w-5 h-5 text-salvia stroke-[1.5] mb-2" />
+          <Flame class="w-5 h-5 text-salvia-accent stroke-[1.5] mb-2" />
           <span class="text-xs font-medium text-stone-900" data-i18n="amenityHeating">Calefacción</span>
           <span class="text-[11px] text-stone-500 font-normal">Confort térmico</span>
         </div>
         <div class="flex flex-col items-center col-span-2 sm:col-span-1">
-          <Heart class="w-5 h-5 text-salvia stroke-[1.5] mb-2" />
+          <Heart class="w-5 h-5 text-salvia-accent stroke-[1.5] mb-2" />
           <span class="text-xs font-medium text-stone-900" data-i18n="amenityPet">🐾 Pet Friendly</span>
           <span class="text-[11px] text-stone-500 font-normal">Sin suplemento</span>
         </div>
       </div>
     </div>
-
   </div>
 </section>
