@@ -131,14 +131,14 @@ const schemaData = {
     <Analytics />
 
     <script type="module">
-      const observer = new IntersectionObserver((entries) => { 
-        entries.forEach(entry => { 
-          if (entry.isIntersecting) { 
-            entry.target.classList.add('active'); 
-          } 
-        }); 
-      }, { threshold: 0.1 });
-      document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
+      const initReveal = () => {
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.add('active'); } });
+        }, { threshold: 0.1 });
+        document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
+      };
+      document.addEventListener('DOMContentLoaded', initReveal);
+      document.addEventListener('astro:page-load', initReveal);
     </script>
   </body>
 </html>
